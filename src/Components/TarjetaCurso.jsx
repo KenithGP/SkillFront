@@ -16,6 +16,7 @@ export default function TarjetaCurso(){
         <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 mx-auto mb-4" />
         <h2 className="text-3xl font-bold text-center mb-2">JavaScript</h2>
         <p className="text-center">Lenguaje de programación para la web</p>
+        
       </div>
       <div className="bg-yellow-500 rounded-2xl shadow-lg w-64 p-4 text-white">
         <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 mx-auto mb-4" />
