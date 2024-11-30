@@ -75,9 +75,7 @@ export default function TarjetPlanes() {
         </p>
       </div>
       <p className="mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-300 sm:text-xl/8">
-        Elige un plan asequible que esté lleno de las mejores funciones para
-        atraer a tu audiencia, crear lealtad en los clientes y aumentar las
-        ventas.
+      Invierte en ti mismo con nuestros planes exclusivos. Accede a cursos 24/7, herramientas personalizadas y todo lo que necesitas para alcanzar tus metas. ¡Elige el tuyo y comienza hoy!
       </p>
       <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-3">
         {tiers.map((tier, tierIdx) => (
