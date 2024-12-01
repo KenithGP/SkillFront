@@ -17,7 +17,7 @@ export default function Beca() {
           <h2 className="text-3xl lg:text-5xl font-bold text-dorado">
             ¡Felicidades por pasar las pruebas!
           </h2>
-          <p className="text-lg lg:text-xl text-gray-300">
+          <p className="text-lg lg:text-xl text-gray-200">
             Regístrate para optar por la beca y disfrutar nuestros cursos.
             ¡Estamos emocionados de acompañarte en esta aventura de aprendizaje!
           </p>
@@ -25,13 +25,13 @@ export default function Beca() {
             ¡No pierdas esta oportunidad de alcanzar tus metas y disfrutar
             mientras aprendes!
           </p>
-          <p className="text-lg lg:text-xl text-gray-300">
+          <p className="text-lg lg:text-xl text-gray-200">
             Nuestros cursos inspiran a los jóvenes, dándoles herramientas para
             explorar su creatividad y desarrollar habilidades técnicas.
           </p>
           <button
             type="submit"
-            className="bg-green-500 hover:bg-green-400 text-black font-bold py-3 px-6 rounded-lg transition duration-300"
+            className="bg-green-700 hover:bg-green-400 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
             onClick={handleQuizClick}
           >
             Completa este quizz
@@ -41,7 +41,7 @@ export default function Beca() {
         {/* Right Form Section */}
         <div className="lg:w-1/2 mt-12 lg:mt-0 bg-white bg-opacity-10 p-8 rounded-lg shadow-lg">
           <form className="space-y-6">
-            <h2 className="text-2xl font-bold text-green-400">
+            <h2 className="text-2xl font-bold text-dorado">
               Solicitud de Beca
             </h2>
             <div className="space-y-2">
@@ -50,28 +50,28 @@ export default function Beca() {
               </label>
               <textarea
                 placeholder="Nombre(s)"
-                className="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full p-3 rounded-lg bg-white/50 text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
               ></textarea>
             </div>
             <div className="space-y-2">
               <input
                 type="text"
                 placeholder="Apellidos(s)"
-                className="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                 className="w-full p-3 rounded-lg bg-white text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
             <div className="space-y-2">
               <input
                 type="email"
                 placeholder="Correo electrónico"
-                className="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                 className="w-full p-3 rounded-lg bg-white text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
             <div className="space-y-2">
               <input
                 type="text"
                 placeholder="Número de télefono a contactar"
-                className="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                 className="w-full p-3 rounded-lg bg-white text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
             <div className="space-y-2">
@@ -83,7 +83,7 @@ export default function Beca() {
               </label>
               <select
                 id="request-area"
-                className="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full p-3 rounded-lg bg-white text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
               >
                 <option value="" disabled selected>
                   Seleccione un área
@@ -97,7 +97,7 @@ export default function Beca() {
               <input
                 type="file"
                 placeholder=""
-                className="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full p-3 rounded-lg bg-white text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
             <button
