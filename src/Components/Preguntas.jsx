@@ -32,7 +32,7 @@ const Preguntas = () => {
 
   return (
   
-    <div className="min-h-screen bg-red-500 text-white p-8 flex flex-col items-center">
+    <div className="min-h-screen text-white p-8 flex flex-col items-center">
     {/* TÍTULO */}
     <h1 className="text-3xl mb-8">Preguntas frecuentes</h1>
   
