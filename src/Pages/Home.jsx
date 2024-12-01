@@ -2,7 +2,9 @@
 import Header from '../Components/Header'
 import TarjetaCurso from '../Components/TarjetaCurso'
 import TarjetPlanes from '../Components/TarjetPlanes'
+import Preguntas from '../Components/Preguntas'
 import Footer from '../Components/Footer'
+
 
 export default function Home() {
   return (
@@ -10,6 +12,7 @@ export default function Home() {
        <Header/> 
        <TarjetaCurso/>
        <TarjetPlanes/>
+       <Preguntas/>
        <Footer/>
     </div>
   )
