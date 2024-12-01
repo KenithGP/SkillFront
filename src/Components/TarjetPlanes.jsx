@@ -1,4 +1,5 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
+import { useLocation } from "react-router-dom";
 
 const tiers = [
   {
@@ -55,6 +56,23 @@ function classNames(...classes) {
 }
 
 export default function TarjetPlanes() {
+  const location = useLocation(); // Obtiene la ruta actual
+  let title = "";
+  let description = "";
+
+  // Cambia dinámicamente el título y la descripción según la ruta
+  switch (location.pathname) {
+    case "/planes":
+      title = "Elige el plan adecuado para ti";
+      description =
+        "Invierte en ti mismo con nuestros planes exclusivos. Accede a cursos 24/7, herramientas personalizadas y todo lo que necesitas para alcanzar tus metas. ¡Elige el tuyo y comienza hoy!";
+      break;
+    default:
+      title = "Bienvenido a SkillConnect";
+      description =
+        "Explora nuestras opciones de aprendizaje y comienza tu viaje hacia el éxito.";
+      break;
+  }
   return (
     <div className="relative isolate px-6 py-24 sm:py-32 lg:px-8">
       <div
@@ -68,15 +86,16 @@ export default function TarjetPlanes() {
           }}
         />
       </div>
+      {/* Títulos dinámicos */}
       <div className="mx-auto max-w-4xl text-center">
-        {/*         <h2 className="text-3xl font-semibold text-red-700">Planes</h2> */}
         <p className="mt-2 text-balance text-5xl font-semibold tracking-tight text-green-600 sm:text-6xl">
-          Elige el plan adecuado para ti
+          {title}
         </p>
       </div>
       <p className="mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-300 sm:text-xl/8">
-      Invierte en ti mismo con nuestros planes exclusivos. Accede a cursos 24/7, herramientas personalizadas y todo lo que necesitas para alcanzar tus metas. ¡Elige el tuyo y comienza hoy!
+        {description}
       </p>
+
       <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-3">
         {tiers.map((tier, tierIdx) => (
           <div
