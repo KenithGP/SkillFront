@@ -1,4 +1,5 @@
-import logo from '../assets/Icons/Logo-White-mobil.svg';
+import logo from "../assets/Icons/Logo-White-mobil.svg";
+import { Link } from "react-router-dom"; // Importa Link para navegación interna
 
 export default function Header() {
   return (
@@ -9,30 +10,30 @@ export default function Header() {
         <span className="text-xl text-white font-semibold">SkillConnect</span>
       </div>
 
-      {/* Navigation Links (Hidden on Small Screens) */}
+      {/* Navigation Links */}
       <nav className="hidden md:flex space-x-6 text-base font-medium text-white">
-        <a href="#product" className="hover:text-green-500">
+        <Link to="/" className="hover:text-green-500">
           Explorar
-        </a>
-        <a href="#features" className="hover:text-green-500">
+        </Link>
+        <Link to="/features" className="hover:text-green-500">
           Cursos
-        </a>
-        <a href="#marketplace" className="hover:text-green-500">
+        </Link>
+        <Link to="/Beca" className="hover:text-green-500">
           Becas
-        </a>
-        <a href="#company" className="hover:text-green-500">
+        </Link>
+        <Link to="/planes" className="hover:text-green-500">
           Planes
-        </a>
+        </Link>
       </nav>
-
+      
       {/* Mobile Menu Button */}
       <div className="md:hidden">
         <button
           id="mobile-menu-button"
           className="text-white focus:outline-none focus:ring-2 focus:ring-green-500"
           onClick={() => {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
           }}
         >
           <svg
