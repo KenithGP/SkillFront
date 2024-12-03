@@ -3,25 +3,27 @@ import { Link } from "react-router-dom"; // Importa Link para navegación intern
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-transparent shadow-md">
+    <header className="flex items-center justify-between px-6 py-4 shadow-md mb-10 ">
       {/* Logo */}
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center space-x-4 ml-6 hover:scale-110 duration-500 transition-transform">
+      <Link to="/">
         <img src={logo} alt="Logo" className="h-10 w-10" />
-        <span className="text-xl text-white font-semibold">SkillConnect</span>
+      </Link>
+        <Link className="text-xl text-white font-semibold" to="/">SkillConnect</Link>
       </div>
 
       {/* Navigation Links */}
-      <nav className="hidden md:flex space-x-6 text-base font-medium text-white">
-        <Link to="/" className="hover:text-green-500">
+      <nav className="hidden md:flex space-x-6 text-base font-medium text-white ">
+        <Link to="/" className="hover:text-green-500  hover:scale-110 duration-500 transition-transform">
           Explorar
         </Link>
-        <Link to="/features" className="hover:text-green-500">
+        <Link to="/features" className="hover:text-green-500  hover:scale-110 duration-500 transition-transform">
           Cursos
         </Link>
-        <Link to="/Beca" className="hover:text-green-500">
+        <Link to="/Beca" className="hover:text-green-500  hover:scale-110 duration-500 transition-transform">
           Becas
         </Link>
-        <Link to="/planes" className="hover:text-green-500">
+        <Link to="/planes" className="hover:text-green-500  hover:scale-110 duration-500 transition-transform">
           Planes
         </Link>
       </nav>
@@ -60,15 +62,15 @@ export default function Header() {
           <input
             type="text"
             placeholder="Buscar...."
-            className="rounded-full w-[15rem] border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="rounded-full w-[15rem] border border-gray-300 px-4 py-2 text-sm text-black focus:outline-none focus:ring-2 focus:ring-red-500"
           />
         </div>
 
         {/* Log In and Sign Up */}
-        <button className="text-sm font-medium text-white hover:text-green-500">
+        <button className="text-sm font-medium text-white hover:text-green-500 hover:scale-110 duration-500 transition-transform">
           Iniciar Sesión
         </button>
-        <button className="rounded-full bg-[#E53935] px-4 py-2 text-sm font-medium text-white hover:bg-red-400">
+        <button className="rounded-full bg-[#E53935] px-4 py-2 text-sm font-medium text-white hover:bg-red-400 hover:scale-110 duration-500 transition-transform">
           Registrarse
         </button>
       </div>
