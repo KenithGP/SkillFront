@@ -1,7 +1,39 @@
-import React, { useState, Link } from "react";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+
+// Configuración centralizada para estilos dinámicos
+const pageStyles = {
+  default: {
+    fontClass: "font-sans text-lg", //fuente
+    buttonClass: "bg-[#E53935] text-white hover:bg-red-400", // para los botones
+    slideBackground: "bg-gradient-to-r from-blue-400 to-indigo-600", // color de fondo para el slides
+  },
+  young: {
+    fontClass: "font-arcade text-sm",
+    buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
+    slideBackground: "bg-transparent",
+  },
+  kids: {
+    fontClass: "font-cursive text-lg",
+    buttonClass: "bg-[#ffcc00] text-white hover:bg-[#ff9900]",
+    slideBackground: "bg-gradient-to-r from-pink-400 to-yellow-500",
+  },
+};
 
 const Slider = ({ variant = "default" }) => {
-  // Arrays de slides para diferentes páginas
+  const location = useLocation();
+
+  // Determinar la variante de la página actual
+  const getPageVariant = () => {
+    if (location.pathname.includes("/Young")) return "young";
+    if (location.pathname.includes("/Kids")) return "kids";
+    return "default";
+  };
+
+  const currentVariant = getPageVariant();
+  const { fontClass, buttonClass, slideBackground } = pageStyles[currentVariant];
+
+  // Slides para diferentes variantes
   const slidesVariants = {
     default: [
       {
@@ -9,46 +41,28 @@ const Slider = ({ variant = "default" }) => {
         title: "Sistema Integral de Gestión Educativa",
         description:
           "DataCole es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
-        background: "bg-gradient-to-r from-blue-400 to-indigo-600",
       },
       {
         image: "https://www.datacole.com/img/demo-content/images/class.svg",
         title: "Aprende desde cualquier lugar",
         description:
           "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
-        background: "bg-gradient-to-r from-green-400 to-teal-500",
       },
     ],
-    admin: [
-      {
-        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
-        title: "Gestión Administrativa Eficiente",
-        description:
-          "Optimiza los procesos administrativos con herramientas modernas que garantizan eficiencia y ahorro de tiempo.",
-        background: "bg-gradient-to-r from-purple-500 to-pink-600",
-      },
-      {
-        image: "https://www.datacole.com/img/demo-content/images/system.svg",
-        title: "Automatización de Tareas",
-        description:
-          "Ahorra tiempo con nuestra plataforma diseñada para simplificar las tareas administrativas.",
-        background: "bg-gradient-to-r from-yellow-400 to-orange-500",
-      },
-    ],
-    students: [
+    young: [
       {
         image: "https://www.datacole.com/img/demo-content/images/class.svg",
-        title: "Plataforma Estudiantil",
+        title: "Plataforma para Jóvenes",
         description:
-          "Accede a contenido interactivo, participa en clases virtuales y mejora tus resultados académicos.",
-        background: "bg-gradient-to-r from-cyan-400 to-blue-600",
+          "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
       },
+    ],
+    kids: [
       {
         image: "https://www.datacole.com/img/demo-content/images/campus.svg",
-        title: "Conéctate con tu Comunidad",
+        title: "Diversión y Aprendizaje",
         description:
-          "Interactúa con otros estudiantes y participa en actividades educativas dinámicas.",
-        background: "bg-gradient-to-r from-red-500 to-purple-700",
+          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
       },
     ],
   };
@@ -70,7 +84,7 @@ const Slider = ({ variant = "default" }) => {
 
   return (
     <div
-      className={`relative w-full overflow-hidden ${slides[currentSlide].background} h-[500px]`}
+      className={`relative w-full overflow-hidden ${slideBackground} h-[500px]`}
     >
       <div
         className="flex transition-transform duration-1000 ease-in-out items-center h-[400px]"
@@ -81,22 +95,28 @@ const Slider = ({ variant = "default" }) => {
             key={index}
             className="w-full flex-shrink-0 flex justify-center"
           >
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8 p-4 w-11/12 md:w-3/5 h-auto items-center">
+            <div className="flex flex-col md:flex-row justify-center gap-8 p-4 w-11/12 md:w-3/5 h-auto items-center">
               <img
                 src={slide.image}
                 alt={slide.title || "Slide"}
                 className="w-1/3 max-w-sm object-contain"
               />
-              <div className="text-center md:text-left flex flex-col items-center md:items-start justify-center h-full">
+              <div
+                className={`text-center md:text-left flex flex-col items-center md:items-start justify-center h-full ${fontClass}`}
+              >
                 <h3 className="text-4xl font-bold text-white mb-4">
                   {slide.title}
                 </h3>
                 <p className="text-white mb-6">{slide.description}</p>
                 <div className="flex justify-center md:justify-start gap-4">
-                  <button className="bg-blue-600 text-white px-3 py-2 rounded-3xl hover:bg-blue-700 hover:scale-105 hover:shadow-lg transition-all ease-in-out duration-300">
+                  <button
+                    className={`px-3 py-2 rounded-3xl transition-all ease-in-out duration-300 ${buttonClass}`}
+                  >
                     Nuestro Facebook
                   </button>
-                  <button className="bg-gray-800 text-white px-3 py-2 rounded-3xl hover:bg-gray-700 hover:scale-105 hover:shadow-lg transition-all ease-in-out duration-300">
+                  <button
+                    className={`px-3 py-2 rounded-3xl transition-all ease-in-out duration-300 ${buttonClass}`}
+                  >
                     Contáctenos
                   </button>
                 </div>
