@@ -70,7 +70,7 @@ export default function Header() {
         <button className="text-sm font-medium text-white hover:text-green-500 hover:scale-110 duration-500 transition-transform">
           Iniciar Sesión
         </button>
-        <button className="rounded-full bg-[#E53935] px-4 py-2 text-sm font-medium text-white hover:bg-red-400 hover:scale-110 duration-500 transition-transform">
+        <button className="rounded-full bg-[#645bff] px-4 py-2 text-sm font-medium text-white hover:bg-blue-950 hover:scale-110 duration-500 transition-transform">
           Registrarse
         </button>
       </div>
