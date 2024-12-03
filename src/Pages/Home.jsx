@@ -14,7 +14,6 @@ export default function Home() {
        <Slider variant='default'/>        
        <TarjetPlanes/>      
        <Preguntas/>
-       <TarjetaCurso/>
        <Footer/>
     </div>
   )
