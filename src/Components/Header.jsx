@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"; // Importa Link para navegación intern
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-transparent shadow-md">
+    <header className="flex items-center justify-between px-6 py-4 shadow-md mb-10 ">
       {/* Logo */}
       <div className="flex items-center space-x-4 ml-6 hover:scale-110 duration-500 transition-transform">
       <Link to="/">
