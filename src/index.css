@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'Arcade Gamer'; /* Nombre personalizado */
+    src: url('./assets/Fonts/ARCADE_N.TTF') format('truetype'); /* Ruta relativa */
+  }
+  
+  
