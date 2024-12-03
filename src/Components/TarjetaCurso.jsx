@@ -6,7 +6,7 @@ import Imagen5 from "../assets/Images/react.svg";
 
 export default function TarjetaCurso() {
   return (
-    <div className="bg-black/90 h-110 w-full flex flex-wrap justify-center gap-4 p-4">
+    <div className="bg-gradient-to-b from-[#000000]/60  to-[#000000]/100 max-screen h-110 w-full flex flex-wrap justify-center gap-4 p-4">
       <div className=" h-70 w-full flex flex-wrap justify-center gap-8 p-4 mt-20 mb-36 ">
         <div className="bg-gradient-to-b from-sky-900 to-blue-1000 h-50 rounded-2xl shadow-lg w-64 p-4 hover:scale-125 duration-500 transition-transform">
           <img
