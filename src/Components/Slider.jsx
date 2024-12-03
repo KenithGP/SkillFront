@@ -40,7 +40,7 @@ const Slider = ({ variant = "default" }) => {
         image: "https://www.datacole.com/img/demo-content/images/system.svg",
         title: "Sistema Integral de Gestión Educativa",
         description:
-          "DataCole es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
+          "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
       },
       {
         image: "https://www.datacole.com/img/demo-content/images/class.svg",
@@ -48,8 +48,7 @@ const Slider = ({ variant = "default" }) => {
         description:
           "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
       },
-    ],
-    young: [
+      
       {
         image: "https://www.datacole.com/img/demo-content/images/class.svg",
         title: "Plataforma para Jóvenes",
