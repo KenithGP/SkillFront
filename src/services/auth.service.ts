@@ -21,7 +21,7 @@ export class AuthService{
 
     }
 
-    async register(first_name:string, last_names: string, email:string, bithdate:string, password:string){
+    async register(first_name:string, last_name: string, email:string, birthdate:string, password:string, username:string){
         try {
             const response = await fetch(`${this.baseURL}/register`, {
                 method: 'POST',
@@ -29,7 +29,7 @@ export class AuthService{
                     'Content-Type': 'application/json'
                 },
                 credentials: 'include',
-                body: JSON.stringify({first_name, last_names, email, bithdate, password})
+                body: JSON.stringify({first_name, last_name, email, birthdate, password, username})
             });
             const newUser = await response.json();
             return newUser;

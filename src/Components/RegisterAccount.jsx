@@ -11,13 +11,13 @@ export default function RegisterAccount() {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [birthdate, setBirthdate] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const user = await authService.register(email, password, username, birthdate, firstName, lastName);
+      const user = await authService.register(first_name, last_name, email, birthdate, password, username);
       console.log(user);
     } catch (error) {
       console.error("Error registering:", error);
@@ -101,6 +101,24 @@ export default function RegisterAccount() {
 
           <div>
             <label
+              htmlFor="user"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Usuario
+            </label>
+            <input
+              id="user"
+              name="user"
+              type="text"
+              required
+              className="mt-1 block w-full rounded-md px-2 h-10 shadow-md sm:text-sm border border-gray-300"
+              placeholder="Escribe tu nombre de usuario"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label
               htmlFor="email-address"
               className="block text-sm font-medium text-gray-700"
             >
@@ -139,7 +157,6 @@ export default function RegisterAccount() {
               <label
                 htmlFor="password"
                 className="block text-sm font-medium text-gray-700"
-                onChange={(e) => setPassword(e.target.value)}
               >
                 Contraseña
               </label>
@@ -147,6 +164,7 @@ export default function RegisterAccount() {
                 id="password"
                 name="password"
                 type={showPassword ? "text" : "password"}
+                onChange={(e) => setPassword(e.target.value)}
                 required
                 className="mt-1 block w-full rounded-md px-2 h-10 shadow-md sm:text-sm border border-gray-300"
                 placeholder="Escribe tu contraseña"
