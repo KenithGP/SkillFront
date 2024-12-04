@@ -18,6 +18,11 @@ const pageStyles = {
     buttonClass: "bg-blue-100 text-[#000000] hover:bg-yellow-200",
     slideBackground: "bg-gray-500 bg-opacity-40",
   },
+  Adult: {
+    fontClass: "font-abel text-lg",
+    buttonClass: "bg-[#5625b2] text-white hover:bg-[#162682]",
+    slideBackground: "bg-gradient-to-r from-purple-700 to-blue-700",
+  },
 };
 
 const Slider = ({ variant = "default" }) => {

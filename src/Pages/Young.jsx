@@ -12,6 +12,8 @@ export default function Young() {
     ? "kids"
     : location.pathname.includes("/young")
     ? "young"
+    /* : location.pathname.includes("/adult")
+    ? "adult" */
     : "default";
 
   return (

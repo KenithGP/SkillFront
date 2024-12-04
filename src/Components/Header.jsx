@@ -1,10 +1,11 @@
 import logo from "../assets/Icons/Logo-White-mobil.svg";
 import { Link, useLocation } from "react-router-dom";
+import React from "react";
 
 export default function Header() {
   const location = useLocation();
 
-  // Obtener el parámetro `variant` desde la URL
+  // Obtener el parámetro variant desde la URL
   const params = new URLSearchParams(location.search);
   const variant = params.get("variant");
 
@@ -26,19 +27,19 @@ export default function Header() {
       hoverTextClass: "hover:text-[#ff0068]",
     },
     adult: {
-      fontClass: "font-serif text-base text-gray-800",
-      buttonClass: "bg-[#4CAF50] text-white hover:bg-green-700",
-      hoverTextClass: "hover:text-[#4CAF50]",
+      fontClass: "font-abel text-base text-gray-800",
+      buttonClass: "bg-[#162682] text-white hover:bg-purple-900",
+      hoverTextClass: "hover:text-[white]",
     },
   };
 
-  // Detectar la variante actual: prioridad al parámetro `variant`
+  // Detectar la variante actual: prioridad al parámetro variant
   const currentVariant =
-    variant || // Si hay un parámetro `variant`, úsalo
+    variant || // Si hay un parámetro variant, úsalo
     (location.pathname === "/" && "home") || // Ruta raíz
     (location.pathname.includes("/Young") && "young") || // Ruta de adolescentes
     (location.pathname.includes("/kids") && "kids") || // Ruta de niños
-    (location.pathname.includes("/adult") && "adult") || // Ruta de adultos
+    (location.pathname.includes("/Adult") && "adult") || // Ruta de adultos
     "home"; // Predeterminado a Home si no coincide nada más
 
   // Obtener los estilos dinámicos según la variante
@@ -50,6 +51,8 @@ export default function Header() {
       ? "/planes?variant=young"
       : location.pathname.includes("/Kids")
       ? "/planes?variant=kids"
+      : location.pathname.includes("/Adult")
+      ? "/planes?variant=Adult"
       : "/planes";
 
   return (
@@ -109,12 +112,22 @@ export default function Header() {
         <button
           className={`px-4 py-2 rounded-full transition-transform duration-500 text-white ${hoverTextClass}`}
         >
-          Iniciar Sesión
+          <Link
+          to="/Login"
+          className={`transition-transform duration-500 ${hoverTextClass}`}
+        >
+           Iniciar Sesión
+        </Link>
         </button>
         <button
           className={`px-4 py-2 rounded-full transition-transform duration-500 ${buttonClass}`}
         >
+            <Link
+          to="/Register"
+          className={`transition-transform duration-500 ${hoverTextClass}`}
+        >
           Registrarse
+        </Link>
         </button>
       </div>
     </header>
