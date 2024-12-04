@@ -6,7 +6,7 @@ const pageStyles = {
   default: {
     fontClass: "font-sans text-lg", //fuente
     buttonClass: "bg-[#E53935] text-white hover:bg-red-400", // para los botones
-    slideBackground: "bg-gradient-to-r from-blue-400 to-indigo-600", // color de fondo para el slides
+    slideBackground: "bg-transparent ", // color de fondo para el slides
   },
   young: {
     fontClass: "font-arcade text-sm",

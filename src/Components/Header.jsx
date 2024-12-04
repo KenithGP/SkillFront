@@ -4,20 +4,53 @@ import { Link, useLocation } from "react-router-dom";
 export default function Header() {
   const location = useLocation();
 
-  // Detectar si la ruta actual es para adolescentes (Young)
-  const isYoung = location.pathname.includes("/Young");
+  // Obtener el parámetro `variant` desde la URL
+  const params = new URLSearchParams(location.search);
+  const variant = params.get("variant");
 
-  // Clases dinámicas para los botones
-  const buttonClass = isYoung
-    ? "bg-[#ff0068] text-white hover:bg-blue-700"
-    : "bg-[#E53935] text-white hover:bg-red-400";
+  // Configuración de diseños para cada variante
+  const designs = {
+    home: {
+      fontClass: "font-semibold text-xl",
+      buttonClass: "bg-[#E53935] text-white hover:bg-red-400",
+      hoverTextClass: "hover:text-green-500",
+    },
+    kids: {
+      fontClass: "font-cursive text-sm text-yellow-600",
+      buttonClass: "bg-[#FFD700] text-black hover:bg-yellow-500",
+      hoverTextClass: "hover:text-[#FFD700]",
+    },
+    young: {
+      fontClass: "font-arcade text-xs text-pink-600",
+      buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
+      hoverTextClass: "hover:text-[#ff0068]",
+    },
+    adult: {
+      fontClass: "font-serif text-base text-gray-800",
+      buttonClass: "bg-[#4CAF50] text-white hover:bg-green-700",
+      hoverTextClass: "hover:text-[#4CAF50]",
+    },
+  };
 
-  const hoverTextClass = isYoung
-    ? "hover:text-[#ff0068]"
-    : "hover:text-green-500";
+  // Detectar la variante actual: prioridad al parámetro `variant`
+  const currentVariant =
+    variant || // Si hay un parámetro `variant`, úsalo
+    (location.pathname === "/" && "home") || // Ruta raíz
+    (location.pathname.includes("/Young") && "young") || // Ruta de adolescentes
+    (location.pathname.includes("/kids") && "kids") || // Ruta de niños
+    (location.pathname.includes("/adult") && "adult") || // Ruta de adultos
+    "home"; // Predeterminado a Home si no coincide nada más
 
-  // Clases dinámicas para el contenedor del header
-  const fontClass = isYoung ? "font-arcade text-xs" : "font-semibold text-xl";
+  // Obtener los estilos dinámicos según la variante
+  const { fontClass, buttonClass, hoverTextClass } = designs[currentVariant];
+
+  // Determinar la ruta dinámica para el enlace "Planes"
+  const planesLink =
+    location.pathname.includes("/Young")
+      ? "/planes?variant=young"
+      : location.pathname.includes("/kids")
+      ? "/planes?variant=kids"
+      : "/planes";
 
   return (
     <header
@@ -39,7 +72,7 @@ export default function Header() {
           to="/"
           className={`transition-transform duration-500 ${hoverTextClass}`}
         >
-          Explorar
+          Home
         </Link>
         <Link
           to="/features"
@@ -48,45 +81,18 @@ export default function Header() {
           Cursos
         </Link>
         <Link
-          to="/Beca"
+          to="/beca"
           className={`transition-transform duration-500 ${hoverTextClass}`}
         >
           Becas
         </Link>
         <Link
-          to="/planes"
+          to={planesLink} // Ruta dinámica para "Planes"
           className={`transition-transform duration-500 ${hoverTextClass}`}
         >
           Planes
         </Link>
       </nav>
-
-      {/* Mobile Menu Button */}
-      <div className="md:hidden">
-        <button
-          id="mobile-menu-button"
-          className="text-white focus:outline-none focus:ring-2 focus:ring-green-500"
-          onClick={() => {
-            const menu = document.getElementById("mobile-menu");
-            menu.classList.toggle("hidden");
-          }}
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
-        </button>
-      </div>
 
       {/* Search Bar and Buttons */}
       <div className="hidden md:flex items-center space-x-6">
@@ -101,7 +107,7 @@ export default function Header() {
 
         {/* Botones dinámicos */}
         <button
-          className={`px-4 py-2 rounded-full  transition-transform duration-500 text-white ${hoverTextClass}`}
+          className={`px-4 py-2 rounded-full transition-transform duration-500 text-white ${hoverTextClass}`}
         >
           Iniciar Sesión
         </button>
@@ -110,38 +116,6 @@ export default function Header() {
         >
           Registrarse
         </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        id="mobile-menu"
-        className="absolute top-16 left-0 z-10 hidden w-full bg-black/90 text-white"
-      >
-        <div className="flex flex-col items-center space-y-4 py-4">
-          <a href="#product" className={`${hoverTextClass}`}>
-            Explorar
-          </a>
-          <a href="#features" className={`${hoverTextClass}`}>
-            Cursos
-          </a>
-          <a href="#marketplace" className={`${hoverTextClass}`}>
-            Becas
-          </a>
-          <a href="#company" className={`${hoverTextClass}`}>
-            Planes
-          </a>
-          {/* Botones dinámicos */}
-          <button
-            className={`px-4 py-2 rounded-full font-medium transition-transform duration-500 ${hoverTextClass}`}
-          >
-            Iniciar Sesión
-          </button>
-          <button
-            className={`px-4 py-2 rounded-full font-medium transition-transform duration-500 ${buttonClass}`}
-          >
-            Registrarse
-          </button>
-        </div>
       </div>
     </header>
   );

@@ -55,27 +55,30 @@ const tiers = [
 const pageStyles = {
   default: {
     fontClass: "font-sans text-base",
-    titleClass: "text-5xl font-semibold tracking-tight text-green-600 sm:text-6xl",
-    descriptionClass: "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-300 sm:text-xl/8",
-    cardTextClassFalse: "text-gray-800",
-    cardTextClassTrue:"text-yellow-600",
-    MoneyTextClassFalse:"text-red-900 text-5xl font-semibold tracking-tight",
-    MoneyTextClassTrue:"text-white text-5xl font-semibold tracking-tight",
-    FontSizeYear:"text-sm",
-    ColorCheckTrue:"text-green-500]",
-    ColorCheckFalse:"text-green-700",
+    titleClass:
+      "text-5xl font-semibold tracking-tight text-green-600 sm:text-6xl",
+    descriptionClass:
+      "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-300 sm:text-xl/8",
+    cardTextClassFalse: "text-green-800",
+    cardTextClassTrue: "text-yellow-600",
+    MoneyTextClassFalse: "text-red-900 text-5xl font-semibold tracking-tight",
+    MoneyTextClassTrue: "text-white text-5xl font-semibold tracking-tight",
+    FontSizeYear: "text-sm",
+    ColorCheckTrue: "text-green-600",
+    ColorCheckFalse: "text-green-700",
   },
   young: {
     fontClass: "font-arcade text-xs",
     titleClass: "text-yellow-400 text-4xl font-bold",
-    descriptionClass: "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-yellow-200 text-sm font-medium",
+    descriptionClass:
+      "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-yellow-200 text-sm font-medium",
     cardTextClassFalse: "text-black",
-    cardTextClassTrue:"text-yellow-400 ",
-    MoneyTextClassFalse:"text-green-800 text-3xl font-semibold tracking-tight",
-    MoneyTextClassTrue:"text-white text-3xl font-semibold tracking-tight",
-    FontSizeYear:"text-xs",
-    ColorCheckTrue:"text-[#ff7f07]",
-    ColorCheckFalse:"text-green-700",
+    cardTextClassTrue: "text-yellow-400 ",
+    MoneyTextClassFalse: "text-green-800 text-3xl font-semibold tracking-tight",
+    MoneyTextClassTrue: "text-white text-3xl font-semibold tracking-tight",
+    FontSizeYear: "text-xs",
+    ColorCheckTrue: "text-[#ff7f07]",
+    ColorCheckFalse: "text-green-700",
   },
 };
 const pageContent = {
@@ -90,6 +93,7 @@ const pageContent = {
       "Explora nuestras opciones de aprendizaje y comienza tu viaje hacia el éxito.",
   },
 };
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -97,65 +101,68 @@ function classNames(...classes) {
 export default function TarjetPlanes() {
   const location = useLocation(); // Obtiene la ruta actual
 
- // Extraer el contenido dinámico según la ruta actual
- const { title, description } =
- pageContent[location.pathname] || pageContent.default;
+  // Extraer el contenido dinámico según la ruta actual
+  const { title, description } =
+    pageContent[location.pathname] || pageContent.default;
 
-    // Determinar la página actual para aplicar estilos
-    const currentVariant = location.pathname.includes("/Young") ? "young" : "default";
-    const {
-      fontClass,
-      titleClass,
-      descriptionClass,
-      cardTextClassFalse,
-      cardTextClassTrue,
-      MoneyTextClassFalse,
-      MoneyTextClassTrue,
-      FontSizeYear,
-      ColorCheckFalse,
-      ColorCheckTrue,
-    } = pageStyles[currentVariant];
+// Obtener los parámetros de la URL
+const params = new URLSearchParams(location.search);
 
- 
+// Detectar la variante según el query parameter "variant" o ruta
+const currentVariant = params.get("variant") || // Query parameter "variant"
+  (location.pathname.includes("/Young") ? "young" : "default");
+
+// Obtener los estilos dinámicos según la variante
+const {
+  fontClass,
+  titleClass,
+  descriptionClass,
+  cardTextClassFalse,
+  cardTextClassTrue,
+  MoneyTextClassFalse,
+  MoneyTextClassTrue,
+  FontSizeYear,
+  ColorCheckFalse,
+  ColorCheckTrue,
+} = pageStyles[currentVariant];
+
+
   return (
-    <div className={`relative isolate px-6 py-24 sm:py-32 lg:px-8 ${fontClass}`}>
-    
     <div
-      aria-hidden="true"
-      className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
+      className={`relative isolate px-6 py-24 sm:py-32 lg:px-8 ${fontClass}`}
     >
       <div
-        style={{
-          clipPath:
-            "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-        }}
-      />
-    </div>
-
-    {/* Títulos dinámicos */}
-      <div className="mx-auto max-w-4xl text-center">
-        <p className={`${titleClass} `}>
-          {title}
-        </p>
+        aria-hidden="true"
+        className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
+      >
+        <div
+          style={{
+            clipPath:
+              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+          }}
+        />
       </div>
-      <p className={` ${descriptionClass} `}>
-        {description}
-      </p>
 
-     <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-3">
+      {/* Títulos dinámicos */}
+      <div className="mx-auto max-w-4xl text-center">
+        <p className={`${titleClass} `}>{title}</p>
+      </div>
+      <p className={` ${descriptionClass} `}>{description}</p>
+
+      <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-3">
         {tiers.map((tier) => (
           <div
             key={tier.id}
             className={classNames(
               tier.featured
-              ? currentVariant === "young"
-              ? "bg-[#ff0070]/60 shadow-2xl"
-              : "bg-red-950/60 shadow-2xl" // Estilo para `featured` basado en la página
-            : currentVariant === "young"
-            ? "bg-white/70"
-            : "bg-white/70", // Estilo para `non-featured` basado en la página
-          "rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 transition-transform duration-300 transform-gpu hover:scale-105 hover:shadow-2xl"
-        )}
+                ? currentVariant === "young"
+                  ? "bg-[#ff0070]/60 shadow-2xl"
+                  : "bg-red-950/60 shadow-2xl" // Estilo para `featured` basado en la página
+                : currentVariant === "young"
+                ? "bg-white/70"
+                : "bg-white/70", // Estilo para `non-featured` basado en la página
+              "rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 transition-transform duration-300 transform-gpu hover:scale-105 hover:shadow-2xl"
+            )}
           >
             <h3
               id={tier.id}
@@ -169,8 +176,7 @@ export default function TarjetPlanes() {
             <p className="mt-4 flex items-baseline gap-x-2">
               <span
                 className={classNames(
-                  tier.featured ? MoneyTextClassTrue : MoneyTextClassFalse,
-              
+                  tier.featured ? MoneyTextClassTrue : MoneyTextClassFalse
                 )}
               >
                 {tier.priceMonthly}
@@ -186,7 +192,8 @@ export default function TarjetPlanes() {
             </p>
             <p
               className={classNames(
-                tier.featured ? "text-gray-100" : "text-gray-800", FontSizeYear,
+                tier.featured ? "text-gray-100" : "text-gray-800",
+                FontSizeYear,
                 "mt-6"
               )}
             >
@@ -195,7 +202,8 @@ export default function TarjetPlanes() {
             <ul
               role="list"
               className={classNames(
-                tier.featured ? "text-gray-100" : "text-gray-800", FontSizeYear,
+                tier.featured ? "text-gray-100" : "text-gray-800",
+                FontSizeYear,
                 "mt-8 space-y-3 sm:mt-10"
               )}
             >
