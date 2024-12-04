@@ -2,8 +2,8 @@ import Logo from "../assets/Icons/Logo.svg";
 
 export default function RegisterAccount() {
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-center items-center py-12 px-6 lg:px-8">
-      <div className="max-w-xl w-full space-y-8 border border-gray-300 rounded-lg p-6 shadow-2xl">
+    <div className="min-h-screen  bg-gradient-to-b from-[#000000]/95 to-[#EA6558]/100 flex flex-col justify-center items-center py-12 px-6 lg:px-8">
+      <div className="max-w-2xl w-full space-y-8 border bg-white/90 border-gray-300 rounded-lg p-10 shadow-2xl">
         <div className="text-center">
           {/* Logo */}
           <div className="flex justify-center mt-5 items-center">
@@ -14,7 +14,7 @@ export default function RegisterAccount() {
           </h2>
         </div>
         <div className="flex justify-center space-x-4 mt-4">
-          <button className="group flex items-center space-x-2 bg-white px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50">
+          <button className="group flex items-center w-1/4 space-x-2 bg-white px-8 py-2 border border-gray-300 rounded-md hover:bg-gray-200">
             <img
               src="https://www.svgrepo.com/show/355037/google.svg"
               alt="Google"
@@ -22,7 +22,7 @@ export default function RegisterAccount() {
             />
             <span className="text-sm text-gray-700">Google</span>
           </button>
-          <button className="group flex items-center space-x-2 bg-white px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50">
+          <button className="group flex items-center space-x-2 W-1/4 bg-white px-8 py-2 border border-gray-300 rounded-md hover:bg-gray-200">
             <img
               src="https://img.icons8.com/?size=100&id=62856&format=png&color=000000"
               alt="GitHub"
@@ -33,7 +33,7 @@ export default function RegisterAccount() {
         </div>
 
         <div className="relative flex items-center justify-center">
-          <span className="absolute px-4 text-gray-500 text-sm bg-white">
+          <span className="absolute px-4 text-gray-500 text-sm">
             o continua con
           </span>
         </div>
