@@ -9,9 +9,9 @@ import Slider from '../Components/Slider'
 
 export default function Home() {
   return (
-    <div  className="bg-gradient-to-b from-[#000000]/100  to-[#EA6558]/100 max-screen">
+    <div className="bg-gradient-to-b from-[#000000]/100  to-[#EA6558]/100 max-screen">
        <Header/>
-       <Slider variant='default'/>        
+       <Slider variant='default'/>
        <TarjetPlanes/>      
        <Preguntas/>
        <TarjetaCurso/>
