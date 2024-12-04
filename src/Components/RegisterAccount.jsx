@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import Logo from "../assets/Icons/Logo.svg";
 
 export default function RegisterAccount() {
