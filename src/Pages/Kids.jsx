@@ -12,7 +12,7 @@ export default function Kids() {
       {/* Video de fondo */}
       <video
         className="absolute w-full h-full object-cover"
-        src="src/Videos/VIDEO-FONDO.mp4"  // Ruta correcta al video en la carpeta public
+        src="src/Videos/VIDEOFONDO.mp4"  // Ruta correcta al video en la carpeta public
         autoPlay
         loop
         muted
