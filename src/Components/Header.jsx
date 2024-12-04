@@ -16,9 +16,9 @@ export default function Header() {
       hoverTextClass: "hover:text-green-500",
     },
     kids: {
-      fontClass: "font-cursive text-sm text-yellow-600",
-      buttonClass: "bg-[#FFD700] text-black hover:bg-yellow-500",
-      hoverTextClass: "hover:text-[#FFD700]",
+      fontClass: "font-comics text-lg ", // Azul oscuro para texto
+      buttonClass: "bg-[#FFE5A3] text-[#000000] hover:bg-yellow-200", // Amarillo crema con hover en dorado
+      hoverTextClass: "hover:text-[#4682B4]", // Azul oscuro en hover
     },
     young: {
       fontClass: "font-arcade text-xs text-pink-600",
@@ -48,7 +48,7 @@ export default function Header() {
   const planesLink =
     location.pathname.includes("/Young")
       ? "/planes?variant=young"
-      : location.pathname.includes("/kids")
+      : location.pathname.includes("/Kids")
       ? "/planes?variant=kids"
       : "/planes";
 
