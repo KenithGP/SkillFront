@@ -139,7 +139,7 @@ export default function Quizz() {
             <div className="mt-6 p-4 bg-gray-800 rounded-lg text-center">
               <p
                 className={`text-lg font-bold ${
-                  isCorrect ? "text-green-400" : "text-red-400"
+                  isCorrect ? "text-green-400" : "text-red-500"
                 }`}
               >
                 {isCorrect
@@ -178,7 +178,7 @@ export default function Quizz() {
             .
           </p>
           <p className="mt-2 text-sm text-gray-300">
-            {score >= 7
+            {score >= 8
               ? "¡Felicidades! Eres elegible para optar a la beca."
               : "¡Sigue practicando y vuelve a intentarlo!"}
           </p>

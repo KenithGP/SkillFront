@@ -14,24 +14,24 @@ export default function Beca() {
       <div className="flex flex-col lg:flex-row justify-between items-center px-8 py-16 lg:py-24">
         {/* Left Text Section */}
         <div className="lg:w-1/2 space-y-6">
-          <h2 className="text-3xl lg:text-5xl font-bold text-dorado">
-            ¡Felicidades por pasar las pruebas!
+          <h2 className="text-3xl lg:text-5xl font-bold text-yellow-500 mx-4">
+            ¡Postula a una beca ahora mismo!
           </h2>
-          <p className="text-lg lg:text-xl text-gray-200">
+          <p className="text-lg lg:text-xl font-semibold text-gray-200 mx-4">
             Regístrate para optar por la beca y disfrutar nuestros cursos.
             ¡Estamos emocionados de acompañarte en esta aventura de aprendizaje!
           </p>
-          <p className="text-lg lg:text-xl font-semibold text-yellow-300">
+          <p className="text-lg lg:text-xl font-bold text-green-500 mx-4">
             ¡No pierdas esta oportunidad de alcanzar tus metas y disfrutar
             mientras aprendes!
           </p>
-          <p className="text-lg lg:text-xl text-gray-200">
+          <p className="text-lg lg:text-xl font-semibold text-gray-200 mx-4">
             Nuestros cursos inspiran a los jóvenes, dándoles herramientas para
             explorar su creatividad y desarrollar habilidades técnicas.
           </p>
           <button
             type="submit"
-            className="bg-green-700 hover:bg-green-400 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+            className="bg-green-700 hover:bg-green-400 text-white mx-4 font-bold py-3 px-6 rounded-lg transition duration-300"
             onClick={handleQuizClick}
           >
             Completa este quizz
@@ -39,51 +39,51 @@ export default function Beca() {
         </div>
 
         {/* Right Form Section */}
-        <div className="lg:w-1/2 mt-12 lg:mt-0 bg-white bg-opacity-10 p-8 rounded-lg shadow-lg">
+        <div className="lg:w-1/2 mt-12 mx-10 lg:mt-0 bg-red-800/20 p-8 rounded-lg shadow-2xl">
           <form className="space-y-6">
-            <h2 className="text-2xl font-bold text-dorado">
+            <h2 className="text-2xl font-bold text-yellow-400">
               Solicitud de Beca
             </h2>
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-200">
+              <label className="block text-lg font-semibold text-gray-200">
                 Registra tus datos para tu solicitud
               </label>
               <textarea
-                placeholder="Nombre(s)"
-                className="w-full p-3 rounded-lg bg-white/50 text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                placeholder="Nombres"
+                className="w-full p-3 rounded-lg bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
               ></textarea>
             </div>
             <div className="space-y-2">
               <input
                 type="text"
-                placeholder="Apellidos(s)"
-                 className="w-full p-3 rounded-lg bg-white text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                placeholder="Apellidos"
+                 className="w-full p-3 rounded-lg bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
               />
             </div>
             <div className="space-y-2">
               <input
                 type="email"
                 placeholder="Correo electrónico"
-                 className="w-full p-3 rounded-lg bg-white text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                 className="w-full p-3 rounded-lg bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
               />
             </div>
             <div className="space-y-2">
               <input
                 type="text"
                 placeholder="Número de télefono a contactar"
-                 className="w-full p-3 rounded-lg bg-white text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                 className="w-full p-3 rounded-lg bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
               />
             </div>
             <div className="space-y-2">
               <label
                 htmlFor="request-area"
-                className="block text-sm font-medium text-gray-200"
+                className="block text-lg font-semibold text-gray-200"
               >
                 Área de solicitud
               </label>
               <select
                 id="request-area"
-                className="w-full p-3 rounded-lg bg-white text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full p-3 rounded-lg bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
               >
                 <option value="" disabled selected>
                   Seleccione un área
@@ -97,12 +97,12 @@ export default function Beca() {
               <input
                 type="file"
                 placeholder=""
-                className="w-full p-3 rounded-lg bg-white text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full p-3 rounded-lg bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-3 px-6 rounded-lg transition duration-300"
+              className="w-full bg-green-700 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
             >
               Enviar Solicitud
             </button>

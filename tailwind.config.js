@@ -4,6 +4,15 @@ export default {
 
   theme: {
     extend: {
+      fontFamily: {
+        arcade: ['Arcade Gamer', 'sans-serif'], //  fuente GAMER
+        abel: ['Abel', 'sans-serif'], // Añade tu fuente personalizada
+      },
+      fontSize: {
+  
+        'xxs': '0.1rem', // Tamaño aún más pequeño
+      },
+  
       colors: {
         blanco: "#FFFFFF",
         grisClaro: "#F2F2F2",
@@ -13,6 +22,7 @@ export default {
         negroOscuro: "#000000",
         dorado: "#e1c261",
       },
+      
     },
   },
   plugins: [],
