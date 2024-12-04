@@ -110,7 +110,7 @@ export default function Header() {
           className={`px-4 py-2 rounded-full transition-transform duration-500 text-white ${hoverTextClass}`}
         >
           <Link
-          to="/login"
+          to="/Login"
           className={`transition-transform duration-500 ${hoverTextClass}`}
         >
            Iniciar Sesión
@@ -120,7 +120,7 @@ export default function Header() {
           className={`px-4 py-2 rounded-full transition-transform duration-500 ${buttonClass}`}
         >
             <Link
-          to="/register"
+          to="/Register"
           className={`transition-transform duration-500 ${hoverTextClass}`}
         >
           Registrarse
