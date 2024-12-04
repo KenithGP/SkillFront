@@ -18,6 +18,11 @@ const pageStyles = {
     buttonClass: "bg-[#ffcc00] text-white hover:bg-[#ff9900]",
     slideBackground: "bg-gradient-to-r from-pink-400 to-yellow-500",
   },
+  Adult: {
+    fontClass: "font-abel text-lg",
+    buttonClass: "bg-[#5625b2] text-white hover:bg-[#162682]",
+    slideBackground: "bg-gradient-to-r from-purple-700 to-blue-700",
+  },
 };
 
 const Slider = ({ variant = "default" }) => {
@@ -27,6 +32,7 @@ const Slider = ({ variant = "default" }) => {
   const getPageVariant = () => {
     if (location.pathname.includes("/Young")) return "young";
     if (location.pathname.includes("/Kids")) return "kids";
+    if (location.pathname.includes("/Adult")) return "Adult";
     return "default";
   };
 

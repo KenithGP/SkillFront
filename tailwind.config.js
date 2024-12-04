@@ -6,6 +6,7 @@ export default {
     extend: {
       fontFamily: {
         arcade: ['Arcade Gamer', 'sans-serif'], //  fuente GAMER
+        abel: ['Abel', 'sans-serif'], // Añade tu fuente personalizada
       },
       fontSize: {
   
