@@ -1,35 +1,70 @@
 import logo from "../assets/Icons/Logo-White-mobil.svg";
 import { Link, useLocation } from "react-router-dom";
+import React from "react";
 
 export default function Header() {
   const location = useLocation();
 
-  // Detectar si la ruta actual es para adolescentes (Young)
-  const isYoung = location.pathname.includes("/Young");
+  // Obtener el parámetro variant desde la URL
+  const params = new URLSearchParams(location.search);
+  const variant = params.get("variant");
 
-  // Clases dinámicas para los botones
-  const buttonClass = isYoung
-    ? "bg-[#ff0068] text-white hover:bg-blue-700"
-    : "bg-[#E53935] text-white hover:bg-red-400";
+  // Configuración de diseños para cada variante
+  const designs = {
+    home: {
+      fontClass: "font-semibold text-xl",
+      buttonClass: "bg-[#E53935] text-white hover:bg-red-400",
+      hoverTextClass: "hover:text-green-500",
+    },
+    kids: {
+      fontClass: "font-cursive text-sm text-yellow-600",
+      buttonClass: "bg-[#FFD700] text-black hover:bg-yellow-500",
+      hoverTextClass: "hover:text-[#FFD700]",
+    },
+    young: {
+      fontClass: "font-arcade text-xs text-pink-600",
+      buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
+      hoverTextClass: "hover:text-[#ff0068]",
+    },
+    adult: {
+      fontClass: "font-abel text-base text-gray-800",
+      buttonClass: "bg-[#162682] text-white hover:bg-purple-900",
+      hoverTextClass: "hover:text-[white]",
+    },
+  };
 
-  const hoverTextClass = isYoung
-    ? "hover:text-[#ff0068]"
-    : "hover:text-green-500";
+  // Detectar la variante actual: prioridad al parámetro variant
+  const currentVariant =
+    variant || // Si hay un parámetro variant, úsalo
+    (location.pathname === "/" && "home") || // Ruta raíz
+    (location.pathname.includes("/Young") && "young") || // Ruta de adolescentes
+    (location.pathname.includes("/kids") && "kids") || // Ruta de niños
+    (location.pathname.includes("/Adult") && "adult") || // Ruta de adultos
+    "home"; // Predeterminado a Home si no coincide nada más
 
-  // Clases dinámicas para el contenedor del header
-  const fontClass = isYoung ? "font-arcade text-xs" : "font-semibold text-xl";
+  // Obtener los estilos dinámicos según la variante
+  const { fontClass, buttonClass, hoverTextClass } = designs[currentVariant];
+
+  // Determinar la ruta dinámica para el enlace "Planes"
+  const planesLink =
+    location.pathname.includes("/Young")
+      ? "/planes?variant=young"
+      : location.pathname.includes("/kids")
+      ? "/planes?variant=kids"
+      : location.pathname.includes("/Adult")
+      ? "/planes?variant=Adult"
+      : "/planes";
 
   return (
     <header
-      className={`flex items-center justify-between px-6 py-5 mb-1 ${fontClass}`}
-      
+      className={`flex items-center justify-between px-6 py-4 mb-10 ${fontClass}`}
     >
       {/* Logo y Nombre */}
       <div className="flex items-center space-x-4 ml-6 hover:scale-110 duration-500 transition-transform">
         <Link to="/">
           <img src={logo} alt="Logo" className="h-10 w-10" />
         </Link>
-        <Link className={`text-white ${adu}`} to="/">
+        <Link className="text-white font-bold text-base" to="/">
           SkillConnect
         </Link>
       </div>
@@ -69,7 +104,7 @@ export default function Header() {
           <input
             type="text"
             placeholder="Buscar...."
-            className="rounded-full w-[15rem] border border-gray-300 px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="rounded-full w-[15rem] border border-gray-300 px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
           />
         </div>
 
