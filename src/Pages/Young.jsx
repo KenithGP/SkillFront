@@ -8,8 +8,7 @@ export default function Young() {
     <div className="bg-gradient-to-b from-[#000000]/90 to-[#3533cd]/100 min-h-screen">
         <Header/>
         <Slider/>        
-        <TarjetPlanes/> 
-    
+        <TarjetPlanes/>    
     </div>
   )
 }

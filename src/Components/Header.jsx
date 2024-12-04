@@ -6,29 +6,36 @@ export default function Header() {
 
   // Detectar si la ruta actual es para adolescentes (Young)
   const isYoung = location.pathname.includes("/Young");
+  const isAdulto = location.pathname.includes("/Adulto");
 
   // Clases dinámicas para los botones
   const buttonClass = isYoung
     ? "bg-[#ff0068] text-white hover:bg-blue-700"
+    : isAdulto
+    ? "bg-[#5625b2] text-white hover:bg-blue-800"
     : "bg-[#E53935] text-white hover:bg-red-400";
 
   const hoverTextClass = isYoung
     ? "hover:text-[#ff0068]"
     : "hover:text-green-500";
 
-  // Clases dinámicas para el contenedor del header
-  const fontClass = isYoung ? "font-arcade text-xs" : "font-semibold text-xl";
+    
 
+  // Clases dinámicas para el contenedor del header
+  const fontClass = isYoung ? "font-arcade text-xs"
+                    : isAdulto ? "font-abel text-xl" : "font-semibold text-xl";
+  const adu = isAdulto ? "font-abel text-2xl" : "font-bold text-base";
   return (
     <header
-      className={`flex items-center justify-between px-6 py-4 mb-10 ${fontClass}`}
+      className={`flex items-center justify-between px-6 py-5 mb-1 ${fontClass}`}
+      
     >
       {/* Logo y Nombre */}
       <div className="flex items-center space-x-4 ml-6 hover:scale-110 duration-500 transition-transform">
         <Link to="/">
           <img src={logo} alt="Logo" className="h-10 w-10" />
         </Link>
-        <Link className="text-white font-bold text-base" to="/">
+        <Link className={`text-white ${adu}`} to="/">
           SkillConnect
         </Link>
       </div>
@@ -95,7 +102,7 @@ export default function Header() {
           <input
             type="text"
             placeholder="Buscar...."
-            className="rounded-full w-[15rem] border border-gray-300 px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="rounded-full w-[15rem] border border-gray-300 px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
 

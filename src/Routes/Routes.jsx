@@ -6,6 +6,7 @@ import Quizz from '../Components/Quizz'
 import Beca from '../Pages/Beca'
 import Kids from '../Pages/Kids'
 import Young from '../Pages/Young'
+import Adulto from '../Pages/Adulto'
 
 // Importar las rutas para los links del header
 import Planes from "../Pages/Planes";
@@ -22,9 +23,9 @@ export default function AppRoutes() {
         <Route path="/planes" element={<Planes />} />
         <Route path="/Beca" element={<Beca/>} />
         <Route path="/Quizz" element={<Quizz />} />
-        <Route path="/kids" element={<Kids />} />
-        
+        <Route path="/kids" element={<Kids />} />       
         <Route path="/Young" element={<Young />} />
+        <Route path="/Adulto" element={<Adulto />} />
 
 {/*         <Route path="/cursos" element={<Cursos />} />
         <Route path="/becas" element={<Becas />} /> */}

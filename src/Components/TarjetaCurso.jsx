@@ -39,7 +39,7 @@ const courses = [
 
 export default function TarjetaCurso() {
   return (
-    <div className="bg-gradient-to-b from-black/60 to-black/90  w-full mb-40 flex flex-wrap justify-center gap-4 p-4">
+    <div className="bg-gradient-to-b from-black/60 to-black/90  w-full mb-30 flex flex-wrap justify-center gap-4 p-4">
       <div className="flex flex-wrap justify-center gap-8 p-4 mt-20 mb-36">
         {courses.map((course, index) => (
           <div
