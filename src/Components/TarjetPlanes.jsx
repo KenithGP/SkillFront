@@ -105,27 +105,27 @@ export default function TarjetPlanes() {
   const { title, description } =
     pageContent[location.pathname] || pageContent.default;
 
-// Obtener los parámetros de la URL
-const params = new URLSearchParams(location.search);
+  // Obtener los parámetros de la URL
+  const params = new URLSearchParams(location.search);
 
-// Detectar la variante según el query parameter "variant" o ruta
-const currentVariant = params.get("variant") || // Query parameter "variant"
-  (location.pathname.includes("/Young") ? "young" : "default");
+  // Detectar la variante según el query parameter "variant" o ruta
+  const currentVariant =
+    params.get("variant") || // Query parameter "variant"
+    (location.pathname.includes("/Young") ? "young" : "default");
 
-// Obtener los estilos dinámicos según la variante
-const {
-  fontClass,
-  titleClass,
-  descriptionClass,
-  cardTextClassFalse,
-  cardTextClassTrue,
-  MoneyTextClassFalse,
-  MoneyTextClassTrue,
-  FontSizeYear,
-  ColorCheckFalse,
-  ColorCheckTrue,
-} = pageStyles[currentVariant];
-
+  // Obtener los estilos dinámicos según la variante
+  const {
+    fontClass,
+    titleClass,
+    descriptionClass,
+    cardTextClassFalse,
+    cardTextClassTrue,
+    MoneyTextClassFalse,
+    MoneyTextClassTrue,
+    FontSizeYear,
+    ColorCheckFalse,
+    ColorCheckTrue,
+  } = pageStyles[currentVariant];
 
   return (
     <div
@@ -156,11 +156,15 @@ const {
             className={classNames(
               tier.featured
                 ? currentVariant === "young"
-                  ? "bg-[#ff0070]/60 shadow-2xl"
-                  : "bg-red-950/60 shadow-2xl" // Estilo para `featured` basado en la página
+                  ? "bg-[#ff0070]/60 shadow-2xl" // Diseño para adolescentes destacados
+                  : currentVariant === "adult"
+                  ? "bg-[#4CAF50]/60 shadow-2xl" // Diseño para adultos destacados
+                  : "bg-red-950/60 shadow-2xl" // Diseño por defecto para destacados
                 : currentVariant === "young"
-                ? "bg-white/70"
-                : "bg-white/70", // Estilo para `non-featured` basado en la página
+                ? "bg-[#ffe4e6]/70" // Diseño para adolescentes no destacados
+                : currentVariant === "adult"
+                ? "bg-[#e8f5e9]/70" // Diseño para adultos no destacados
+                : "bg-white/70", // Diseño por defecto para no destacados
               "rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 transition-transform duration-300 transform-gpu hover:scale-105 hover:shadow-2xl"
             )}
           >

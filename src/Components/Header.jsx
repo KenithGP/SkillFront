@@ -109,12 +109,22 @@ export default function Header() {
         <button
           className={`px-4 py-2 rounded-full transition-transform duration-500 text-white ${hoverTextClass}`}
         >
-          Iniciar Sesión
+          <Link
+          to="/login"
+          className={`transition-transform duration-500 ${hoverTextClass}`}
+        >
+           Iniciar Sesión
+        </Link>
         </button>
         <button
           className={`px-4 py-2 rounded-full transition-transform duration-500 ${buttonClass}`}
         >
+            <Link
+          to="/register"
+          className={`transition-transform duration-500 ${hoverTextClass}`}
+        >
           Registrarse
+        </Link>
         </button>
       </div>
     </header>
