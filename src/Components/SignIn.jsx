@@ -1,5 +1,22 @@
 import Logo from '../assets/Icons/Logo.svg'
+import { useState } from 'react';
+import { AuthService } from '../services/auth.service';
+
 export default function SignIn() {
+    const authService = new AuthService();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSigIn = async (e) => {
+      e.preventDefault();
+        try {
+            const user = await authService.login(email, password);
+            console.log(user); 
+        } catch (error) {
+            console.error("Error logging in:", error);
+        } 
+    }
+    
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center py-12 px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
@@ -14,7 +31,7 @@ export default function SignIn() {
             Inicia sesión
             </h2>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-6">
             <div className="rounded-md shadow-sm space-y-4">
               <div>
                 <label
@@ -30,6 +47,7 @@ export default function SignIn() {
                   required
                   className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   placeholder="Enter your email"
+                  onChange={(e) => {setEmail(e.target.value)}}
                 />
               </div>
               <div>
@@ -46,6 +64,7 @@ export default function SignIn() {
                   required
                   className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   placeholder="Enter your password"
+                  onChange={(e) => {setPassword(e.target.value)}}
                 />
               </div>
             </div>
@@ -80,6 +99,7 @@ export default function SignIn() {
               <button
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                onClick={handleSigIn}
               >
                 Iniciar Sesión
               </button>
