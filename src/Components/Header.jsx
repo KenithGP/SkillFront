@@ -1,6 +1,7 @@
 import logo from "../assets/Icons/Logo-White-mobil.svg";
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
+import LogoBlack from "../assets/Icons/Logo.svg"
 
 export default function Header() {
   const location = useLocation();
@@ -15,12 +16,16 @@ export default function Header() {
       fontClass: "font-semibold text-xl",
       buttonClass: "bg-[#E53935] text-white hover:bg-red-400",
       hoverTextClass: "hover:text-green-500",
+      colortext:"text-white",
+      icon: logo, 
     },
     kids: {
-      fontClass: "font-cursive text-sm text-yellow-600",
-      buttonClass: "bg-[#FFD700] text-black hover:bg-yellow-500",
-      hoverTextClass: "hover:text-[#FFD700]",
-    },
+      fontClass: "font-comics text-xl ", 
+      buttonClass: "bg-yellow-100  hover:bg-yellow-200", 
+      hoverTextClass: "text-black hover:text-yellow-400  ",
+      colortext:"text-black",
+      icon: LogoBlack,
+      },
     young: {
       fontClass: "font-arcade text-xs text-pink-600",
       buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
@@ -43,13 +48,13 @@ export default function Header() {
     "home"; // Predeterminado a Home si no coincide nada más
 
   // Obtener los estilos dinámicos según la variante
-  const { fontClass, buttonClass, hoverTextClass } = designs[currentVariant];
+  const { fontClass, buttonClass, hoverTextClass, colortext, icon } = designs[currentVariant];
 
   // Determinar la ruta dinámica para el enlace "Planes"
   const planesLink =
     location.pathname.includes("/Young")
       ? "/planes?variant=young"
-      : location.pathname.includes("/kids")
+      : location.pathname.includes("/Kids")
       ? "/planes?variant=kids"
       : location.pathname.includes("/adult")
       ? "/planes?variant=adult"
@@ -62,9 +67,9 @@ export default function Header() {
       {/* Logo y Nombre */}
       <div className="flex items-center space-x-4 ml-6 hover:scale-110 duration-500 transition-transform">
         <Link to="/">
-          <img src={logo} alt="Logo" className="h-10 w-10" />
+          <img src={icon} alt="Logo" className="h-10 w-10" />
         </Link>
-        <Link className="text-white font-bold text-base" to="/">
+        <Link className={`font-bold text-base ${colortext}`} to="/">
           SkillConnect
         </Link>
       </div>

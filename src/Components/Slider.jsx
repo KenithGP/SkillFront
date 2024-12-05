@@ -6,7 +6,7 @@ const pageStyles = {
   default: {
     fontClass: "font-sans text-lg", //fuente
     buttonClass: "bg-[#E53935] text-white hover:bg-red-400", // para los botones
-    slideBackground: "bg-transparent ", // color de fondo para el slides
+    slideBackground: "bg-gradient-to-r from-blue-400 to-indigo-600", // color de fondo para el slides
   },
   young: {
     fontClass: "font-arcade text-sm",
@@ -14,9 +14,9 @@ const pageStyles = {
     slideBackground: "bg-transparent",
   },
   kids: {
-    fontClass: "font-cursive text-lg",
-    buttonClass: "bg-[#ffcc00] text-white hover:bg-[#ff9900]",
-    slideBackground: "bg-gradient-to-r from-pink-400 to-yellow-500",
+    fontClass: "font-comics text-lg ",
+    buttonClass: "bg-blue-100 text-[#000000] hover:bg-yellow-200",
+    slideBackground: "bg-gray-500 bg-opacity-40",
   },
   Adult: {
     fontClass: "font-bree text-xl",
