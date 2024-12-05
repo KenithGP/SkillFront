@@ -30,6 +30,7 @@ export default function Header() {
       fontClass: "font-arcade text-xs text-pink-600",
       buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
       hoverTextClass: "hover:text-[#ff0068]",
+      icon: logo, 
     },
     adult: {
       fontClass: "font-bree text-xl text-gray-800",
