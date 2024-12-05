@@ -44,6 +44,7 @@ const pageStyles = {
     fontClass: "font-sans ",
     textSize:" text-sm font-semibold ",
     titleSize:"text-3xl font-bold",
+    bgColor: "bg-gradient-to-b from-black/60 to-black/90 ",
   },
   young: {
     textClass: "text-yellow-200",
@@ -51,15 +52,18 @@ const pageStyles = {
     fontClass: "font-arcade",
     textSize:" text-xs font-normal ",
     titleSize:" text-xl font-bold",
+    bgColor: "bg-gradient-to-b from-black/60 to-black/90 ",
   },
   kids: {
     fontClass: "font-comics",
     textSize:" text-1xl",
     titleSize:" text-2xl font-bold",
+    bgColor: "bg-gradient-to-b from-black/60 to-black/90 ",
   },
   adult: {
     textClass: "text-gray-300",
     descClass: "text-gray-500",
+    bgColor: "bg-gradient-to-b from-black/60 to-black/90 ",
     fontClass: "font-sans",
   },
 };
@@ -72,10 +76,10 @@ export default function TarjetaCurso({ variant = "default" }) {
   const variant = params.get("variant") || "default"; */ // Si no hay variante, usar "default"
 
   // Obtener estilos dinámicos según la variante
-  const { textClass, textSize,titleSize,descClass, fontClass } = pageStyles[variant];
+  const { textClass, textSize,titleSize,descClass, fontClass, bgColor } = pageStyles[variant];
 
   return (
-    <div className={`bg-gradient-to-b from-black/60 to-black/90  w-full mb-40 flex flex-wrap justify-center gap-4 p-4 ${fontClass}`}>
+    <div className={` w-full mb-40 flex flex-wrap justify-center gap-4 p-4 ${fontClass} ${bgColor}`}>
       <div className="flex flex-wrap justify-center gap-8 p-4 mt-20 mb-36">
         {courses.map((course, index) => (
           <div

@@ -9,16 +9,19 @@ const pageStyles = {
     fontClass: "font-sans",
     textSize: "text-sm font-semibold",
     titleSize: "text-lg font-bold",
+    bgColor: "bg-black/90",
   },
   young: {
     logo: LogoGamer,
     fontClass: "font-arcade",
     textSize: "text-xs font-medium",
     titleSize: "text-md font-bold text-yellow-500",
+    bgColor: "bg-black/90",
   },
   kids: {
-    logo: LogoGamer,
+    logo: Logo,
     fontClass: "font-comics",
+    bgColor: "bg-blue-900/90",
     textSize: "text-xs font-medium",
     titleSize: "text-lg font-bold text-yellow-500",
   },
@@ -26,10 +29,10 @@ const pageStyles = {
 
 export default function Footer({ variant = "default" }) {
   // Obtener estilos dinámicos según la variante
-  const { logo, textSize, titleSize, fontClass } = pageStyles[variant];
+  const { logo, textSize, titleSize, fontClass, bgColor } = pageStyles[variant];
 
   return (
-    <footer className={`bg-black/90 text-white py-12 ${fontClass}`}>
+    <footer className={`text-white py-12 ${fontClass} ${bgColor}`}>
       <div className="container mx-auto px-4 border-t border-gray-700">
         {/* Logo Section */}
         <div className="flex justify-center mb-8">
