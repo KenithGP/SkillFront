@@ -2,7 +2,7 @@ import Css from "../assets/Images/Css.svg";
 import Html from "../assets/Images/Html.svg";
 import JavaScript from "../assets/Images/Javascript.svg";
 import Php from "../assets/Images/Php.svg";
-import React from "../assets/Images/react.svg";
+import React from "../assets/Images/React.svg";
 
 const courses = [
   {
