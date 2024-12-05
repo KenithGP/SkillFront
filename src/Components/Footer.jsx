@@ -1,22 +1,37 @@
-import logo from '../assets/Icons/Logo-White.svg'
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa"; 
+import Logo from '../assets/Icons/Logo-White.svg';
+import LogoGamer from '../assets/Icons/Logo-gamer.svg';
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
+// Configuración de estilos para cada variante
+const pageStyles = {
+  default: {
+    logo: Logo,
+    fontClass: "font-sans",
+    textSize: "text-sm font-semibold",
+    titleSize: "text-lg font-bold",
+  },
+  young: {
+    logo: LogoGamer,
+    fontClass: "font-arcade",
+    textSize: "text-xs font-medium",
+    titleSize: "text-md font-bold text-yellow-500",
+  },
+};
 
-export default function Footer() {
+export default function Footer({ variant = "default" }) {
+  // Obtener estilos dinámicos según la variante
+  const { logo, textSize, titleSize, fontClass } = pageStyles[variant];
+
   return (
-<footer className="bg-black/90 text-white py-12">
-  <div className="container mx-auto px-2 border-t border-gray-700">
-    {/* Logo Section */}
-    <div className="flex justify-center mb-8">
-      <img
-        src={logo}
-        alt="skillconnect-logo"
-        className="h-30 w-40"
-      />
-    </div>
+    <footer className={`bg-black/90 text-white py-12 ${fontClass}`}>
+      <div className="container mx-auto px-4 border-t border-gray-700">
+        {/* Logo Section */}
+        <div className="flex justify-center mb-8">
+          <img src={logo} alt="SkillConnect Logo" className="h-1/5 w-1/5" />
+        </div>
 
-      {/* Redes Sociales */}
-      <div className="flex justify-center space-x-4 mb-8">
+        {/* Redes Sociales */}
+        <div className="flex justify-center space-x-4 mb-8">
           <a
             href="https://facebook.com"
             target="_blank"
@@ -42,69 +57,43 @@ export default function Footer() {
             <FaInstagram size={24} />
           </a>
         </div>
+
         {/* Sección de columnas */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left w-full">
-          {/* Columna 1: Contáctanos */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contáctanos</h3>
+            <h3 className={`mb-4 ${titleSize}`}>Contáctanos</h3>
             <ul className="space-y-2">
               <li><a href="#!" className="hover:text-gray-300">Centro de ayuda</a></li>
               <li><a href="#!" className="hover:text-gray-300">Reportar problema</a></li>
             </ul>
           </div>
-
-          {/* Columna 2: Términos y Condiciones */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Términos y Condiciones</h3>
+            <h3 className={`mb-4 ${titleSize}`}>Términos y Condiciones</h3>
             <ul className="space-y-2">
               <li><a href="#!" className="hover:text-gray-300">Descripción del servicio</a></li>
               <li><a href="#!" className="hover:text-gray-300">Información legal</a></li>
-              <li><a href="#!" className="hover:text-gray-300">Limitación del servicio</a></li>
             </ul>
           </div>
-
-          {/* Columna 3: Acerca de Nosotros */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Acerca de Nosotros</h3>
+            <h3 className={`mb-4 ${titleSize}`}>Acerca de Nosotros</h3>
             <ul className="space-y-2">
               <li><a href="#!" className="hover:text-gray-300">¿Qué es SkillConnect?</a></li>
-              <li><a href="#!" className="hover:text-gray-300">El equipo</a></li>
-              <li><a href="#!" className="hover:text-gray-300">Cultura</a></li>
             </ul>
           </div>
-          {/* columna 4: Información */}
-        <div>
-            <h3 className="text-lg font-semibold mb-4">Información</h3>
+          <div>
+            <h3 className={`mb-4 ${titleSize}`}>Información</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="#!" className="hover:text-gray-300">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#!" className="hover:text-gray-300">
-                  Eventos
-                </a>
-              </li>
-              <li>
-                <a href="#!" className="hover:text-gray-300">
-                  Noticias
-                </a>
-              </li>
-              <li>
-                <a href="#!" className="hover:text-gray-300">
-                  Carreras
-                </a>
-              </li>
+              <li><a href="#!" className="hover:text-gray-300">Blog</a></li>
+              <li><a href="#!" className="hover:text-gray-300">Noticias</a></li>
             </ul>
           </div>
-        </div>
         </div>
 
-        
         {/* Newsletter */}
         <div className="mt-8">
-          <h3 className="text-lg font-semibold mb-4 text-center">¡Suscríbete a nuestro newsletter!</h3>
+          <h3 className={`text-center mb-4 ${titleSize}`}>
+            ¡Suscríbete a nuestro newsletter!
+          </h3>
           <form className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0">
             <input
               type="email"
@@ -124,6 +113,7 @@ export default function Footer() {
         <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm text-gray-400">
           © 2024 SkillConnect. Todos los derechos reservados.
         </div>
-</footer>
-  )
+      </div>
+    </footer>
+  );
 }

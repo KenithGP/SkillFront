@@ -1,6 +1,31 @@
 import { useState } from "react";
+// Configuración de estilos para cada variante
+const pageStyles = {
+  default: {
 
-const Preguntas = () => {
+    fontClass: "font-sans ",
+    textSize:" text-sm font-semibold ",
+    titleSize:"text-3xl font-bold",
+  },
+  young: {
+    fontClass: "font-arcade",
+    textSize:" text-xs font-normal ",
+    titleSize:" text-md font-bold",
+  },
+  kids: {
+
+    fontClass: "font-sans",
+  },
+  adult: {
+    fontClass: "font-sans",
+  },
+};
+
+export default function Preguntas  ({ variant = "default" }) {
+
+  // Obtener estilos dinámicos según la variante
+  const {  textSize,titleSize, fontClass } = pageStyles[variant];
+
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleAnswer = (index) => {
@@ -32,14 +57,14 @@ const Preguntas = () => {
 
   return (
   
-    <div className="min-h-screen text-yellow-300 p-8 flex flex-col items-center">
+    <div className={`min-h-screen text-yellow-300 p-8 flex flex-col items-center ${fontClass}`}>
   {/* TÍTULO */}
   <h1 className="text-4xl font-bold mb-10 relative">
     Preguntas frecuentes
   </h1>
 
   {/* Contenedor principal con dos columnas */}
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl px-4 sm:px-6">
+  <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl px-4 sm:px-6 ${titleSize}`}>
     {/* Columna de cuadro de Preguntas */}
     <div className="space-y-7">
       {faqs.map((faq, index) => (
@@ -75,7 +100,7 @@ const Preguntas = () => {
     </div>
 
     {/* Columna del Formulario */}
-    <div className="text-white mt-10 md:mt-0">
+    <div className={`text-white mt-10 md:mt-0 ${textSize}`}>
       <h2 className="text-2xl font-medium text-rose-200 mb-4 text-center">¿Tienes alguna otra pregunta?</h2>
       <p className="text-sm text-gray-300 mb-6 text-center">Nos encantaría resolver tus dudas.</p>
       <form className="space-y-5">
@@ -122,4 +147,4 @@ const Preguntas = () => {
   );
 };
 
-export default Preguntas;
+
