@@ -1,7 +1,7 @@
 import logo from "../assets/Icons/Logo-White-mobil.svg";
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
-import LogoBlack from "../assets/Icons/Logo.svg"
+import LogoBlack from "../assets/Icons/Logo.svg";
 
 export default function Header() {
   const location = useLocation();
@@ -16,28 +16,29 @@ export default function Header() {
       fontClass: "font-semibold text-xl",
       buttonClass: "bg-[#E53935] text-white hover:bg-red-400",
       hoverTextClass: "hover:text-green-500",
-      colortext:"text-white",
-      icon: logo, 
+      colortext: "text-white",
+      icon: logo,
     },
     kids: {
-      fontClass: "font-comics text-xl ", 
-      buttonClass: "bg-yellow-100  hover:bg-yellow-200", 
+      fontClass: "font-comics text-xl ",
+      buttonClass: "bg-yellow-100  hover:bg-yellow-200",
       hoverTextClass: "text-black hover:text-yellow-400  ",
-      colortext:"text-black",
+      colortext: "text-black",
       icon: LogoBlack,
-      },
+    },
     young: {
       fontClass: "font-arcade text-xs text-pink-600",
       buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
       hoverTextClass: "hover:text-[#ff0068]",
-      icon: logo, 
+      icon: logo,
     },
     adult: {
       fontClass: "font-bree text-xl text-gray-800",
-      buttonClass: "bg-[#58349b] text-white hover:bg-indigo-700 hover:scale-110 duration-500 transition-transform focus:ring-indigo-300 rounded-lg px-6 py-2",
+      buttonClass:
+        "bg-[#58349b] text-white hover:bg-indigo-700 hover:scale-110 duration-500 transition-transform focus:ring-indigo-300 rounded-lg px-6 py-2",
       hoverTextClass: "hover:text-[yellow]",
-      colortext:"text-white",
-      icon: logo, 
+      colortext: "text-white",
+      icon: logo,
     },
   };
 
@@ -51,17 +52,26 @@ export default function Header() {
     "home"; // Predeterminado a Home si no coincide nada más
 
   // Obtener los estilos dinámicos según la variante
-  const { fontClass, buttonClass, hoverTextClass, colortext, icon } = designs[currentVariant];
+  const { fontClass, buttonClass, hoverTextClass, colortext, icon } =
+    designs[currentVariant];
 
   // Determinar la ruta dinámica para el enlace "Planes"
-  const planesLink =
-    location.pathname.includes("/Young")
-      ? "/planes?variant=young"
-      : location.pathname.includes("/Kids")
-      ? "/planes?variant=kids"
-      : location.pathname.includes("/adult")
-      ? "/planes?variant=adult"
-      : "/planes";
+  const planesLink = location.pathname.includes("/Young")
+    ? "/planes?variant=young"
+    : location.pathname.includes("/Kids")
+    ? "/planes?variant=kids"
+    : location.pathname.includes("/adult")
+    ? "/planes?variant=adult"
+    : "/planes";
+    
+//Determinamos la ruta dinámica para la ruta "beca"
+  const becaLink = location.pathname.includes("/Young")
+    ? "/beca?variant=young"
+    : location.pathname.includes("/Kids")
+    ? "/beca?variant=kids"
+    : location.pathname.includes("/adult")
+    ? "/beca?variant=adult"
+    : "/beca";
 
   return (
     <header
@@ -92,7 +102,7 @@ export default function Header() {
           Cursos
         </Link>
         <Link
-          to="/beca"
+          to={becaLink} // ruta dinamica para "beca"
           className={`transition-transform duration-500 ${hoverTextClass}`}
         >
           Becas
@@ -121,21 +131,21 @@ export default function Header() {
           className={`px-4 py-2 rounded-full transition-transform duration-500 text-white ${hoverTextClass}`}
         >
           <Link
-          to="/Login"
-          className={`transition-transform duration-500 ${hoverTextClass}`}
-        >
-           Iniciar Sesión
-        </Link>
+            to="/Login"
+            className={`transition-transform duration-500 ${hoverTextClass}`}
+          >
+            Iniciar Sesión
+          </Link>
         </button>
         <button
           className={`px-4 py-2 rounded-full transition-transform duration-500 ${buttonClass}`}
         >
-            <Link
-          to="/Register"
-          className={`transition-transform duration-500 ${hoverTextClass}`}
-        >
-          Registrarse
-        </Link>
+          <Link
+            to="/Register"
+            className={`transition-transform duration-500 ${hoverTextClass}`}
+          >
+            Registrarse
+          </Link>
         </button>
       </div>
     </header>
