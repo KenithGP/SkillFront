@@ -16,6 +16,12 @@ const pageStyles = {
     textSize: "text-xs font-medium",
     titleSize: "text-md font-bold text-yellow-500",
   },
+  kids: {
+    logo: LogoGamer,
+    fontClass: "font-comics",
+    textSize: "text-xs font-medium",
+    titleSize: "text-lg font-bold text-yellow-500",
+  },
 };
 
 export default function Footer({ variant = "default" }) {

@@ -21,8 +21,8 @@ export default function Header() {
     },
     kids: {
       fontClass: "font-comics text-xl ", 
-      buttonClass: "bg-yellow-100  hover:bg-yellow-200", 
-      hoverTextClass: "text-black hover:text-yellow-400  ",
+      buttonClass: "bg-[#F8D642] hover:bg-[#D1A64E]", 
+      hoverTextClass: "text-black hover:text-[#F8D642]  ",
       colortext:"text-black",
       icon: LogoBlack,
       },
@@ -30,9 +30,10 @@ export default function Header() {
       fontClass: "font-arcade text-xs text-pink-600",
       buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
       hoverTextClass: "hover:text-[#ff0068]",
+      icon: logo, 
     },
     adult: {
-      fontClass: "font-bree text-xl text-gray-800",
+      fontClass: "font-bree text-xl",
       buttonClass: "bg-[#58349b] text-white hover:bg-indigo-700 hover:scale-110 duration-500 transition-transform focus:ring-indigo-300 rounded-lg px-6 py-2",
       hoverTextClass: "hover:text-[yellow]",
       colortext:"text-white",
@@ -56,7 +57,7 @@ export default function Header() {
   const planesLink =
     location.pathname.includes("/Young")
       ? "/planes?variant=young"
-      : location.pathname.includes("/Kids")
+      : location.pathname.includes("/kids")
       ? "/planes?variant=kids"
       : location.pathname.includes("/adult")
       ? "/planes?variant=adult"
