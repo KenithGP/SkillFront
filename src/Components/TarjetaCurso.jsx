@@ -58,9 +58,9 @@ const pageStyles = {
     titleSize:" text-2xl font-bold",
   },
   adult: {
-    textClass: "text-gray-300",
-    descClass: "text-gray-500",
-    fontClass: "font-sans",
+    fontClass: "font-bree",
+    textSize:" text-1xl",
+    titleSize:" text-2xl font-bold",
   },
 };
 

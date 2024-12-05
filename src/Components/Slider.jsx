@@ -22,9 +22,10 @@ const pageStyles = {
     colortext: "text-black",
   },
   Adult: {
-    fontClass: "font-abel text-lg",
+    fontClass: "font-bree text-lg",
     buttonClass: "bg-[#5625b2] text-white hover:bg-[#162682]",
     slideBackground: "bg-gradient-to-r from-purple-700 to-blue-700",
+    colortext: "text-white",
   },
 };
 
@@ -33,6 +34,7 @@ const Slider = ({ variant = "default" }) => {
 
   // Determinar la variante de la página actual
   const getPageVariant = () => {
+    if (location.pathname.includes("/adult")) return "Adult";
     if (location.pathname.includes("/Young")) return "young";
     if (location.pathname.includes("/kids")) return "kids";
     return "default";
