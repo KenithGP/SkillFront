@@ -38,5 +38,21 @@ export class AuthService{
             throw error;
         }
     }
-    
+
+    async isAuth(){
+        try {
+            const response = await fetch(`${this.baseURL}/verify-token`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include'
+            });
+            const user = await response.json();
+            return user;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }    
 }
