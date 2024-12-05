@@ -2,7 +2,9 @@ import { useLocation } from "react-router-dom";
 import Header from '../Components/Header'
 import Slider from '../Components/Slider'
 import TarjetPlanes from '../Components/TarjetPlanes'
-/* import Footer from '../Components/Footer' */
+import TarjetCurso from '../Components/TarjetaCurso'
+import Preguntas from '../Components/Preguntas'
+import Footer from '../Components/Footer'
 
 export default function Young() {
   const location = useLocation();
@@ -10,7 +12,7 @@ export default function Young() {
   // Determinar variante según la ruta
   const variant = location.pathname.includes("/kids")
     ? "kids"
-    : location.pathname.includes("/young")
+    : location.pathname.includes("/Young")
     ? "young"
     : "default";
 
@@ -19,7 +21,9 @@ export default function Young() {
       <Header variant={variant} />
       <Slider variant={variant} />
       <TarjetPlanes variant={variant} />
-    
+      <TarjetCurso variant={variant}/>
+      <Preguntas variant={variant}/>
+      <Footer variant={variant}/>
     </div>
   )
 }
