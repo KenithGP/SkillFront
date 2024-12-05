@@ -1,4 +1,3 @@
-
 import Header from '../Components/Header'
 import TarjetaCurso from '../Components/TarjetaCurso'
 import TarjetPlanes from '../Components/TarjetPlanes'
@@ -23,7 +22,10 @@ export default function Adult() {
     <div  className="bg-gradient-to-b from-[#162682]/95 to-[#5625b2]/100 max-screen">
        <Header  variant={variant}/>
        <Slider variant={variant} />        
-       <TarjetPlanes variant={variant}/>      
+       <TarjetPlanes variant={variant}/> 
+       <TarjetaCurso variant={variant}/>        
+       <Preguntas variant={variant}/> 
+       <Footer variant={variant}/>   
     </div>
   )
 }

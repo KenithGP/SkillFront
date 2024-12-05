@@ -58,9 +58,11 @@ const pageStyles = {
     fontClass: "font-sans",
   },
   adult: {
-    textClass: "text-gray-300",
-    descClass: "text-gray-500",
-    fontClass: "font-sans",
+    fontClass: "font-bree",
+    textClass: "text-yellow-200",
+    descClass: "text-pink-100",
+    textSize:" text-xs font-normal ",
+    titleSize:" text-xl font-bold",
   },
 };
 
