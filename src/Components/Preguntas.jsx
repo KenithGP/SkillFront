@@ -6,14 +6,28 @@ const pageStyles = {
     fontClass: "font-sans ",
     textSize: " text-sm font-semibold ",
     titleSize: "text-3xl font-bold",
+    titleColor:"text-yellow-300",
+    subtitleStile:"text-rose-200 font-medium",
+    describeColor: "text-sm text-gray-300 ",
+    colorButtom: "bg-red-600 text-white py-2 px-5 rounded-md hover:bg-red-700 transition duration-300 ease-in-out",
+    
   },
   young: {
     fontClass: "font-arcade",
+    titleColor:"text-yellow-300",
+    subtitleStile:"",
     textSize: " text-xs font-normal ",
     titleSize: " text-md font-bold",
+    
   },
   kids: {
-    fontClass: "font-sans",
+    fontClass: "font-comics",
+    titleColor:"text-[#FFFFFF]",
+    subtitleStile:"text-green-800 font-bold",
+    describeColor: "text-gray-100 text-bold text-md",
+    textSize: " text-xl font-normal ",
+    titleSize: " text-xl font-bold",
+    colorButtom: "bg-[#F8D642] text-black py-2 px-5 rounded-md hover:bg-[#D1A64E] transition duration-300 ease-in-out",
   },
   adult: {
     fontClass: "font-sans",
@@ -22,7 +36,7 @@ const pageStyles = {
 
 export default function Preguntas({ variant = "default" }) {
   // Obtener estilos dinámicos según la variante
-  const { textSize, titleSize, fontClass } = pageStyles[variant];
+  const { textSize, titleSize, fontClass, titleColor, subtitleStile, describeColor, colorButtom } = pageStyles[variant];
 
   const [activeIndex, setActiveIndex] = useState(null);
   const [formData, setFormData] = useState({
@@ -86,7 +100,7 @@ export default function Preguntas({ variant = "default" }) {
 
   return (
     <div
-      className={`min-h-screen text-yellow-300 p-8 flex flex-col items-center ${fontClass}`}
+      className={`min-h-screen p-8 flex flex-col items-center ${fontClass} ${titleColor}`}
     >
       {/* TÍTULO */}
       <h1 className="text-4xl font-bold mb-10 relative">Preguntas frecuentes</h1>
@@ -133,10 +147,10 @@ export default function Preguntas({ variant = "default" }) {
 
         {/* Columna del Formulario */}
         <div className={`text-white mt-10 md:mt-0 ${textSize}`}>
-          <h2 className="text-2xl font-medium text-rose-200 mb-4 text-center">
+          <h2 className={`text-2xl mb-4 text-center ${subtitleStile}`}>
             ¿Tienes alguna otra pregunta?
           </h2>
-          <p className="text-sm text-gray-300 mb-6 text-center">
+          <p className={` mb-6 text-center ${describeColor}`}>
             Nos encantaría resolver tus dudas.
           </p>
           {/* Formulario */}
@@ -183,7 +197,7 @@ export default function Preguntas({ variant = "default" }) {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="bg-red-600 text-white py-2 px-5 rounded-md hover:bg-red-700 focus:ring-2 focus:ring-red-400 focus:outline-none transition duration-300 ease-in-out"
+                className={`${colorButtom}`}
               >
                 Enviar
               </button>
