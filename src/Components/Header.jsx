@@ -27,9 +27,9 @@ export default function Header() {
       hoverTextClass: "hover:text-[#ff0068]",
     },
     adult: {
-      fontClass: "font-abel text-base text-gray-800",
-      buttonClass: "bg-[#162682] text-white hover:bg-purple-900",
-      hoverTextClass: "hover:text-[white]",
+      fontClass: "font-bree text-xl text-gray-800",
+      buttonClass: "bg-[#58349b] text-white hover:bg-indigo-700 hover:scale-110 duration-500 transition-transform focus:ring-indigo-300 rounded-lg px-6 py-2",
+      hoverTextClass: "hover:text-[yellow]",
     },
   };
 
@@ -39,7 +39,7 @@ export default function Header() {
     (location.pathname === "/" && "home") || // Ruta raíz
     (location.pathname.includes("/Young") && "young") || // Ruta de adolescentes
     (location.pathname.includes("/kids") && "kids") || // Ruta de niños
-    (location.pathname.includes("/Adult") && "adult") || // Ruta de adultos
+    (location.pathname.includes("/adult") && "adult") || // Ruta de adultos
     "home"; // Predeterminado a Home si no coincide nada más
 
   // Obtener los estilos dinámicos según la variante
@@ -51,13 +51,13 @@ export default function Header() {
       ? "/planes?variant=young"
       : location.pathname.includes("/kids")
       ? "/planes?variant=kids"
-      : location.pathname.includes("/Adult")
-      ? "/planes?variant=Adult"
+      : location.pathname.includes("/adult")
+      ? "/planes?variant=adult"
       : "/planes";
 
   return (
     <header
-      className={`flex items-center justify-between px-6 py-4 mb-10 ${fontClass}`}
+      className={`flex items-center justify-between px-10 py-5 mb-1 ${fontClass}`}
     >
       {/* Logo y Nombre */}
       <div className="flex items-center space-x-4 ml-6 hover:scale-110 duration-500 transition-transform">

@@ -19,7 +19,7 @@ const pageStyles = {
     slideBackground: "bg-gradient-to-r from-pink-400 to-yellow-500",
   },
   Adult: {
-    fontClass: "font-abel text-lg",
+    fontClass: "font-bree text-xl",
     buttonClass: "bg-[#5625b2] text-white hover:bg-[#162682]",
     slideBackground: "bg-gradient-to-r from-purple-700 to-blue-700",
   },
@@ -32,7 +32,7 @@ const Slider = ({ variant = "default" }) => {
   const getPageVariant = () => {
     if (location.pathname.includes("/Young")) return "young";
     if (location.pathname.includes("/Kids")) return "kids";
-    if (location.pathname.includes("/Adult")) return "Adult";
+    if (location.pathname.includes("/adult")) return "Adult";
     return "default";
   };
 
@@ -89,7 +89,7 @@ const Slider = ({ variant = "default" }) => {
 
   return (
     <div
-      className={`relative w-full overflow-hidden ${slideBackground} h-[500px]`}
+      className={`relative w-full overflow-hidden ${slideBackground} p-7 h-[450px]`}
     >
       <div
         className="flex transition-transform duration-1000 ease-in-out items-center h-[400px]"
