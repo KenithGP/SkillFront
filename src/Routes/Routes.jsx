@@ -27,7 +27,8 @@ export default function AppRoutes() {
         <Route path="/planes" element={<Planes />} />
         <Route path="/Beca" element={<Beca/>} />
         <Route path="/Quizz" element={<Quizz />} />
-        <Route path="/kids" element={<Kids />} />        
+        <Route path="/Kids" element={<Kids />} />
+        
         <Route path="/Young" element={<Young />} />
         <Route path="/adult" element={<Adult />} />
         <Route path="/Login" element={<Login />} />
