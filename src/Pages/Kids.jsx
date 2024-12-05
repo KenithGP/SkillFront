@@ -8,19 +8,19 @@ import Slider from '../Components/Slider';
 
 export default function Kids() {
   return (
+
     <div className="relative w-full h-screen">
       {/* Video de fondo */}
       <video
         className="absolute w-full h-full object-cover"
-        src="src/Videos/VIDEOFONDO.mp4"  // Ruta correcta al video en la carpeta public
+        src="src/Videos/VIDEO-FONDO-WEB.mp4"  // Ruta correcta al video en la carpeta public
         autoPlay
         loop
         muted
       ></video>
 
-      {/* Contenido encima del video */}
       <div className="relative z-10">
-        <Header />
+        <Header className="bg-red-900"/>
         <Slider variant="default" />
         <TarjetPlanes />
       </div>
