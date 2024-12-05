@@ -80,6 +80,19 @@ const pageStyles = {
     ColorCheckTrue: "text-[#ff7f07]",
     ColorCheckFalse: "text-green-700",
   },
+  /* crear adulto */
+  Adult: {
+    fontClass: "font-bree text-xs",
+    titleClass: "text-yellow-400 text-4xl font-bold", 
+    descriptionClass: "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-yellow-200",
+    cardTextClassFalse: "text-black",
+    cardTextClassTrue: "text-red-400",
+    MoneyTextClassFalse: "text-purple-800 text-3xl font-semibold tracking-tight", 
+    MoneyTextClassTrue: "text-white text-3xl font-semibold tracking-tight", 
+    FontSizeYear: "text-xs",
+    ColorCheckTrue: "text-[#ff7f07]", 
+    ColorCheckFalse: "text-blue-700",
+  },
 };
 const pageContent = {
   "/planes": {
@@ -109,9 +122,10 @@ export default function TarjetPlanes() {
   const params = new URLSearchParams(location.search);
 
   // Detectar la variante según el query parameter "variant" o ruta
-  const currentVariant =
-    params.get("variant") || // Query parameter "variant"
-    (location.pathname.includes("/Young") ? "young" : "default");
+  const currentVariant = 
+  params.get("variant") || // Query parameter "variant"
+  (location.pathname.includes("/Young") ? "young" : 
+  location.pathname.includes("/adult") ? "Adult" : "default");
 
   // Obtener los estilos dinámicos según la variante
   const {
@@ -152,7 +166,7 @@ export default function TarjetPlanes() {
       <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-3">
         {tiers.map((tier) => (
           <div
-            key={tier.id}
+            key={tier.id}            
             className={classNames(
               tier.featured
                 ? currentVariant === "young"
@@ -168,6 +182,7 @@ export default function TarjetPlanes() {
               "rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 transition-transform duration-300 transform-gpu hover:scale-105 hover:shadow-2xl"
             )}
           >
+
             <h3
               id={tier.id}
               className={classNames(

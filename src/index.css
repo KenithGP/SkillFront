@@ -7,9 +7,8 @@
     
   }
   @font-face {
-    font-family: 'ADULT'; /* Nombre personalizado */
-    src: url('./assets/Fonts/Abel-Regular.ttf') format('truetype'); /* Ruta relativa */
-    
+    font-family: 'Bree Serif'; /* Nombre personalizado */
+    src: url('./assets/Fonts/BreeSerif_T.ttf') format('truetype'); /* Ruta relativa */    
   }
     
   
