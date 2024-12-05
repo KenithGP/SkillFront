@@ -78,7 +78,7 @@ export default function Header() {
           Home
         </Link>
         <Link
-          to="/features"
+          to="/cursos"
           className={`transition-transform duration-500 ${hoverTextClass}`}
         >
           Cursos
