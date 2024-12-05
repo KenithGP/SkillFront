@@ -1,8 +1,8 @@
-import Imagen from "../assets/Images/Css.svg";
-import Imagen2 from "../assets/Images/Html.svg";
-import Imagen3 from "../assets/Images/Javascript.svg";
-import Imagen4 from "../assets/Images/Php.svg";
-import Imagen5 from "../assets/Images/react.svg";
+import Css from "../assets/Images/Css.svg";
+import Html from "../assets/Images/Html.svg";
+import JavaScript from "../assets/Images/Javascript.svg";
+import Php from "../assets/Images/Php.svg";
+import React from "../assets/Images/react.svg";
 
 const courses = [
   {
@@ -14,7 +14,7 @@ const courses = [
   {
     title: "JavaScript",
     description: "Lenguaje de programación que añade interactividad a sitios web.",
-    image: Imagen3,
+    image: JavaScript,
     bgGradient: "from-yellow-500 to-yellow-1000",
   },
   {
@@ -32,7 +32,7 @@ const courses = [
   {
     title: "React",
     description: "Biblioteca de JavaScript para construir interfaces de usuario dinámicas.",
-    image: Imagen5,
+    image: React,
     bgGradient: "from-sky-800 to-sky-1000",
   },
 ];
@@ -75,7 +75,7 @@ export default function TarjetaCurso({ variant = "default" }) {
   const { textClass, textSize,titleSize,descClass, fontClass } = pageStyles[variant];
 
   return (
-    <div className="bg-gradient-to-b from-black/60 to-black/90  w-full mb-40 flex flex-wrap justify-center gap-4 p-4">
+    <div className={`bg-gradient-to-b from-black/60 to-black/90  w-full mb-40 flex flex-wrap justify-center gap-4 p-4 ${fontClass}`}>
       <div className="flex flex-wrap justify-center gap-8 p-4 mt-20 mb-36">
         {courses.map((course, index) => (
           <div
