@@ -1,6 +1,31 @@
-import Logo from "../assets/Icons/Logo.svg";
+/* eslint-disable no-unused-vars */
 
-export default function RegisterAccount() {
+import { useState } from 'react';
+import Logo from "../assets/Icons/Logo.svg";
+import { AuthService } from '../services/auth.service';
+
+export default function RegisterAccount() {  
+  const authService = new AuthService();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [birthdate, setBirthdate] = useState('');
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const user = await authService.register(first_name, last_name, email, birthdate, password, username);
+      console.log(user);
+    } catch (error) {
+      console.error("Error registering:", error);
+    }
+  }
+
+
   return (
     <div className="min-h-screen  bg-gradient-to-b from-[#000000]/95 to-[#EA6558]/100 flex flex-col justify-center items-center py-12 px-6 lg:px-8">
       <div className="max-w-2xl w-full space-y-8 border bg-white/90 border-gray-300 rounded-lg p-10 shadow-2xl">
@@ -38,8 +63,7 @@ export default function RegisterAccount() {
           </span>
         </div>
 
-        <form className="mt-8 space-y-6" action="#">
-          {/* Fila para Nombre y Apellido */}
+        <form className="mt-8 space-y-6">
           <div className="flex space-x-4">
             <div className="w-1/2">
               <label
@@ -55,6 +79,7 @@ export default function RegisterAccount() {
                 required
                 className="mt-1 block w-full rounded-md px-2 h-10 shadow-md sm:text-sm border border-gray-300"
                 placeholder="Escribe tu nombre"
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
             <div className="w-1/2">
@@ -71,11 +96,30 @@ export default function RegisterAccount() {
                 required
                 className="mt-1 block w-full rounded-md px-2 h-10 shadow-md sm:text-sm border border-gray-300"
                 placeholder="Escribe tu apellido"
+                onChange={(e) => setLastName(e.target.value)}
               />
             </div>
           </div>
 
           {/* Correo Electrónico */}
+          <div>
+            <label
+              htmlFor="user"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Usuario
+            </label>
+            <input
+              id="user"
+              name="user"
+              type="text"
+              required
+              className="mt-1 block w-full rounded-md px-2 h-10 shadow-md sm:text-sm border border-gray-300"
+              placeholder="Escribe tu nombre de usuario"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+
           <div>
             <label
               htmlFor="email-address"
@@ -90,6 +134,7 @@ export default function RegisterAccount() {
               required
               className="mt-1 block w-full rounded-md px-2 h-10 shadow-md sm:text-sm border border-gray-300"
               placeholder="Escribe tu correo electrónico"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -107,6 +152,7 @@ export default function RegisterAccount() {
               type="date"
               required
               className="mt-1 block w-full rounded-md px-2 h-10 shadow-md sm:text-sm border border-gray-300"
+              onChange={(e) => setBirthdate(e.target.value)}
             />
           </div>
 
@@ -122,7 +168,8 @@ export default function RegisterAccount() {
               <input
                 id="password"
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
+                onChange={(e) => setPassword(e.target.value)}
                 required
                 className="mt-1 block w-full rounded-md px-2 h-10 shadow-md sm:text-sm border border-gray-300"
                 placeholder="Escribe tu contraseña"
@@ -150,6 +197,7 @@ export default function RegisterAccount() {
             <button
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm mb-5 font-medium rounded-md text-white bg-black hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+              onClick={handleRegister}
             >
               Registrarse
             </button>

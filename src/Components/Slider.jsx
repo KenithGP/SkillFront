@@ -6,20 +6,22 @@ const pageStyles = {
   default: {
     fontClass: "font-sans text-lg", //fuente
     buttonClass: "bg-[#E53935] text-white hover:bg-red-400", // para los botones
-    slideBackground: "bg-transparent ", // color de fondo para el slides
+    slideBackground: "bg-transparent from-blue-400 to-indigo-600", // color de fondo para el slides
   },
   young: {
     fontClass: "font-arcade text-sm",
     buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
     slideBackground: "bg-transparent",
+    colortext: "text-white",
   },
   kids: {
-    fontClass: "font-cursive text-lg",
-    buttonClass: "bg-[#ffcc00] text-white hover:bg-[#ff9900]",
-    slideBackground: "bg-gradient-to-r from-pink-400 to-yellow-500",
+    fontClass: "font-comics text-lg ",
+    buttonClass: "bg-[#F8D642] text-[#000000] hover:bg-[#D1A64E]",
+    slideBackground: "bg-white/50",
+    colortext: "text-black",
   },
   Adult: {
-    fontClass: "font-bree text-xl",
+    fontClass: "font-abel text-lg",
     buttonClass: "bg-[#5625b2] text-white hover:bg-[#162682]",
     slideBackground: "bg-gradient-to-r from-purple-700 to-blue-700",
   },
@@ -31,13 +33,12 @@ const Slider = ({ variant = "default" }) => {
   // Determinar la variante de la página actual
   const getPageVariant = () => {
     if (location.pathname.includes("/Young")) return "young";
-    if (location.pathname.includes("/Kids")) return "kids";
-    if (location.pathname.includes("/adult")) return "Adult";
+    if (location.pathname.includes("/kids")) return "kids";
     return "default";
   };
 
   const currentVariant = getPageVariant();
-  const { fontClass, buttonClass, slideBackground } = pageStyles[currentVariant];
+  const { fontClass, buttonClass, slideBackground, colortext } = pageStyles[currentVariant];
 
   // Slides para diferentes variantes
   const slidesVariants = {
@@ -89,7 +90,7 @@ const Slider = ({ variant = "default" }) => {
 
   return (
     <div
-      className={`relative w-full overflow-hidden ${slideBackground} p-7 h-[450px]`}
+      className={`relative w-full overflow-hidden ${slideBackground} h-[500px]`}
     >
       <div
         className="flex transition-transform duration-1000 ease-in-out items-center h-[400px]"
@@ -109,10 +110,10 @@ const Slider = ({ variant = "default" }) => {
               <div
                 className={`text-center md:text-left flex flex-col items-center md:items-start justify-center h-full ${fontClass}`}
               >
-                <h3 className="text-4xl font-bold text-white mb-4">
+                <h3 className={`text-4xl font-bold mb-4 ${ colortext}`}>
                   {slide.title}
                 </h3>
-                <p className="text-white mb-6">{slide.description}</p>
+                <p className={ `mb-6 ${ colortext}`}>{slide.description}</p>
                 <div className="flex justify-center md:justify-start gap-4">
                   <button
                     className={`px-3 py-2 rounded-3xl transition-all ease-in-out duration-300 ${buttonClass}`}

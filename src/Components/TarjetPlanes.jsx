@@ -80,6 +80,19 @@ const pageStyles = {
     ColorCheckTrue: "text-[#ff7f07]",
     ColorCheckFalse: "text-green-700",
   },
+  kids: {
+    fontClass: "font-comics ",
+    titleClass: "text-[#FFFFFF] text-6xl font-bold",
+    descriptionClass:
+      "mx-auto mt-6 max-w-3xl text-pretty text-center text-[#1E90FF] text-lg font-bold",
+    cardTextClassFalse: "text-black ",
+    cardTextClassTrue: "text-yellow-400 ",
+    MoneyTextClassFalse: "text-green-800 text-3xl font-semibold tracking-tight",
+    MoneyTextClassTrue: "text-white text-3xl font-semibold tracking-tight",
+    FontSizeYear: "text-xs",
+    ColorCheckTrue: "text-[#ff7f07]",
+    ColorCheckFalse: "text-green-700",
+  },
   /* crear adulto */
   adult: {
     fontClass: "font-bree text-xs",
@@ -125,7 +138,8 @@ export default function TarjetPlanes() {
   const currentVariant = 
   params.get("variant") || // Query parameter "variant"
   (location.pathname.includes("/Young") ? "young" : 
-  location.pathname.includes("/adult") ? "adult" : "default");
+  location.pathname.includes("/adult") ? "adult" :
+  location.pathname.includes("/kids") ? "kids" : "default");
 
   // Obtener los estilos dinámicos según la variante
   const {
@@ -171,14 +185,20 @@ export default function TarjetPlanes() {
               tier.featured
                 ? currentVariant === "young"
                   ? "bg-[#ff0070]/60 shadow-2xl" // Diseño para adolescentes destacados
+                  : currentVariant === "kids"
+                  ? "bg-[#1E90FF]/60 shadow-2xl" // Diseño para niños destacados
                   : currentVariant === "adult"
                   ? "bg-[#4CAF50]/60 shadow-2xl" // Diseño para adultos destacados
                   : "bg-red-950/60 shadow-2xl" // Diseño por defecto para destacados
                 : currentVariant === "young"
                 ? "bg-[#ffe4e6]/70" // Diseño para adolescentes no destacados
+                : currentVariant === "kids"
+                ? "bg-[#E0F7FA]/70 shadow-2xl" // Diseño para nilos no destacados
                 : currentVariant === "adult"
                 ? "bg-[#e8f5e9]/70" // Diseño para adultos no destacados
                 : "bg-white/70", // Diseño por defecto para no destacados
+                
+                
               "rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 transition-transform duration-300 transform-gpu hover:scale-105 hover:shadow-2xl"
             )}
           >

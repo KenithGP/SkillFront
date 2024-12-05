@@ -1,6 +1,7 @@
 import logo from "../assets/Icons/Logo-White-mobil.svg";
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
+import LogoBlack from "../assets/Icons/Logo.svg"
 
 export default function Header() {
   const location = useLocation();
@@ -15,21 +16,28 @@ export default function Header() {
       fontClass: "font-semibold text-xl",
       buttonClass: "bg-[#E53935] text-white hover:bg-red-400",
       hoverTextClass: "hover:text-green-500",
+      colortext:"text-white",
+      icon: logo, 
     },
     kids: {
-      fontClass: "font-cursive text-sm text-yellow-600",
-      buttonClass: "bg-[#FFD700] text-black hover:bg-yellow-500",
-      hoverTextClass: "hover:text-[#FFD700]",
-    },
+      fontClass: "font-comics text-xl ", 
+      buttonClass: "bg-[#F8D642] hover:bg-[#D1A64E]", 
+      hoverTextClass: "text-black hover:text-[#F8D642]  ",
+      colortext:"text-black",
+      icon: LogoBlack,
+      },
     young: {
       fontClass: "font-arcade text-xs text-pink-600",
       buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
       hoverTextClass: "hover:text-[#ff0068]",
+      icon: logo, 
     },
     adult: {
-      fontClass: "font-bree text-xl text-gray-800",
+      fontClass: "font-bree text-xl",
       buttonClass: "bg-[#58349b] text-white hover:bg-indigo-700 hover:scale-110 duration-500 transition-transform focus:ring-indigo-300 rounded-lg px-6 py-2",
       hoverTextClass: "hover:text-[yellow]",
+      colortext:"text-white",
+      icon: logo, 
     },
   };
 
@@ -43,7 +51,7 @@ export default function Header() {
     "home"; // Predeterminado a Home si no coincide nada más
 
   // Obtener los estilos dinámicos según la variante
-  const { fontClass, buttonClass, hoverTextClass } = designs[currentVariant];
+  const { fontClass, buttonClass, hoverTextClass, colortext, icon } = designs[currentVariant];
 
   // Determinar la ruta dinámica para el enlace "Planes"
   const planesLink =
@@ -62,9 +70,9 @@ export default function Header() {
       {/* Logo y Nombre */}
       <div className="flex items-center space-x-4 ml-6 hover:scale-110 duration-500 transition-transform">
         <Link to="/">
-          <img src={logo} alt="Logo" className="h-10 w-10" />
+          <img src={icon} alt="Logo" className="h-10 w-10" />
         </Link>
-        <Link className="text-white font-bold text-base" to="/">
+        <Link className={`font-bold text-base ${colortext}`} to="/">
           SkillConnect
         </Link>
       </div>
@@ -78,7 +86,7 @@ export default function Header() {
           Home
         </Link>
         <Link
-          to="/features"
+          to="/cursos"
           className={`transition-transform duration-500 ${hoverTextClass}`}
         >
           Cursos
