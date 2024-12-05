@@ -81,7 +81,7 @@ const pageStyles = {
     ColorCheckFalse: "text-green-700",
   },
   /* crear adulto */
-  Adult: {
+  adult: {
     fontClass: "font-bree text-xs",
     titleClass: "text-yellow-400 text-4xl font-bold", 
     descriptionClass: "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-yellow-200",
@@ -125,7 +125,7 @@ export default function TarjetPlanes() {
   const currentVariant = 
   params.get("variant") || // Query parameter "variant"
   (location.pathname.includes("/Young") ? "young" : 
-  location.pathname.includes("/adult") ? "Adult" : "default");
+  location.pathname.includes("/adult") ? "adult" : "default");
 
   // Obtener los estilos dinámicos según la variante
   const {
