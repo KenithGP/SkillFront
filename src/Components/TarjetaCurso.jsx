@@ -53,9 +53,9 @@ const pageStyles = {
     titleSize:" text-xl font-bold",
   },
   kids: {
-    textClass: "text-blue-900",
-    descClass: "text-green-800",
-    fontClass: "font-sans",
+    fontClass: "font-comics",
+    textSize:" text-1xl",
+    titleSize:" text-2xl font-bold",
   },
   adult: {
     textClass: "text-gray-300",

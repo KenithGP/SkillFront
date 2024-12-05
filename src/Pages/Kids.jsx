@@ -1,32 +1,43 @@
-import React from 'react';
-import Header from '../Components/Header';
-import TarjetaCurso from '../Components/TarjetaCurso';
-import TarjetPlanes from '../Components/TarjetPlanes';
-import Preguntas from '../Components/Preguntas';
-import Footer from '../Components/Footer';
-import Slider from '../Components/Slider';
+import { useLocation } from "react-router-dom";
+import Header from '../Components/Header'
+import Slider from '../Components/Slider'
+import TarjetPlanes from '../Components/TarjetPlanes'
+import TarjetCurso from '../Components/TarjetaCurso'
+import Preguntas from '../Components/Preguntas'
+import Footer from '../Components/Footer'
 
 export default function Kids() {
-  return (
+  const location = useLocation();
 
-    <div className="relative w-full h-screen">
+  // Determinar variante según la ruta
+  const variant = location.pathname.includes("/kids")
+    ? "kids"
+    : location.pathname.includes("/Young")
+    ? "young"
+    : "default";
+
+  return (
+    <div className="bg-gradient-to-b from-[#33c6eb] to-[#b3ddfc]  m-0 p-0"> {/* Fondo verde */}
       {/* Video de fondo */}
       <video
-        className="absolute w-full h-full object-cover"
-        src="src/Videos/VIDEO-FONDO-WEB.mp4"  // Ruta correcta al video en la carpeta public
+        className="absolute w-full h-full object-cover bg-green-500"
+        src="src/Videos/VIDEO-FONDO-WEB.mp4" // Verifica esta ruta
         autoPlay
         loop
         muted
       ></video>
 
+      {/* Contenido principal */}
       <div className="relative z-10">
-        <Header className="bg-red-900"/>
+        <Header variant={variant} />
         <Slider variant="default" />
-        <TarjetPlanes />
+        <TarjetPlanes variant={variant} />
+        <TarjetCurso variant={variant} />
+        <Preguntas variant={variant} />
+        <Footer variant={variant}/>
       </div>
-
-      <Footer />
     </div>
   );
 }
+
 
