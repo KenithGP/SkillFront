@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import Espada from '../assets/Icons/Espada-gamer.svg';
-import ConsolaJuegos from '../assets/Icons/Consola-Juegos.svg';
-import PalancaMando from '../assets/Icons/Palanca-Mando.svg';
+import Espada from "../assets/Icons/Espada-gamer.svg";
+import ConsolaJuegos from "../assets/Icons/Consola-Juegos.svg";
+import PalancaMando from "../assets/Icons/Palanca-Mando.svg";
 
 // Configuración centralizada para estilos dinámicos
 const pageStyles = {
@@ -33,43 +33,46 @@ const pageStyles = {
   },
 };
 
+const slidesVariants = {
+  young: [
+    {
+      image: ConsolaJuegos,
+      title: "Sistema Integral de Gestión Educativa",
+      description:
+        "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
+    },
+    {
+      image: PalancaMando,
+      title: "Aprende desde cualquier lugar",
+      description:
+        "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
+    },
+    {
+      image: Espada,
+      title: "Plataforma para Jóvenes",
+      description:
+        "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
+    },
+  ],
+};
+
 const Slider = ({ variant = "default" }) => {
   const location = useLocation();
 
+  // Detectar la variante actual según la ruta
   const getPageVariant = () => {
-    if (location.pathname.includes("/adult")) return "Adult";
-    if (location.pathname.includes("/Young")) return "young";
-    if (location.pathname.includes("/kids")) return "kids";
+    if (location.pathname.toLowerCase().includes("/adult")) return "Adult";
+    if (location.pathname.toLowerCase().includes("/young")) return "young";
+    if (location.pathname.toLowerCase().includes("/kids")) return "kids";
     return "default";
   };
 
   const currentVariant = getPageVariant();
-  const { fontClass, buttonClass, slideBackground, colortext } = pageStyles[currentVariant];
+  const { fontClass, buttonClass, slideBackground, colortext } =
+    pageStyles[currentVariant];
 
-  const slidesVariants = {
-    young: [
-      {
-        image: ConsolaJuegos,
-        title: "Sistema Integral de Gestión Educativa",
-        description:
-          "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
-      },
-      {
-        image: PalancaMando,
-        title: "Aprende desde cualquier lugar",
-        description:
-          "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
-      },
-      {
-        image: Espada,
-        title: "Plataforma para Jóvenes",
-        description:
-          "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
-      },
-    ],
-  };
+  const slides = slidesVariants[currentVariant] || [];
 
-  const slides = slidesVariants[variant] || slidesVariants.default;
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -93,24 +96,18 @@ const Slider = ({ variant = "default" }) => {
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <div
-            key={index}
-            className="w-full flex-shrink-0 flex justify-center"
-          >
+          <div 
+          key={index
+          } className="w-full flex-shrink-0 flex justify-center">
             <div className="flex flex-col md:flex-row justify-center gap-8 p-4 w-11/12 md:w-3/5 h-auto items-center">
               <motion.img
                 src={slide.image}
                 alt={slide.title || "Slide"}
                 className="w-1/3 max-w-sm object-contain"
-                animate={{
-                  y: [0, -10, 0], // Movimiento vertical
-                  rotate: [0, 10, -10, 0], // Rotación leve
-                }}
-                transition={{
-                  duration: 3, // Duración del ciclo
-                  repeat: Infinity, // Repetir indefinidamente
-                  ease: "easeInOut", // Transición suave
-                }}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.3 }}
+                whileHover={{ scale: 1.2, rotate: 5 }}
               />
               <div
                 className={`text-center md:text-left flex flex-col items-center md:items-start justify-center h-full ${fontClass}`}
