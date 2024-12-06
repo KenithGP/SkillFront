@@ -1,5 +1,8 @@
+
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import Fuente from "../assets/Images/Fuentes.svg";
+import Gestion from "../assets/Images/Gestion.svg";
 
 // Configuración centralizada para estilos dinámicos
 const pageStyles = {
@@ -22,10 +25,10 @@ const pageStyles = {
     colortext: "text-black",
   },
   Adult: {
-    fontClass: "font-bree text-lg",
+    fontClass: "font-bree text-2xl",
     buttonClass: "bg-yellow-600 text-[#e4ebbc] hover:bg-yellow-500",
     slideBackground: "bg-transparent",
-    colortext: "text-[#e4ebbc]",
+    colortext: "text-[white]",
   },
 };
 
@@ -47,13 +50,13 @@ const Slider = ({ variant = "default" }) => {
   const slidesVariants = {
     default: [
       {
-        image: "https://www.datacole.com/img/demo-content/images/system.svg",
+        image: Gestion,
         title: "Sistema Integral de Gestión Educativa",
         description:
           "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
       },
       {
-        image: "https://www.datacole.com/img/demo-content/images/class.svg",
+        image: Fuente,
         title: "Aprende desde cualquier lugar",
         description:
           "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
