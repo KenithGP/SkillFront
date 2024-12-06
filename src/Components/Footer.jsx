@@ -40,7 +40,7 @@ export default function Footer({ variant = "default" }) {
       <div className="container mx-auto px-4 border-t border-gray-700">
         {/* Logo Section */}
         <div className="flex justify-center mb-8">
-          <img src={logo} alt="SkillConnect Logo" className="h-1/5 w-1/5" />
+          <img src={logo} alt="SkillConnect Logo" className="h-1/6 w-1/6" />
         </div>
 
         {/* Redes Sociales */}
