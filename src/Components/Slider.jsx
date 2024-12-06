@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Fuente from "../assets/Images/Fuentes.svg";
 import Gestion from "../assets/Images/Gestion.svg";
-
+import Usuario from "../assets/Images/Usuario.svg";
 import Espada from '../assets/Icons/Espada-gamer.svg'
 import Almohadilla from '../assets/Icons/Almohadilla.svg'
 import ConsolaJuegos from '../assets/Icons/Consola-Juegos.svg'
@@ -29,7 +29,7 @@ const pageStyles = {
     colortext: "text-black",
   },
   Adult: {
-    fontClass: "font-bree text-2xl",
+    fontClass: "font-bree text-lg",
     buttonClass: "bg-yellow-600 text-[#e4ebbc] hover:bg-yellow-500",
     slideBackground: "bg-transparent",
     colortext: "text-[white]",
@@ -68,7 +68,7 @@ const Slider = ({ variant = "default" }) => {
       },
       
       {
-        image: "https://www.datacole.com/img/demo-content/images/class.svg",
+        image: Usuario,
         title: "Plataforma para Jóvenes",
         description:
           "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",

@@ -39,15 +39,15 @@ const pageStyles = {
   adult: {
     bgClass: "bg-gradient-to-bl from-[#053322]/90 to-[#0d6242]/100",
     titleColor: "text-[#ffffff]/80",
-    buttonClass: "bg-yellow-600 hover:bg-yellow-500 font-normal text-xl",
+    buttonClass: "bg-yellow-600 hover:bg-yellow-500 font-normal text-base",
     inputBg: "bg-gray-900 text-white-900",
     titleSize: "text-xl lg:text-4xl font-bold",
     DescriptionSize: "text-sm lg:text-xl",
-    subTitleSize: "text-2xl",
+    subTitleSize: "text-xl",
     fontClass: "font-bree",
     bgForm: "bg-black/20",
     fileTextClass: "text-green-5 00",
-    bgb: "bg-yellow-500 hover:bg-",
+    bgb: "bg-yellow-600 hover:bg-yellow-500",
   },
 };
 
