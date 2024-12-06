@@ -4,10 +4,12 @@ export default {
 
   theme: {
     extend: {
+      animation: {
+        neon: "neonBlink 1.5s ease-in-out infinite", // Animación personalizada
+      },
       fontFamily: {
         arcade: ['Arcade Gamer', 'sans-serif'], //  fuente GAMER
         bree: ['Bree Serif', 'sans-serif'], // Añade tu fuente personalizada
-        arcade: ['Arcade Gamer', 'sans-serif'], // Fuente Gamer
         comics: ['"Comic Sans MS"', 'cursive'], // Fuente Comic Sans
       },
       fontSize: {
@@ -22,6 +24,13 @@ export default {
         negroOscuro: "#000000",
         dorado: "#e1c261",
       
+      },
+      
+    },
+    keyframes: {
+      neonBlink: {
+        "0%, 100%": { textShadow: "0 0 8px #ff0070, 0 0 12px #ff0070" },
+        "50%": { textShadow: "0 0 16px #ff0070, 0 0 24px #ff0070" },
       },
     },
   },

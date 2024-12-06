@@ -27,7 +27,7 @@ export default function RegisterAccount() {
 
 
   return (
-    <div className="min-h-screen  bg-gradient-to-b from-[#000000]/95 to-[#EA6558]/100 flex flex-col justify-center items-center py-12 px-6 lg:px-8">
+    <div className="min-h-screen   flex flex-col justify-center items-center py-12 px-6 lg:px-8">
       <div className="max-w-2xl w-full space-y-8 border bg-white/90 border-gray-300 rounded-lg p-10 shadow-2xl">
         <div className="text-center">
           {/* Logo */}

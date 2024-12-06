@@ -69,7 +69,7 @@ const pageStyles = {
   },
   young: {
     fontClass: "font-arcade text-xs",
-    titleClass: "text-yellow-400 text-4xl font-bold",
+    titleClass: "text-yellow-400 text-4xl font-bold text-shadow-neon animate-neon",
     descriptionClass:
       "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-yellow-200 text-sm font-medium",
     cardTextClassFalse: "text-black",

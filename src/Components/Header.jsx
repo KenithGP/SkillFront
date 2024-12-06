@@ -1,5 +1,5 @@
 import logo from "../assets/Icons/Logo-White-mobil.svg";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
 import LogoBlack from "../assets/Icons/Logo.svg";
 
