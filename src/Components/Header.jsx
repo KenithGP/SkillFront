@@ -6,10 +6,6 @@ import LogoBlack from "../assets/Icons/Logo.svg";
 export default function Header({ variant }) {
   console.log(`Variant in Header: ${variant}`); // Verificar qué variant recibe
 
-  // Obtener el parámetro variant desde la URL
-/*   const params = new URLSearchParams(location.search);
-  const variant = params.get("variant");
- */
   // Configuración de diseños para cada variante
   const designs = {
     default: {
@@ -20,10 +16,10 @@ export default function Header({ variant }) {
       icon: logo,
     },
     kids: {
-      fontClass: "font-comics text-xl ", 
-      buttonClass: "bg-[#F8D642] hover:bg-[#D1A64E]", 
-      hoverTextClass: "text-black hover:text-[#F8D642]  ",
-      colortext:"text-black",
+      fontClass: "font-comics text-xl",
+      buttonClass: "bg-[#F8D642] hover:bg-[#D1A64E]",
+      hoverTextClass: "text-black hover:text-[#F8D642]",
+      colortext: "text-black",
       icon: LogoBlack,
     },
     young: {
@@ -35,33 +31,22 @@ export default function Header({ variant }) {
     },
     adult: {
       fontClass: "font-bree text-xl",
-      buttonClass: "bg-yellow-600 text-white hover:bg-yellow-500 hover:scale-110 duration-500 transition-transform focus:ring-indigo-300 rounded-lg px-6 py-2",
+      buttonClass:
+        "bg-yellow-600 text-white hover:bg-yellow-500 hover:scale-110 duration-500 transition-transform focus:ring-indigo-300 rounded-lg px-6 py-2",
       hoverTextClass: "hover:text-[white]",
       colortext: "text-white",
       icon: logo,
     },
   };
- 
 
-  // Detectar la variante actual, dando prioridad al parámetro `variant`
- /*  const currentVariant =
-    variant || // Si `variant` está presente en la URL, úsalo
-    (location.pathname.includes("/Young") && "young") ||
-    (location.pathname.includes("/kids") && "kids") ||
-    (location.pathname.includes("/adult") && "adult") ||
-    "default"; // Ruta por defecto */
-
-    const currentDesign = designs[variant] || designs.default;
   // Obtener los estilos dinámicos según la variante
+  const currentDesign = designs[variant] || designs.default;
   const { fontClass, buttonClass, hoverTextClass, colortext, icon } =
-  currentDesign;
+    currentDesign;
 
   // Generar las rutas dinámicas para enlaces
   const dynamicPath = (path) =>
     `${path}${variant ? `?variant=${variant}` : ""}`;
-
-  console.log("Variant in Header:", variant);
-
 
   return (
     <header
@@ -97,8 +82,12 @@ export default function Header({ variant }) {
         >
           Becas
         </Link>
-        <Link to={`/planes${variant ? `?variant=${variant}` : ""}`}>Planes</Link>
-
+        <Link
+          to={dynamicPath("/planes")} // Planes con propagación del parámetro
+          className={`transition-transform duration-500 ${hoverTextClass}`}
+        >
+          Planes
+        </Link>
       </nav>
 
       {/* Search Bar and Buttons */}

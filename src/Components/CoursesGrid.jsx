@@ -1,11 +1,53 @@
 import React from "react";
-import CourseCard from "./CourseCard"; // Asegúrate de tener este componente
+import { useLocation } from "react-router-dom";
+import CourseCard from "./CourseCard";
 
-// Componente que muestra los cursos en una cuadrícula
-const CoursesGrid = ({ courses, bgColor, titleFont, paragraphFont, buttonColor, buttonText }) => {
+// Configuración de estilos para cada variante
+const pageStyles = {
+  default: {
+    bgColor: "bg-gray-900",
+    titleFont: "font-sans text-3xl",
+    paragraphFont: "text-gray-300",
+    buttonColor: "bg-blue-500",
+    buttonText: "Comprar",
+  },
+  young: {
+    bgColor: "bg-pink-900",
+    titleFont: "font-arcade text-yellow-300 text-4xl",
+    paragraphFont: "text-pink-100",
+    buttonColor: "bg-yellow-500",
+    buttonText: "¡Aprender ahora!",
+  },
+  kids: {
+    bgColor: "bg-blue-500",
+    titleFont: "font-comics text-white text-3xl",
+    paragraphFont: "text-blue-100",
+    buttonColor: "bg-green-500",
+    buttonText: "¡Explorar!",
+  },
+  adult: {
+    bgColor: "bg-gray-800",
+    titleFont: "font-bree text-white text-4xl",
+    paragraphFont: "text-gray-300",
+    buttonColor: "bg-purple-600",
+    buttonText: "Inscribirse",
+  },
+};
+
+const CoursesGrid = ({ courses }) => {
+  const location = useLocation();
+
+  // Detectar el parámetro variant o usar una variante predeterminada
+  const params = new URLSearchParams(location.search);
+  const variant = params.get("variant") || "default";
+
+  // Obtener estilos dinámicos según la variante
+  const { bgColor, titleFont, paragraphFont, buttonColor, buttonText } =
+    pageStyles[variant];
+
   return (
     <div className={`w-full ${bgColor} px-4 py-8`}>
-      <h2 className={`text-2xl ${titleFont} text-white mb-6 text-center`}>
+      <h2 className={`text-2xl ${titleFont} mb-6 text-center`}>
         Cursos Disponibles
       </h2>
       <div className="flex flex-wrap justify-center gap-6">

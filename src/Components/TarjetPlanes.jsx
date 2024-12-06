@@ -1,5 +1,5 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
-import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const tiers = [
   {
@@ -125,10 +125,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+
 export default function TarjetPlanes({ variant = "default" }) {
-  console.log(`Variant in TarjetPlanes: ${variant}`); // Verificar qué variant recibe
-
-
   // Extraer el contenido dinámico según la ruta actual
   const { title, description } =
     pageContent[location.pathname] || pageContent.default;

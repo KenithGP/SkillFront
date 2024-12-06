@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-
+import Espada from '../assets/Icons/Espada-gamer.svg'
+import Almohadilla from '../assets/Icons/Almohadilla.svg'
+import ConsolaJuegos from '../assets/Icons/Consola-Juegos.svg'
+import PalancaMando from '../assets/Icons/Palanca-Mando.svg'
 // Configuración centralizada para estilos dinámicos
 const pageStyles = {
   default: {
@@ -46,6 +49,7 @@ const Slider = ({ variant = "default" }) => {
   // Slides para diferentes variantes
   const slidesVariants = {
     default: [
+
       {
         image: "https://www.datacole.com/img/demo-content/images/system.svg",
         title: "Sistema Integral de Gestión Educativa",
@@ -65,6 +69,7 @@ const Slider = ({ variant = "default" }) => {
         description:
           "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
       },
+      
     ],
     kids: [
       {
@@ -74,6 +79,28 @@ const Slider = ({ variant = "default" }) => {
           "Plataforma interactiva diseñada para que los niños aprendan jugando.",
       },
     ],
+    young: [
+      {
+        image: ConsolaJuegos,
+        title: "Sistema Integral de Gestión Educativa",
+        description:
+          "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
+      },
+      {
+        image: PalancaMando,
+        title: "Aprende desde cualquier lugar",
+        description:
+          "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
+      },
+      
+      {
+        image: Espada,
+        title: "Plataforma para Jóvenes",
+        description:
+          "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
+      },
+    ],
+
   };
 
   const slides = slidesVariants[variant] || slidesVariants.default;

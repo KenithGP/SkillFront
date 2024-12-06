@@ -1,5 +1,7 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import CoursesGrid from "../Components/CoursesGrid";
+import Header from '../Components/Header'
 
 // Datos de los cursos
 const kidsCourses = [
@@ -176,35 +178,69 @@ const adultsCourses = [
   }
 ];
 
+// Configuración de estilos dinámicos
+const pageStyles = {
+  kids: {
+    bgColor: "bg-blue-500",
+    titleFont: "font-comics text-white text-3xl",
+    paragraphFont: "text-blue-100",
+    buttonColor: "bg-green-500",
+    buttonText: "¡Explorar!",
+  },
+  young: {
+    bgColor: "bg-pink-900",
+    titleFont: "font-arcade text-yellow-300 text-4xl",
+    paragraphFont: "text-pink-100",
+    buttonColor: "bg-yellow-500",
+    buttonText: "¡Aprender ahora!",
+  },
+  adult: {
+    bgColor: "bg-gray-800",
+    titleFont: "font-bree text-white text-4xl",
+    paragraphFont: "text-gray-300",
+    buttonColor: "bg-purple-600",
+    buttonText: "Inscribirse",
+  },
+  default: {
+    bgColor: "bg-gray-900",
+    titleFont: "font-sans text-3xl",
+    paragraphFont: "text-gray-300",
+    buttonColor: "bg-blue-500",
+    buttonText: "Comprar",
+  },
+};
+
 // Componente principal
 export default function Features() {
+  const location = useLocation();
+
+  // Detectar la variante desde la URL
+  const params = new URLSearchParams(location.search);
+  const variant = params.get("variant") || "default";
+
+  // Obtener estilos dinámicos según la variante
+  const { bgColor, titleFont, paragraphFont, buttonColor, buttonText } =
+    pageStyles[variant];
+
+  // Determinar qué cursos mostrar según la variante
+  let courses = [];
+  if (variant === "kids") courses = kidsCourses;
+  else if (variant === "young") courses = teensCourses;
+  else if (variant === "adult") courses = adultsCourses;
+
   return (
-    <div className="bg-gray-800 min-h-screen">
-      <CoursesGrid
-        courses={kidsCourses}
-        bgColor="bg-gray-800"
-        titleFont="font-bold"
-        paragraphFont="font-light"
-        buttonColor="bg-green-500"
-        buttonText="Ver Curso"
-      />
+    <div className={`min-h-screen ${bgColor}`}>
+      {/* Header dinámico */}
+      <Header variant={variant} />
 
+      {/* Grid de cursos */}
       <CoursesGrid
-        courses={teensCourses}
-        bgColor="bg-yellow-800"
-        titleFont="font-bold"
-        paragraphFont="font-light"
-        buttonColor="bg-green-500"
-        buttonText="Ver Curso"
-      />
-
-      <CoursesGrid
-        courses={adultsCourses}
-        bgColor="bg-blue-800"
-        titleFont="font-bold"
-        paragraphFont="font-light"
-        buttonColor="bg-green-500"
-        buttonText="Ver Curso"
+        courses={courses}
+        bgColor={bgColor}
+        titleFont={titleFont}
+        paragraphFont={paragraphFont}
+        buttonColor={buttonColor}
+        buttonText={buttonText}
       />
     </div>
   );
