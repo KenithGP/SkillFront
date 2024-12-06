@@ -1,3 +1,4 @@
+
 import Logo from '../assets/Icons/Logo-White.svg';
 import LogoGamer from '../assets/Icons/Logo-gamer.svg';
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
@@ -15,6 +16,18 @@ const pageStyles = {
     fontClass: "font-arcade",
     textSize: "text-xs font-medium",
     titleSize: "text-md font-bold text-yellow-500",
+  },
+  kids: {
+    logo: LogoGamer,
+    fontClass: "font-comics",
+    textSize: "text-xs font-medium",
+    titleSize: "text-lg font-bold text-yellow-500",
+  },
+  adult: {
+    logo: LogoGamer,
+    fontClass: "font-bree",
+    textSize: "text-xs font-medium",
+    titleSize: "text-lg font-bold text-yellow-500",
   },
 };
 

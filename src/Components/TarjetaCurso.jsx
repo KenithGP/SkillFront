@@ -2,7 +2,7 @@ import Css from "../assets/Images/Css.svg";
 import Html from "../assets/Images/Html.svg";
 import JavaScript from "../assets/Images/Javascript.svg";
 import Php from "../assets/Images/Php.svg";
-import React from "../assets/Images/react.svg";
+import React from "../assets/Images/React.svg";
 
 const courses = [
   {
@@ -53,14 +53,14 @@ const pageStyles = {
     titleSize:" text-xl font-bold",
   },
   kids: {
-    textClass: "text-blue-900",
-    descClass: "text-green-800",
-    fontClass: "font-sans",
+    fontClass: "font-comics",
+    textSize:" text-1xl",
+    titleSize:" text-2xl font-bold",
   },
   adult: {
-    textClass: "text-gray-300",
-    descClass: "text-gray-500",
-    fontClass: "font-sans",
+    fontClass: "font-bree",
+    textSize:" text-1xl",
+    titleSize:" text-2xl font-bold",
   },
 };
 
