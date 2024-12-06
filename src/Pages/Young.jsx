@@ -17,7 +17,8 @@ export default function Young() {
     /* : location.pathname.includes("/adult")
     ? "adult" */
     : "default";
-
+  
+    
   return (
     <div className="bg-gradient-to-b from-[#000000]/90 to-[#3533cd]/100 min-h-screen">
       <Header variant={variant} />

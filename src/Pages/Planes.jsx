@@ -9,16 +9,17 @@ export default function Planes() {
   const params = new URLSearchParams(location.search);
   const variant = params.get("variant") || "default"; // Por defecto, usa "default"
 
-// Determinar el fondo dinámico según la variante
-const backgroundClass =
-  variant === "young"
-    ? "bg-gradient-to-b from-[#000080]/90 to-[#3533cd]/100" // Adolescente
-    : variant === "kids"
-    ? "bg-gradient-to-b from-[#FF0070]/90 to-[#FFA500]/100" // Niños
-    : variant === "adult"
-    ? "bg-gradient-to-b from-[#162682]/95 to-[#5625b2]/100" // Adulto (Fondo Morado)
-    : "bg-gradient-to-b from-[#000000]/100 to-[#EA6558]/100"; // Predeterminado
+  console.log(`Variant in Planes: ${variant}`); // Verificar qué variant se detecta
 
+  // Determinar el fondo dinámico según la variante
+  const backgroundClass =
+    variant === "young"
+      ? "bg-gradient-to-b from-[#000080]/90 to-[#3533cd]/100" // Adolescente
+      : variant === "kids"
+      ? "bg-gradient-to-b from-[#FF0070]/90 to-[#FFA500]/100" // Niños
+      : variant === "adult"
+      ? "bg-gradient-to-b from-[#162682]/95 to-[#5625b2]/100" // Adulto (Fondo Morado)
+      : "bg-gradient-to-b from-[#000000]/100 to-[#EA6558]/100"; // Predeterminado
 
   return (
     <div className={`${backgroundClass} min-h-screen`}>

@@ -3,16 +3,16 @@ import { Link, useLocation } from "react-router-dom";
 import React from "react";
 import LogoBlack from "../assets/Icons/Logo.svg";
 
-export default function Header() {
-  const location = useLocation();
+export default function Header({ variant }) {
+  console.log(`Variant in Header: ${variant}`); // Verificar qué variant recibe
 
   // Obtener el parámetro variant desde la URL
-  const params = new URLSearchParams(location.search);
+/*   const params = new URLSearchParams(location.search);
   const variant = params.get("variant");
-
+ */
   // Configuración de diseños para cada variante
   const designs = {
-    home: {
+    default: {
       fontClass: "font-semibold text-xl",
       buttonClass: "bg-[#E53935] text-white hover:bg-red-400",
       hoverTextClass: "hover:text-green-500",
@@ -21,8 +21,8 @@ export default function Header() {
     },
     kids: {
       fontClass: "font-comics text-xl ",
-      buttonClass: "bg-yellow-100  hover:bg-yellow-200",
-      hoverTextClass: "text-black hover:text-yellow-400  ",
+      buttonClass: "bg-yellow-100 hover:bg-yellow-200",
+      hoverTextClass: "text-black hover:text-yellow-400",
       colortext: "text-black",
       icon: LogoBlack,
     },
@@ -30,6 +30,7 @@ export default function Header() {
       fontClass: "font-arcade text-xs text-pink-600",
       buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
       hoverTextClass: "hover:text-[#ff0068]",
+      colortext: "text-yellow-500",
       icon: logo,
     },
     adult: {
@@ -41,37 +42,27 @@ export default function Header() {
       icon: logo,
     },
   };
+ 
 
-  // Detectar la variante actual: prioridad al parámetro variant
-  const currentVariant =
-    variant || // Si hay un parámetro variant, úsalo
-    (location.pathname === "/" && "home") || // Ruta raíz
-    (location.pathname.includes("/Young") && "young") || // Ruta de adolescentes
-    (location.pathname.includes("/kids") && "kids") || // Ruta de niños
-    (location.pathname.includes("/adult") && "adult") || // Ruta de adultos
-    "home"; // Predeterminado a Home si no coincide nada más
+  // Detectar la variante actual, dando prioridad al parámetro `variant`
+ /*  const currentVariant =
+    variant || // Si `variant` está presente en la URL, úsalo
+    (location.pathname.includes("/Young") && "young") ||
+    (location.pathname.includes("/kids") && "kids") ||
+    (location.pathname.includes("/adult") && "adult") ||
+    "default"; // Ruta por defecto */
 
+    const currentDesign = designs[variant] || designs.default;
   // Obtener los estilos dinámicos según la variante
   const { fontClass, buttonClass, hoverTextClass, colortext, icon } =
-    designs[currentVariant];
+  currentDesign;
 
-  // Determinar la ruta dinámica para el enlace "Planes"
-  const planesLink = location.pathname.includes("/Young")
-    ? "/planes?variant=young"
-    : location.pathname.includes("/Kids")
-    ? "/planes?variant=kids"
-    : location.pathname.includes("/adult")
-    ? "/planes?variant=adult"
-    : "/planes";
-    
-//Determinamos la ruta dinámica para la ruta "beca"
-  const becaLink = location.pathname.includes("/Young")
-    ? "/beca?variant=young"
-    : location.pathname.includes("/Kids")
-    ? "/beca?variant=kids"
-    : location.pathname.includes("/adult")
-    ? "/beca?variant=adult"
-    : "/beca";
+  // Generar las rutas dinámicas para enlaces
+  const dynamicPath = (path) =>
+    `${path}${variant ? `?variant=${variant}` : ""}`;
+
+  console.log("Variant in Header:", variant);
+
 
   return (
     <header
@@ -90,29 +81,25 @@ export default function Header() {
       {/* Navigation Links */}
       <nav className={`hidden md:flex space-x-6 text-white`}>
         <Link
-          to="/"
+          to={dynamicPath("/")} // Home con propagación del parámetro
           className={`transition-transform duration-500 ${hoverTextClass}`}
         >
           Home
         </Link>
         <Link
-          to="/cursos"
+          to={dynamicPath("/cursos")} // Cursos con propagación del parámetro
           className={`transition-transform duration-500 ${hoverTextClass}`}
         >
           Cursos
         </Link>
         <Link
-          to={becaLink} // ruta dinamica para "beca"
+          to={dynamicPath("/beca")} // Becas con propagación del parámetro
           className={`transition-transform duration-500 ${hoverTextClass}`}
         >
           Becas
         </Link>
-        <Link
-          to={planesLink} // Ruta dinámica para "Planes"
-          className={`transition-transform duration-500 ${hoverTextClass}`}
-        >
-          Planes
-        </Link>
+        <Link to={`/planes${variant ? `?variant=${variant}` : ""}`}>Planes</Link>
+
       </nav>
 
       {/* Search Bar and Buttons */}
@@ -131,7 +118,7 @@ export default function Header() {
           className={`px-4 py-2 rounded-full transition-transform duration-500 text-white ${hoverTextClass}`}
         >
           <Link
-            to="/Login"
+            to={dynamicPath("/Login")}
             className={`transition-transform duration-500 ${hoverTextClass}`}
           >
             Iniciar Sesión
@@ -141,7 +128,7 @@ export default function Header() {
           className={`px-4 py-2 rounded-full transition-transform duration-500 ${buttonClass}`}
         >
           <Link
-            to="/Register"
+            to={dynamicPath("/Register")}
             className={`transition-transform duration-500 ${hoverTextClass}`}
           >
             Registrarse

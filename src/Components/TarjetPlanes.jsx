@@ -8,11 +8,11 @@ const tiers = [
     href: "#",
     priceMonthly: "S/.200",
     description:
-      "El plan personal perfecto si recien estas empezado a utilizar nuestro producto",
+      "El plan personal perfecto si recién estás empezando a utilizar nuestro producto",
     features: [
-      "Acceso a todos los cursos  de la plataforma",
+      "Acceso a todos los cursos de la plataforma",
       "Disponibilidad 24/7",
-      "Rutas personalisadas ",
+      "Rutas personalizadas",
       "Evaluaciones personalizadas",
     ],
     featured: false,
@@ -21,13 +21,13 @@ const tiers = [
     name: "Golden",
     id: "tier-Golden",
     href: "#",
-    priceMonthly: "s/.350",
+    priceMonthly: "S/.350",
     description:
-      "El plan unico para dos personas , invita a un amigo y aprendan juntos.",
+      "El plan único para dos personas, invita a un amigo y aprendan juntos.",
     features: [
-      "Acceso a todos los cursos  de la plataforma",
+      "Acceso a todos los cursos de la plataforma",
       "Disponibilidad 24/7",
-      "Rutas personalisadas ",
+      "Rutas personalizadas",
       "Evaluaciones personalizadas",
       "Ahorras 50 soles por año",
     ],
@@ -39,11 +39,11 @@ const tiers = [
     href: "#",
     priceMonthly: "S/.500",
     description:
-      "El plan unico para tres personas , invita a un amigo o familiar y aprendan juntos .",
+      "El plan único para tres personas, invita a un amigo o familiar y aprendan juntos.",
     features: [
-      "Acceso a todos los cursos  de la plataforma",
+      "Acceso a todos los cursos de la plataforma",
       "Disponibilidad 24/7",
-      "Rutas personalisadas ",
+      "Rutas personalizadas",
       "Evaluaciones personalizadas",
       "Ahorras 100 soles por año",
     ],
@@ -80,20 +80,21 @@ const pageStyles = {
     ColorCheckTrue: "text-[#ff7f07]",
     ColorCheckFalse: "text-green-700",
   },
-  /* crear adulto */
   adult: {
     fontClass: "font-bree text-xs",
-    titleClass: "text-yellow-400 text-4xl font-bold", 
-    descriptionClass: "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-yellow-200",
+    titleClass: "text-purple-600 text-4xl font-bold",
+    descriptionClass:
+      "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-purple-400",
     cardTextClassFalse: "text-black",
-    cardTextClassTrue: "text-red-400",
-    MoneyTextClassFalse: "text-purple-800 text-3xl font-semibold tracking-tight", 
-    MoneyTextClassTrue: "text-white text-3xl font-semibold tracking-tight", 
+    cardTextClassTrue: "text-purple-400",
+    MoneyTextClassFalse: "text-purple-800 text-3xl font-semibold tracking-tight",
+    MoneyTextClassTrue: "text-white text-3xl font-semibold tracking-tight",
     FontSizeYear: "text-xs",
-    ColorCheckTrue: "text-[#ff7f07]", 
+    ColorCheckTrue: "text-[#6a0dad]",
     ColorCheckFalse: "text-blue-700",
   },
 };
+
 const pageContent = {
   "/planes": {
     title: "Elige el plan adecuado para ti",
@@ -111,8 +112,9 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function TarjetPlanes() {
-  const location = useLocation(); // Obtiene la ruta actual
+export default function TarjetPlanes({ variant = "default" }) {
+  console.log(`Variant in TarjetPlanes: ${variant}`); // Verificar qué variant recibe
+
 
   // Extraer el contenido dinámico según la ruta actual
   const { title, description } =
@@ -121,11 +123,12 @@ export default function TarjetPlanes() {
   // Obtener los parámetros de la URL
   const params = new URLSearchParams(location.search);
 
-  // Detectar la variante según el query parameter "variant" o ruta
-  const currentVariant = 
-  params.get("variant") || // Query parameter "variant"
-  (location.pathname.includes("/Young") ? "young" : 
-  location.pathname.includes("/adult") ? "adult" : "default");
+// Detectar la variante según el query parameter "variant" o la ruta
+const currentVariant = params.get("variant") || 
+  (location.pathname.includes("/Young") ? "young" :
+  location.pathname.includes("/adult") ? "adult" :
+  "default"); // Usar "default" si no hay coincidencia
+
 
   // Obtener los estilos dinámicos según la variante
   const {
@@ -145,49 +148,37 @@ export default function TarjetPlanes() {
     <div
       className={`relative isolate px-6 py-24 sm:py-32 lg:px-8 ${fontClass}`}
     >
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
-      >
-        <div
-          style={{
-            clipPath:
-              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-        />
-      </div>
-
       {/* Títulos dinámicos */}
       <div className="mx-auto max-w-4xl text-center">
-        <p className={`${titleClass} `}>{title}</p>
+        <p className={`${titleClass}`}>{title}</p>
       </div>
-      <p className={` ${descriptionClass} `}>{description}</p>
+      <p className={`${descriptionClass}`}>{description}</p>
 
+      {/* Tarjetas */}
       <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-3">
         {tiers.map((tier) => (
           <div
-            key={tier.id}            
+            key={tier.id}
             className={classNames(
               tier.featured
                 ? currentVariant === "young"
-                  ? "bg-[#ff0070]/60 shadow-2xl" // Diseño para adolescentes destacados
+                  ? "bg-[#ff0070]/60 shadow-2xl"
                   : currentVariant === "adult"
-                  ? "bg-[#4CAF50]/60 shadow-2xl" // Diseño para adultos destacados
-                  : "bg-red-950/60 shadow-2xl" // Diseño por defecto para destacados
+                  ? "bg-purple-700/60 shadow-2xl"
+                  : "bg-red-950/60 shadow-2xl"
                 : currentVariant === "young"
-                ? "bg-[#ffe4e6]/70" // Diseño para adolescentes no destacados
+                ? "bg-[#ffe4e6]/70"
                 : currentVariant === "adult"
-                ? "bg-[#e8f5e9]/70" // Diseño para adultos no destacados
-                : "bg-white/70", // Diseño por defecto para no destacados
+                ? "bg-[#e8f5e9]/70"
+                : "bg-white/70",
               "rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 transition-transform duration-300 transform-gpu hover:scale-105 hover:shadow-2xl"
             )}
           >
-
             <h3
               id={tier.id}
               className={classNames(
                 tier.featured ? cardTextClassTrue : cardTextClassFalse,
-                "text-base/8  font-bold"
+                "text-base/8 font-bold"
               )}
             >
               {tier.name}
@@ -244,7 +235,7 @@ export default function TarjetPlanes() {
               aria-describedby={tier.id}
               className={classNames(
                 tier.featured
-                  ? "bg-yellow-600 text-black font-bold shadow-lg hover:bg-yellow-500 "
+                  ? "bg-yellow-600 text-black font-bold shadow-lg hover:bg-yellow-500"
                   : "text-white font-bold bg-green-800 hover:bg-green-700 border-green-700",
                 "mt-8 block rounded-md px-3.5 py-2.5 text-center text-xs font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10"
               )}
