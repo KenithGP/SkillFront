@@ -20,7 +20,7 @@ export default function Young() {
 
   return (
     <div className="bg-gradient-to-b from-[#000000]/90 to-[#3533cd]/100 min-h-screen">
-      <Header variant={variant} />
+      <Header variant={variant}/>
       <Slider variant={variant} />
       <TarjetPlanes variant={variant} />
       <TarjetCurso variant={variant}/>
