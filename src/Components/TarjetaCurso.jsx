@@ -69,7 +69,7 @@ export default function TarjetaCurso({ variant = "default" }) {
     pageStyles[variant];
 
   return (
-    <div className="relative bg-black/50 w-full h-2/4 overflow-hidden py-12">
+    <div className="relative bg-black/20 w-full h-2/4 overflow-hidden py-12">
       <div className="flex animate-scroll w-[calc(200%)] space-x-8 mb-20 mt-10">
         {courses.concat(courses).map((course, index) => (
           <div
@@ -86,7 +86,7 @@ export default function TarjetaCurso({ variant = "default" }) {
             >
               {course.title}
             </h2>
-            <p className={`text-gray-300 text-center ${textSize}`}>
+            <p className={`text-gray-300 text-center ${textSize} ${fontClass}`}>
               {course.description}
             </p>
           </div>
