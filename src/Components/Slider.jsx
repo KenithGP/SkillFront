@@ -1,15 +1,16 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import Espada from '../assets/Icons/Espada-gamer.svg'
-import Almohadilla from '../assets/Icons/Almohadilla.svg'
-import ConsolaJuegos from '../assets/Icons/Consola-Juegos.svg'
-import PalancaMando from '../assets/Icons/Palanca-Mando.svg'
+import Espada from '../assets/Icons/Espada-gamer.svg';
+import ConsolaJuegos from '../assets/Icons/Consola-Juegos.svg';
+import PalancaMando from '../assets/Icons/Palanca-Mando.svg';
+
 // Configuración centralizada para estilos dinámicos
 const pageStyles = {
   default: {
-    fontClass: "font-sans text-lg", //fuente
-    buttonClass: "bg-[#E53935] text-white hover:bg-red-400", // para los botones
-    slideBackground: "bg-transparent from-blue-400 to-indigo-600", // color de fondo para el slides
+    fontClass: "font-sans text-lg",
+    buttonClass: "bg-[#E53935] text-white hover:bg-red-400",
+    slideBackground: "bg-transparent from-blue-400 to-indigo-600",
     colortext: "text-white",
   },
   young: {
@@ -19,7 +20,7 @@ const pageStyles = {
     colortext: "text-white",
   },
   kids: {
-    fontClass: "font-comics text-lg ",
+    fontClass: "font-comics text-lg",
     buttonClass: "bg-[#F8D642] text-[#000000] hover:bg-[#D1A64E]",
     slideBackground: "bg-white/50",
     colortext: "text-black",
@@ -35,7 +36,6 @@ const pageStyles = {
 const Slider = ({ variant = "default" }) => {
   const location = useLocation();
 
-  // Determinar la variante de la página actual
   const getPageVariant = () => {
     if (location.pathname.includes("/adult")) return "Adult";
     if (location.pathname.includes("/Young")) return "young";
@@ -46,39 +46,7 @@ const Slider = ({ variant = "default" }) => {
   const currentVariant = getPageVariant();
   const { fontClass, buttonClass, slideBackground, colortext } = pageStyles[currentVariant];
 
-  // Slides para diferentes variantes
   const slidesVariants = {
-    default: [
-
-      {
-        image: "https://www.datacole.com/img/demo-content/images/system.svg",
-        title: "Sistema Integral de Gestión Educativa",
-        description:
-          "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
-      },
-      {
-        image: "https://www.datacole.com/img/demo-content/images/class.svg",
-        title: "Aprende desde cualquier lugar",
-        description:
-          "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
-      },
-      
-      {
-        image: "https://www.datacole.com/img/demo-content/images/class.svg",
-        title: "Plataforma para Jóvenes",
-        description:
-          "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
-      },
-      
-    ],
-    kids: [
-      {
-        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
-        title: "Diversión y Aprendizaje",
-        description:
-          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
-      },
-    ],
     young: [
       {
         image: ConsolaJuegos,
@@ -92,7 +60,6 @@ const Slider = ({ variant = "default" }) => {
         description:
           "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
       },
-      
       {
         image: Espada,
         title: "Plataforma para Jóvenes",
@@ -100,7 +67,6 @@ const Slider = ({ variant = "default" }) => {
           "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
       },
     ],
-
   };
 
   const slides = slidesVariants[variant] || slidesVariants.default;
@@ -132,18 +98,27 @@ const Slider = ({ variant = "default" }) => {
             className="w-full flex-shrink-0 flex justify-center"
           >
             <div className="flex flex-col md:flex-row justify-center gap-8 p-4 w-11/12 md:w-3/5 h-auto items-center">
-              <img
+              <motion.img
                 src={slide.image}
                 alt={slide.title || "Slide"}
                 className="w-1/3 max-w-sm object-contain"
+                animate={{
+                  y: [0, -10, 0], // Movimiento vertical
+                  rotate: [0, 10, -10, 0], // Rotación leve
+                }}
+                transition={{
+                  duration: 3, // Duración del ciclo
+                  repeat: Infinity, // Repetir indefinidamente
+                  ease: "easeInOut", // Transición suave
+                }}
               />
               <div
                 className={`text-center md:text-left flex flex-col items-center md:items-start justify-center h-full ${fontClass}`}
               >
-                <h3 className={`text-4xl font-bold mb-4 ${ colortext}`}>
+                <h3 className={`text-4xl font-bold mb-4 ${colortext}`}>
                   {slide.title}
                 </h3>
-                <p className={ `mb-6 ${ colortext}`}>{slide.description}</p>
+                <p className={`mb-6 ${colortext}`}>{slide.description}</p>
                 <div className="flex justify-center md:justify-start gap-4">
                   <button
                     className={`px-3 py-2 rounded-3xl transition-all ease-in-out duration-300 ${buttonClass}`}
