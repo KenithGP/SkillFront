@@ -35,8 +35,8 @@ export default function Header({ variant }) {
     },
     adult: {
       fontClass: "font-bree text-xl",
-      buttonClass: "bg-[#58349b] text-white hover:bg-indigo-700 hover:scale-110 duration-500 transition-transform focus:ring-indigo-300 rounded-lg px-6 py-2",
-      hoverTextClass: "hover:text-[yellow]",
+      buttonClass: "bg-yellow-600 text-white hover:bg-yellow-500 hover:scale-110 duration-500 transition-transform focus:ring-indigo-300 rounded-lg px-6 py-2",
+      hoverTextClass: "hover:text-[white]",
       colortext: "text-white",
       icon: logo,
     },

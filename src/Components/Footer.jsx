@@ -24,7 +24,7 @@ const pageStyles = {
     titleSize: "text-lg font-bold text-yellow-500",
   },
   adult: {
-    logo: LogoGamer,
+    logo: Logo,
     fontClass: "font-bree",
     textSize: "text-xs font-medium",
     titleSize: "text-lg font-bold text-yellow-500",

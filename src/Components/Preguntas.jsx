@@ -30,7 +30,13 @@ const pageStyles = {
     colorButtom: "bg-[#F8D642] text-black py-2 px-5 rounded-md hover:bg-[#D1A64E] transition duration-300 ease-in-out",
   },
   adult: {
-    fontClass: "font-sans",
+    fontClass: "font-bree",
+    titleColor:"text-[#e4ebbc]",
+    subtitleStile:"text-[#e4ebbc] font-bold",
+    describeColor: "text-[#e4ebbc]-100 text-bold text-md",
+    textSize: " text-xl font-normal ",
+    titleSize: " text-xl font-bold",
+    colorButtom: "bg-yellow-600 text-#e4ebbc py-2 px-5 rounded-md hover:bg-yellow-500 transition duration-300 ease-in-out",
   },
 };
 

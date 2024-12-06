@@ -96,16 +96,15 @@ const pageStyles = {
   /* crear adulto */
   adult: {
     fontClass: "font-bree text-xs",
-    titleClass: "text-purple-600 text-4xl font-bold",
-    descriptionClass:
-      "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-purple-400",
+    titleClass: "text-[#e4ebbc] text-4xl font-bold", 
+    descriptionClass: "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-[#e4ebbc]",
     cardTextClassFalse: "text-black",
-    cardTextClassTrue: "text-purple-400",
-    MoneyTextClassFalse: "text-purple-800 text-3xl font-semibold tracking-tight",
-    MoneyTextClassTrue: "text-white text-3xl font-semibold tracking-tight",
+    cardTextClassTrue: "text-yellow-500",
+    MoneyTextClassFalse: "text-green-800 text-3xl font-semibold tracking-tight", 
+    MoneyTextClassTrue: "text-white text-3xl font-semibold tracking-tight", 
     FontSizeYear: "text-xs",
-    ColorCheckTrue: "text-[#6a0dad]",
-    ColorCheckFalse: "text-blue-700",
+    ColorCheckTrue: "text-[yellow]", 
+    ColorCheckFalse: "text-green-800",
   },
 };
 
@@ -180,7 +179,7 @@ const currentVariant = params.get("variant") ||
               : currentVariant === "kids"
               ? "bg-[#1E90FF]/60 shadow-2xl" // Diseño para niños destacados
               : currentVariant === "adult"
-              ? "bg-purple-700/60 shadow-2xl" // Diseño para adultos destacados
+              ? "bg-green-700/60 shadow-2xl" // Diseño para adultos destacados
               : "bg-red-950/60 shadow-2xl" // Diseño por defecto para destacados
             : currentVariant === "young"
             ? "bg-[#ffe4e6]/70" // Diseño para adolescentes no destacados

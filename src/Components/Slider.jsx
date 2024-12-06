@@ -23,9 +23,9 @@ const pageStyles = {
   },
   Adult: {
     fontClass: "font-bree text-lg",
-    buttonClass: "bg-[#5625b2] text-white hover:bg-[#162682]",
-    slideBackground: "bg-gradient-to-r from-purple-700 to-blue-700",
-    colortext: "text-white",
+    buttonClass: "bg-yellow-600 text-[#e4ebbc] hover:bg-yellow-500",
+    slideBackground: "bg-transparent",
+    colortext: "text-[#e4ebbc]",
   },
 };
 
