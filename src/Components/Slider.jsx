@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import imagegif from "../assets/Icons/Fuentes.gif"
-
-import { useState } from "react";
+import imagegif from "../assets/Icons/Book.gif"
 import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
 import Fuente from "../assets/Images/Fuentes.svg";
 import Gestion from "../assets/Images/Gestion.svg";
 import Usuario from "../assets/Images/Usuario.svg";

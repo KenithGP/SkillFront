@@ -42,7 +42,7 @@ export default function Header({ variant }) {
 
   // Obtener los estilos dinámicos según la variante
   const currentDesign = designs[variant] || designs.default;
-  const { fontClass, buttonClass, hoverTextClass, colortext, icon, fondoHeader } = designs[currentVariant];
+  const { fontClass, buttonClass, hoverTextClass, colortext, icon, fondoHeader } = currentDesign;
 
   // Generar las rutas dinámicas para enlaces
   const dynamicPath = (path) =>
