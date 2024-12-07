@@ -66,6 +66,8 @@ const pageStyles = {
     FontSizeYear: "text-sm",
     ColorCheckTrue: "text-green-600",
     ColorCheckFalse: "text-green-700",
+    colotbuttontrue: "bg-yellow-600 text-black font-bold shadow-lg hover:bg-yellow-500 ",
+    colotbuttonfalse: "text-white font-bold bg-green-800 hover:bg-green-700 border-green-700",
   },
   young: {
     fontClass: "font-arcade text-xs",
@@ -79,20 +81,23 @@ const pageStyles = {
     FontSizeYear: "text-xs",
     ColorCheckTrue: "text-[#ff7f07]",
     ColorCheckFalse: "text-green-700",
+    colotButtonTrue: "bg-yellow-600 text-black font-bold shadow-lg hover:bg-yellow-500 ",
+    colotButtonFalse: "text-white font-bold bg-green-800 hover:bg-green-700 border-green-700",
   },
   kids: {
-    fontClass: "font-comics ",
-    titleClass: "text-[#FFFFFF] text-6xl font-bold",
+    fontClass: "font-bubblegum ",
+    titleClass: "text-[#ffd005] text-6xl font-bold",
     descriptionClass:
-      "mx-auto mt-6 max-w-3xl text-pretty text-center text-[#1E90FF] text-lg font-bold",
+      "mx-auto mt-6 max-w-3xl text-pretty text-center text-black/80 text-lg font-medium",
     cardTextClassFalse: "text-black ",
-    cardTextClassTrue: "text-yellow-400 ",
-    MoneyTextClassFalse: "text-green-800 text-3xl font-semibold tracking-tight",
+    cardTextClassTrue: "text-yellow-400",
+    MoneyTextClassFalse: "text-black text-3xl font-semibold tracking-tight",
     MoneyTextClassTrue: "text-white text-3xl font-semibold tracking-tight",
     FontSizeYear: "text-xs",
-    ColorCheckTrue: "text-[#ff7f07]",
-    ColorCheckFalse: "text-green-700",
-    colorButtonDestacado: "",
+    ColorCheckTrue: "text-yellow-400",
+    ColorCheckFalse: "text-black",
+    colotButtonTrue: "bg-yellow-400 text-black font-bold shadow-lg hover:bg-yellow-600 ",
+    colotButtonFalse: "bg-gray-400 text-black font-bold shadow-lg hover:bg-gray-500 ",
   },
   /* crear adulto */
   adult: {
@@ -106,6 +111,8 @@ const pageStyles = {
     FontSizeYear: "text-xs",
     ColorCheckTrue: "text-[#ff7f07]", 
     ColorCheckFalse: "text-blue-700",
+    colotButtonTrue: "bg-yellow-600 text-black font-bold shadow-lg hover:bg-yellow-500 ",
+    colotButtonFalse: "text-white font-bold bg-green-800 hover:bg-green-700 border-green-700",
   },
 };
 const pageContent = {
@@ -154,6 +161,8 @@ export default function TarjetPlanes() {
     FontSizeYear,
     ColorCheckFalse,
     ColorCheckTrue,
+    colotButtonTrue,
+    colotButtonFalse,
   } = pageStyles[currentVariant];
 
   return (
@@ -187,14 +196,14 @@ export default function TarjetPlanes() {
                 ? currentVariant === "young"
                   ? "bg-[#ff0070]/60 shadow-2xl" // Diseño para adolescentes destacados
                   : currentVariant === "kids"
-                  ? "bg-[#1E90FF]/60 shadow-2xl" // Diseño para niños destacados
+                  ? "bg-[#800080]/70 shadow-2xl" // Diseño para niños destacados
                   : currentVariant === "adult"
                   ? "bg-[#4CAF50]/60 shadow-2xl" // Diseño para adultos destacados
                   : "bg-red-950/60 shadow-2xl" // Diseño por defecto para destacados
                 : currentVariant === "young"
                 ? "bg-[#ffe4e6]/70" // Diseño para adolescentes no destacados
                 : currentVariant === "kids"
-                ? "bg-[#E0F7FA]/70 shadow-2xl" // Diseño para nilos no destacados
+                ? "bg-white/60 shadow-2xl" // Diseño para niños no destacados
                 : currentVariant === "adult"
                 ? "bg-[#e8f5e9]/70" // Diseño para adultos no destacados
                 : "bg-white/70", // Diseño por defecto para no destacados
@@ -265,8 +274,8 @@ export default function TarjetPlanes() {
               aria-describedby={tier.id}
               className={classNames(
                 tier.featured
-                  ? "bg-yellow-600 text-black font-bold shadow-lg hover:bg-yellow-500 "
-                  : "text-white font-bold bg-green-800 hover:bg-green-700 border-green-700",
+                  ? colotButtonTrue
+                  : colotButtonFalse,
                 "mt-8 block rounded-md px-3.5 py-2.5 text-center text-xs font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10"
               )}
             >

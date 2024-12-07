@@ -14,7 +14,7 @@ const backgroundClass =
   variant === "young"
     ? "bg-gradient-to-b from-[#000080]/90 to-[#3533cd]/100" // Adolescente
     : variant === "kids"
-    ? "bg-gradient-to-b from-[#33c6eb] to-[#b3ddfc]" // Niños
+    ? "bg-gradient-to-b from-[#86DCFC] to-[#b3e5fc]" // Niños
     : variant === "adult"
     ? "bg-gradient-to-b from-[#162682]/95 to-[#5625b2]/100" // Adulto (Fondo Morado)
     : "bg-gradient-to-b from-[#000000]/100 to-[#EA6558]/100"; // Predeterminado

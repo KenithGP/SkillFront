@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import imagegif from "../assets/Icons/Fuentes.gif"
 
 // Configuración centralizada para estilos dinámicos
 const pageStyles = {
@@ -17,8 +18,8 @@ const pageStyles = {
   },
   kids: {
     fontClass: "font-comics text-lg ",
-    buttonClass: "bg-[#F8D642] text-[#000000] hover:bg-[#D1A64E]",
-    slideBackground: "bg-white/50",
+    buttonClass: "bg-[#F8D642] text-[#000000] hover:bg-[#ffe471]",
+    slideBackground: "bg-transparent",
     colortext: "text-black",
   },
   Adult: {
@@ -58,7 +59,7 @@ const Slider = ({ variant = "default" }) => {
       },
       
       {
-        image: "https://www.datacole.com/img/demo-content/images/class.svg",
+        image: "https://www.datacole.com/img/demo-content/images/ ",
         title: "Plataforma para Jóvenes",
         description:
           "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
@@ -66,7 +67,19 @@ const Slider = ({ variant = "default" }) => {
     ],
     kids: [
       {
-        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
+        image: imagegif,
+        title: "Diversión y Aprendizaje",
+        description:
+          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
+      },
+      {
+        image: imagegif,
+        title: "Diversión y Aprendizaje",
+        description:
+          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
+      },
+      {
+        image: imagegif,
         title: "Diversión y Aprendizaje",
         description:
           "Plataforma interactiva diseñada para que los niños aprendan jugando.",

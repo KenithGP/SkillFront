@@ -20,8 +20,8 @@ const pageStyles = {
   },
   kids: {
     logo: Logo,
-    fontClass: "font-comics",
-    bgColor: "bg-blue-900/90",
+    fontClass: "font-bubblegum",
+    bgColor: "bg-[#800080]/90",
     textSize: "text-xs font-medium",
     titleSize: "text-lg font-bold text-yellow-500",
   },

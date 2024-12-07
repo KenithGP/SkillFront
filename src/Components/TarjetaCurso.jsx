@@ -55,7 +55,7 @@ const pageStyles = {
     bgColor: "bg-gradient-to-b from-black/60 to-black/90 ",
   },
   kids: {
-    fontClass: "font-comics",
+    fontClass: "font-bubblegum",
     textSize:" text-1xl",
     titleSize:" text-2xl font-bold",
     bgColor: "bg-gradient-to-b from-black/40 to-black/60 ",

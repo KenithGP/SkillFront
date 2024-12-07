@@ -4,11 +4,13 @@ import React from "react";
 import LogoBlack from "../assets/Icons/Logo.svg"
 
 export default function Header() {
+  
   const location = useLocation();
 
   // Obtener el parámetro variant desde la URL
   const params = new URLSearchParams(location.search);
   const variant = params.get("variant");
+  
 
   // Configuración de diseños para cada variante
   const designs = {
@@ -20,11 +22,12 @@ export default function Header() {
       icon: logo, 
     },
     kids: {
-      fontClass: "font-comics text-xl ", 
-      buttonClass: "bg-[#F8D642] hover:bg-[#D1A64E]", 
-      hoverTextClass: "text-black hover:text-[#F8D642]  ",
-      colortext:"text-black",
-      icon: LogoBlack,
+      fontClass: "font-bubblegum text-2xl font-bold tracking-wider", 
+      buttonClass: "bg-[#F8D642] hover:bg-[#ffe471]", 
+      hoverTextClass: "text-white hover:text-yellow-400  ",
+      colortext:"text-white hover:text-yellow-400",
+      icon:logo,
+      fondoHeader: "bg-black/30 shadow-md",
       },
     young: {
       fontClass: "font-arcade text-xs text-pink-600",
@@ -51,7 +54,7 @@ export default function Header() {
     "home"; // Predeterminado a Home si no coincide nada más
 
   // Obtener los estilos dinámicos según la variante
-  const { fontClass, buttonClass, hoverTextClass, colortext, icon } = designs[currentVariant];
+  const { fontClass, buttonClass, hoverTextClass, colortext, icon, fondoHeader } = designs[currentVariant];
 
   // Determinar la ruta dinámica para el enlace "Planes"
   const planesLink =
@@ -65,7 +68,7 @@ export default function Header() {
 
   return (
     <header
-      className={`flex items-center justify-between px-10 py-5 mb-1 ${fontClass}`}
+      className={`flex items-center justify-between px-10 py-5 mb-1 ${fontClass} ${fondoHeader}`}
     >
       {/* Logo y Nombre */}
       <div className="flex items-center space-x-4 ml-6 hover:scale-110 duration-500 transition-transform">

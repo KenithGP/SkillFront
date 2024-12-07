@@ -23,10 +23,10 @@ const pageStyles = {
     
   },
   kids: {
-    fontClass: "font-comics",
+    fontClass: "font-bubblegum",
     titleColor:"text-[#FFFFFF]",
-    subtitleStile:"text-green-800 font-bold",
-    describeColor: "text-gray-100 text-bold text-md",
+    subtitleStile:"text-yellow-400 font-bold",
+    describeColor: "text-white text-bold text-md",
     textSize: " text-xl font-normal ",
     titleSize: " text-xl font-bold",
     colorButtom: "bg-[#F8D642] text-black py-2 px-5 rounded-md hover:bg-[#D1A64E] transition duration-300 ease-in-out",

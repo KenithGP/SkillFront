@@ -8,7 +8,9 @@ export default {
         arcade: ['Arcade Gamer', 'sans-serif'], //  fuente GAMER
         bree: ['Bree Serif', 'sans-serif'], // Añade tu fuente personalizada
         arcade: ['Arcade Gamer', 'sans-serif'], // Fuente Gamer
-        comics: ['"Comic Sans MS"', 'cursive'], // Fuente Comic Sans
+        comics: ['"Comic Sans MS"', 'sans-serif'], // Fuente Comic Sans
+        bubblegum: ['"Bubblegum Sans"', 'sans-serif'],
+  
       },
       fontSize: {
         'xxs': '0.1rem', // Tamaño aún más pequeño
