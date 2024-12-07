@@ -1,3 +1,4 @@
+
 import Header from '../Components/Header'
 import TarjetaCurso from '../Components/TarjetaCurso'
 import TarjetPlanes from '../Components/TarjetPlanes'
@@ -19,7 +20,7 @@ export default function Adult() {
     : "default";
   
     return (
-      <div  className="bg-gradient-to-l from-[#042518]/95 to-[#0d6242]/100 max-screen">
+      <div className="bg-gradient-to-r to-[#0b583b]/100 from-[black] max-screen">
          <Header  variant={variant}/>
          <Slider variant={variant} />        
          <TarjetPlanes variant={variant}/> 
@@ -29,3 +30,18 @@ export default function Adult() {
       </div>
     )
 }
+/* bg-gradient-to-t: Degradado de abajo hacia arriba.
+
+bg-gradient-to-tr: Degradado de abajo-izquierda hacia arriba-derecha.
+
+bg-gradient-to-r: Degradado de izquierda a derecha.
+
+bg-gradient-to-br: Degradado de arriba-izquierda hacia abajo-derecha.
+
+bg-gradient-to-b: Degradado de arriba hacia abajo.
+
+bg-gradient-to-bl: Degradado de arriba-derecha hacia abajo-izquierda.
+
+bg-gradient-to-l: Degradado de derecha a izquierda.
+
+bg-gradient-to-tl: Degradado de abajo-derecha hacia arriba-izquierda. */

@@ -26,7 +26,7 @@ const pageStyles = {
     buttonText: "¡Explorar!",
   },
   adult: {
-    bgColor: "bg-gray-800",
+    bgColor: "bg-green-900",
     titleFont: "font-bree text-white text-4xl",
     paragraphFont: "text-gray-300",
     buttonColor: "bg-purple-600",

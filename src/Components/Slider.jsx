@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import imagegif from "../assets/Icons/Book.gif"
+import { motion } from "framer-motion";
+import Fuente from "../assets/Images/Fuentes.svg";
+import Gestion from "../assets/Images/Gestion.svg";
+import Usuario from "../assets/Images/Usuario.svg";
 import Espada from '../assets/Icons/Espada-gamer.svg'
 import ConsolaJuegos from '../assets/Icons/Consola-Juegos.svg'
 import PalancaMando from '../assets/Icons/Palanca-Mando.svg'
@@ -19,16 +24,16 @@ const pageStyles = {
     colortext: "text-white",
   },
   kids: {
-    fontClass: "font-comics text-lg",
-    buttonClass: "bg-[#F8D642] text-[#000000] hover:bg-[#D1A64E]",
-    slideBackground: "bg-white/50",
+    fontClass: "font-comics text-lg ",
+    buttonClass: "bg-[#F8D642] text-[#000000] hover:bg-[#ffe471]",
+    slideBackground: "bg-transparent",
     colortext: "text-black",
   },
   Adult: {
     fontClass: "font-bree text-lg",
     buttonClass: "bg-yellow-600 text-[#e4ebbc] hover:bg-yellow-500",
     slideBackground: "bg-transparent",
-    colortext: "text-[#e4ebbc]",
+    colortext: "text-[white]",
   },
 };
 
@@ -36,16 +41,59 @@ const Slider = ({ variant = "default" }) => {
   const location = useLocation();
 
   const getPageVariant = () => {
-    if (location.pathname.includes("/adult")) return "Adult";
-    if (location.pathname.includes("/Young")) return "young";
-    if (location.pathname.includes("/kids")) return "kids";
+    if (location.pathname.toLowerCase().includes("/adult")) return "Adult";
+    if (location.pathname.toLowerCase().includes("/young")) return "young";
+    if (location.pathname.toLowerCase().includes("/kids")) return "kids";
     return "default";
   };
 
   const currentVariant = getPageVariant();
-  const { fontClass, buttonClass, slideBackground, colortext } = pageStyles[currentVariant];
+  const { fontClass, buttonClass, slideBackground, colortext } =
+    pageStyles[currentVariant];
 
   const slidesVariants = {
+    default: [
+      {
+        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
+        title: "Sistema Integral de Gestión Educativa",
+        description:
+          "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
+      },
+      {
+        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
+        title: "Aprende desde cualquier lugar",
+        description:
+          "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
+      },
+      
+      {
+        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
+        title: "Plataforma para Jóvenes",
+        description:
+          "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
+      },
+      
+    ],
+    kids: [
+      {
+        image: imagegif,
+        title: "Diversión y Aprendizaje",
+        description:
+          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
+      },
+      {
+        image: imagegif,
+        title: "Diversión y Aprendizaje",
+        description:
+          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
+      },
+      {
+        image: imagegif,
+        title: "Diversión y Aprendizaje",
+        description:
+          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
+      },
+    ],
     young: [
       {
         image: ConsolaJuegos,
@@ -63,8 +111,29 @@ const Slider = ({ variant = "default" }) => {
         description: "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
       },
     ],
-  };
+    adult: [
 
+      {
+        image: Fuente,
+        title: "Sistema Integral de Gestión Educativa",
+        description:
+          "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
+      },
+      {
+        image: Gestion,
+        title: "Aprende desde cualquier lugar",
+        description:
+          "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
+      },
+      
+      {
+        image: Usuario,
+        title: "Plataforma para Jóvenes",
+        description:
+          "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
+      },  
+    ],
+  };
   const slides = slidesVariants[variant] || slidesVariants.default;
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -87,7 +156,9 @@ const Slider = ({ variant = "default" }) => {
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <div key={index} className="w-full flex-shrink-0 flex justify-center">
+          <div 
+          key={index
+          } className="w-full flex-shrink-0 flex justify-center">
             <div className="flex flex-col md:flex-row justify-center gap-8 p-4 w-11/12 md:w-3/5 h-auto items-center">
               <motion.img
                 src={slide.image}
