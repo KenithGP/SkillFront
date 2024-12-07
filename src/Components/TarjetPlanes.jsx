@@ -96,8 +96,8 @@ const pageStyles = {
   /* crear adulto */
   adult: {
     fontClass: "font-bree text-xs",
-    titleClass: "text-[#e4ebbc] text-4xl font-bold", 
-    descriptionClass: "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-[#e4ebbc]",
+    titleClass: "text-[white] text-4xl font-bold", 
+    descriptionClass: "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-[white]",
     cardTextClassFalse: "text-black",
     cardTextClassTrue: "text-yellow-500",
     MoneyTextClassFalse: "text-green-800 text-3xl font-semibold tracking-tight", 

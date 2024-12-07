@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../Components/Header";
@@ -36,11 +37,17 @@ const pageStyles = {
     fontClass: "font-sans",
   },
   adult: {
-    bgClass: "bg-gradient-to-b from-[#2c2c2c] to-[#6e6e6e]",
-    titleColor: "text-gray-300",
-    buttonClass: "bg-gray-700 hover:bg-gray-500",
-    inputBg: "bg-gray-800 text-gray-300",
-    fontClass: "font-sans",
+    bgClass: "bg-gradient-to-bl from-[#053322]/90 to-[#0d6242]/100",
+    titleColor: "text-[#ffffff]/80",
+    buttonClass: "bg-yellow-600 hover:bg-yellow-500 font-normal text-base",
+    inputBg: "bg-gray-900 text-white-900",
+    titleSize: "text-xl lg:text-4xl font-bold",
+    DescriptionSize: "text-sm lg:text-xl",
+    subTitleSize: "text-xl",
+    fontClass: "font-bree",
+    bgForm: "bg-black/20",
+    fileTextClass: "text-green-5 00",
+    bgb: "bg-yellow-600 hover:bg-yellow-500",
   },
 };
 
@@ -64,6 +71,7 @@ export default function Beca() {
     subTitleSize,
     inputBg,
     fileTextClass,
+    bgb,
   } = pageStyles[variant];
 
   const [fileName, setFileName] = useState(""); // Estado para almacenar el nombre del archivo
@@ -184,7 +192,8 @@ export default function Beca() {
               {/* Botón Personalizado */}
               <label
                 htmlFor="file-upload"
-                className={`${subTitleSize} cursor-pointer inline-block bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition`}
+                /* className={`${subTitleSize} cursor-pointer inline-block ${bgb} text-white font-bold py-2 px-4 rounded-lg transition`} */
+                className={`${subTitleSize} cursor-pointer inline-block ${bgb} bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition`}
               >
                 Seleccionar Archivo
               </label>

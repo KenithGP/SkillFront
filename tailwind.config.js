@@ -10,6 +10,8 @@ export default {
       fontFamily: {
         arcade: ['Arcade Gamer', 'sans-serif'], //  fuente GAMER
         bree: ['Bree Serif', 'sans-serif'], // Añade tu fuente personalizada
+        abel: ['Abel Regular', 'sans-serif'], 
+        ibm: ['IBM Plex Sans','sans-serif'],
         comics: ['"Comic Sans MS"', 'cursive'], // Fuente Comic Sans
       },
       fontSize: {
