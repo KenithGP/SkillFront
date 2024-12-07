@@ -53,22 +53,21 @@ const Slider = ({ variant = "default" }) => {
   // Slides para diferentes variantes
   const slidesVariants = {
     default: [
-
       {
-        image: Gestion,
+        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
         title: "Sistema Integral de Gestión Educativa",
         description:
           "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
       },
       {
-        image: Fuente,
+        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
         title: "Aprende desde cualquier lugar",
         description:
           "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
       },
       
       {
-        image: Usuario,
+        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
         title: "Plataforma para Jóvenes",
         description:
           "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
@@ -104,9 +103,29 @@ const Slider = ({ variant = "default" }) => {
           "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
       },
     ],
+    adult: [
 
+      {
+        image: Fuente,
+        title: "Sistema Integral de Gestión Educativa",
+        description:
+          "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
+      },
+      {
+        image: Gestion,
+        title: "Aprende desde cualquier lugar",
+        description:
+          "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
+      },
+      
+      {
+        image: Usuario,
+        title: "Plataforma para Jóvenes",
+        description:
+          "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
+      },  
+    ],
   };
-
   const slides = slidesVariants[variant] || slidesVariants.default;
   const [currentSlide, setCurrentSlide] = useState(0);
 
