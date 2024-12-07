@@ -92,6 +92,7 @@ const pageStyles = {
     FontSizeYear: "text-xs",
     ColorCheckTrue: "text-[#ff7f07]",
     ColorCheckFalse: "text-green-700",
+    colorButtonDestacado: "",
   },
   /* crear adulto */
   adult: {

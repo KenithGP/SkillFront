@@ -119,7 +119,7 @@ export default function Footer({ variant = "default" }) {
         </div>
 
         {/* Derechos Reservados */}
-        <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm text-gray-400">
+        <div className="mt-8 border-t border-gray-00 pt-4 text-center text-sm text-gray-400">
           © 2024 SkillConnect. Todos los derechos reservados.
         </div>
       </div>
