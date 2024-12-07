@@ -2,13 +2,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import imagegif from "../assets/Icons/Book.gif"
-import { motion } from "framer-motion";
 import Fuente from "../assets/Images/Fuentes.svg";
 import Gestion from "../assets/Images/Gestion.svg";
 import Usuario from "../assets/Images/Usuario.svg";
-import Espada from '../assets/Icons/Espada-gamer.svg'
-import ConsolaJuegos from '../assets/Icons/Consola-Juegos.svg'
-import PalancaMando from '../assets/Icons/Palanca-Mando.svg'
+import Espada from '../assets/Icons/Espada-gamer.svg';
+import ConsolaJuegos from '../assets/Icons/Consola-Juegos.svg';
+import PalancaMando from '../assets/Icons/Palanca-Mando.svg';
 
 const pageStyles = {
   default: {
