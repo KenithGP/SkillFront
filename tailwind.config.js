@@ -13,6 +13,8 @@ export default {
         abel: ['Abel Regular', 'sans-serif'], 
         ibm: ['IBM Plex Sans','sans-serif'],
         comics: ['"Comic Sans MS"', 'cursive'], // Fuente Comic Sans
+        bubblegum: ['"Bubblegum Sans"', 'sans-serif'],
+  
       },
       fontSize: {
         'xxs': '0.1rem', // Tamaño aún más pequeño

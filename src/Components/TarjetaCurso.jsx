@@ -36,6 +36,37 @@ const courses = [
     bgGradient: "from-sky-800 to-sky-1000",
   },
 ];
+// Configuración de estilos para cada variante
+const pageStyles = {
+  default: {
+    textClass: "text-white",
+    descClass: "text-gray-300",
+    fontClass: "font-sans ",
+    textSize:" text-sm font-semibold ",
+    titleSize:"text-3xl font-bold",
+    bgColor: "bg-gradient-to-b from-black/60 to-black/90 ",
+  },
+  young: {
+    textClass: "text-yellow-200",
+    descClass: "text-pink-100",
+    fontClass: "font-arcade",
+    textSize:" text-xs font-normal ",
+    titleSize:" text-xl font-bold",
+    bgColor: "bg-gradient-to-b from-black/60 to-black/90 ",
+  },
+  kids: {
+    fontClass: "font-bubblegum",
+    textSize:" text-1xl",
+    titleSize:" text-2xl font-bold",
+    bgColor: "bg-gradient-to-b from-black/40 to-black/60 ",
+  },
+  adult: {
+    textClass: "text-gray-300",
+    descClass: "text-gray-500",
+    bgColor: "bg-gradient-to-b from-black/60 to-black/90 ",
+    fontClass: "font-sans",
+  },
+};
 
 export default function TarjetaCurso({ variant = "default" }) {
   const pageStyles = {
@@ -65,13 +96,17 @@ export default function TarjetaCurso({ variant = "default" }) {
     },
   };
 
-  const { textClass, textSize, titleSize, descClass, fontClass } =
-    pageStyles[variant];
+  // Detectar variante según la ruta
+  /* const params = new URLSearchParams(location.search);
+  const variant = params.get("variant") || "default"; */ // Si no hay variante, usar "default"
+
+  // Obtener estilos dinámicos según la variante
+  const { textClass, textSize,titleSize,descClass, fontClass, bgColor } = pageStyles[variant];
 
   return (
-    <div className="relative bg-black/20 w-full h-2/4 overflow-hidden py-12">
-      <div className="flex animate-scroll w-[calc(200%)] space-x-8 mb-20 mt-10">
-        {courses.concat(courses).map((course, index) => (
+    <div className={` w-full mb-40 flex flex-wrap justify-center gap-4 p-4 ${fontClass} ${bgColor}`}>
+      <div className="flex flex-wrap justify-center gap-8 p-4 mt-20 mb-36">
+        {courses.map((course, index) => (
           <div
             key={index}
             className={`bg-gradient-to-b ${course.bgGradient} h-80 w-72 flex-shrink-0 rounded-2xl shadow-lg p-4 hover:scale-110 transition-transform duration-500`}

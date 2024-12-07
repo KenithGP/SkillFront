@@ -16,12 +16,13 @@ export default function Header({ variant }) {
       icon: logo,
     },
     kids: {
-      fontClass: "font-comics text-xl",
-      buttonClass: "bg-[#F8D642] hover:bg-[#D1A64E]",
-      hoverTextClass: "text-black hover:text-[#F8D642]",
-      colortext: "text-black",
-      icon: LogoBlack,
-    },
+      fontClass: "font-bubblegum text-2xl font-bold tracking-wider", 
+      buttonClass: "bg-[#F8D642] hover:bg-[#ffe471]", 
+      hoverTextClass: "text-white hover:text-yellow-400  ",
+      colortext:"text-white hover:text-yellow-400",
+      icon:logo,
+      fondoHeader: "bg-black/30 shadow-md",
+      },
     young: {
       fontClass: "font-arcade text-xs text-pink-600",
       buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
@@ -41,8 +42,7 @@ export default function Header({ variant }) {
 
   // Obtener los estilos dinámicos según la variante
   const currentDesign = designs[variant] || designs.default;
-  const { fontClass, buttonClass, hoverTextClass, colortext, icon } =
-    currentDesign;
+  const { fontClass, buttonClass, hoverTextClass, colortext, icon, fondoHeader } = designs[currentVariant];
 
   // Generar las rutas dinámicas para enlaces
   const dynamicPath = (path) =>
@@ -50,7 +50,7 @@ export default function Header({ variant }) {
 
   return (
     <header
-      className={`flex items-center justify-between px-10 py-5 mb-1 ${fontClass}`}
+      className={`flex items-center justify-between px-10 py-5 mb-1 ${fontClass} ${fondoHeader}`}
     >
       {/* Logo y Nombre */}
       <div className="flex items-center space-x-4 ml-6 hover:scale-110 duration-500 transition-transform">

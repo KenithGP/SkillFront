@@ -17,11 +17,11 @@ export default function Kids() {
     : "default";
 
   return (
-    <div className="bg-gradient-to-b from-[#33c6eb] to-[#b3ddfc]  m-0 p-0"> {/* Fondo verde */}
+    <div className="bg-gradient-to-b from-[#86DCFC] to-[#b3e5fc]  m-0 p-0"> {/* Fondo verde */}
       {/* Video de fondo */}
       <video
-        className="absolute w-full h-full object-cover bg-green-500"
-        src="src/Videos/VIDEO-FONDO-WEB.mp4" // Verifica esta ruta
+        className="absolute w-full h-full object-cover"
+        src="src/Videos/VIDEO-FONDO.mp4" // Verifica esta ruta
         autoPlay
         loop
         muted
@@ -30,7 +30,7 @@ export default function Kids() {
       {/* Contenido principal */}
       <div className="relative z-10">
         <Header variant={variant} />
-        <Slider variant="default" />
+        <Slider variant={variant}  />
         <TarjetPlanes variant={variant} />
         <TarjetCurso variant={variant} />
         <Preguntas variant={variant} />
