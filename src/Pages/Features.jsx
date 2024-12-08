@@ -195,7 +195,7 @@ const pageStyles = {
     buttonText: "¡Aprender ahora!",
   },
   adult: {
-    bgColor: "bg-gray-800",
+    bgColor: "bg-gradient-to-l from-[#042518]/95 to-[#0d6242]/100",
     titleFont: "font-bree text-white text-4xl",
     paragraphFont: "text-gray-300",
     buttonColor: "bg-purple-600",

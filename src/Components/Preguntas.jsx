@@ -31,12 +31,13 @@ const pageStyles = {
   },
   adult: {
     fontClass: "font-bree",
-    titleColor:"text-[#e4ebbc]",
-    subtitleStile:"text-[#e4ebbc] font-bold",
+    titleColor:"text-white",
+    subtitleStile:"text-white font-bold",
     describeColor: "text-[#e4ebbc]-100 text-bold text-md",
     textSize: " text-xl font-normal ",
     titleSize: " text-xl font-bold",
-    colorButtom: "bg-yellow-600 text-#e4ebbc py-2 px-5 rounded-md hover:bg-yellow-500 transition duration-300 ease-in-out",
+    /* bg-[#a5bbad] text-black hover:bg-yellow-500 */
+    colorButtom: "bg-[#dda100] text-white py-2 px-5 rounded-md hover:bg-yellow-500 transition duration-300 ease-in-out",
   },
 };
 

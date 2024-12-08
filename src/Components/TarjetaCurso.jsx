@@ -61,11 +61,11 @@ export default function TarjetaCurso({ variant = "default" }) {
     adult: {
       textClass: "text-gray-300",
       descClass: "text-gray-500",
-      fontClass: "font-sans",
+      fontClass: "font-bree",
     },
   };
 
-  const { textClass, textSize, titleSize, descClass, fontClass } =
+  const { textClass, textSize, titleSize, descClass, fontClass} =
     pageStyles[variant];
 
   return (
