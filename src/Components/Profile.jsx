@@ -23,10 +23,12 @@ export default function Profile({ onProfileUpdate }) {
       titleFont: "font-sans text-2xl font-bold",
     },
     kids: {
-      bgColor: "bg-yellow-200",
+      bgColor: "bg-gradient-to-b from-[#cdffd8]/100 to-[#94b9ff]/100 min-h-screen",
       textColor: "text-yellow-800",
       buttonColor: "bg-yellow-500 hover:bg-yellow-700 text-white",
-      titleFont: "font-comics text-xl font-bold",
+      titleFont: "font-comics text-xl font-bold text-blue-500",
+      fontdata:"font-comics text-lg",
+      font:"font-comics text-md ml-8",
     },
     young: {
       bgColor: "bg-gradient-to-b from-[#000000]/90 to-[#3533cd]/100 min-h-screen",
@@ -37,12 +39,12 @@ export default function Profile({ onProfileUpdate }) {
       font:"font-arcade text-xs ml-2",      
     },
     adult: {
-      bgColor: "bg-gray-800",
+      bgColor: "bg-gradient-to-r to-[#0b583b]/100 from-[black] max-screen",
       textColor: "text-white",
       buttonColor: "bg-yellow-500 hover:bg-yellow-600 text-white",
-      titleFont: "font-bree text-3xl font-bold",
+      titleFont: "font-bree text-3xl font-bold text-green-700",
       fontdata:"font-bree text-lg",
-      font:"font-bree text-md",
+      font:"font-bree text-md ml-8",
     },
   };
 
@@ -67,7 +69,7 @@ export default function Profile({ onProfileUpdate }) {
     setNewData(profileData);
     setIsEditing(false);
   };
-
+  // Esta función maneja la carga y previsualización de una nueva imagen de perfil.
   const handleAvatarChange = (e) => {
     const file = e.target.files[0];
     if (file) {
