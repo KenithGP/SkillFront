@@ -10,6 +10,7 @@ import Adult from '../Pages/Adult'
 import Login from '../Pages/Login'
 import Register from '../Pages/Register'
 import Features from '../Pages/Features'
+import Perfil from '../Pages/Perfil'
 
 // Importar las rutas para los links del header
 import Planes from "../Pages/Planes";
@@ -32,6 +33,7 @@ export default function AppRoutes() {
         <Route path="/Adult" element={<Adult />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
+        <Route path="/Perfil" element={<Perfil/>} />
 
 {/*         <Route path="/cursos" element={<Cursos />} />
         <Route path="/becas" element={<Becas />} /> */}
