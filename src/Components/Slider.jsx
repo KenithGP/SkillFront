@@ -165,7 +165,7 @@ const Slider = ({ variant = "default" }) => {
 
   return (
     <div
-      className={`relative w-full overflow-hidden ${slideBackground} h-[500px]`}
+        className={`relative w-full overflow-hidden z-10 ${slideBackground} h-[500px]`}
     >
       <div
         className="flex transition-transform duration-1000 ease-in-out items-center h-[400px]"
