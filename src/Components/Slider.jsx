@@ -1,15 +1,17 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import imagegif from "../assets/Icons/Book.gif";
 import Fuente from "../assets/Images/Fuentes.svg";
 import Gestion from "../assets/Images/Gestion.svg";
 import Usuario from "../assets/Images/Usuario.svg";
-import Espada from '../assets/Icons/Espada-gamer.svg'
-import Almohadilla from '../assets/Icons/Almohadilla.svg'
-import ConsolaJuegos from '../assets/Icons/Consola-Juegos.svg'
-import PalancaMando from '../assets/Icons/Palanca-Mando.svg'
-// Configuración centralizada para estilos dinámicos
+import Espada from "../assets/Icons/Espada-gamer.svg";
+import ConsolaJuegos from "../assets/Icons/Consola-Juegos.svg";
+import PalancaMando from "../assets/Icons/Palanca-Mando.svg";
+import Pc from "../assets/Icons/pc.svg";
+import PlataformaWeb from "../assets/Icons/Plataforma.svg";
+import AcademicWeb from "../assets/Icons/Academic-web.svg";
+
 const pageStyles = {
   default: {
     fontClass: "font-sans text-lg",
@@ -24,9 +26,9 @@ const pageStyles = {
     colortext: "text-white",
   },
   kids: {
-    fontClass: "font-comics text-lg",
-    buttonClass: "bg-[#F8D642] text-[#000000] hover:bg-[#D1A64E]",
-    slideBackground: "bg-white/50",
+    fontClass: "font-comics text-lg ",
+    buttonClass: "bg-[#F8D642] text-[#000000] hover:bg-[#ffe471]",
+    slideBackground: "bg-transparent",
     colortext: "text-black",
   },
   Adult: {
@@ -37,33 +39,9 @@ const pageStyles = {
   },
 };
 
-const slidesVariants = {
-  young: [
-    {
-      image: ConsolaJuegos,
-      title: "Sistema Integral de Gestión Educativa",
-      description:
-        "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
-    },
-    {
-      image: PalancaMando,
-      title: "Aprende desde cualquier lugar",
-      description:
-        "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
-    },
-    {
-      image: Espada,
-      title: "Plataforma para Jóvenes",
-      description:
-        "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
-    },
-  ],
-};
-
 const Slider = ({ variant = "default" }) => {
   const location = useLocation();
 
-  // Detectar la variante actual según la ruta
   const getPageVariant = () => {
     if (location.pathname.toLowerCase().includes("/adult")) return "Adult";
     if (location.pathname.toLowerCase().includes("/young")) return "young";
@@ -75,33 +53,43 @@ const Slider = ({ variant = "default" }) => {
   const { fontClass, buttonClass, slideBackground, colortext } =
     pageStyles[currentVariant];
 
-  // Slides para diferentes variantes
   const slidesVariants = {
     default: [
       {
-        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
+        image: Pc,
         title: "Sistema Integral de Gestión Educativa",
         description:
           "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
       },
       {
-        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
+        image: AcademicWeb,
         title: "Aprende desde cualquier lugar",
         description:
           "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
       },
-      
+
       {
-        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
+        image: PlataformaWeb,
         title: "Plataforma para Jóvenes",
         description:
           "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
       },
-      
     ],
     kids: [
       {
-        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
+        image: imagegif,
+        title: "Diversión y Aprendizaje",
+        description:
+          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
+      },
+      {
+        image: imagegif,
+        title: "Diversión y Aprendizaje",
+        description:
+          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
+      },
+      {
+        image: imagegif,
         title: "Diversión y Aprendizaje",
         description:
           "Plataforma interactiva diseñada para que los niños aprendan jugando.",
@@ -120,7 +108,6 @@ const Slider = ({ variant = "default" }) => {
         description:
           "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
       },
-      
       {
         image: Espada,
         title: "Plataforma para Jóvenes",
@@ -129,7 +116,6 @@ const Slider = ({ variant = "default" }) => {
       },
     ],
     adult: [
-
       {
         image: Fuente,
         title: "Sistema Integral de Gestión Educativa",
@@ -142,13 +128,13 @@ const Slider = ({ variant = "default" }) => {
         description:
           "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
       },
-      
+
       {
         image: Usuario,
         title: "Plataforma para Jóvenes",
         description:
           "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
-      },  
+      },
     ],
   };
   const slides = slidesVariants[variant] || slidesVariants.default;
@@ -166,6 +152,17 @@ const Slider = ({ variant = "default" }) => {
     setCurrentSlide(index);
   };
 
+  // Configurar avance automático
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide(); // Avanzar al siguiente slide
+    }, 5000); // Cambia el slide cada 5 segundos
+
+    return () => {
+      clearInterval(interval); // Limpiar el intervalo al desmontar el componente
+    };
+  }, [slides.length]); // Reconfigura el intervalo si cambia la longitud de slides
+
   return (
     <div
       className={`relative w-full overflow-hidden ${slideBackground} h-[500px]`}
@@ -175,18 +172,39 @@ const Slider = ({ variant = "default" }) => {
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <div 
-          key={index
-          } className="w-full flex-shrink-0 flex justify-center">
+          <div key={index} className="w-full flex-shrink-0 flex justify-center">
             <div className="flex flex-col md:flex-row justify-center gap-8 p-4 w-11/12 md:w-3/5 h-auto items-center">
               <motion.img
                 src={slide.image}
                 alt={slide.title || "Slide"}
                 className="w-1/3 max-w-sm object-contain"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.3 }}
-                whileHover={{ scale: 1.2, rotate: 5 }}
+                animate={
+                  currentVariant === "kids"
+                    ? {
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 10, -10, 0],
+                      }
+                    : currentVariant === "young"
+                    ? {
+                        x: [-10, 10, -10],
+                        y: [0, -10, 10, 0],
+                      }
+                    : currentVariant === "adult"
+                    ? {
+                        opacity: [1, 0.8, 1],
+                        scale: [1.2, 0.9, 1.2],
+                      }
+                    : {
+                        // Animaciones para default
+                        opacity: [1, 0.8, 1],
+                        scale: [1.2, 0.9, 1.2],
+                      }
+                }
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
               <div
                 className={`text-center md:text-left flex flex-col items-center md:items-start justify-center h-full ${fontClass}`}

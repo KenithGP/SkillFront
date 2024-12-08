@@ -54,7 +54,7 @@ export default function TarjetaCurso({ variant = "default" }) {
       titleSize: " text-xl font-bold",
     },
     kids: {
-      fontClass: "font-comics",
+      fontClass: "font-bubblegum",
       textSize: " text-1xl",
       titleSize: " text-2xl font-bold",
     },

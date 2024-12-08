@@ -9,7 +9,6 @@ export default function Planes() {
   const params = new URLSearchParams(location.search);
   const variant = params.get("variant") || "default"; // Por defecto, usa "default"
 
-  console.log(`Variant in Planes: ${variant}`); // Verificar qué variant se detecta
 
   // Determinar el fondo dinámico según la variante
   const backgroundClass =

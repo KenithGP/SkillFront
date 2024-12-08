@@ -10,16 +10,19 @@ const pageStyles = {
     fontClass: "font-sans",
     textSize: "text-sm font-semibold",
     titleSize: "text-lg font-bold",
+    bgColor: "bg-black/90",
   },
   young: {
     logo: LogoGamer,
     fontClass: "font-arcade",
     textSize: "text-xs font-medium",
     titleSize: "text-md font-bold text-yellow-500",
+    bgColor: "bg-black/90",
   },
   kids: {
-    logo: LogoGamer,
-    fontClass: "font-comics",
+    logo: Logo,
+    fontClass: "font-bubblegum",
+    bgColor: "bg-[#800080]/90",
     textSize: "text-xs font-medium",
     titleSize: "text-lg font-bold text-yellow-500",
   },
@@ -28,15 +31,16 @@ const pageStyles = {
     fontClass: "font-bree",
     textSize: "text-xs font-medium",
     titleSize: "text-lg font-bold text-yellow-500",
+    bgColor: "bg-black/90",
   },
 };
 
 export default function Footer({ variant = "default" }) {
   // Obtener estilos dinámicos según la variante
-  const { logo, textSize, titleSize, fontClass } = pageStyles[variant];
+  const { logo, textSize, titleSize, fontClass, bgColor } = pageStyles[variant];
 
   return (
-    <footer className={`bg-black/90 text-white py-12 ${fontClass}`}>
+    <footer className={`text-white py-12 ${fontClass} ${bgColor}`}>
       <div className="container mx-auto px-4 border-t border-gray-700">
         {/* Logo Section */}
         <div className="flex justify-center mb-8">
@@ -123,7 +127,7 @@ export default function Footer({ variant = "default" }) {
         </div>
 
         {/* Derechos Reservados */}
-        <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm text-gray-400">
+        <div className="mt-8 border-t border-gray-00 pt-4 text-center text-sm text-gray-400">
           © 2024 SkillConnect. Todos los derechos reservados.
         </div>
       </div>

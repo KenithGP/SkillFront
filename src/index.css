@@ -18,6 +18,8 @@
 @font-face {
     font-family: 'Comic Sans Custom'; /* Nombre personalizado */
     src: url('./assets/Fonts/COMIC-SANS.ttf') format('truetype'); /* Ruta relativa */
+
+    
 }
 
 @keyframes scroll {
@@ -32,3 +34,14 @@
 .animate-scroll {
   animation: scroll 20s linear infinite;
 }
+/* Bubblegum Sans*/
+@font-face {
+  font-family: 'Bubblegum Sans'; /* Nombre personalizado */
+  src: url('./assets/Fonts/BubblegumSans-Regular.ttf') format('truetype'); /* Ruta relativa */
+
+  
+}
+
+
+
+

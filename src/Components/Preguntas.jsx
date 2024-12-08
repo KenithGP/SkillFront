@@ -10,6 +10,7 @@ const pageStyles = {
     subtitleStile:"text-rose-200 font-medium",
     describeColor: "text-sm text-gray-300 ",
     colorButtom: "bg-red-600 text-white py-2 px-5 rounded-md hover:bg-red-700 transition duration-300 ease-in-out",
+    colorNameForm: "text-white",
     
   },
   young: {
@@ -18,16 +19,18 @@ const pageStyles = {
     subtitleStile:"",
     textSize: " text-xs font-normal ",
     titleSize: " text-md font-bold",
+    colorNameForm: "text-white",
     
   },
   kids: {
-    fontClass: "font-comics",
+    fontClass: "font-bubblegum",
     titleColor:"text-[#FFFFFF]",
-    subtitleStile:"text-green-800 font-bold",
-    describeColor: "text-gray-100 text-bold text-md",
+    subtitleStile:"text-yellow-400 font-bold",
+    describeColor: "text-white text-bold text-md",
     textSize: " text-xl font-normal ",
     titleSize: " text-xl font-bold",
     colorButtom: "bg-[#F8D642] text-black py-2 px-5 rounded-md hover:bg-[#D1A64E] transition duration-300 ease-in-out",
+    colorNameForm: "text-black",
   },
   adult: {
     fontClass: "font-bree",
@@ -43,7 +46,7 @@ const pageStyles = {
 
 export default function Preguntas({ variant = "default" }) {
   // Obtener estilos dinámicos según la variante
-  const { textSize, titleSize, fontClass, titleColor, subtitleStile, describeColor, colorButtom } = pageStyles[variant];
+  const { textSize, titleSize, fontClass, titleColor, subtitleStile, describeColor, colorButtom, colorNameForm } = pageStyles[variant];
 
   const [activeIndex, setActiveIndex] = useState(null);
   const [formData, setFormData] = useState({
@@ -166,7 +169,7 @@ export default function Preguntas({ variant = "default" }) {
               <div className="text-red-500 text-center">{error}</div>
             )}
             <div>
-              <label className="block text-sm font-normal mb-2">Nombre completo</label>
+              <label className={` block text-sm font-normal mb-2 ${colorNameForm}`}>Nombre completo</label>
               <input
                 type="text"
                 name="name"
@@ -178,7 +181,7 @@ export default function Preguntas({ variant = "default" }) {
             </div>
 
             <div>
-              <label className="block text-sm font-normal mb-2">Correo electrónico</label>
+              <label className={` block text-sm font-normal mb-2 ${colorNameForm}`}>Correo electrónico</label>
               <input
                 type="email"
                 name="email"
@@ -190,7 +193,7 @@ export default function Preguntas({ variant = "default" }) {
             </div>
 
             <div>
-              <label className="block text-sm font-normal mb-2">Mensaje</label>
+              <label className={` block text-sm font-normal mb-2 ${colorNameForm}`}>Mensaje</label>
               <textarea
                 name="message"
                 value={formData.message}
