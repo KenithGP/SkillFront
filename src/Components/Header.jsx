@@ -38,13 +38,13 @@ export default function Header({ variant }) {
       icon: logo,
     },
     kids: {
-      fontClass: "font-bubblegum text-2xl font-bold tracking-wider", 
-      buttonClass: "bg-[#F8D642] hover:bg-[#ffe471]", 
+      fontClass: "font-bubblegum text-2xl font-bold tracking-wider",
+      buttonClass: "bg-[#F8D642] hover:bg-[#ffe471]",
       hoverTextClass: "text-white hover:text-yellow-400  ",
-      colortext:"text-white hover:text-yellow-400",
-      icon:logo,
+      colortext: "text-white hover:text-yellow-400",
+      icon: logo,
       fondoHeader: "bg-black/30 shadow-md",
-      },
+    },
     young: {
       fontClass: "font-arcade text-xs text-pink-600",
       buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
