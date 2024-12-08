@@ -24,7 +24,7 @@ const pageStyles = {
     colortext: "text-white",
   },
   kids: {
-    fontClass: "font-comics text-lg ",
+    fontClass: "font-comics text-2xl",
     buttonClass: "bg-[#F8D642] text-[#000000] hover:bg-[#ffe471]",
     slideBackground: "bg-transparent",
     colortext: "text-black",
