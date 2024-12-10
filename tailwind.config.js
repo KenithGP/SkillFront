@@ -6,6 +6,9 @@ export default {
     extend: {
       animation: {
         neonOrange: "neonOrangeBlink 1.5s ease-in-out infinite", // Nueva animación naranja
+        fadeInDown: "fadeInDown 0.5s ease-out", // Nueva animación de entrada
+        'fade-in-up': 'fade-in-up 0.5s ease-out', // Aparece en 0.5 segundos
+        'fade-in': 'fade-in 1s ease-out', // Aparece en 1 segundo
       },
       fontFamily: {
         arcade: ['Arcade Gamer', 'sans-serif'],
@@ -30,6 +33,34 @@ export default {
         "0%, 100%": { textShadow: "0 0 8px #FFA500, 0 0 12px #FFA500" },
         "50%": { textShadow: "0 0 16px #FFA500, 0 0 24px #FFA500" },
       },
+      fadeInDown: {
+          "0%": {
+            opacity: "0",
+            transform: 'translateY(20px)', // Empuja el elemento hacia abajo
+          },
+          "100%": {
+            opacity: "1",
+            transform: 'translateY(0)', // Regresa a su posición original
+          },
+      },
+      'fade-in-up': {
+          '0%': {
+            opacity: 0,
+            transform: 'translateY(-20px)', // Empuja el elemento hacia arriba
+          },
+          '100%': {
+            opacity: 1,
+            transform: 'translateY(0)', // Regresa a su posición original
+          },
+        },
+        'fade-in': {
+          '0%': {
+            opacity: 0,
+          },
+          '100%': {
+            opacity: 1,
+          },
+        },
     },
   },
   plugins: [],

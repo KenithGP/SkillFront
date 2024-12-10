@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Logo from "../assets/Icons/Logo.svg";
 import { AuthService } from '../services/auth.service';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 export default function RegisterAccount() {  
   const authService = new AuthService();
@@ -14,20 +16,31 @@ export default function RegisterAccount() {
   const [birthdate, setBirthdate] = useState('');
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
       const user = await authService.register(first_name, last_name, email, birthdate, password, username);
-      console.log(user);
+      if (user.message === "Usuario registrado") {
+        toast.success("Usuario registrado!",{
+          position: "bottom-right"
+        });
+        navigate("/Login");
+      }else{
+        toast.error(user.message, {
+          position: 'bottom-right'
+        });
+      }
+
     } catch (error) {
-      console.error("Error registering:", error);
+      console.error("Error al registrar usuario" + error)
     }
   }
 
 
   return (
-    <div className="min-h-screen   flex flex-col justify-center items-center py-12 px-6 lg:px-8">
+    <div className="min-h-screen   flex flex-col justify-center items-center py-12 px-6 lg:px-8 animate-fadeInDown">
       <div className="max-w-2xl w-full space-y-8 border bg-white/90 border-gray-300 rounded-lg p-10 shadow-2xl">
         <div className="text-center">
           {/* Logo */}

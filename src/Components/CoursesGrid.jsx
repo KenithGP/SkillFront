@@ -56,7 +56,7 @@ const CoursesGrid = ({ courses }) => {
       <h2 className={`text-2xl ${titleFont} mb-6 text-center`}>
         Cursos Disponibles
       </h2>
-      <div className="flex flex-wrap justify-center gap-6">
+      <div className="flex flex-wrap justify-center gap-6 animate-fadeInDown">
         {courses.map((course, index) => (
           <CourseCard
             key={index}

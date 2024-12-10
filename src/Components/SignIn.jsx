@@ -1,19 +1,28 @@
 import Logo from '../assets/Icons/Logo.svg'
 import { useState } from 'react';
 import { AuthService } from '../services/auth.service';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
     const authService = new AuthService();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSigIn = async (e) => {
       e.preventDefault();
         try {
             const user = await authService.login(email, password);
-            console.log(user); 
-            if (user) {
-                window.location.href = location.state?.from || '/';
+            if (user.message !== "contraseña incorrecta") {
+                toast.success("Bienvenido a SkillConnect",{
+                  position: "bottom-right"
+                });
+                navigate("/");
+            }else{
+                toast.error(user.message, {
+                  position: 'bottom-center'
+                });
             }
         } catch (error) {
             console.error("Error logging in:", error);
@@ -21,7 +30,7 @@ export default function SignIn() {
     }
     
     return (
-      <div className="min-h-screen flex flex-col justify-center items-center py-12 px-6 lg:px-8 ">
+      <div className="min-h-screen flex flex-col justify-center items-center py-12 px-6 lg:px-8 animate-fade-in-up">
         <div className="max-w-xl w-full space-y-8 border bg-white/90 border-gray-300 rounded-lg p-10 shadow-2xl ">
           <div className="text-center">
             {/* Logo */}

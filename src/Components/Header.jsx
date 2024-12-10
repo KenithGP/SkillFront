@@ -1,10 +1,9 @@
 import logo from "../assets/Icons/Logo-White-mobil.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "font-awesome/css/font-awesome.min.css";
 import { UserInfoService } from '../services/user.info.service'
 import { AuthService } from '../services/auth.service';
-
 export default function Header({ variant }) {
   const userInfoService = new UserInfoService();
   const authService = new AuthService();  
@@ -12,16 +11,29 @@ export default function Header({ variant }) {
   const [racha, setRacha] = useState("¡Sigue así!"); 
   const [showProfile, setShowProfile] = useState(false);
   const [usuario, setUsuario] = useState({});
-  const [variante, setVariant] = useState('default');
+  const [variante, setVariant] = useState(() => {
+    const age = localStorage.getItem('age');
+    if (localStorage.getItem("age")) return 'default'; 
+    if (age < 18) return 'kids';
+    if (age <= 25) return 'young';
+    return 'adult'; 
+  });
 
+  
   const loadUserInfo = async () => {
     try {
       const response = await userInfoService.getHeaders();
       setUsuario(response);
       if (response.username) {
         setIsAuthenticated(true);
-        setVariant(localStorage.getItem('age') < 18 ? 'kids' : 'young'); 
-      }
+        const age = response.age;
+        setVariant(() => {
+          if (!age) return 'default';
+          const numericAge = parseInt(age, 10);
+          if (numericAge < 18) return 'kids';
+          if (numericAge <= 25) return 'young';
+          return 'adult';
+        });      }
     } catch (error) {
       console.error('Error al cargar la información del usuario:', error);
     }
@@ -29,8 +41,9 @@ export default function Header({ variant }) {
 
   const logout = async () => {
     try {
+      localStorage.setItem('age', undefined);
       await authService.logout();
-      localStorage.removeItem('age');
+      window.location.replace('/');
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
     }

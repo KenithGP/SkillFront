@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { UserInfoService } from "../services/user.info.service";
+import { format } from 'date-fns';
+import toast from 'react-hot-toast';
+
 
 export default function Profile({ onProfileUpdate }) {
   const userInfoService = new UserInfoService();
-
   const [profileData, setProfileData] = useState({});
-
   const [isEditing, setIsEditing] = useState(false);
   const [newData, setNewData] = useState(profileData);
+  const [formattedDate, setFormattedDate] = useState('');
+
 
   const loadUserInfo = async () => {
     try {
       const response = await userInfoService.getUserInfo();
       setProfileData(response);
       setNewData(response);
-      console.log(newData);
+      setFormattedDate(format(new Date(response.birthdate), 'yyyy-MM-dd'));
     } catch (error) {
       console.error("Error al cargar la información del usuario:", error);
     }
@@ -25,6 +28,7 @@ export default function Profile({ onProfileUpdate }) {
   useEffect(() => {
     loadUserInfo();
   }, []);
+
 
 
   const variantStyles = {
@@ -76,6 +80,7 @@ export default function Profile({ onProfileUpdate }) {
     setProfileData(newData);
     setIsEditing(false);
     if (onProfileUpdate) onProfileUpdate(newData); // Notificar cambios
+    notify("Perfil actualizado correctamente");
   };
 
   const cancelEditing = () => {
@@ -93,6 +98,11 @@ export default function Profile({ onProfileUpdate }) {
       reader.readAsDataURL(file);
     }
   };
+
+  const notify = (text) => toast.success(text, {
+    position: 'bottom-right',
+    className: `${styles.bgColor} ${styles.textColor} ${styles.fontdata} p-4 rounded-lg shadow-lg`,
+  });
 
   return (
     <div className={`min-h-screen ${styles.bgColor} p-6`}>
@@ -205,35 +215,18 @@ export default function Profile({ onProfileUpdate }) {
               {/* Edad */}
               <div>
                 <label className="block text-sm font-semibold text-gray-600">
-                  Edad
+                  Fecha de nacimiento
                 </label>
                 {isEditing ? (
                   <input
-                    type="number"
+                    type="date"
                     name="age"
-                    value={newData.birthdate}
+                    value={formattedDate}
                     onChange={handleInputChange}
                     className="w-full border rounded-lg px-3 py-2"
                   />
                 ) : (
-                  <p className="text-gray-700">{profileData.birthdate}</p>
-                )}
-              </div>
-              {/* Contraseña */}
-              <div>
-                <label className="block text-sm font-semibold text-gray-600">
-                  Contraseña
-                </label>
-                {isEditing ? (
-                  <input
-                    type="password"
-                    name="password"
-                    value={newData.password}
-                    onChange={handleInputChange}
-                    className="w-full border rounded-lg px-3 py-2"
-                  />
-                ) : (
-                  <p className="text-gray-700">{profileData.password}</p>
+                  <p className="text-gray-700">{formattedDate}</p>
                 )}
               </div>
             </div>
@@ -256,7 +249,7 @@ export default function Profile({ onProfileUpdate }) {
                 </>
               ) : (
                 <button
-                  onClick={() => setIsEditing(true)}
+                  onClick={() => {setIsEditing(true);}}
                   className={`px-4 py-2 rounded-lg ${styles.buttonColor}`}
                 >
                   Editar Perfil

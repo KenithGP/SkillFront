@@ -31,12 +31,24 @@ export default function Home() {
 
   useEffect(() => {
     if (age > 0) {
-      const newVariant = age < 18 ? 'kids' : 'young';
+      let newVariant;
+      let redirectPath;
+  
+      if (age < 18) {
+        newVariant = 'kids';
+        redirectPath = '/kids';
+      } else if (age <= 25) {
+        newVariant = 'young';
+        redirectPath = '/young';
+      } else {
+        newVariant = 'adult';
+        redirectPath = '/adult';
+      }
+  
       setVariant(newVariant);
-      navigate(age < 18 ? '/kids' : '/young');
+      navigate(redirectPath);
     }
   }, [age, navigate]);
-  
   
   return (
     <div className="bg-gradient-to-b from-[#000000]/100  to-[#EA6558]/100 max-screen">
