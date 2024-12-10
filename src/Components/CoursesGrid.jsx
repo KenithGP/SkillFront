@@ -11,7 +11,7 @@ const pageStyles = {
   },
   young: {
     bgColor: "bg-none",
-    titleFont: "font-arcade text-yellow-300 text-4xl",
+    titleFont: "font-arcade text-yellow-300 text-shadow-neon animate-neonFlicker text-4xl",
     paragraphFont: "text-pink-100",
     buttonText: "¡Aprender ahora!",
   },

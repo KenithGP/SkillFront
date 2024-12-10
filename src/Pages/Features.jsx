@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import CoursesGrid from "../Components/CoursesGrid";
 import Header from '../Components/Header'
+import RoutePage from '../Components/RoutePage'
 import { SubjectService } from "../services/subject.service";
 import { useEffect, useState } from "react";
 
@@ -296,6 +297,7 @@ export default function Features() {
     <div className={`min-h-screen ${bgColor}`}>
       {/* Header dinámico */}
       <Header variant={variant} />
+      <RoutePage variant={variant}/>
 
       {/* Grid de cursos */}
       <CoursesGrid
