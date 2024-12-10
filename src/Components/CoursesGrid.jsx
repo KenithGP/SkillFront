@@ -66,7 +66,7 @@ const CoursesGrid = ({ courses }) => {
             level={course.level}
             tags={course.tags}
             price={course.price}
-            rating={course.rating}
+            rating={course.rate}
             students={course.students}
             videoUrl={course.video}
             buttonColor={buttonColor}
