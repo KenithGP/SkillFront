@@ -33,7 +33,6 @@ const pageStyles = {
     fontClass: "font-arcade",
     bgForm: "bg-black/50",
     fileTextClass: "text-green-500", // Clase de color predeterminada para el texto del archivo
-    parrafoSub: "text-gray-200",
     inputSize: "text-xs",
     secondTitleColor: "text-green-500",
     thirdTitleColor: "text-yellow-400",
@@ -79,7 +78,6 @@ const pageStyles = {
     inputSize: "text-xs",
     secondTitleColor: "text-green-500",
     thirdTitleColor: "text-yellow-400",
-    parrafoSub: "text-gray-200",
   },
 };
 
