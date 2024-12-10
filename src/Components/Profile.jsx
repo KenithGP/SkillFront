@@ -11,13 +11,24 @@ export default function Profile({ onProfileUpdate }) {
   const [isEditing, setIsEditing] = useState(false);
   const [newData, setNewData] = useState(profileData);
   const [formattedDate, setFormattedDate] = useState('');
-
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [birthdate, setBirthdate] = useState('');
+  const [profile_picture, setProfilePicture] = useState('');
 
   const loadUserInfo = async () => {
     try {
       const response = await userInfoService.getUserInfo();
       setProfileData(response);
-      setNewData(response);
+      setNewData({ ...response }); 
+      setFirstName(response.first_name);
+      setLastName(response.last_name);
+      setUsername(response.username);
+      setEmail(response.email);
+      setBirthdate(response.birthdate);
+      setProfilePicture(response.profile_picture);
       setFormattedDate(format(new Date(response.birthdate), 'yyyy-MM-dd'));
     } catch (error) {
       console.error("Error al cargar la información del usuario:", error);
@@ -25,11 +36,20 @@ export default function Profile({ onProfileUpdate }) {
   };
 
   
+  const updateUserInfo = async () => {
+    try {
+      const response = await userInfoService.updateUserInfo(first_name, last_name, email, birthdate, username , profile_picture);
+      setProfileData(response);
+      setNewData(response);
+      setFormattedDate(format(new Date(response.birthdate), 'yyyy-MM-dd'));
+    } catch (error) {
+      console.error("Error al actualizar la información del usuario:", error);
+    }
+  };
+  
   useEffect(() => {
     loadUserInfo();
   }, []);
-
-
 
   const variantStyles = {
     default: {
@@ -75,12 +95,14 @@ export default function Profile({ onProfileUpdate }) {
     setNewData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Esta función guarda los cambios realizados en el perfil y actualiza el estado general.
-  const saveChanges = () => {
-    setProfileData(newData);
-    setIsEditing(false);
-    if (onProfileUpdate) onProfileUpdate(newData); // Notificar cambios
-    notify("Perfil actualizado correctamente");
+  const saveChanges = async () => {
+    try {
+      await updateUserInfo();
+      setIsEditing(false);
+      notify("Perfil actualizado correctamente");
+    } catch (error) {
+      console.error("Error al guardar los cambios:", error);
+    }
   };
 
   const cancelEditing = () => {
@@ -116,7 +138,7 @@ export default function Profile({ onProfileUpdate }) {
             <div className="relative group w-40 h-40">
               {/* Imagen de perfil */}
               <img
-                src={newData.profile_picture}
+                src={profile_picture}
                 alt="Avatar"
                 className="w-full h-full rounded-full object-cover shadow-md"
               />
@@ -152,13 +174,13 @@ export default function Profile({ onProfileUpdate }) {
                 {isEditing ? (
                   <input
                     type="text"
-                    name="name"
-                    value={newData?.first_name}
-                    onChange={handleInputChange}
+                    name="first_name"
+                    value={first_name}
+                    onChange={(e) => setFirstName(e.target.value)}
                     className="w-full border rounded-lg px-3 py-2"
                   />
                 ) : (
-                  <p className="text-gray-700">{profileData?.username}</p>
+                  <p className="text-gray-700">{first_name}</p>
                 )}
               </div>
               {/* Apellidos */}
@@ -169,13 +191,13 @@ export default function Profile({ onProfileUpdate }) {
                 {isEditing ? (
                   <input
                     type="text"
-                    name="lastName"
-                    value={newData?.last_name}
-                    onChange={handleInputChange}
+                    name="last_name"
+                    value={last_name}
+                    onChange={(e) => setLastName(e.target.value)}
                     className="w-full border rounded-lg px-3 py-2"
                   />
                 ) : (
-                  <p className="text-gray-700">{profileData?.last_name}</p>
+                  <p className="text-gray-700">{last_name}</p>
                 )}
               </div>
               {/* Usuario */}
@@ -187,12 +209,12 @@ export default function Profile({ onProfileUpdate }) {
                   <input
                     type="text"
                     name="username"
-                    value={newData.username}
-                    onChange={handleInputChange}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     className="w-full border rounded-lg px-3 py-2"
                   />
                 ) : (
-                  <p className="text-gray-700">{profileData.username}</p>
+                  <p className="text-gray-700">{username}</p>
                 )}
               </div>
               {/* Email */}
@@ -204,12 +226,12 @@ export default function Profile({ onProfileUpdate }) {
                   <input
                     type="email"
                     name="email"
-                    value={newData.email}
-                    onChange={handleInputChange}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full border rounded-lg px-3 py-2"
                   />
                 ) : (
-                  <p className="text-gray-700">{profileData.email}</p>
+                  <p className="text-gray-700">{email}</p>
                 )}
               </div>
               {/* Edad */}
@@ -220,13 +242,13 @@ export default function Profile({ onProfileUpdate }) {
                 {isEditing ? (
                   <input
                     type="date"
-                    name="age"
-                    value={formattedDate}
-                    onChange={handleInputChange}
+                    name="birthdate"
+                    value={birthdate || ""}
+                    onChange={(e) => setBirthdate(e.target.value)}
                     className="w-full border rounded-lg px-3 py-2"
                   />
                 ) : (
-                  <p className="text-gray-700">{formattedDate}</p>
+                  <p>{formattedDate}</p>
                 )}
               </div>
             </div>

@@ -162,6 +162,8 @@ export default function RegisterAccount() {
             <input
               id="birthdate"
               name="birthdate"
+              max="2024-12-10"
+              min= "1920-12-10"
               type="date"
               required
               className="mt-1 block w-full rounded-md px-2 h-10 shadow-md sm:text-sm border border-gray-300"

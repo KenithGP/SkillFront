@@ -37,7 +37,7 @@ export class UserInfoService{
 
     async updateUserInfo(first_name:string, last_name: string, email:string, birthdate:string, username:string){
         try {
-            const response = await fetch(`${this.baseURL}/update-info`, {
+            const response = await fetch(`${this.baseURL}/update`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
