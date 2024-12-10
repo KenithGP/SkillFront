@@ -56,7 +56,7 @@ const pageStyles = {
   default: {
     fontClass: "font-sans text-base",
     titleClass:
-      "text-5xl font-semibold tracking-tight text-green-600 sm:text-6xl",
+      "text-5xl font-semibold tracking-tight text-[#00ff5e] sm:text-6xl",
     descriptionClass:
       "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-300 sm:text-xl/8",
     cardTextClassFalse: "text-green-800",
@@ -171,9 +171,9 @@ export default function TarjetPlanes({ variant = "default" }) {
     >
       {/* Títulos dinámicos */}
       <div className="mx-auto max-w-4xl text-center tex-c ">
-        <p className={`${titleClass} text-[#00ff5e]`}>{title}</p>
+        <p className={`${titleClass}`}>{title}</p>
       </div>
-      <p className={`${descriptionClass}`}>{description}</p>
+      <p className={`${descriptionClass} `}>{description}</p>
 
       {/* Tarjetas */}
       <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-3">
@@ -190,12 +190,12 @@ export default function TarjetPlanes({ variant = "default" }) {
                       ? "bg-[#4CAF50]/60 shadow-2xl" // Diseño para adultos destacados
                       : "bg-red-950/60 shadow-2xl" // Diseño por defecto para destacados
                 : currentVariant === "young"
-                  ? "bg-[#ffe4e6]/70" // Diseño para adolescentes no destacados
+                  ? "bg-[#ff4e6]/70" // Diseño para adolescentes no destacados
                   : currentVariant === "kids"
                     ? "bg-white/60 shadow-2xl" // Diseño para niños no destacados
                     : currentVariant === "adult"
                       ? "bg-[#e8f5e9]/70" // Diseño para adultos no destacados
-                      : "bg-white/70", // Diseño por defecto para no destacados
+                      : "bg-white/80", // Diseño por defecto para no destacados
 
 
               "rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 transition-transform duration-300 transform-gpu hover:scale-105 hover:shadow-2xl"
