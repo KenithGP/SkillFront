@@ -35,14 +35,14 @@ const pageStyles = {
     fontClass: "font-comics",
   },
   adult: {
-    bgClass: "bg-gradient-to-b from-[#2c2c2c] to-[#6e6e6e]",
-    titleClass: "text-gray-300",
-    buttonClass: "bg-gray-700 hover:bg-gray-500",
+    bgClass: "bg-gradient-to-bl from-[#053322]/90 to-[#0d6242]/100",
+    titleClass: "text-yellow-500",
+    buttonClass: "bg-green-700 hover:bg-green-500",
     feedbackCorrect: "text-green-400",
     feedbackIncorrect: "text-red-400",
     modalBg: "bg-gray-700",
     modalText: "text-gray-100",
-    fontClass: "font-sans",
+    fontClass: "font-bree",
   },
 };
 
@@ -391,7 +391,7 @@ export default function Quizz() {
       <div className="flex items-center justify-center min-h-[calc(100vh-64px)] px-4">
         <div className="w-full max-w-xl bg-white/80 rounded-lg shadow-lg p-8 space-y-6">
           <h2 className={`text-3xl font-bold text-center ${styles.titleClass}`}>
-            Quiz para Optar a la Beca de Programación
+            Quizz para Optar a la Beca de Programación
           </h2>
 
           <h3 className="text-xl font-semibold text-center text-gray-800">
