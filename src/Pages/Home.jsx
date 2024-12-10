@@ -6,7 +6,6 @@ import Preguntas from '../Components/Preguntas'
 import Footer from '../Components/Footer'
 import Slider from '../Components/Slider'
 
-
 export default function Home() {
   return (
     <div className="bg-gradient-to-b from-[#070513]/100  to-[#1B1B33]/100 max-screen">

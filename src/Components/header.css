@@ -1,0 +1,16 @@
+.invisible-pre-1300 {
+        @media screen and (1300px >=width) {
+                visibility: hidden;
+                display: none;
+        }
+}
+
+.w-logros {
+        @media screen and (1300px >=width) {
+                width: auto;
+        }
+
+        @media screen and (1301px <=width) {
+                min-width: 15rem;
+        }
+}
