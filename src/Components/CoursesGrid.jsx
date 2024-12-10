@@ -1,49 +1,55 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import CourseCard from "./CourseCard";
 
-// Configuración de estilos para cada variante
 const pageStyles = {
-  default: {
-    bgColor: "bg-gray-900",
-    titleFont: "font-sans text-3xl",
-    paragraphFont: "text-gray-300",
-    buttonColor: "bg-blue-500",
-    buttonText: "Comprar",
-  },
-  young: {
-    bgColor: "bg-pink-900",
-    titleFont: "font-arcade text-yellow-300 text-4xl",
-    paragraphFont: "text-pink-100",
-    buttonColor: "bg-yellow-500",
-    buttonText: "¡Aprender ahora!",
-  },
   kids: {
-    bgColor: "bg-blue-400 min-h-screen",
-    titleFont: "font-bubblegum text-white text-4xl ",
+    bgColor: "bg-none",
+    titleFont: "font-comics text-white text-3xl",
     paragraphFont: "text-blue-100",
-    buttonColor: "bg-green-500",
     buttonText: "¡Explorar!",
   },
+  young: {
+    bgColor: "bg-none",
+    titleFont: "font-arcade text-yellow-300 text-4xl",
+    paragraphFont: "text-pink-100",
+    buttonText: "¡Aprender ahora!",
+  },
   adult: {
-    bgColor: "bg-green-900",
+    bgColor: "bg-none",
     titleFont: "font-bree text-white text-4xl",
     paragraphFont: "text-gray-300",
-    buttonColor: "bg-purple-600",
     buttonText: "Inscribirse",
+  },
+  default: {
+    bgColor: "bg-none",
+    titleFont: "font-sans text-white text-3xl",
+    paragraphFont: "text-gray-300",
+    buttonText: "Comprar",
   },
 };
 
 const CoursesGrid = ({ courses }) => {
-  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const [selectedCourses, setSelectedCourses] = useState([]);
 
-  // Detectar el parámetro variant o usar una variante predeterminada
-  const params = new URLSearchParams(location.search);
-  const variant = params.get("variant") || "default";
+  const variant = searchParams.get("variant") || "default";
 
-  // Obtener estilos dinámicos según la variante
   const { bgColor, titleFont, paragraphFont, buttonColor, buttonText } =
-    pageStyles[variant];
+    pageStyles[variant] || pageStyles.default;
+
+  const handleCourseSelection = (course) => {
+    setSelectedCourses((prev) =>
+      prev.includes(course)
+        ? prev.filter((c) => c !== course)
+        : [...prev, course]
+    );
+  };
+
+  const total = selectedCourses.reduce(
+    (sum, course) => sum + parseFloat(course.price),
+    0
+  );
 
   return (
     <div className={`w-full ${bgColor} px-4 py-8`}>
@@ -62,13 +68,14 @@ const CoursesGrid = ({ courses }) => {
             price={course.price}
             rating={course.rating}
             students={course.students}
-            buttonColor={buttonColor}
-            buttonText={buttonText}
             videoUrl={course.videoUrl}
+            buttonColor={buttonColor}
+            buttonText={selectedCourses.includes(course) ? "Seleccionado" : buttonText}
+            onButtonClick={() => handleCourseSelection(course)}
           />
         ))}
       </div>
-    </div>
+      </div>
   );
 };
 

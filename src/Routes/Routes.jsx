@@ -19,6 +19,7 @@ import Planes from "../Pages/Planes";
 import Becas from "../pages/Becas"; */
 /* import NotFound from "../pages/NotFound"; */ // Página para manejar rutas inexistentes
 
+import Pago from "../Pages/Pago";
 
 export default function AppRoutes() {
   return (
@@ -38,6 +39,7 @@ export default function AppRoutes() {
         <Route path="/ruta/:id" element={<RouteDetails />} />
 
 
+        <Route path="/carrito" element={<Pago />} />
 {/*         <Route path="/cursos" element={<Cursos />} />
         <Route path="/becas" element={<Becas />} /> */}
         {/* <Route path="*" element={<NotFound />} /> */} {/* Ruta para páginas no encontradas */}
