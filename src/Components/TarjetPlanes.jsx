@@ -102,14 +102,14 @@ const pageStyles = {
   /* crear adulto */
   adult: {
     fontClass: "font-bree text-xs",
-    titleClass: "text-[white] text-4xl font-bold", 
+    titleClass: "text-[white] text-4xl font-bold",
     descriptionClass: "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-[white]",
     cardTextClassFalse: "text-black",
     cardTextClassTrue: "text-yellow-500",
-    MoneyTextClassFalse: "text-green-800 text-3xl font-semibold tracking-tight", 
-    MoneyTextClassTrue: "text-white text-3xl font-semibold tracking-tight", 
+    MoneyTextClassFalse: "text-green-800 text-3xl font-semibold tracking-tight",
+    MoneyTextClassTrue: "text-white text-3xl font-semibold tracking-tight",
     FontSizeYear: "text-xs",
-    ColorCheckTrue: "text-[yellow]", 
+    ColorCheckTrue: "text-[yellow]",
     ColorCheckFalse: "text-green-800",
     colotButtonTrue: "bg-yellow-600 text-black font-bold shadow-lg hover:bg-yellow-500 ",
     colotButtonFalse: "text-white font-bold bg-green-800 hover:bg-green-700 border-green-700",
@@ -142,11 +142,11 @@ export default function TarjetPlanes({ variant = "default" }) {
   // Obtener los parámetros de la URL
   const params = new URLSearchParams(location.search);
 
-// Detectar la variante según el query parameter "variant" o la ruta
-const currentVariant = params.get("variant") || 
-  (location.pathname.includes("/Young") ? "young" :
-  location.pathname.includes("/adult") ? "adult" :
-  location.pathname.includes("/kids") ? "kids" : "default"); // Usar "default" si no hay coincidencia
+  // Detectar la variante según el query parameter "variant" o la ruta
+  const currentVariant = params.get("variant") ||
+    (location.pathname.includes("/Young") ? "young" :
+      location.pathname.includes("/adult") ? "adult" :
+        location.pathname.includes("/kids") ? "kids" : "default"); // Usar "default" si no hay coincidencia
 
 
   // Obtener los estilos dinámicos según la variante
@@ -170,8 +170,8 @@ const currentVariant = params.get("variant") ||
       className={`relative isolate px-6 py-24 sm:py-32 lg:px-8 ${fontClass}`}
     >
       {/* Títulos dinámicos */}
-      <div className="mx-auto max-w-4xl text-center">
-        <p className={`${titleClass}`}>{title}</p>
+      <div className="mx-auto max-w-4xl text-center tex-c ">
+        <p className={`${titleClass} text-[#00ff5e]`}>{title}</p>
       </div>
       <p className={`${descriptionClass}`}>{description}</p>
 
@@ -185,19 +185,19 @@ const currentVariant = params.get("variant") ||
                 ? currentVariant === "young"
                   ? "bg-[#ff0070]/60 shadow-2xl" // Diseño para adolescentes destacados
                   : currentVariant === "kids"
-                  ? "bg-[#800080]/70 shadow-2xl" // Diseño para niños destacados
-                  : currentVariant === "adult"
-                  ? "bg-[#4CAF50]/60 shadow-2xl" // Diseño para adultos destacados
-                  : "bg-red-950/60 shadow-2xl" // Diseño por defecto para destacados
+                    ? "bg-[#800080]/70 shadow-2xl" // Diseño para niños destacados
+                    : currentVariant === "adult"
+                      ? "bg-[#4CAF50]/60 shadow-2xl" // Diseño para adultos destacados
+                      : "bg-red-950/60 shadow-2xl" // Diseño por defecto para destacados
                 : currentVariant === "young"
-                ? "bg-[#ffe4e6]/70" // Diseño para adolescentes no destacados
-                : currentVariant === "kids"
-                ? "bg-white/60 shadow-2xl" // Diseño para niños no destacados
-                : currentVariant === "adult"
-                ? "bg-[#e8f5e9]/70" // Diseño para adultos no destacados
-                : "bg-white/70", // Diseño por defecto para no destacados
-                
-                
+                  ? "bg-[#ffe4e6]/70" // Diseño para adolescentes no destacados
+                  : currentVariant === "kids"
+                    ? "bg-white/60 shadow-2xl" // Diseño para niños no destacados
+                    : currentVariant === "adult"
+                      ? "bg-[#e8f5e9]/70" // Diseño para adultos no destacados
+                      : "bg-white/70", // Diseño por defecto para no destacados
+
+
               "rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 transition-transform duration-300 transform-gpu hover:scale-105 hover:shadow-2xl"
             )}
           >
