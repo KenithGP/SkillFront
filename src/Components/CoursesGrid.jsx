@@ -64,7 +64,7 @@ const CoursesGrid = ({ courses }) => {
             students={course.students}
             buttonColor={buttonColor}
             buttonText={buttonText}
-            videoUrl={course.videoUrl}
+            videoUrl={course.video}
           />
         ))}
       </div>

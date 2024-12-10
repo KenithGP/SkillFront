@@ -39,6 +39,23 @@ export class AuthService{
         }
     }
 
+    async logout(){
+        try {
+            const response = await fetch(`${this.baseURL}/logout`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include'
+            });
+            const message = await response.json();
+            return message;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+
     async isAuth(){
         try {
             const response = await fetch(`${this.baseURL}/verify-token`, {

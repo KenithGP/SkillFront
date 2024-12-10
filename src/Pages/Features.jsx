@@ -2,6 +2,8 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import CoursesGrid from "../Components/CoursesGrid";
 import Header from '../Components/Header'
+import { SubjectService } from "../services/subject.service";
+import { useEffect, useState } from "react";
 
 // Datos de los cursos
 const kidsCourses = [
@@ -213,6 +215,18 @@ const pageStyles = {
 // Componente principal
 export default function Features() {
   const location = useLocation();
+  const userService = new SubjectService();
+  const [coursesx, setCoursesx] = useState([]);
+
+  const loadSubjects = async () => {
+    const response = await userService.getAllSubjects();
+    console.log(response);
+    setCoursesx(response);
+  }
+
+  useEffect(() => {
+    loadSubjects();
+  }, []);
 
   // Detectar la variante desde la URL
   const params = new URLSearchParams(location.search);
@@ -235,7 +249,7 @@ export default function Features() {
 
       {/* Grid de cursos */}
       <CoursesGrid
-        courses={courses}
+        courses={coursesx}
         bgColor={bgColor}
         titleFont={titleFont}
         paragraphFont={paragraphFont}

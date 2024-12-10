@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "font-awesome/css/font-awesome.min.css";
 import { UserInfoService } from '../services/user.info.service'
+import { AuthService } from '../services/auth.service';
 
 export default function Header({ variant }) {
   const userInfoService = new UserInfoService();
+  const authService = new AuthService();  
   const [isAuthenticated, setIsAuthenticated] = useState(false); 
   const [racha, setRacha] = useState("¡Sigue así!"); 
   const [showProfile, setShowProfile] = useState(false);
@@ -24,6 +26,16 @@ export default function Header({ variant }) {
       console.error('Error al cargar la información del usuario:', error);
     }
   };
+
+  const logout = async () => {
+    try {
+      await authService.logout();
+      localStorage.removeItem('age');
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  }
+
 
   useEffect(() => {
     loadUserInfo();
@@ -246,6 +258,7 @@ export default function Header({ variant }) {
                         onClick={() => {
                           setIsAuthenticated(false); // Cambiar estado de autenticación
                           setShowProfile(false); // Cerrar el desplegable del perfil
+                          logout(); // Cerrar sesión
                         }}
                       >
                         Cerrar Sesión

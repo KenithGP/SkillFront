@@ -22,6 +22,9 @@ const CourseCard = ({
   const videoRef = useRef(null); // Referencia al video para controlar la reproducción
   const intervalRef = useRef(null); // Referencia para el intervalo del contador
 
+  const videoId = videoUrl ? videoUrl.split("v=")[1] : null; 
+  const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+
   const handleButtonClick = () => {
     setClicked(true);
   };
@@ -60,6 +63,8 @@ const CourseCard = ({
     setIsVideoPlaying(false); // El video se pausa
     clearInterval(intervalRef.current); // Limpiar el temporizador si el video se pausa
   };
+
+  
 
   return (
     <div className="w-72 h-[28rem] mb-6 mx-auto bg-gray-900 text-white shadow-lg rounded-lg overflow-hidden">
@@ -129,7 +134,7 @@ const CourseCard = ({
                 ref={videoRef}
                 width="100%"
                 height="315"
-                src={videoUrl}
+                src={embedUrl}
                 title={title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
