@@ -85,7 +85,7 @@ export default function Header({ variant }) {
             </div>
 
             {/* Navigation Links */}
-            <nav className={`hidden md:flex space-x-6 text-white`}>
+            <nav className={`hidden md:flex space-x-6 text-white invisible-pre-950`}>
                 <Link
                     to={dynamicPath("/")}
                     className={`transition-transform duration-500 ${hoverTextClass}`}

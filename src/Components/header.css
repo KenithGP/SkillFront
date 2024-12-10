@@ -14,3 +14,9 @@
                 min-width: 15rem;
         }
 }
+.invisible-pre-950 {
+        @media screen and (950px >=width) {
+                visibility: hidden;
+                display: none;
+        }
+}
