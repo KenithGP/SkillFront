@@ -11,6 +11,7 @@ import Login from '../Pages/Login'
 import Register from '../Pages/Register'
 import Features from '../Pages/Features'
 import Perfil from '../Pages/Perfil'
+import RouteDetails from '../Components/RouteDetails'
 
 // Importar las rutas para los links del header
 import Planes from "../Pages/Planes";
@@ -34,6 +35,8 @@ export default function AppRoutes() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Perfil" element={<Perfil/>} />
+        <Route path="/ruta/:id" element={<RouteDetails />} />
+
 
 {/*         <Route path="/cursos" element={<Cursos />} />
         <Route path="/becas" element={<Becas />} /> */}
