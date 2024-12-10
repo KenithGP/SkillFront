@@ -22,7 +22,7 @@ const pageStyles = {
   kids: {
     logo: Logo,
     fontClass: "font-bubblegum",
-    bgColor: "bg-[#800080]/90",
+    bgColor: "bg-[#800080]/70",
     textSize: "text-xs font-medium",
     titleSize: "text-lg font-bold text-yellow-500",
   },

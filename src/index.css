@@ -14,10 +14,10 @@
   }
     
   
-/* Comic Sans */
+
 @font-face {
-    font-family: 'Comic Sans Custom'; /* Nombre personalizado */
-    src: url('./assets/Fonts/COMIC-SANS.ttf') format('truetype'); /* Ruta relativa */
+    font-family: 'Fredoka'; /* Nombre personalizado */
+    src: url('./assets/Fonts/Fredoka.ttf') format('truetype'); /* Ruta relativa */
 
     
 }

@@ -19,8 +19,8 @@ const pageStyles = {
     buttonText: "¡Aprender ahora!",
   },
   kids: {
-    bgColor: "bg-blue-500",
-    titleFont: "font-comics text-white text-3xl",
+    bgColor: "bg-blue-400 min-h-screen",
+    titleFont: "font-bubblegum text-white text-4xl ",
     paragraphFont: "text-blue-100",
     buttonColor: "bg-green-500",
     buttonText: "¡Explorar!",

@@ -15,7 +15,7 @@ export default function Planes() {
     variant === "young"
       ? "bg-gradient-to-b from-[#000080]/90 to-[#3533cd]/100" // Adolescente
       : variant === "kids"
-      ? "bg-gradient-to-b from-[#FF0070]/90 to-[#FFA500]/100" // Niños
+      ? "bg-gradient-to-b from-purple-400 to-blue-500/60" // Niños
       : variant === "adult"
       ? "bg-gradient-to-l from-[#042518]/95 to-[#0d6242]/100" // Adulto (Fondo Morado)
       : "bg-gradient-to-b from-[#000000]/100 to-[#EA6558]/100"; // Predeterminado

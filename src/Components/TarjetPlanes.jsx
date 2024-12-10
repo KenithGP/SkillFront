@@ -86,9 +86,8 @@ const pageStyles = {
   },
   kids: {
     fontClass: "font-bubblegum ",
-    titleClass: "text-[#ffd005] text-6xl font-bold",
-    descriptionClass:
-      "mx-auto mt-6 max-w-3xl text-pretty text-center text-black/80 text-lg font-medium",
+    titleClass: "text-blue-600 text-6xl font-bold mt-8 animate-neonOrange",
+    descriptionClass:"mx-auto mt-6 max-w-2xl text-pretty text-center text-white text-xl font-medium tracking-wide",
     cardTextClassFalse: "text-black ",
     cardTextClassTrue: "text-yellow-400",
     MoneyTextClassFalse: "text-black text-3xl font-semibold tracking-tight",
@@ -96,8 +95,8 @@ const pageStyles = {
     FontSizeYear: "text-xs",
     ColorCheckTrue: "text-yellow-400",
     ColorCheckFalse: "text-black",
-    colotButtonTrue: "bg-yellow-400 text-black font-bold shadow-lg hover:bg-yellow-600 ",
-    colotButtonFalse: "bg-gray-400 text-black font-bold shadow-lg hover:bg-gray-500 ",
+    colotButtonTrue: "bg-yellow-400 text-black font-bold shadow-lg hover:bg-yellow-600 tracking-wide",
+    colotButtonFalse: "bg-purple-400 text-black font-bold shadow-lg hover:bg-purple-500 tracking-wide",
   },
   /* crear adulto */
   adult: {

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import imagegif from "../assets/Icons/Book.gif";
+import Laptop from "../assets/Images/laptop.svg";
+import Atomo from "../assets/Images/atomo.svg";
+import Bloques from "../assets/Images/bloques.svg";
 import Fuente from "../assets/Images/Fuentes.svg";
 import Gestion from "../assets/Images/Gestion.svg";
 import Usuario from "../assets/Images/Usuario.svg";
@@ -23,7 +25,7 @@ const pageStyles = {
     colortext: "text-white",
   },
   kids: {
-    fontClass: "font-comics text-2xl",
+    fontClass: "font-fredoka text-2xl",
     buttonClass: "bg-[#F8D642] text-[#000000] hover:bg-[#ffe471]",
     slideBackground: "bg-transparent",
     colortext: "text-black",
@@ -74,19 +76,19 @@ const Slider = ({ variant = "default" }) => {
     ],
     kids: [
       {
-        image: imagegif,
+        image: Laptop,
         title: "Diversión y Aprendizaje",
         description:
           "Plataforma interactiva diseñada para que los niños aprendan jugando.",
       },
       {
-        image: imagegif,
+        image: Bloques,
         title: "Diversión y Aprendizaje",
         description:
           "Plataforma interactiva diseñada para que los niños aprendan jugando.",
       },
       {
-        image: imagegif,
+        image: Atomo,
         title: "Diversión y Aprendizaje",
         description:
           "Plataforma interactiva diseñada para que los niños aprendan jugando.",

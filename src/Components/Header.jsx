@@ -40,10 +40,10 @@ export default function Header({ variant }) {
     kids: {
       fontClass: "font-bubblegum text-2xl font-bold tracking-wider", 
       buttonClass: "bg-[#F8D642] hover:bg-[#ffe471]", 
-      hoverTextClass: "text-white hover:text-yellow-400  ",
-      colortext:"text-white hover:text-yellow-400",
+      hoverTextClass: "text-white hover:text-pink-400  ",
+      colortext:"text-white hover:text-pink-400",
       icon:logo,
-      fondoHeader: "bg-black/30 shadow-md",
+      fondoHeader: "bg-blue-600/80 shadow-md",
       },
     young: {
       fontClass: "font-arcade text-xs text-pink-600",
