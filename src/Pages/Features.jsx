@@ -4,7 +4,7 @@ import CoursesGrid from "../Components/CoursesGrid";
 import Header from '../Components/Header'
 
 // Datos de los cursos
-const kidsCourses = [
+export const kidsCourses = [
   {
     title: "Introducción a la programación",
     description: "Aprende los fundamentos de programación con juegos interactivos.",
@@ -62,7 +62,7 @@ const kidsCourses = [
   }
 ];
 
-const teensCourses = [
+export const teensCourses = [
   {
     title: "Python para principiantes",
     description: "Aprende a programar con Python desde cero.",
@@ -120,7 +120,7 @@ const teensCourses = [
   }
 ];
 
-const adultsCourses = [
+export const adultsCourses = [
   {
     title: "Fundamentos de desarrollo web",
     description: "Aprende HTML, CSS y JavaScript para construir páginas web.",
@@ -178,32 +178,81 @@ const adultsCourses = [
   }
 ];
 
+// Cursos por defecto
+export const defaultCourses = [
+  {
+    title: "Curso General de Programación",
+    description: "Aprende los conceptos básicos de programación para cualquier lenguaje.",
+    image: "https://via.placeholder.com/300x140?text=Default+Course",
+    level: "Principiante",
+    tags: ["programación", "general"],
+    price: "19.99",
+    rating: 4.5,
+    students: 40,
+    videoUrl: "https://www.youtube.com/embed/8Mpc9bWm5F0", // Video genérico
+  },
+  {
+    title: "Curso General de Programación",
+    description: "Aprende los conceptos básicos de programación para cualquier lenguaje.",
+    image: "https://via.placeholder.com/300x140?text=Default+Course",
+    level: "Principiante",
+    tags: ["programación", "general"],
+    price: "19.99",
+    rating: 4.5,
+    students: 40,
+    videoUrl: "https://www.youtube.com/embed/8Mpc9bWm5F0", // Video genérico
+  },
+  {
+    title: "Curso General de Programación",
+    description: "Aprende los conceptos básicos de programación para cualquier lenguaje.",
+    image: "https://via.placeholder.com/300x140?text=Default+Course",
+    level: "Principiante",
+    tags: ["programación", "general"],
+    price: "19.99",
+    rating: 4.5,
+    students: 40,
+    videoUrl: "https://www.youtube.com/embed/8Mpc9bWm5F0", // Video genérico
+  },
+    {
+    title: "Curso General de Programación",
+    description: "Aprende los conceptos básicos de programación para cualquier lenguaje.",
+    image: "https://via.placeholder.com/300x140?text=Default+Course",
+    level: "Principiante",
+    tags: ["programación", "general"],
+    price: "19.99",
+    rating: 4.5,
+    students: 40,
+    videoUrl: "https://www.youtube.com/embed/8Mpc9bWm5F0", // Video genérico
+  },
+  // Puedes agregar más cursos para el caso por defecto aquí
+];
+
 // Configuración de estilos dinámicos
 const pageStyles = {
   kids: {
-    bgColor: "bg-blue-500",
+    bgColor: "bg-gradient-to-b from-[#86DCFC] to-[#b3e5fc]",
     titleFont: "font-comics text-white text-3xl",
     paragraphFont: "text-blue-100",
     buttonColor: "bg-green-500",
     buttonText: "¡Explorar!",
   },
   young: {
-    bgColor: "bg-pink-900",
+    bgColor: "bg-gradient-to-b from-[#000000]/90 to-[#3533cd]/100",
     titleFont: "font-arcade text-yellow-300 text-4xl",
     paragraphFont: "text-pink-100",
     buttonColor: "bg-yellow-500",
     buttonText: "¡Aprender ahora!",
   },
   adult: {
-    bgColor: "bg-gray-800",
+    bgColor: "bg-gradient-to-r to-[#0b583b]/100 from-[black] max-screen",
     titleFont: "font-bree text-white text-4xl",
     paragraphFont: "text-gray-300",
     buttonColor: "bg-purple-600",
     buttonText: "Inscribirse",
   },
   default: {
-    bgColor: "bg-gray-900",
-    titleFont: "font-sans text-3xl",
+    bgColor: "bg-gradient-to-b from-[#000000]/100  to-[#EA6558]/100",
+    titleFont: "font-sans text-white text-3xl",
     paragraphFont: "text-gray-300",
     buttonColor: "bg-blue-500",
     buttonText: "Comprar",
@@ -227,6 +276,7 @@ export default function Features() {
   if (variant === "kids") courses = kidsCourses;
   else if (variant === "young") courses = teensCourses;
   else if (variant === "adult") courses = adultsCourses;
+  else courses = defaultCourses;  // Si no es una categoría válida, usar los cursos por defecto
 
   return (
     <div className={`min-h-screen ${bgColor}`}>
@@ -235,6 +285,7 @@ export default function Features() {
 
       {/* Grid de cursos */}
       <CoursesGrid
+        variant={variant}
         courses={courses}
         bgColor={bgColor}
         titleFont={titleFont}
