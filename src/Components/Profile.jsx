@@ -1,19 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import { UserInfoService } from "../services/user.info.service";
 
 export default function Profile({ onProfileUpdate }) {
-  const [profileData, setProfileData] = useState({
-    username: "Anthony99",
-    name: "Anthony",
-    lastName: "Atiro",
-    email: "anthony.atiro@gmail.com",
-    age: 25,
-    password: "******",
-    avatar: "https://via.placeholder.com/150",
-  });
+  const userInfoService = new UserInfoService();
+
+  const [profileData, setProfileData] = useState({});
 
   const [isEditing, setIsEditing] = useState(false);
   const [newData, setNewData] = useState(profileData);
+
+  const loadUserInfo = async () => {
+    try {
+      const response = await userInfoService.getUserInfo();
+      setProfileData(response);
+      setNewData(response);
+      console.log(newData);
+    } catch (error) {
+      console.error("Error al cargar la información del usuario:", error);
+    }
+  };
+
+  
+  useEffect(() => {
+    loadUserInfo();
+  }, []);
+
 
   const variantStyles = {
     default: {
@@ -90,7 +102,7 @@ export default function Profile({ onProfileUpdate }) {
           <div className="flex flex-col items-center lg:items-start gap-10">
             <div className="relative group w-40 h-40">
               <img
-                src={newData.avatar}
+                src={newData.profile_picture}
                 alt="Avatar"
                 className="w-full h-full rounded-full object-cover shadow-md"
               />
@@ -127,12 +139,12 @@ export default function Profile({ onProfileUpdate }) {
                   <input
                     type="text"
                     name="name"
-                    value={newData.name}
+                    value={newData?.first_name}
                     onChange={handleInputChange}
                     className="w-full border rounded-lg px-3 py-2"
                   />
                 ) : (
-                  <p className="text-gray-700">{profileData.name}</p>
+                  <p className="text-gray-700">{profileData?.username}</p>
                 )}
               </div>
               {/* Apellidos */}
@@ -144,12 +156,12 @@ export default function Profile({ onProfileUpdate }) {
                   <input
                     type="text"
                     name="lastName"
-                    value={newData.lastName}
+                    value={newData?.last_name}
                     onChange={handleInputChange}
                     className="w-full border rounded-lg px-3 py-2"
                   />
                 ) : (
-                  <p className="text-gray-700">{profileData.lastName}</p>
+                  <p className="text-gray-700">{profileData?.last_name}</p>
                 )}
               </div>
               {/* Usuario */}
@@ -195,12 +207,12 @@ export default function Profile({ onProfileUpdate }) {
                   <input
                     type="number"
                     name="age"
-                    value={newData.age}
+                    value={newData.birthdate}
                     onChange={handleInputChange}
                     className="w-full border rounded-lg px-3 py-2"
                   />
                 ) : (
-                  <p className="text-gray-700">{profileData.age}</p>
+                  <p className="text-gray-700">{profileData.birthdate}</p>
                 )}
               </div>
               {/* Contraseña */}

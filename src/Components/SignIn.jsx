@@ -12,19 +12,22 @@ export default function SignIn() {
         try {
             const user = await authService.login(email, password);
             console.log(user); 
+            if (user) {
+                window.location.href = location.state?.from || '/';
+            }
         } catch (error) {
             console.error("Error logging in:", error);
         } 
     }
     
     return (
-      <div className="min-h-screen flex flex-col justify-center items-center py-12 px-6 lg:px-8">
-        <div className="max-w-xl w-full space-y-8 border bg-white/90 border-gray-300 rounded-lg p-10 shadow-2xl">
+      <div className="min-h-screen flex flex-col justify-center items-center py-12 px-6 lg:px-8 ">
+        <div className="max-w-xl w-full space-y-8 border bg-white/90 border-gray-300 rounded-lg p-10 shadow-2xl ">
           <div className="text-center">
             {/* Logo */}
             <div className="flex justify-center items-center">
              <img 
-             className="h-16 w-30 mt-10"
+             className="h-16 w-30 mt-10 animate-fade-in-down"
              src={Logo} />
             </div>
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">

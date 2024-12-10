@@ -2,22 +2,41 @@ import logo from "../assets/Icons/Logo-White-mobil.svg";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "font-awesome/css/font-awesome.min.css";
+import { UserInfoService } from '../services/user.info.service'
 
 export default function Header({ variant }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // Simulando autenticación
-  const [racha, setRacha] = useState("¡Sigue así!"); // Racha inicial
+  const userInfoService = new UserInfoService();
+  const [isAuthenticated, setIsAuthenticated] = useState(false); 
+  const [racha, setRacha] = useState("¡Sigue así!"); 
   const [showProfile, setShowProfile] = useState(false);
+  const [usuario, setUsuario] = useState({});
+  const [variante, setVariant] = useState('default');
 
-  // Datos simulados del usuario
-  const userData = {
-    username: "AnthonyCode",
-    name: "Anthony",
-    lastName: "Atiro",
-    email: "anthony.atiro@gmail.com",
+  const loadUserInfo = async () => {
+    try {
+      const response = await userInfoService.getHeaders();
+      setUsuario(response);
+      if (response.username) {
+        setIsAuthenticated(true);
+        setVariant(localStorage.getItem('age') < 18 ? 'kids' : 'young'); 
+      }
+    } catch (error) {
+      console.error('Error al cargar la información del usuario:', error);
+    }
   };
 
   useEffect(() => {
-    // Simulación de cambio de racha cada cierto tiempo (3 segundos)
+    loadUserInfo();
+  }, []);
+
+  const userData = {
+    username: usuario.username,
+    name: usuario.first_name,
+    lastName: usuario.last_name,
+    email: usuario.email,
+  };
+
+  useEffect(() => {
     const rachaMessages = [
       "¡Sigue así!",
       "¡Impresionante!",
@@ -71,7 +90,7 @@ export default function Header({ variant }) {
   };
 
   // Obtener los estilos dinámicos según la variante
-  const currentDesign = designs[variant] || designs.default;
+  const currentDesign = designs[variante] || designs.default;
   const {
     fontClass,
     buttonClass,
@@ -85,7 +104,7 @@ export default function Header({ variant }) {
 
   // Generar las rutas dinámicas para enlaces
   const dynamicPath = (path) =>
-    `${path}${variant ? `?variant=${variant}` : ""}`;
+    `${path}${variante ? `?variant=${variante}` : ""}`;
 
   return (
     <header
@@ -189,7 +208,7 @@ export default function Header({ variant }) {
                 onClick={() => setShowProfile(!showProfile)}
               >
                 <img
-                  src="https://via.placeholder.com/150"
+                  src={usuario.profile_picture}
                   alt="Usuario"
                   className="w-10 h-10 rounded-full"
                 />
@@ -201,7 +220,7 @@ export default function Header({ variant }) {
                 <div className="absolute top-12 right-0 bg-white text-black p-4 shadow-lg rounded-lg w-56 z-50">
                   <div className="flex flex-col items-center">
                     <img
-                      src="https://via.placeholder.com/150"
+                      src={usuario.profile_picture}
                       alt="Usuario"
                       className="w-16 h-16 rounded-full mb-2 object-cover"
                     />

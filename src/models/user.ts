@@ -7,5 +7,6 @@ export interface User {
     email: string,
     profile_picture?: string,
     subscription?: string[],
-    creation_date?: string
+    creation_date?: string,
+    age?: string,
 }
