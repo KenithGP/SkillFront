@@ -16,6 +16,11 @@ const pageStyles = {
     fontClass: "font-sans",
     bgForm: "bg-red-800/20",
     fileTextClass: "text-yellow-400", // Clase de color para adolescentes
+    DescriptionColor: "text-gray-200",
+    secondTitleColor: "text-green-500",
+    thirdTitleColor: "text-yellow-400",
+    parrafoSub: "text-gray-200",
+    inputSize: "text-xs",
   },
   young: {
     bgClass: "bg-gradient-to-b from-[#000000]/90 to-[#3533cd]/100",
@@ -28,14 +33,36 @@ const pageStyles = {
     fontClass: "font-arcade",
     bgForm: "bg-black/50",
     fileTextClass: "text-green-500", // Clase de color predeterminada para el texto del archivo
+    parrafoSub: "text-gray-200",
+    inputSize: "text-xs",
+    secondTitleColor: "text-green-500",
+    thirdTitleColor: "text-yellow-400",
+    parrafoSub: "text-gray-200",
   },
+
   kids: {
-    bgClass: "bg-gradient-to-b from-[#f0fff4] to-[#b3e5fc]",
-    titleColor: "text-blue-900",
-    buttonClass: "bg-blue-500 hover:bg-blue-300",
-    inputBg: "bg-gray-200 text-blue-800",
-    fontClass: "font-sans",
+    bgClass: "bg-gradient-to-bl from-blue-500/80 to-purple-400", // Fondo
+    titleColor: "text-yellow-300", // Título en amarillo suave para resaltar
+    buttonClass: "bg-[#ff4081] hover:bg-[#f50057] font-bold text-base", // Botón rosa
+    inputBg: "bg-white text-black", // Fondo de los inputs blanco, texto negro para mayor legibilidad
+    inputSize: "text-base",
+    titleSize: "text-3xl lg:text-5xl font-bold", // Título más grande
+    DescriptionSize: "text-lg lg:text-2xl font-medium", // Descripción de tamaño legible
+    DescriptionColor: "text-white", // Texto de descripción en blanco para que resalte
+    subTitleSize: "text-lg lg:text-xl font-semibold", // Subtítulo legible
+    fontClass: "font-bubblegum tracking-wider", // Fuente burbujeante para estilo divertido
+    bgForm: "bg-[#ffebcd]/40", // Fondo suave para el formulario
+    fileTextClass: "text-[#ff5722]", // Color para el texto del archivo seleccionado
+    bgb: "bg-[#ff4081] hover:bg-[#f50057]", // Botón con hover rosa
+    secondTitleColor: "text-yellow-300", // Título secundario amarillo
+    thirdTitleColor: "text-pink-500", // Tercero título blanco
+    parrafoSub: "text-white", // Texto adicional blanco para buena legibilidad
   },
+  
+
+  
+
+
   adult: {
     bgClass: "bg-gradient-to-bl from-[#053322]/90 to-[#0d6242]/100",
     titleColor: "text-[#ffffff]/80",
@@ -48,6 +75,11 @@ const pageStyles = {
     bgForm: "bg-black/20",
     fileTextClass: "text-green-5 00",
     bgb: "bg-yellow-600 hover:bg-yellow-500",
+    parrafoSub: "text-gray-200",
+    inputSize: "text-xs",
+    secondTitleColor: "text-green-500",
+    thirdTitleColor: "text-yellow-400",
+    parrafoSub: "text-gray-200",
   },
 };
 
@@ -72,6 +104,11 @@ export default function Beca() {
     inputBg,
     fileTextClass,
     bgb,
+    DescriptionColor,
+    secondTitleColor,
+    thirdTitleColor,
+    parrafoSub,
+    inputSize,
   } = pageStyles[variant];
 
   const [fileName, setFileName] = useState(""); // Estado para almacenar el nombre del archivo
@@ -100,15 +137,15 @@ export default function Beca() {
           <h2 className={`${titleSize} ${titleColor}`}>
             ¡Postula a una beca ahora mismo!
           </h2>
-          <p className={`${DescriptionSize} font-semibold text-gray-200`}>
+          <p className={`${DescriptionSize} font-semibold ${DescriptionColor}`}>
             Regístrate para optar por la beca y disfrutar nuestros cursos.
             ¡Estamos emocionados de acompañarte en esta aventura de aprendizaje!
           </p>
-          <p className={`${titleSize} font-bold text-green-500`}>
+          <p className={`${titleSize} font-bold ${secondTitleColor}`}>
             ¡No pierdas esta oportunidad de alcanzar tus metas y disfrutar
             mientras aprendes!
           </p>
-          <p className={`${DescriptionSize} font-semibold text-gray-200`}>
+          <p className={`${DescriptionSize} font-semibold ${DescriptionColor}`}>
             Nuestros cursos inspiran a los jóvenes, dándoles herramientas para
             explorar su creatividad y desarrollar habilidades técnicas.
           </p>
@@ -126,52 +163,52 @@ export default function Beca() {
           className={`lg:w-2/5 mt-12 mx-10 lg:mt-0 ${bgForm} p-8 rounded-lg shadow-2xl`}
         >
           <form className="space-y-6">
-            <h2 className={`${titleSize} font-bold text-yellow-400`}>
+            <h2 className={`${titleSize} font-bold ${thirdTitleColor} `}>
               Solicitud de Beca
             </h2>
             <div className="space-y-2">
               <label
-                className={`block ${subTitleSize} font-semibold text-gray-200`}
+                className={`block ${subTitleSize} font-semibold ${parrafoSub} `}
               >
                 Registra tus datos para tu solicitud
               </label>
               <textarea
                 placeholder="Nombres"
-                className={`w-full p-3 rounded-lg text-xs ${inputBg} focus:outline-none focus:ring-2 focus:ring-red-500`}
+                className={`w-full p-3 rounded-lg ${inputSize} ${inputBg} focus:outline-none focus:ring-2 focus:ring-red-500`}
               ></textarea>
             </div>
             <div className="space-y-2">
               <input
                 type="text"
                 placeholder="Apellidos"
-                className={`w-full p-3 rounded-lg text-xs ${inputBg} focus:outline-none focus:ring-2 focus:ring-red-500`}
+                className={`w-full p-3 rounded-lg ${inputSize} ${inputBg} focus:outline-none focus:ring-2 focus:ring-red-500`}
               />
             </div>
             <div className="space-y-2">
               <input
                 type="email"
                 placeholder="Correo electrónico"
-                className={`w-full p-3 rounded-lg text-xs ${inputBg} focus:outline-none focus:ring-2 focus:ring-red-500`}
+                className={`w-full p-3 rounded-lg ${inputSize} ${inputBg} focus:outline-none focus:ring-2 focus:ring-red-500`}
               />
             </div>
             <div className="space-y-2">
               <input
                 type="text"
                 placeholder="Número de teléfono a contactar"
-                className={`w-full p-3 rounded-lg text-xs ${inputBg} focus:outline-none focus:ring-2 focus:ring-red-500`}
+                className={`w-full p-3 rounded-lg ${inputSize} ${inputBg} focus:outline-none focus:ring-2 focus:ring-red-500`}
               />
             </div>
             <div className="space-y-2">
               <label
                 htmlFor="request-area"
-                className={`block ${subTitleSize} font-semibold text-gray-200`}
+                className={`block ${subTitleSize} font-semibold ${parrafoSub}`}
               >
                 Área de solicitud
               </label>
               <select
                 id="request-area"
                 defaultValue=""
-                className={`w-full p-3 rounded-lg text-xs ${inputBg} focus:outline-none focus:ring-2 focus:ring-red-500`}
+                className={`w-full p-3 rounded-lg ${inputSize} ${inputBg} focus:outline-none focus:ring-2 focus:ring-red-500`}
               >
                 <option value="" disabled>
                   Seleccione un área
@@ -200,7 +237,7 @@ export default function Beca() {
               {/* Mostrar Nombre del Archivo Seleccionado */}
               <div
                 className={`${
-                  fileName ? fileTextClass : "text-gray-200"
+                  fileName ? fileTextClass : parrafoSub
                 } ${subTitleSize} font-semibold mt-2`}
               >
                 {fileName

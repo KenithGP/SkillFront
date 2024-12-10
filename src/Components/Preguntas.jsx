@@ -24,12 +24,12 @@ const pageStyles = {
   },
   kids: {
     fontClass: "font-bubblegum",
-    titleColor:"text-[#FFFFFF]",
-    subtitleStile:"text-yellow-400 font-bold",
-    describeColor: "text-white text-bold text-md",
+    titleColor:"text-blue-600 text-6xl font-bold mt-8 ",
+    subtitleStile:"text-white font-bold tracking-wide ",
+    describeColor: "text-white text-bold text-md ",
     textSize: " text-xl font-normal ",
     titleSize: " text-xl font-bold",
-    colorButtom: "bg-[#F8D642] text-black py-2 px-5 rounded-md hover:bg-[#D1A64E] transition duration-300 ease-in-out",
+    colorButtom: "bg-blue-500 text-black py-2 px-5 rounded-md hover:bg-pink-600 transition duration-300 ease-in-out",
     colorNameForm: "text-black",
   },
   adult: {
