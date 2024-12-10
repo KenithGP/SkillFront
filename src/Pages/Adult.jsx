@@ -5,6 +5,7 @@ import TarjetPlanes from '../Components/TarjetPlanes'
 import Preguntas from '../Components/Preguntas'
 import Footer from '../Components/Footer'
 import Slider from '../Components/Slider'
+import Hamburguesa from '../Components/menus/Hamburguesa'
 import { useLocation } from "react-router-dom";
 
 
@@ -22,6 +23,7 @@ export default function Adult() {
     return (
       <div className="bg-gradient-to-r to-[#0b583b]/100 from-[black] max-screen">
          <Header  variant={variant}/>
+         <Hamburguesa/>
          <Slider variant={variant} />        
          <TarjetPlanes variant={variant}/> 
          <TarjetaCurso variant={variant}/>        

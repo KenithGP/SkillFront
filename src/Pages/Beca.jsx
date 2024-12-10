@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../Components/Header";
-
+import Hamburguesa from '../Components/menus/Hamburguesa'
 // Configuración de estilos para cada variante
 const pageStyles = {
   default: {
@@ -94,6 +94,7 @@ export default function Beca() {
   return (
     <div className={`${bgClass} ${fontClass} min-h-screen text-white`}>
       <Header variant={variant} />
+      <Hamburguesa />
       <div className="flex flex-col lg:flex-row justify-between items-center px-10 py-16 lg:py-24">
         {/* Left Text Section */}
         <div className="lg:w-1/2 space-y-6 mx-10 px-20 py-20">
@@ -199,9 +200,8 @@ export default function Beca() {
               </label>
               {/* Mostrar Nombre del Archivo Seleccionado */}
               <div
-                className={`${
-                  fileName ? fileTextClass : "text-gray-200"
-                } ${subTitleSize} font-semibold mt-2`}
+                className={`${fileName ? fileTextClass : "text-gray-200"
+                  } ${subTitleSize} font-semibold mt-2`}
               >
                 {fileName
                   ? `Archivo seleccionado: ${fileName}`

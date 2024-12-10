@@ -1,7 +1,7 @@
 import Header from "../Components/Header";
 import TarjetPlanes from "../Components/TarjetPlanes";
 import { useLocation } from "react-router-dom";
-
+import Hamburguesa from '../Components/menus/Hamburguesa'
 export default function Planes() {
   const location = useLocation();
 
@@ -15,15 +15,16 @@ export default function Planes() {
     variant === "young"
       ? "bg-gradient-to-b from-[#000080]/90 to-[#3533cd]/100" // Adolescente
       : variant === "kids"
-      ? "bg-gradient-to-b from-[#FF0070]/90 to-[#FFA500]/100" // Niños
-      : variant === "adult"
-      ? "bg-gradient-to-l from-[#042518]/95 to-[#0d6242]/100" // Adulto (Fondo Morado)
-      : "bg-gradient-to-b from-[#000000]/100 to-[#EA6558]/100"; // Predeterminado
+        ? "bg-gradient-to-b from-[#FF0070]/90 to-[#FFA500]/100" // Niños
+        : variant === "adult"
+          ? "bg-gradient-to-l from-[#042518]/95 to-[#0d6242]/100" // Adulto (Fondo Morado)
+          : "bg-gradient-to-b from-[#000000]/100 to-[#EA6558]/100"; // Predeterminado
 
   return (
     <div className={`${backgroundClass} min-h-screen`}>
       {/* Pasar el `variant` como prop */}
       <Header variant={variant} />
+      <Hamburguesa />
       <TarjetPlanes variant={variant} />
     </div>
   );
