@@ -16,24 +16,27 @@ export default function RoutePage({ variant = "default" }) {
     },
     kids: {
       bgColor: "bg-transparent",
-      cardBgColor: "bg-yellow-100",
-      buttonColor: "bg-yellow-500 hover:bg-yellow-700 text-white",
-      titleSize: "text-2xl font-comics",
-      descriptionSize: "text-base font-comics",
+      cardBgColor: "bg-white/70",
+      buttonColor: "bg-purple-500 hover:bg-purple-700 text-white font-bubblegum",
+      titleSize: " font-bubblegum text-blue-600 text-5xl font-bold mt-8 animate-neonOrange", 
+      subTitleSize:"text-yellow-500 font-bubblegum font-bold text-xxl",
+      descriptionSize: "text-xl font-bubblegum",
     },
     young: {
       bgColor: "bg-transparent",
-      cardBgColor: "bg-black/50",
-      buttonColor: "bg-pink-700 hover:bg-pink-500 text-white",
+      cardBgColor: "bg-black/60",
+      buttonColor: "bg-pink-700 hover:bg-pink-500 text-white font-arcade text-xs",
       titleSize: "text-3xl text-yellow-500 text-shadow-neon animate-neonFlicker font-arcade",
+      subTitleSize:"text-yellow-500 font-arcade text-sm",
       descriptionSize: "text-xs text-green-500 font-arcade",
     },
     adult: {
       bgColor: "bg-transparent",
-      cardBgColor: "bg-gray-800",
-      buttonColor: "bg-yellow-500 hover:bg-yellow-600 text-white",
-      titleSize: "text-4xl font-bree",
-      descriptionSize: "text-lg font-bree",
+      cardBgColor: "bg-green-700/20",
+      buttonColor: "bg-green-600 hover:bg-yellow-400 text-black font-bree text-md",
+      titleSize: "text-4xl text-yellow-500 font-bree",
+      subTitleSize:"text-yellow-500 font-bree font-bold ",
+      descriptionSize: "text-xl text-white font-bree",
     },
   };
 
@@ -276,7 +279,7 @@ export default function RoutePage({ variant = "default" }) {
 
   return (
     <div className={`min-h-screen p-6 ${styles.bgColor}`}>
-      <h1 className={`text-center mb-8 ${styles.titleSize}`}>
+      <h1 className={`text-center mt-10 mb-20 ${styles.titleSize}`}>
         Explora Nuestras Rutas
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

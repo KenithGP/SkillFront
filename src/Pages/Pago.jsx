@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Header from "../Components/Header";
 import ResumenPedido from "../Components/ResumenPedido";
-import { kidsCourses, teensCourses, adultsCourses, defaultCourses } from "./Features"; // Importar los cursos
+/* import { kidsCourses, teensCourses, adultsCourses, defaultCourses } from "./Features"; // Importar los cursos */
 
 export default function Pago() {
   const [searchParams] = useSearchParams();

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import CourseCard from "./CourseCard";
+import CourseCard from './CourseCard';
 
 const pageStyles = {
   kids: {
     bgColor: "bg-none",
-    titleFont: "font-comics text-white text-3xl",
+    titleFont: "font-bubblegum text-blue-800 font-extrabold text-5xl animate-neonOrange",
     paragraphFont: "text-blue-100",
     buttonText: "¡Explorar!",
   },
@@ -17,7 +17,7 @@ const pageStyles = {
   },
   adult: {
     bgColor: "bg-none",
-    titleFont: "font-bree text-white text-4xl",
+    titleFont: "font-bree text-yellow-500 text-4xl",
     paragraphFont: "text-gray-300",
     buttonText: "Inscribirse",
   },
@@ -29,11 +29,9 @@ const pageStyles = {
   },
 };
 
-const CoursesGrid = ({ courses }) => {
-  const [searchParams] = useSearchParams();
+const CoursesGrid = ({ courses, variant }) => {
   const [selectedCourses, setSelectedCourses] = useState([]);
-
-  const variant = searchParams.get("variant") || "default";
+ 
 
   const { bgColor, titleFont, paragraphFont, buttonColor, buttonText } =
     pageStyles[variant] || pageStyles.default;
@@ -53,26 +51,24 @@ const CoursesGrid = ({ courses }) => {
 
   return (
     <div className={`w-full ${bgColor} px-4 py-8`}>
-      <h2 className={`text-2xl ${titleFont} mb-6 text-center`}>
+      <h2 className={`text-2xl ${titleFont} mb-20 text-center`}>
         Cursos Disponibles
       </h2>
       <div className="flex flex-wrap justify-center gap-6">
         {courses.map((course, index) => (
           <CourseCard
-            key={index}
-            title={course.title}
-            description={course.description}
-            image={course.image}
-            level={course.level}
-            tags={course.tags}
-            price={course.price}
-            rating={course.rating}
-            students={course.students}
-            videoUrl={course.videoUrl}
-            buttonColor={buttonColor}
-            buttonText={selectedCourses.includes(course) ? "Seleccionado" : buttonText}
-            onButtonClick={() => handleCourseSelection(course)}
-          />
+          key={course.id}
+          id={course.id} // Pasa el id aquí
+          title={course.title}
+          description={course.description}
+          image={course.image}
+          level={course.level}
+          students={course.students}
+          price={course.price}
+          rating={course.rating}
+          tags={course.tags}
+          variant={variant}
+        />
         ))}
       </div>
       </div>
