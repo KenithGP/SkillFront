@@ -34,6 +34,7 @@ const cardStyles = {
     titleFont: "font-sans text-white text-3xl",
     paragraphFont: "text-white",
     buttonColor: "bg-yellow-500",
+    buttonCarrito:"bg-blue-600 hover:bg-blue-500 text-white  ",
     buttonText: "Comprar",
   },
 };
