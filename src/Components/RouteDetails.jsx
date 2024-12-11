@@ -20,11 +20,12 @@ export default function RouteDetails() {
       descriptionSize: "text-sm",
     },
     kids: {
-      bgColor: "bg-yellow-200",
-      cardBgColor: "bg-yellow-200",
-      buttonColor: "bg-yellow-500 hover:bg-yellow-700 text-white",
-      titleSize: "text-2xl font-comics",
-      descriptionSize: "text-base font-comics",
+      bgColor: "bg-gradient-to-b from-[#5de0e6] to-[#004aad]",
+      cardBgColor: "bg-white/70",
+      buttonColor: "bg-blue-700 hover:bg-blue-500 text-white font-bubblegum",
+      titleSize: "text-2xl text-yellow-500 font-bubblegum",
+      subTitleSize: "text-blue-600 font-bubblegum text-xl", 
+      descriptionSize: "text-base font-bold text-black font-bubblegum",
     },
     young: {
       bgColor: "bg-gradient-to-b from-[#000000]/90 to-[#3533cd]/100",

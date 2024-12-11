@@ -49,11 +49,11 @@ export default function Header({ variant }) {
       fontClass: "font-bubblegum text-2xl font-bold tracking-wider", 
       buttonClass: "bg-[#F8D642] hover:bg-[#ffe471]", 
       hoverTextClass: "text-white hover:text-pink-400  ",
-      colortext:"text-pink-700 hover:text-pink-400",
+      colortext:"text-white text-xl hover:text-blue-600",
       emailColor:"text-gray-700",
       icon:logo,
       profileFontSize: "text-sm", // Tamaño de letra más pequeño para perfil
-      fondoHeader: "bg-blue-600/70 shadow-md",
+      fondoHeader: "",
       bgProfile:" bg-blue-300/70",
       },
     young: {
@@ -150,7 +150,7 @@ export default function Header({ variant }) {
           <input
             type="text"
             placeholder="Buscar...."
-            className="rounded-full w-[15rem] border border-gray-300 px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="rounded-full w-[15rem] border border-gray-300 px-4 py-2 text-black focus:outline-none focus:ring-2"
           />
         </div>
 

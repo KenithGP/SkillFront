@@ -19,7 +19,7 @@ export default function Perfil() {
     variant === "young"
       ? "bg-gradient-to-b from-[#000080]/90 to-[#3533cd]/100" // Adolescente
       : variant === "kids"
-      ? "bg-gradient-to-b from-[#FF0070]/90 to-[#FFA500]/100" // Niños
+      ? "bg-gradient-to-b from-[#5de0e6] to-[#004aad]" // Niños
       : variant === "adult"
       ? "bg-gradient-to-r to-[#0b583b]/100 from-[black]" // Adulto 
       : "bg-gradient-to-b from-[#000000]/100 to-[#EA6558]/100"; // Predeterminado
