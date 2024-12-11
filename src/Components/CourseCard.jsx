@@ -16,7 +16,8 @@ const cardStyles = {
     bgColor: "bg-pink-800",
     titleFont: "font-arcade text-yellow-300 text-4xl",
     paragraphFont: "text-white font-arcade text-xs mb-3",
-    buttonColor: "bg-yellow-500",
+    buttonColor: "bg-yellow-500 font-arcade text-xs",
+    buttonCarrito:"bg-blue-600 hover:bg-blue-500 text-white font-arcade text-xs",
     buttonText: "¡Aprender ahora!",
   },
   adult: {
