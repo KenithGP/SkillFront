@@ -35,7 +35,7 @@ export default function Hamburguesa({ variant = "default" }) {
         return (
                 <>
                         <dialog className={`${modal} ${modalDesing}`}>
-                                <nav className={`md:flex flex-col text-white`}>
+                                <nav className={`flex flex-col text-white`}>
                                         <Link
                                                 onClick={click}
                                                 to={dynamicPath("/")}
