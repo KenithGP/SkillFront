@@ -39,6 +39,7 @@ const CoursesGrid = ({ courses }) => {
     pageStyles[variant] || pageStyles.default;
 
   const handleCourseSelection = (course) => {
+    console.log(`Toggling selection for: ${course.title}`);
     setSelectedCourses((prev) =>
       prev.includes(course)
         ? prev.filter((c) => c !== course)
@@ -46,10 +47,13 @@ const CoursesGrid = ({ courses }) => {
     );
   };
 
-  const total = selectedCourses.reduce(
-    (sum, course) => sum + parseFloat(course.price),
-    0
-  );
+  const total = selectedCourses.reduce((sum, course) => {
+    const coursePrice = parseFloat(course.price || 0); // Verificar que el precio sea válido
+    console.log(`Adding price for ${course.title}: ${coursePrice}`);
+    return sum + coursePrice;
+  }, 0);
+
+  console.log("Total price:", total);
 
   return (
     <div className={`w-full ${bgColor} px-4 py-8`}>
@@ -57,9 +61,9 @@ const CoursesGrid = ({ courses }) => {
         Cursos Disponibles
       </h2>
       <div className="flex flex-wrap justify-center gap-6">
-        {courses.map((course, index) => (
+        {courses.map((course) => (
           <CourseCard
-            key={index}
+            id={course.id}    // Usa el ID único del curso
             title={course.title}
             description={course.description}
             image={course.image}
@@ -70,12 +74,14 @@ const CoursesGrid = ({ courses }) => {
             students={course.students}
             videoUrl={course.videoUrl}
             buttonColor={buttonColor}
-            buttonText={selectedCourses.includes(course) ? "Seleccionado" : buttonText}
+            buttonText={
+              selectedCourses.includes(course) ? "Seleccionado" : buttonText
+            }
             onButtonClick={() => handleCourseSelection(course)}
           />
         ))}
       </div>
-      </div>
+    </div>
   );
 };
 

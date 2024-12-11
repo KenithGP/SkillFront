@@ -4,9 +4,9 @@ import CoursesGrid from "../Components/CoursesGrid";
 import Header from '../Components/Header'
 import RoutePage from '../Components/RoutePage'
 
-// Datos de los cursos
 export const kidsCourses = [
   {
+    id: 1, // Rango de id para kids
     title: "Introducción a la programación",
     description: "Aprende los fundamentos de programación con juegos interactivos.",
     image: "https://static.vecteezy.com/system/resources/thumbnails/002/871/498/small/concept-of-computer-technology-for-education-and-business-vector.jpg",
@@ -15,9 +15,10 @@ export const kidsCourses = [
     price: "9.99",
     rating: 4.5,
     students: 20,
-    videoUrl: "https://www.youtube.com/embed/VZe9tjqa9xw", // Video relacionado (YouTube)
+    videoUrl: "https://www.youtube.com/embed/VZe9tjqa9xw",
   },
   {
+    id: 2,
     title: "Scratch básico",
     description: "Crea tus primeros proyectos con este lenguaje visual.",
     image: "https://cdn.worldvectorlogo.com/logos/scratch-logo.svg",
@@ -26,9 +27,10 @@ export const kidsCourses = [
     price: "8.99",
     rating: 4.7,
     students: 15,
-    videoUrl: "https://www.youtube.com/embed/ykjMlW5LfM4", // Video de Scratch
+    videoUrl: "https://www.youtube.com/embed/ykjMlW5LfM4",
   },
   {
+    id: 3,
     title: "Lógica computacional",
     description: "Desarrolla habilidades de resolución de problemas.",
     image: "https://via.placeholder.com/300x140?text=Logic+for+Kids",
@@ -37,9 +39,10 @@ export const kidsCourses = [
     price: "10.99",
     rating: 4.6,
     students: 18,
-    videoUrl: "https://www.youtube.com/embed/dgdg64cQmm8", // Video de Lógica computacional
+    videoUrl: "https://www.youtube.com/embed/dgdg64cQmm8",
   },
   {
+    id: 4,
     title: "Robótica para niños",
     description: "Aprende a programar robots sencillos para desarrollar tus habilidades lógicas.",
     image: "https://via.placeholder.com/300x140?text=Robotics+for+Kids",
@@ -48,9 +51,10 @@ export const kidsCourses = [
     price: "12.99",
     rating: 4.8,
     students: 10,
-    videoUrl: "https://www.youtube.com/embed/kD8RhGi2e6k", // Video sobre robótica para niños
+    videoUrl: "https://www.youtube.com/embed/kD8RhGi2e6k",
   },
   {
+    id: 5,
     title: "Juego con Python para niños",
     description: "Crea tus propios juegos sencillos utilizando Python.",
     image: "https://via.placeholder.com/300x140?text=Python+Games+for+Kids",
@@ -59,12 +63,13 @@ export const kidsCourses = [
     price: "14.99",
     rating: 4.7,
     students: 30,
-    videoUrl: "https://www.youtube.com/embed/TwK9vH0wRP4", // Video sobre juegos con Python para niños
+    videoUrl: "https://www.youtube.com/embed/TwK9vH0wRP4",
   }
 ];
 
 export const teensCourses = [
   {
+    id: 31, // Rango de id para teens
     title: "Python para principiantes",
     description: "Aprende a programar con Python desde cero.",
     image: "https://via.placeholder.com/300x140?text=Python+for+Teens",
@@ -73,9 +78,10 @@ export const teensCourses = [
     price: "14.99",
     rating: 4.8,
     students: 25,
-    videoUrl: "https://www.youtube.com/embed/8Mpc9bWm5F0", // Video sobre Python
+    videoUrl: "https://www.youtube.com/embed/8Mpc9bWm5F0",
   },
   {
+    id: 32,
     title: "JavaScript interactivo",
     description: "Crea páginas web dinámicas con JavaScript.",
     image: "https://via.placeholder.com/300x140?text=JavaScript+for+Teens",
@@ -84,9 +90,10 @@ export const teensCourses = [
     price: "19.99",
     rating: 4.7,
     students: 18,
-    videoUrl: "https://www.youtube.com/embed/W6NZfCO5SIk", // Video sobre JavaScript
+    videoUrl: "https://www.youtube.com/embed/W6NZfCO5SIk",
   },
   {
+    id: 33,
     title: "Desarrollo de videojuegos",
     description: "Diseña y programa tu propio videojuego.",
     image: "https://via.placeholder.com/300x140?text=Game+Dev+for+Teens",
@@ -95,9 +102,10 @@ export const teensCourses = [
     price: "24.99",
     rating: 4.9,
     students: 12,
-    videoUrl: "https://www.youtube.com/embed/W8I9aDcdJ40", // Video sobre Desarrollo de videojuegos
+    videoUrl: "https://www.youtube.com/embed/W8I9aDcdJ40",
   },
   {
+    id: 34,
     title: "Introducción a C++",
     description: "Aprende a programar en C++ desde cero.",
     image: "https://via.placeholder.com/300x140?text=C%2B%2B+for+Teens",
@@ -106,9 +114,10 @@ export const teensCourses = [
     price: "16.99",
     rating: 4.6,
     students: 20,
-    videoUrl: "https://www.youtube.com/embed/Rb9w8UpOxl8", // Video de C++ para adolescentes
+    videoUrl: "https://www.youtube.com/embed/Rb9w8UpOxl8",
   },
   {
+    id: 35,
     title: "Diseño de aplicaciones móviles",
     description: "Desarrolla tus propias aplicaciones para Android e iOS.",
     image: "https://via.placeholder.com/300x140?text=App+Development+for+Teens",
@@ -117,12 +126,13 @@ export const teensCourses = [
     price: "29.99",
     rating: 4.7,
     students: 15,
-    videoUrl: "https://www.youtube.com/embed/gZgYmwVk_F4", // Video sobre desarrollo de aplicaciones móviles
+    videoUrl: "https://www.youtube.com/embed/gZgYmwVk_F4",
   }
 ];
 
 export const adultsCourses = [
   {
+    id: 61, // Rango de id para adults
     title: "Fundamentos de desarrollo web",
     description: "Aprende HTML, CSS y JavaScript para construir páginas web.",
     image: "https://via.placeholder.com/300x140?text=Web+Dev+for+Adults",
@@ -131,9 +141,10 @@ export const adultsCourses = [
     price: "19.99",
     rating: 4.5,
     students: 30,
-    videoUrl: "https://www.youtube.com/embed/pQN-pnP7d4U", // Video de desarrollo web
+    videoUrl: "https://www.youtube.com/embed/pQN-pnP7d4U",
   },
   {
+    id: 62,
     title: "Introducción a React.js",
     description: "Construye aplicaciones modernas con React.",
     image: "https://via.placeholder.com/300x140?text=React+for+Adults",
@@ -142,9 +153,10 @@ export const adultsCourses = [
     price: "24.99",
     rating: 4.6,
     students: 22,
-    videoUrl: "https://www.youtube.com/embed/JY3RAIbsXjQ", // Video de React.js
+    videoUrl: "https://www.youtube.com/embed/JY3RAIbsXjQ",
   },
   {
+    id: 63,
     title: "Bases de datos con SQL",
     description: "Administra datos con SQL desde cero.",
     image: "https://via.placeholder.com/300x140?text=SQL+for+Adults",
@@ -153,9 +165,10 @@ export const adultsCourses = [
     price: "21.99",
     rating: 4.7,
     students: 20,
-    videoUrl: "https://www.youtube.com/embed/9Pzj7Aj25lw", // Video sobre SQL
+    videoUrl: "https://www.youtube.com/embed/9Pzj7Aj25lw",
   },
   {
+    id: 64,
     title: "Desarrollo de aplicaciones con Node.js",
     description: "Aprende a desarrollar aplicaciones backend con Node.js.",
     image: "https://via.placeholder.com/300x140?text=Node.js+for+Adults",
@@ -164,9 +177,10 @@ export const adultsCourses = [
     price: "34.99",
     rating: 4.8,
     students: 18,
-    videoUrl: "https://www.youtube.com/embed/fBNz5xF6FYI", // Video sobre Node.js
+    videoUrl: "https://www.youtube.com/embed/fBNz5xF6FYI",
   },
   {
+    id: 65,
     title: "Java para aplicaciones empresariales",
     description: "Desarrolla aplicaciones empresariales utilizando Java.",
     image: "https://via.placeholder.com/300x140?text=Java+for+Adults",
@@ -175,58 +189,73 @@ export const adultsCourses = [
     price: "39.99",
     rating: 4.7,
     students: 15,
-    videoUrl: "https://www.youtube.com/embed/UmnCZGRN5Hk", // Video sobre Java para aplicaciones empresariales
+    videoUrl: "https://www.youtube.com/embed/UmnCZGRN5Hk",
   }
 ];
 
-// Cursos por defecto
 export const defaultCourses = [
   {
-    title: "Curso General de Programación",
-    description: "Aprende los conceptos básicos de programación para cualquier lenguaje.",
-    image: "https://via.placeholder.com/300x140?text=Default+Course",
+    id: 91, // Rango de id para cursos por defecto
+    title: "Introducción a la tecnología",
+    description: "Explora conceptos básicos sobre tecnología y su impacto en la sociedad.",
+    image: "https://via.placeholder.com/300x140?text=Intro+to+Tech",
     level: "Principiante",
-    tags: ["programación", "general"],
-    price: "19.99",
+    tags: ["tecnología", "básico"],
+    price: "9.99",
     rating: 4.5,
     students: 40,
-    videoUrl: "https://www.youtube.com/embed/8Mpc9bWm5F0", // Video genérico
+    videoUrl: "https://www.youtube.com/embed/8ZZwO7Xlmvo",
   },
   {
-    title: "Curso General de Programación",
-    description: "Aprende los conceptos básicos de programación para cualquier lenguaje.",
-    image: "https://via.placeholder.com/300x140?text=Default+Course",
-    level: "Principiante",
-    tags: ["programación", "general"],
+    id: 92,
+    title: "Fundamentos de la inteligencia artificial",
+    description: "Descubre qué es la IA y cómo se utiliza en el mundo actual.",
+    image: "https://via.placeholder.com/300x140?text=Intro+to+AI",
+    level: "Intermedio",
+    tags: ["IA", "inteligencia artificial"],
     price: "19.99",
-    rating: 4.5,
-    students: 40,
-    videoUrl: "https://www.youtube.com/embed/8Mpc9bWm5F0", // Video genérico
+    rating: 4.7,
+    students: 30,
+    videoUrl: "https://www.youtube.com/embed/KdGqHP5WzW4",
   },
   {
-    title: "Curso General de Programación",
-    description: "Aprende los conceptos básicos de programación para cualquier lenguaje.",
-    image: "https://via.placeholder.com/300x140?text=Default+Course",
+    id: 93,
+    title: "Cómo crear tu primera página web",
+    description: "Aprende los conceptos básicos de HTML y CSS para construir tu página.",
+    image: "https://via.placeholder.com/300x140?text=HTML+%26+CSS",
     level: "Principiante",
-    tags: ["programación", "general"],
-    price: "19.99",
-    rating: 4.5,
-    students: 40,
-    videoUrl: "https://www.youtube.com/embed/8Mpc9bWm5F0", // Video genérico
+    tags: ["HTML", "CSS", "web"],
+    price: "14.99",
+    rating: 4.6,
+    students: 50,
+    videoUrl: "https://www.youtube.com/embed/UB1O30fR-EE",
   },
-    {
-    title: "Curso General de Programación",
-    description: "Aprende los conceptos básicos de programación para cualquier lenguaje.",
-    image: "https://via.placeholder.com/300x140?text=Default+Course",
-    level: "Principiante",
-    tags: ["programación", "general"],
-    price: "19.99",
-    rating: 4.5,
-    students: 40,
-    videoUrl: "https://www.youtube.com/embed/8Mpc9bWm5F0", // Video genérico
+  {
+    id: 94,
+    title: "Seguridad en Internet",
+    description: "Conoce cómo proteger tus datos y navegar de forma segura.",
+    image: "https://via.placeholder.com/300x140?text=Internet+Security",
+    level: "Intermedio",
+    tags: ["seguridad", "internet"],
+    price: "11.99",
+    rating: 4.8,
+    students: 25,
+    videoUrl: "https://www.youtube.com/embed/aUJj8UeKiVg",
   },
-  // Puedes agregar más cursos para el caso por defecto aquí
+  {
+    id: 95,
+    title: "Programación con Python: Proyectos prácticos",
+    description: "Aplica tus conocimientos de Python en proyectos del mundo real.",
+    image: "https://via.placeholder.com/300x140?text=Python+Projects",
+    level: "Avanzado",
+    tags: ["Python", "proyectos"],
+    price: "24.99",
+    rating: 4.9,
+    students: 15,
+    videoUrl: "https://www.youtube.com/embed/gfDE2a7MKjA",
+  }
 ];
+
 
 // Configuración de estilos dinámicos
 const pageStyles = {
@@ -279,6 +308,11 @@ export default function Features() {
   else if (variant === "adult") courses = adultsCourses;
   else courses = defaultCourses;  // Si no es una categoría válida, usar los cursos por defecto
 
+  const handleDeleteCourse = (id) => {
+    const updatedCourses = courses.filter(course => course.id !== id);
+    setCourses(updatedCourses); // Actualizar el estado con los cursos filtrados
+  };
+
   return (
     <div className={`min-h-screen ${bgColor}`}>
       {/* Header dinámico */}
@@ -294,6 +328,7 @@ export default function Features() {
         paragraphFont={paragraphFont}
         buttonColor={buttonColor}
         buttonText={buttonText}
+        onDeleteCourses={handleDeleteCourse}
       />
     </div>
   );
