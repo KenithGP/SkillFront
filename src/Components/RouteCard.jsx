@@ -5,7 +5,7 @@ const RouteCard = ({
   description,
   icon,
   created_at,
-  courses,
+  subjects,
   hours,
   bgColor,
   textColor,
@@ -29,8 +29,7 @@ const RouteCard = ({
       </div>
       {/* Información de cursos y horas */}
       <div className={`flex justify-between items-center text-sm ${textColor}`}>
-        <span>{courses} cursos</span>
-        <span>{hours} horas</span>
+        <span>{subjects.length} cursos</span>
       </div>
       {/* Botón */}
       <button

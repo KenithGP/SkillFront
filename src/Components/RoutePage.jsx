@@ -1,10 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import RouteCard from "../Components/RouteCard";
+import { RouteService } from "../services/routes.service";
+import { useState, useEffect } from "react";
 
 export default function RoutePage({ variant = "default" }) {
   const navigate = useNavigate();
-
+  const routeService = new RouteService();
+  const [routesx, setRoutes] = useState([]);
   // Configuración de estilos por variante
   const variantStyles = {
     default: {
@@ -267,8 +270,16 @@ export default function RoutePage({ variant = "default" }) {
       ],
     },
   ];
+
+  const loadRoutes = async () => {
+    const response = await routeService.getAllRoutes();
+    setRoutes(response);
+    
+  }
   
-  
+  useEffect(() => {
+    loadRoutes();
+  }, []);
 
   // Filtrar rutas activas
   const activeRoutes = routes.filter((route) => route.is_active);
@@ -280,16 +291,16 @@ export default function RoutePage({ variant = "default" }) {
         Explora Nuestras Rutas
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {activeRoutes.map((route, index) => (
+        {routesx.map((route, index) => (
       <RouteCard
-      key={route.title}
-      {...route}
-      bgColor={styles.cardBgColor}
-      textColor={`${styles.descriptionSize}`}
-      textColorSubTitle={`${styles.subTitleSize}`}
-      buttonColor={styles.buttonColor}
-      onClick={() =>
-        navigate(`/ruta/${route.title}?variant=${variant}`, {
+        key={route.title}
+        {...route}
+        bgColor={styles.cardBgColor}
+        textColor={`${styles.descriptionSize}`}
+        textColorSubTitle={`${styles.subTitleSize}`}
+        buttonColor={styles.buttonColor}
+        onClick={() =>
+        navigate(`/ruta/${route._id}?variant=${variant}`, {
           state: { route },
         })
       }
