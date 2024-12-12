@@ -171,52 +171,53 @@ const currentVariant = params.get("variant") ||
 
   return (
     <div className={`relative isolate px-6 py-24 sm:py-32 lg:px-8 ${fontClass}`}>
-      <motion.img
-        src={Pacman}
-        alt="Pacman"
-        className="absolute z-5 w-[10rem] h-40 opacity-90"
-        animate={{
-          x: [0, 500, 1300, 500,0],
-          y: [0, 180,100, 180, 0],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-         {/* Segundo Pacman */}
-         <motion.img
-        src={PacmanOrange}
-        alt="Pacman"
-        className="absolute z-5 w-[10rem] h-30 opacity-90 top-40" // Más pequeño y más abajo
-        animate={{
-          x: [0, 300, 1300, 300, 0], // Movimiento horizontal en dirección opuesta
-          y: [600, 450, 400, 450, 600], // Movimiento vertical más bajo
-        }}
-        transition={{
-          duration: 15, // Duración total diferente
-          repeat: Infinity, // Animación infinita
-          ease: "easeInOut", // Suavidad
-        }}
-      />
-
-         {/* Segundo Pacman */}
-         <motion.img
-        src={Pacman}
-        alt="Pacman"
-        className="absolute z-5 w-[10rem] h-30 opacity-90 top-40" // Más pequeño y más abajo
-        animate={{
-          x: [0, 500, 1300, 500, 0], // Movimiento horizontal en dirección opuesta
-          y: [900, 750, 700, 750, 900], // Movimiento vertical más bajo
-        }}
-        transition={{
-          duration: 15, // Duración total diferente
-          repeat: Infinity, // Animación infinita
-          ease: "easeInOut", // Suavidad
-        }}
-      />
-
+      {/* Renderizar las animaciones de Pacman solo en la variante young */}
+      {variant === "young" && (
+        <>
+          <motion.img
+            src={Pacman}
+            alt="Pacman"
+            className="absolute z-5 w-[10rem] h-40 opacity-90"
+            animate={{
+              x: [0, 500, 1300, 500, 0],
+              y: [0, 180, 100, 180, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.img
+            src={PacmanOrange}
+            alt="Pacman Orange"
+            className="absolute z-5 w-[10rem] h-30 opacity-90 top-40"
+            animate={{
+              x: [0, 300, 1300, 300, 0],
+              y: [600, 450, 400, 450, 600],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.img
+            src={Pacman}
+            alt="Pacman"
+            className="absolute z-5 w-[10rem] h-30 opacity-90 top-60"
+            animate={{
+              x: [0, 500, 1300, 500, 0],
+              y: [900, 750, 700, 750, 900],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </>
+      )}
       <div className="mx-auto max-w-4xl text-center">
         <p className={`${titleClass}`}>{title}</p>
       </div>
