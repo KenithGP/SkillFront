@@ -5,7 +5,7 @@ import "font-awesome/css/font-awesome.min.css";
 import { style } from "framer-motion/client";
 
 export default function Header({ variant }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // Simulando autenticación
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Simulando autenticación
   const [racha, setRacha] = useState("¡Sigue así!"); // Racha inicial
   const [showProfile, setShowProfile] = useState(false);
 

@@ -58,7 +58,7 @@ const pageStyles = {
     titleClass:
       "text-5xl font-semibold tracking-tight text-yellow-500 sm:text-6xl", // Azul oscuro
     descriptionClass:
-      "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-900/90 sm:text-xl/8", // Dorado
+      "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-650 sm:text-xl/8", // Dorado
     cardTextClassFalse: "text-[#0c2340]", // Azul oscuro
     cardTextClassTrue: "text-[#FFD700]", // Dorado
     MoneyTextClassFalse: "text-[#FFD700] text-5xl font-semibold tracking-tight", // Dorado

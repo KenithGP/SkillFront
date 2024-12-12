@@ -30,11 +30,11 @@ const cardStyles = {
     buttonText: "Inscribirse",
   },
   default: {
-    bgColor: "bg-red-950/60",
-    titleFont: "font-sans text-white text-3xl",
+    bgColor: "bg-[#14285a]/100",
+    titleFont: "font-sans text-yellow-500 text-3xl",
     paragraphFont: "text-white",
     buttonColor: "bg-yellow-500",
-    buttonCarrito:"bg-blue-600 hover:bg-blue-500 text-white  ",
+    buttonCarrito:"bg-blue-700 hover:bg-blue-600 text-white  ",
     buttonText: "Comprar",
   },
   rutaTittle: {

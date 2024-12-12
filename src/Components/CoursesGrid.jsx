@@ -19,13 +19,13 @@ const pageStyles = {
   },
   adult: {
     bgColor: "bg-none",
-    titleFont: "font-bree text-yellow-500 text-4xl",
-    paragraphFont: "text-gray-300",
+    titleFont: "font-bree text-yellow-300 text-4xl",
+    paragraphFont: "text-blue-300",
     buttonText: "Inscribirse",
   },
   default: {
     bgColor: "bg-none",
-    titleFont: "font-sans text-white text-3xl",
+    titleFont: "font-sans text-yellow-500 text-6xl",
     paragraphFont: "text-gray-300",
     buttonText: "Comprar",
   },
