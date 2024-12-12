@@ -12,9 +12,10 @@ export default function RoutePage({ variant = "default" }) {
   const variantStyles = {
     default: {
       bgColor: "bg-transparent",
-      cardBgColor: "bg-gray-800",
-      buttonColor: "bg-blue-500 hover:bg-blue-700 text-white",
-      titleSize: "text-3xl",
+      cardBgColor: "bg-yellow-600",
+      buttonColor: "bg-blue-800 hover:bg-blue-700 text-white",
+      titleSize: " font-abel text-5xl  text-white",
+      subTitleSize:"text-black font-abel font-bold text-xxl",
       descriptionSize: "text-sm",
     },
     kids: {

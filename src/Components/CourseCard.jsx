@@ -30,11 +30,11 @@ const cardStyles = {
     buttonText: "Inscribirse",
   },
   default: {
-    bgColor: "bg-red-950/60",
-    titleFont: "font-sans text-white text-3xl",
+    bgColor: "bg-[#14285a]/100",
+    titleFont: "font-sans text-yellow-500 text-3xl",
     paragraphFont: "text-white",
     buttonColor: "bg-yellow-500",
-    buttonCarrito:"bg-blue-600 hover:bg-blue-500 text-white  ",
+    buttonCarrito:"bg-blue-700 hover:bg-blue-600 text-white  ",
     buttonText: "Comprar",
   },
   rutaTittle: {
@@ -100,7 +100,7 @@ export default function CourseCard ({
 
   return (
     <div
-      className={`w-80 h-[32rem] mb-6 mx-auto text-white shadow-lg rounded-lg overflow-hidden ${styles.bgColor}`}
+      className={`w-80 h-[34rem] mb-6 mx-auto text-white shadow-lg rounded-lg overflow-hidden ${styles.bgColor}`}
     >
       {/* Imagen */}
       <img className="w-full h-40 object-cover" src={image} alt={title} />

@@ -1,5 +1,8 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
 import PropTypes from "prop-types";
+import { motion } from "framer-motion";
+import Pacman from '../assets/Images/pacman.svg'
+import PacmanOrange from '../assets/Images/Pacman-orange .svg'
 
 const tiers = [
   {
@@ -56,19 +59,21 @@ const pageStyles = {
   default: {
     fontClass: "font-sans text-base",
     titleClass:
-      "text-5xl font-semibold tracking-tight text-green-600 sm:text-6xl",
+      "text-5xl font-semibold tracking-tight text-yellow-500 sm:text-6xl", // Azul oscuro
     descriptionClass:
-      "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-300 sm:text-xl/8",
-    cardTextClassFalse: "text-green-800",
-    cardTextClassTrue: "text-yellow-600",
-    MoneyTextClassFalse: "text-red-900 text-5xl font-semibold tracking-tight",
-    MoneyTextClassTrue: "text-white text-5xl font-semibold tracking-tight",
+      "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-650 sm:text-xl/8", // Dorado
+    cardTextClassFalse: "text-[#0c2340]", // Azul oscuro
+    cardTextClassTrue: "text-[#FFD700]", // Dorado
+    MoneyTextClassFalse: "text-[#FFD700] text-5xl font-semibold tracking-tight", // Dorado
+    MoneyTextClassTrue: "text-white text-5xl font-semibold tracking-tight", // Azul oscuro
     FontSizeYear: "text-sm",
-    ColorCheckTrue: "text-green-600",
-    ColorCheckFalse: "text-green-700",
-    colotButtonTrue: "bg-yellow-600 text-black font-bold shadow-lg hover:bg-yellow-500 ",
-    colotButtonFalse: "text-white font-bold bg-green-800 hover:bg-green-700 border-green-700",
+    ColorCheckTrue: "text-[#FFD700]", // Dorado
+    ColorCheckFalse: "text-[#0c2340]", // Azul oscuro
+    colotButtonTrue: "bg-[#FFD700] text-[#0c2340] font-bold shadow-lg hover:bg-[#FFC700] border-[#FFD700]", // Botón dorado con texto azul oscuro y hover dorado más claro
+    colotButtonFalse: "text-white font-bold bg-[#223a76] hover:bg-[#0a1c2f] border-[#0c2340]", // Botón azul oscuro con texto dorado y hover azul más oscuro
   },
+
+
   young: {
     fontClass: "font-arcade text-xs",
     titleClass: "text-yellow-400 text-4xl font-bold text-shadow-neon animate-neon",
@@ -165,16 +170,59 @@ const currentVariant = params.get("variant") ||
   } = pageStyles[currentVariant];
 
   return (
-    <div
-      className={`relative isolate px-6 py-24 sm:py-32 lg:px-8 ${fontClass}`}
-    >
-      {/* Títulos dinámicos */}
+    <div className={`relative isolate px-6 py-24 sm:py-32 lg:px-8 ${fontClass}`}>
+      {/* Renderizar las animaciones de Pacman solo en la variante young */}
+      {variant === "young" && (
+        <>
+          <motion.img
+            src={Pacman}
+            alt="Pacman"
+            className="absolute z-5 w-[10rem] h-40 opacity-90"
+            animate={{
+              x: [0, 500, 1300, 500, 0],
+              y: [0, 180, 100, 180, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.img
+            src={PacmanOrange}
+            alt="Pacman Orange"
+            className="absolute z-5 w-[10rem] h-30 opacity-90 top-40"
+            animate={{
+              x: [0, 300, 1300, 300, 0],
+              y: [600, 450, 400, 450, 600],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.img
+            src={Pacman}
+            alt="Pacman"
+            className="absolute z-5 w-[10rem] h-30 opacity-90 top-60"
+            animate={{
+              x: [0, 500, 1300, 500, 0],
+              y: [900, 750, 700, 750, 900],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </>
+      )}
       <div className="mx-auto max-w-4xl text-center">
         <p className={`${titleClass}`}>{title}</p>
       </div>
       <p className={`${descriptionClass}`}>{description}</p>
 
-      {/* Tarjetas */}
       <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-3">
         {tiers.map((tier) => (
           <div
@@ -182,21 +230,19 @@ const currentVariant = params.get("variant") ||
             className={classNames(
               tier.featured
                 ? currentVariant === "young"
-                  ? "bg-[#ff0070]/60 shadow-2xl" // Diseño para adolescentes destacados
+                  ? "bg-[#ff0070]/60 shadow-2xl"
                   : currentVariant === "kids"
-                  ? "bg-[#800080]/70 shadow-2xl" // Diseño para niños destacados
+                  ? "bg-[#800080]/70 shadow-2xl"
                   : currentVariant === "adult"
                   ? "bg-[#4CAF50]/60 shadow-2xl" // Diseño para adultos destacados
-                  : "bg-red-950/60 shadow-2xl" // Diseño por defecto para destacados
+                  : "bg-blue-950/100 shadow-2xl" // Diseño por defecto para destacados
                 : currentVariant === "young"
-                ? "bg-[#ffe4e6]/70" // Diseño para adolescentes no destacados
+                ? "bg-[#ffe4e6]/70"
                 : currentVariant === "kids"
-                ? "bg-white/60 shadow-2xl" // Diseño para niños no destacados
+                ? "bg-white/60 shadow-2xl"
                 : currentVariant === "adult"
-                ? "bg-[#e8f5e9]/70" // Diseño para adultos no destacados
-                : "bg-white/70", // Diseño por defecto para no destacados
-                
-                
+                ? "bg-[#e8f5e9]/70"
+                : "bg-white/70",
               "rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 transition-transform duration-300 transform-gpu hover:scale-105 hover:shadow-2xl"
             )}
           >
@@ -260,9 +306,7 @@ const currentVariant = params.get("variant") ||
               href={tier.href}
               aria-describedby={tier.id}
               className={classNames(
-                tier.featured
-                  ? colotButtonTrue
-                  : colotButtonFalse,
+                tier.featured ? colotButtonTrue : colotButtonFalse,
                 "mt-8 block rounded-md px-3.5 py-2.5 text-center text-xs font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10"
               )}
             >

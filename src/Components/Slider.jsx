@@ -16,8 +16,8 @@ import AcademicWeb from "../assets/Icons/Academic-web.svg";
 
 const pageStyles = {
   default: {
-    fontClass: "font-sans text-lg",
-    buttonClass: "bg-[#E53935] text-white hover:bg-red-400",
+    fontClass: "font-sans text-xl",
+    buttonClass: "bg-[#daaa00] text-black hover:bg-yellow-600",
     slideBackground: "bg-transparent from-blue-400 to-indigo-600",
     colortext: "text-white",
   },
@@ -35,7 +35,7 @@ const pageStyles = {
   },
   Adult: {
     fontClass: "font-bree text-lg",
-    buttonClass: "bg-yellow-600 text-[#e4ebbc] hover:bg-yellow-500",
+    buttonClass: "bg-[#dda100] text-white hover:bg-yellow-500",
     slideBackground: "bg-transparent",
     colortext: "text-[white]",
   },
@@ -86,15 +86,15 @@ const Slider = ({ variant = "default" }) => {
       },
       {
         image: Bloques,
-        title: "Diversión y Aprendizaje",
+        title: "Crecer Jugando",
         description:
-          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
+          "Un espacio donde los niños aprenden mientras se divierten, desarrollando su curiosidad y habilidades.",
       },
       {
         image: Atomo,
-        title: "Diversión y Aprendizaje",
+        title: "Exploradores del Saber",
         description:
-          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
+          "Herramienta interactiva que fomenta el aprendizaje creativo y el descubrimiento en los niños.",
       },
     ],
     young: [

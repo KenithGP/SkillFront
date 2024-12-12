@@ -46,9 +46,14 @@ const detailStyles = {
     buttonColor: "bg-yellow-500",
   },
   default: {
-    bgColor: "bg-gradient-to-b from-[#ea6558] to-[#7c2d12]",
-    textColor: "text-white",
-    buttonColor: "bg-blue-500",
+    bgColor: "bg-gradient-to-b from-blue-900 to-blue-900/90",
+    bgcontent:"bg-black/30",
+    bgTemario:"bg-gray-900/60",
+    title: "text-white text-3xl font-bree font-bold",
+    description:"text-yellow-400 font-bree text-md",
+    font:"font-bree text-sm",
+    color:"text-green-500",
+    buttonColor: "bg-yellow-500",
   },
 };
 

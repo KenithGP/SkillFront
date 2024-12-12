@@ -16,11 +16,12 @@ export default function RouteDetails() {
   // Configuración de estilos por variante
   const variantStyles = {
     default: {
-      bgColor: "bg-white",
-      cardBgColor: "bg-gray-800",
-      buttonColor: "bg-blue-500 hover:bg-blue-700 text-white",
-      titleSize: "text-3xl",
-      descriptionSize: "text-sm",
+      bgColor: "bg-gradient-to-r from-blue-900 to-blue-800",
+      cardBgColor: "bg-black/40",
+      buttonColor: "bg-blue-700 hover:bg-blue-500 text-white font-bree",
+      titleSize: "text-5xl text-yellow-500 font-bree",
+      subTitleSize: "text-white font-bree text-2xl", 
+      descriptionSize: "text-base font-bold text-black font-bree",
     },
     kids: {
       bgColor: "bg-gradient-to-b from-[#5de0e6] to-[#004aad]",
@@ -40,11 +41,13 @@ export default function RouteDetails() {
       descriptionSize: "text-xs text-green-500 font-arcade",
     },
     adult: {
-      bgColor: "bg-gray-800",
-      cardBgColor: "bg-gray-900",
-      buttonColor: "bg-yellow-500 hover:bg-yellow-600 text-white",
-      titleSize: "text-4xl font-bree",
-      descriptionSize: "text-lg font-bree",
+      bgColor: "bg-gradient-to-r to-[#0b583b]/100 from-[black]",
+      cardBgColor: "bg-black/50",
+      buttonColor: "bg-yellow-500 hover:bg-yellow-400 text-black font-bree",
+      titleSize:
+        "text-3xl text-yellow-500  font-bree",
+      subTitleSize: "text-white font-bold font-bree text-xl",
+      descriptionSize: "text-md text-green-500 font-bree font-bold",
     },
   };
 

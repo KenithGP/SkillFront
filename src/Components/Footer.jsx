@@ -11,7 +11,7 @@ const pageStyles = {
     fontClass: "font-sans",
     textSize: "text-sm font-semibold",
     titleSize: "text-lg font-bold",
-    bgColor: "bg-black/90",
+    bgColor: "bg-blue-950",
   },
   young: {
     logo: LogoGamer,

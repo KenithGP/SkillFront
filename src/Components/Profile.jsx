@@ -55,7 +55,7 @@ export default function Profile({ onProfileUpdate }) {
     default: {
       bgColor: "bg-gray-100",
       textColor: "text-gray-700",
-      buttonColor: "bg-blue-500 hover:bg-blue-700 text-white",
+      buttonColor: "bg-green-500 hover:bg-blue-700 text-white",
       titleFont: "font-sans text-2xl font-bold",
     },
     kids: {

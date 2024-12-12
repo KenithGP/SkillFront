@@ -10,6 +10,7 @@ export default {
         fadeInDown: "fadeInDown 0.5s ease-out", // Nueva animación de entrada
         'fade-in-up': 'fade-in-up 0.5s ease-out', // Aparece en 0.5 segundos
         'fade-in': 'fade-in 1s ease-out', // Aparece en 1 segundo
+        move: "moveBackground 30s linear infinite",
       },
       textShadow: {
         neon: "0 0 3px #ff0068, 0 0 6px #ff0068, 0 0 12px #ff0068, 0 0 24px #ff00ff, 0 0 48px #ff00ff",
@@ -65,6 +66,11 @@ export default {
             opacity: 1,
           },
         },
+      moveBackground: {
+        "0%": { backgroundPosition: "0% 0%" },
+        "100%": { backgroundPosition: "100% 100%" },
+      },
+
     },
   },
   plugins: [require("tailwindcss-textshadow")],

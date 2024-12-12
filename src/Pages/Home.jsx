@@ -8,6 +8,7 @@ import Slider from '../Components/Slider'
 import { UserInfoService } from '../services/user.info.service'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Casa from '../assets/Icons/Casa.svg'
 
 export default function Home() {
   const userInfoService = new UserInfoService();
@@ -51,13 +52,23 @@ export default function Home() {
   }, [age, navigate]);
   
   return (
-    <div className="bg-gradient-to-b from-[#000000]/100  to-[#EA6558]/100 max-screen">
-      <Header variant={variante} />
-      <Slider vraiant={variante}/>
-       <TarjetPlanes variant={variante} />      
-       <TarjetaCurso variant={variante}/>
-       <Preguntas variant={variante}/>
-       <Footer variant={variante} />
-    </div>
+    <>
+    <div
+      style={{
+        backgroundImage: `url(${Casa})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+      }}
+    >
+       <Header/>
+       <Slider variant={variante}/>
+       <TarjetPlanes/>      
+       <TarjetaCurso/>
+       <Preguntas/>
+       </div>
+       <Footer/>
+       </>
+/*     </div> */
   )
 }
