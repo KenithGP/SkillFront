@@ -78,12 +78,82 @@ const ResumenPedidos = () => {
 
   const styles = varianteStyles[variant] || varianteStyles.default;
 
+  const handleCompra = () => {
+    // Cargar el SDK de MercadoPago
+    const script = document.createElement("script");
+    script.src = "https://sdk.mercadopago.com/js/v2";
+    script.onload = () => {
+      const mp = new window.MercadoPago('TEST-5f838bc8-b86b-4ac2-931f-a35e7a6ace7e', {
+        locale: 'es',
+      });
+
+      const bricksBuilder = mp.bricks();
+      const renderPaymentBrick = async (bricksBuilder) => {
+        const settings = {
+          initialization: {
+            amount: parseFloat(getTotal()) * 100, // Convertimos el total a centavos
+            preferenceId: "<PREFERENCE_ID>", // Aquí debes obtener o generar un preference ID
+          },
+          customization: {
+            visual: {
+              style: {
+                theme: "default",
+              },
+            },
+            paymentMethods: {
+              creditCard: "all",
+              debitCard: "all",
+              ticket: "all",
+              bankTransfer: "all",
+              atm: "all",
+              wallet_purchase: "all",
+            },
+          },
+          callbacks: {
+            onReady: () => {},
+            onSubmit: ({ selectedPaymentMethod, formData }) => {
+              return new Promise((resolve, reject) => {
+                fetch("/process_payment", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(formData),
+                })
+                  .then((response) => response.json())
+                  .then((response) => {
+                    resolve();
+                  })
+                  .catch((error) => {
+                    reject();
+                  });
+              });
+            },
+            onError: (error) => {
+              console.error(error);
+            },
+          },
+        };
+        window.paymentBrickController = await bricksBuilder.create(
+          "payment",
+          "paymentBrick_container",
+          settings
+        );
+      };
+      renderPaymentBrick(bricksBuilder);
+    };
+    document.body.appendChild(script);
+  };
+
+
   return (
     <div className={`flex w-full p-6 relative`}>
       {/* Contenedor principal con fondo difuso y blanco con opacidad */}
       <div className="absolute inset-0 bg-white bg-opacity-30 backdrop-blur-lg z-[-1]"></div>
 
-      {/* Contenedor de los cursos */}
+      <div className="flex flex-col w-full">
+          <div className="flex flex-row w-full">
+            {/* Contenedor de los cursos */}
       <div className={`w-4/5 p-6 rounded-lg shadow-lg z-10 ${styles.cardBgColor} ${styles.textColor}`}>
         <h3 className={`${styles.titleSize} mb-4`}>Resumen de tu pedido</h3>
         {cartItems.length === 0 ? (
@@ -128,11 +198,16 @@ const ResumenPedidos = () => {
           </div>
           {/* Aplicando el estilo para el botón */}
           <button
+                      onClick={handleCompra}
             className={`${styles.buttonColor} ${styles.buttonFont} text-white px-4 py-2 rounded mt-4 w-full hover:bg-blue-700 transition duration-300`}
           >
             Finalizar compra
           </button>
         </div>
+      </div>
+          </div>
+          <div id="paymentBrick_container"></div>
+
       </div>
     </div>
   );
