@@ -56,10 +56,11 @@ export default function TarjetaCurso({ variant = "default" }) {
       defaultB: "bg-black/20"
     },
     kids: {
-      fontClass: "font-bubblegum",
-      textSize: " text-1xl",
-      titleSize: " text-2xl font-bold",
-      defaultB: "bg-black/20"
+      textClass: "text-white tracking-wider",
+      descClass: "text-white tracking-wider",
+      fontClass: "font-bubblegum ",
+      textSize: " text-sm font-semibold  ",
+      titleSize: "text-3xl font-bold",
     },
     adult: {
       textClass: "text-gray-300",
@@ -86,11 +87,11 @@ export default function TarjetaCurso({ variant = "default" }) {
               className="rounded-xl w-30 h-30 mx-auto mb-4 hover:scale-125 transition-transform duration-500"
             />
             <h2
-              className={`text-white text-center mb-2 ${fontClass} ${titleSize}`}
+              className={` ${textClass} text-center mb-2 ${fontClass} ${titleSize}`}
             >
               {course.title}
             </h2>
-            <p className={`text-gray-300 text-center ${textSize} ${fontClass}`}>
+            <p className={` ${descClass} text-center ${textSize} ${fontClass}`}>
               {course.description}
             </p>
           </div>

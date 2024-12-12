@@ -45,7 +45,7 @@ const pageStyles = {
   },
 
   kids: {
-    bgClass: "bg-gradient-to-bl from-blue-500/80 to-purple-400", // Fondo
+    bgClass: "bg-gradient-to-b from-[#5de0e6] to-[#004aad]", // Fondo
     titleColor: "text-yellow-300", // Título en amarillo suave para resaltar
     buttonClass: "bg-[#ff4081] hover:bg-[#f50057] font-bold text-base", // Botón rosa
     inputBg: "bg-white text-black", // Fondo de los inputs blanco, texto negro para mayor legibilidad

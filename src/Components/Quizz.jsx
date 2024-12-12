@@ -88,7 +88,71 @@ const questionsByVariant = {
       ],
       correct: 0,
     },
-  ],
+    {
+      question: "¿Qué es un bug?",
+      options: [
+        "Un error en un programa",
+        "Una aplicación móvil",
+        "Un tipo de computadora",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué herramienta se usa para crear dibujos en Scratch?",
+      options: ["Bloques de colores", "Un lápiz especial", "Un teclado"],
+      correct: 0,
+    },
+    {
+      question: "¿Para qué sirve una computadora?",
+      options: [
+        "Para resolver problemas con programas",
+        "Solo para jugar videojuegos",
+        "Solo para navegar en internet",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué significa 'CSS'?",
+      options: [
+        "Un lenguaje para hacer que las páginas web se vean bonitas",
+        "Un programa para crear videos",
+        "Un tipo de computadora",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es un videojuego?",
+      options: [
+        "Un programa que permite jugar en una computadora",
+        "Un tipo de robot avanzado",
+        "Una película interactiva",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué hace un programador?",
+      options: [
+        "Crea programas y resuelve problemas",
+        "Arregla computadoras",
+        "Dibuja imágenes en la computadora",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es una aplicación?",
+      options: [
+        "Un programa que puedes usar en tu computadora o celular",
+        "Un tipo de archivo especial",
+        "Un dibujo animado",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Cómo se llama el lenguaje de bloques para niños?",
+      options: ["Scratch", "Python", "JavaScript"],
+      correct: 0,
+    },
+  ],  
   young: [
     {
       question: "¿Qué lenguaje se usa para hacer páginas web dinámicas?",
@@ -104,7 +168,79 @@ const questionsByVariant = {
       ],
       correct: 0,
     },
-  ],
+    {
+      question: "¿Qué es un repositorio en Git?",
+      options: [
+        "Un lugar donde se guarda y organiza código",
+        "Un tipo de base de datos",
+        "Un lenguaje de programación",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es una variable en programación?",
+      options: [
+        "Un contenedor para almacenar datos",
+        "Un error en el código",
+        "Un tipo de aplicación web",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué significa 'frontend'?",
+      options: [
+        "El diseño y experiencia de usuario de una web",
+        "El servidor que procesa la información",
+        "La base de datos de un sistema",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es un bucle for?",
+      options: [
+        "Una estructura que repite código un número fijo de veces",
+        "Una forma de guardar datos",
+        "Un lenguaje de programación",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es un servidor web?",
+      options: [
+        "Una computadora que almacena y envía sitios web",
+        "Un programa para diseñar páginas web",
+        "Un lenguaje de programación",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es JSON?",
+      options: [
+        "Un formato para intercambiar datos",
+        "Un tipo de base de datos",
+        "Un framework de JavaScript",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué significa 'responsive design'?",
+      options: [
+        "Un diseño web que se adapta a diferentes dispositivos",
+        "Un diseño web rápido",
+        "Un diseño web seguro",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es Node.js?",
+      options: [
+        "Un entorno para ejecutar JavaScript en el servidor",
+        "Un editor de texto para programadores",
+        "Un lenguaje de programación",
+      ],
+      correct: 0,
+    },
+  ],  
   adult: [
     {
       question: "¿Qué es una base de datos?",
@@ -124,7 +260,79 @@ const questionsByVariant = {
       ],
       correct: 1,
     },
-  ],
+    {
+      question: "¿Qué es un backend?",
+      options: [
+        "La parte del servidor que procesa los datos",
+        "La parte visual de una página web",
+        "Un tipo de base de datos",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es una API REST?",
+      options: [
+        "Una forma de comunicar aplicaciones mediante HTTP",
+        "Un lenguaje de programación",
+        "Un servidor para bases de datos",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es un middleware?",
+      options: [
+        "Un software que conecta diferentes aplicaciones",
+        "Un lenguaje de programación avanzado",
+        "Una base de datos compleja",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es un modelo en programación MVC?",
+      options: [
+        "La parte que maneja la lógica de los datos",
+        "El diseño visual de una aplicación",
+        "Un servidor de archivos",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es una función recursiva?",
+      options: [
+        "Una función que se llama a sí misma",
+        "Una función que siempre retorna un valor",
+        "Una función que itera sobre un array",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es un ORM?",
+      options: [
+        "Una herramienta para mapear objetos en bases de datos",
+        "Un lenguaje de programación",
+        "Un framework de desarrollo web",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es un esquema en bases de datos?",
+      options: [
+        "La estructura de una base de datos",
+        "Un tipo de base de datos",
+        "Un lenguaje para bases de datos",
+      ],
+      correct: 0,
+    },
+    {
+      question: "¿Qué es una prueba unitaria?",
+      options: [
+        "Una prueba para verificar que una función específica funcione correctamente",
+        "Una prueba para validar todo un sistema",
+        "Un lenguaje de programación para tests",
+      ],
+      correct: 0,
+    },
+  ],  
 };
 
 export default function Quizz() {
@@ -184,7 +392,7 @@ export default function Quizz() {
       <div className="flex items-center justify-center min-h-[calc(100vh-64px)] px-4">
         <div className="w-full max-w-xl bg-white/80 rounded-lg shadow-lg p-8 space-y-6">
           <h2 className={`text-3xl font-bold text-center ${styles.titleClass}`}>
-            Quiz para Optar a la Beca de Programación
+            Quizz para Optar a la Beca de Programación
           </h2>
 
           <h3 className="text-xl font-semibold text-center text-gray-800">
