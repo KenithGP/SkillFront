@@ -24,15 +24,15 @@ const pageStyles = {
     modalText: "text-yellow-500",
     fontClass: "font-arcade",
   },
-  kids: {
-    bgClass: "bg-gradient-to-b from-[#f0fff4] to-[#b3e5fc]",
+   kids: {
+    bgClass: "bg-gradient-to-l from-[#5de0e6] to-[#004aad]",
     titleClass: "text-blue-900",
-    buttonClass: "bg-yellow-500 hover:bg-yellow-300",
+    buttonClass: "bg-yellow-500 hover:bg-yellow-300 text-black font-bold py-4 px-6 rounded-lg transition duration-300",
     feedbackCorrect: "text-yellow-400",
     feedbackIncorrect: "text-red-500",
     modalBg: "bg-white",
     modalText: "text-blue-600",
-    fontClass: "font-comics",
+    fontClass: "font-bubblegum",
   },
   adult: {
     bgClass: "bg-gradient-to-bl from-[#053322]/90 to-[#0d6242]/100",
