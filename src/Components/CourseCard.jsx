@@ -87,7 +87,7 @@ export default function CourseCard ({
       setClicked(true); // Cambiar el estado a "añadido al carrito"
     } else {
       // Si ya existe, mostrar un mensaje o simplemente no hacer nada
-      alert("Este curso ya está en tu zcarrito.");
+      alert("Este curso ya está en tu carrito.");
   }
 };
 
