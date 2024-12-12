@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { FaShoppingCart, FaStar } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 // Estilos para personalizar el fondo según el tipo de página
@@ -54,9 +53,12 @@ export default function CourseCard ({
   price,
   rating,
   tags,
+  videoUrl,
   variant = "default",
   buttonColor,
 }) {
+
+  const [clicked, setClicked] = useState(false);
 
   const handleButtonClick = () => {
     const courseData = {
@@ -85,14 +87,12 @@ export default function CourseCard ({
       setClicked(true); // Cambiar el estado a "añadido al carrito"
     } else {
       // Si ya existe, mostrar un mensaje o simplemente no hacer nada
-      alert("Este curso ya está en tu carrito.");
+      alert("Este curso ya está en tu zcarrito.");
   }
 };
 
   const navigate = useNavigate();
   const styles = cardStyles[variant] || cardStyles.default;
-
-  const [addedToCart, setAddedToCart] = useState(false);
 
   const handleShowDetails = () => {
     navigate(`/course/${id}?variant=${variant}`);
@@ -140,11 +140,12 @@ export default function CourseCard ({
           {clicked ? "Añadido al carrito" : "Añadir al carrito"}
         </button>
         <div className="mt-4 text-center">
-          <Link to={`/resumen`}>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded mt-2 w-full">
-              Ver carrito
-            </button>
-          </Link>
+        <button
+            className={`${buttonColor || styles.buttonColor} px-4 py-2 rounded hover:opacity-90 transition duration-300`}
+            onClick={handleShowDetails}
+          >
+            Ver Detalles
+          </button>
         </div>
       </div>
     </div>

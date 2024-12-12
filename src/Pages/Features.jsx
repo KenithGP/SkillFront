@@ -304,27 +304,12 @@ export default function Features () {
       ? adultsCourses
       : defaultCourses;
 
-  const handleDeleteCourse = (id) => {
-    const updatedCourses = courses.filter(course => course.id !== id);
-    setCourses(updatedCourses); // Actualizar el estado con los cursos filtrados
-  };
 
   return (
     <div className={`min-h-screen ${pageStyles[variant]?.bgColor || pageStyles.default.bgColor}`}>
       <Header variant={variant} />
       <RoutePage variant={variant}/>
-
-      {/* Grid de cursos */}
-      <CoursesGrid
-        variant={variant}
-        courses={courses}
-        bgColor={bgColor}
-        titleFont={titleFont}
-        paragraphFont={paragraphFont}
-        buttonColor={buttonColor}
-        buttonText={buttonText}
-        onDeleteCourses={handleDeleteCourse}
-      />
-    </div>
-  );
+      <CoursesGrid courses={courses} variant={variant} />
+    </div>
+  );
 };
