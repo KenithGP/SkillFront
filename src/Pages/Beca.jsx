@@ -43,7 +43,7 @@ const pageStyles = {
   kids: {
     bgClass: "bg-gradient-to-b from-[#5de0e6] to-[#004aad]", // Fondo
     titleColor: "text-yellow-300", // Título en amarillo suave para resaltar
-    buttonClass: "bg-[#ff4081] hover:bg-[#f50057] font-bold text-base", // Botón rosa
+    buttonClass: "bg-pink-500 hover:bg-pink-600 font-bold text-base", // Botón rosa
     inputBg: "bg-white text-black", // Fondo de los inputs blanco, texto negro para mayor legibilidad
     inputSize: "text-base",
     titleSize: "text-3xl lg:text-5xl font-bold", // Título más grande
@@ -53,12 +53,11 @@ const pageStyles = {
     fontClass: "font-bubblegum tracking-wider", // Fuente burbujeante para estilo divertido
     bgForm: "bg-[#ffebcd]/40", // Fondo suave para el formulario
     fileTextClass: "text-[#ff5722]", // Color para el texto del archivo seleccionado
-    bgb: "bg-[#ff4081] hover:bg-[#f50057]", // Botón con hover rosa
+    bgb: "bg-pink-500 hover:bg-pink-600", // Botón con hover rosa
     secondTitleColor: "text-yellow-300", // Título secundario amarillo
     thirdTitleColor: "text-pink-500", // Tercero título blanco
     parrafoSub: "text-white", // Texto adicional blanco para buena legibilidad
   },
-  
 
   
 

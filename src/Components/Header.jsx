@@ -49,7 +49,7 @@ export default function Header({ variant }) {
       fontClass: "font-bubblegum text-2xl font-bold tracking-wider", 
       buttonClass: "bg-[#F8D642] hover:bg-[#ffe471]", 
       hoverTextClass: "text-white hover:text-pink-400  ",
-      colortext:"text-white text-xl hover:text-blue-600",
+      colortext:"text-white text-xl hover:text-pink-400",
       emailColor:"text-gray-700",
       icon:logo,
       profileFontSize: "text-sm", // Tamaño de letra más pequeño para perfil
