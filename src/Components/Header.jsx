@@ -93,7 +93,7 @@ export default function Header({ variant }) {
       hoverTextClass: "text-white hover:text-pink-400  ",
       colortext:"text-white hover:text-pink-400",
       icon:logo,
-      fondoHeader: "bg-blue-600/80 shadow-md",
+      fondoHeader: "bg-blue-600/70 shadow-md",
       },
     young: {
       fontClass: "font-arcade text-xs text-pink-600",
@@ -133,7 +133,7 @@ export default function Header({ variant }) {
 
   return (
     <header
-      className={`flex items-center justify-between px-10 py-5 mb-1 z-50 ${fontClass} ${fondoHeader}`}
+      className={`flex items-center justify-between px-10 py-5 z-50 ${fontClass} ${fondoHeader}`}
     >
       {/* Logo y Nombre */}
       <div className="flex items-center space-x-4 ml-6 hover:scale-110 duration-500 transition-transform">
