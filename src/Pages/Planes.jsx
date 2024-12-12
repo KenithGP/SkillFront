@@ -22,7 +22,7 @@ export default function Planes() {
     variant === "young"
       ? "bg-gradient-to-b from-[#000000]/90 to-[#3533cd]/100 min-h-screen" // Adolescente
       : variant === "kids"
-      ? "bg-gradient-to-b from-purple-800 via-purple-400 to-blue-600/40" // Niños
+      ? "bg-gradient-to-b from-purple-800 to-purple-400 " // Niños
       : variant === "adult"
       ? "bg-gradient-to-l from-[#042518]/95 to-[#0d6242]/100" // Adulto (Fondo Verde)
       : "bg-gradient-to-t from-[#223a76]/100 to-[#686ebf]/100"; // Predeterminado

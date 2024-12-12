@@ -86,15 +86,15 @@ const Slider = ({ variant = "default" }) => {
       },
       {
         image: Bloques,
-        title: "Diversión y Aprendizaje",
+        title: "Crecer Jugando",
         description:
-          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
+          "Un espacio donde los niños aprenden mientras se divierten, desarrollando su curiosidad y habilidades.",
       },
       {
         image: Atomo,
-        title: "Diversión y Aprendizaje",
+        title: "Exploradores del Saber",
         description:
-          "Plataforma interactiva diseñada para que los niños aprendan jugando.",
+          "Herramienta interactiva que fomenta el aprendizaje creativo y el descubrimiento en los niños.",
       },
     ],
     young: [
