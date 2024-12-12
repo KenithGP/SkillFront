@@ -11,6 +11,8 @@ import { color } from "framer-motion";
 import { SubjectService } from "../services/subject.service";
 import { useState, useEffect, useMemo } from "react";
 import { DiscussionEmbed } from 'disqus-react';
+import Plyr from "plyr-react"
+import "plyr-react/plyr.css"
 
 const detailStyles = {  
   kids: {
@@ -58,6 +60,7 @@ const CourseDetails = ({ courses }) => {
   const variant = params.get("variant") || "default";
   const [subject, setSubject] = useState([]);
   const [sections, setSections] = useState([]);
+  const [currentVideoId, setCurrentVideoId] = useState('');
   const styles = detailStyles[variant] || detailStyles.default;
 
   const disqusConfig = useMemo(() => ({ 
@@ -80,11 +83,26 @@ const CourseDetails = ({ courses }) => {
     try {
       const response = await subjectService.getSessionsBySubjectId(id);
       setSections(response);
-      console.log(response);
+  
+      // Establecer el primer video directamente desde la respuesta
+      if (response.length > 0 && response[0].sessions.length > 0) {
+        const firstVideoId = extractYouTubeId(response[0].sessions[0].video);
+        setCurrentVideoId(firstVideoId);
+      }
     } catch (error) {
-      console.error('Error loading sections:', error);
+      console.error("Error loading sections:", error);
       setSections([]);
     }
+  };
+
+  const extractYouTubeId = (url) => {
+    const match = url.match(/(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^&]+)/);
+    return match ? match[1] : '';
+  };
+
+  const handleVideoChange = (videoUrl) => {
+    const videoId = extractYouTubeId(videoUrl);
+    setCurrentVideoId(videoId);
   };
 
 
@@ -97,21 +115,18 @@ const CourseDetails = ({ courses }) => {
       ? adultsCourses
       : defaultCourses;
 
-  const course = courses.find((c) => c.id === parseInt(id));
   
   useEffect(() => {
     loadSections();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     loadSubject();
   }, [id]);
 
   
-
-
-  if (!subject) {
-    return <div className="text-center text-red-500">Curso no encontrado.</div>;
+  if (!subject || !sections) {
+    return <div className={`text-center text-red-500 ${styles.bgColor} h-screen`}>Curso no encontrado.</div>;
   }
 
  
@@ -134,16 +149,19 @@ const CourseDetails = ({ courses }) => {
         <div className="flex flex-col md:flex-row gap-6">
           {/* Columna izquierda: Video y descripción */}
           <div className="flex-1">
-            <iframe
-              src="https://www.youtube.com/embed/a4na2opArGY"
-              title={subject.title}
-              width="100%"
-              height="315"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="rounded-lg shadow-md mb-4"
-            ></iframe>
+          <div className="video-player">
+        <Plyr
+          source={{
+            type: 'video',
+            sources: [
+              {
+                src: currentVideoId,
+                provider: 'youtube',
+              },
+            ],
+          }}
+        />
+      </div>
          {/* Descripción */}
          <div className="mb-6">
             <h2 className={`${styles.title} mb-2 `}>{subject.title}</h2>
@@ -185,9 +203,14 @@ const CourseDetails = ({ courses }) => {
             <ul className="space-y-2">
                {sections.map((section) => (
                 <li
-                  className="p-2 bg-gray-100 rounded shadow hover:bg-gray-200 cursor-pointer"
+                  className={`p-2 bg-gray-100 rounded shadow flex flex-col ${styles.description}`}
                 >
                   {section.title}
+                  {section.sessions.map((session) => (
+                      <button 
+                      onClick={() => handleVideoChange(session.video)}
+                      className="bg-black text-white m-1 hover:bg-gray-800">{session.title}</button>
+                  ))}
                 </li>
               ))} 
             </ul>
