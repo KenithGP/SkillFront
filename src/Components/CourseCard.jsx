@@ -100,7 +100,7 @@ export default function CourseCard ({
 
   return (
     <div
-      className={`w-80 h-[32rem] mb-6 mx-auto text-white shadow-lg rounded-lg overflow-hidden ${styles.bgColor}`}
+      className={`w-80 h-[34rem] mb-6 mx-auto text-white shadow-lg rounded-lg overflow-hidden ${styles.bgColor}`}
     >
       {/* Imagen */}
       <img className="w-full h-40 object-cover" src={image} alt={title} />

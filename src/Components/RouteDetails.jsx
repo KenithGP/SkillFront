@@ -37,11 +37,13 @@ export default function RouteDetails() {
       descriptionSize: "text-xs text-green-500 font-arcade",
     },
     adult: {
-      bgColor: "bg-gray-800",
-      cardBgColor: "bg-gray-900",
-      buttonColor: "bg-yellow-500 hover:bg-yellow-600 text-white",
-      titleSize: "text-4xl font-bree",
-      descriptionSize: "text-lg font-bree",
+      bgColor: "bg-gradient-to-r to-[#0b583b]/100 from-[black]",
+      cardBgColor: "bg-black/50",
+      buttonColor: "bg-yellow-500 hover:bg-yellow-400 text-black font-bree",
+      titleSize:
+        "text-3xl text-yellow-500  font-bree",
+      subTitleSize: "text-white font-bold font-bree text-xl",
+      descriptionSize: "text-md text-green-500 font-bree font-bold",
     },
   };
 

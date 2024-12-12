@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../Components/Header";
+import Mandoblue from '../assets/Images/mando-neonblue.svg'
+import Mandored from '../assets/Images/mando-neonred.svg'
 
 // Configuración de estilos para cada variante
 const pageStyles = {
@@ -132,6 +134,8 @@ export default function Beca() {
     <div className={`${bgClass} ${fontClass} min-h-screen text-white`}>
       <Header variant={variant} />
       <div className="flex flex-col lg:flex-row justify-between items-center px-10 py-16 lg:py-24">
+        
+   
         {/* Left Text Section */}
         <div className="lg:w-1/2 space-y-6 mx-10 px-20 py-20">
           <h2 className={`${titleSize} ${titleColor}`}>
