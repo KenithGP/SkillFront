@@ -6,6 +6,7 @@ import TarjetCurso from '../Components/TarjetaCurso'
 import Preguntas from '../Components/Preguntas'
 import Footer from '../Components/Footer'
 
+
 export default function Young() {
   const location = useLocation();
 

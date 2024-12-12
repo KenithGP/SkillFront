@@ -1,5 +1,8 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
 import PropTypes from "prop-types";
+import { motion } from "framer-motion";
+import Pacman from '../assets/Images/pacman.svg'
+import PacmanOrange from '../assets/Images/Pacman-orange .svg'
 
 const tiers = [
   {
@@ -165,16 +168,58 @@ const currentVariant = params.get("variant") ||
   } = pageStyles[currentVariant];
 
   return (
-    <div
-      className={`relative isolate px-6 py-24 sm:py-32 lg:px-8 ${fontClass}`}
-    >
-      {/* Títulos dinámicos */}
+    <div className={`relative isolate px-6 py-24 sm:py-32 lg:px-8 ${fontClass}`}>
+      <motion.img
+        src={Pacman}
+        alt="Pacman"
+        className="absolute z-5 w-[10rem] h-40 opacity-90"
+        animate={{
+          x: [0, 500, 1300, 500,0],
+          y: [0, 180,100, 180, 0],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+         {/* Segundo Pacman */}
+         <motion.img
+        src={PacmanOrange}
+        alt="Pacman"
+        className="absolute z-5 w-[10rem] h-30 opacity-90 top-40" // Más pequeño y más abajo
+        animate={{
+          x: [0, 300, 1300, 300, 0], // Movimiento horizontal en dirección opuesta
+          y: [600, 450, 400, 450, 600], // Movimiento vertical más bajo
+        }}
+        transition={{
+          duration: 15, // Duración total diferente
+          repeat: Infinity, // Animación infinita
+          ease: "easeInOut", // Suavidad
+        }}
+      />
+
+         {/* Segundo Pacman */}
+         <motion.img
+        src={Pacman}
+        alt="Pacman"
+        className="absolute z-5 w-[10rem] h-30 opacity-90 top-40" // Más pequeño y más abajo
+        animate={{
+          x: [0, 500, 1300, 500, 0], // Movimiento horizontal en dirección opuesta
+          y: [900, 750, 700, 750, 900], // Movimiento vertical más bajo
+        }}
+        transition={{
+          duration: 15, // Duración total diferente
+          repeat: Infinity, // Animación infinita
+          ease: "easeInOut", // Suavidad
+        }}
+      />
+
       <div className="mx-auto max-w-4xl text-center">
         <p className={`${titleClass}`}>{title}</p>
       </div>
       <p className={`${descriptionClass}`}>{description}</p>
 
-      {/* Tarjetas */}
       <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-3">
         {tiers.map((tier) => (
           <div
@@ -182,21 +227,19 @@ const currentVariant = params.get("variant") ||
             className={classNames(
               tier.featured
                 ? currentVariant === "young"
-                  ? "bg-[#ff0070]/60 shadow-2xl" // Diseño para adolescentes destacados
+                  ? "bg-[#ff0070]/60 shadow-2xl"
                   : currentVariant === "kids"
-                  ? "bg-[#800080]/70 shadow-2xl" // Diseño para niños destacados
+                  ? "bg-[#800080]/70 shadow-2xl"
                   : currentVariant === "adult"
-                  ? "bg-[#4CAF50]/60 shadow-2xl" // Diseño para adultos destacados
-                  : "bg-red-950/60 shadow-2xl" // Diseño por defecto para destacados
+                  ? "bg-[#4CAF50]/60 shadow-2xl"
+                  : "bg-red-950/60 shadow-2xl"
                 : currentVariant === "young"
-                ? "bg-[#ffe4e6]/70" // Diseño para adolescentes no destacados
+                ? "bg-[#ffe4e6]/70"
                 : currentVariant === "kids"
-                ? "bg-white/60 shadow-2xl" // Diseño para niños no destacados
+                ? "bg-white/60 shadow-2xl"
                 : currentVariant === "adult"
-                ? "bg-[#e8f5e9]/70" // Diseño para adultos no destacados
-                : "bg-white/70", // Diseño por defecto para no destacados
-                
-                
+                ? "bg-[#e8f5e9]/70"
+                : "bg-white/70",
               "rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 transition-transform duration-300 transform-gpu hover:scale-105 hover:shadow-2xl"
             )}
           >
@@ -260,9 +303,7 @@ const currentVariant = params.get("variant") ||
               href={tier.href}
               aria-describedby={tier.id}
               className={classNames(
-                tier.featured
-                  ? colotButtonTrue
-                  : colotButtonFalse,
+                tier.featured ? colotButtonTrue : colotButtonFalse,
                 "mt-8 block rounded-md px-3.5 py-2.5 text-center text-xs font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10"
               )}
             >

@@ -6,6 +6,8 @@ import Anuncio3D from "../assets/Images/anuncio.svg";
 import Cohete3D from "../assets/Images/cohete.svg";
 import Cubo3D from "../assets/Images/cubo.svg";
 import Libro3D from "../assets/Images/libro.svg";
+import Mandoblue from "../assets/Images/mando-neonblue.svg";
+import Mandored from "../assets/Images/mando-neonred.svg";
 
 export default function Planes() {
   const location = useLocation();
@@ -29,13 +31,14 @@ export default function Planes() {
       {/* Pasar el `variant` como prop */}
       <Header variant={variant} />
       <TarjetPlanes variant={variant} />
-      {/* Agregar los SVGs al fondo solo si la variante es 'kids' con animaciones sorprendentes */}
+
+      {/* Agregar los SVGs al fondo según la variante */}
       {variant === "kids" && (
         <>
           <motion.img
             src={Anuncio3D}
             alt="Anuncio"
-            className="absolute top-24 left-52 w-48 h-40 opacity-90"
+            className="absolute top-24 left-[10%] sm:left-[20%] md:left-[30%] w-[15%] h-auto opacity-90"
             animate={{
               scale: [1, 1.2, 1],
               rotate: [0, 15, -15, 0],
@@ -49,7 +52,7 @@ export default function Planes() {
           <motion.img
             src={Cohete3D}
             alt="Cohete"
-            className="absolute top-1/4 right-8  w-50 h-40 opacity-90"
+            className="absolute top-1/4 right-[5%] sm:right-[10%] md:right-[15%] w-[12%] h-auto opacity-90"
             animate={{
               y: [0, 20, 0],
               rotate: [0, 10, -10, 0],
@@ -63,7 +66,7 @@ export default function Planes() {
           <motion.img
             src={Cubo3D}
             alt="Cubo"
-            className="absolute top-24 right-52 w-48 h-40 opacity-90"
+            className="absolute top-32 right-[10%] sm:right-[15%] md:right-[20%] w-[10%] h-auto opacity-90"
             animate={{
               x: [0, 15, -15, 0],
               rotate: [0, 20, -20, 0],
@@ -74,13 +77,32 @@ export default function Planes() {
               ease: "easeInOut",
             }}
           />
+        </>
+      )}
+
+      {variant === "young" && (
+        <>
           <motion.img
-            src={Libro3D}
-            alt="Libro"
-            className="absolute top-1/4 left-26 w-50 h-40 opacity-90"
+            src={Mandoblue}
+            alt="Mando Azul"
+            className="absolute top-[20%] left-[60%] sm:left-[70%] md:left-[75%] w-[12%] h-auto opacity-90"
             animate={{
-              scale: [1, 1.3, 1],
-              rotate: [0, -15, 15, 0],
+              scale: [1, 1.2, 1],
+              rotate: [0, 15, -15, 0],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.img
+            src={Mandored}
+            alt="Mando Rojo"
+            className="absolute top-[20%] left-[5%] sm:left-[10%] md:left-[15%] w-[12%] h-auto opacity-90"
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 15, -15, 0],
             }}
             transition={{
               duration: 3,
