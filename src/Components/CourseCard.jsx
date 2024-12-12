@@ -100,7 +100,7 @@ export default function CourseCard ({
 
   return (
     <div
-      className={`w-82 h-[30rem] mb-6 mx-auto text-white shadow-lg rounded-lg overflow-hidden ${styles.bgColor}`}
+      className={`w-80 h-[32rem] mb-6 mx-auto text-white shadow-lg rounded-lg overflow-hidden ${styles.bgColor}`}
     >
       {/* Imagen */}
       <img className="w-full h-40 object-cover" src={image} alt={title} />
@@ -134,14 +134,14 @@ export default function CourseCard ({
           <span className="text-lg font-bold">${price}</span>
         </div>
         <button
-          className="bg-green-500 text-white px-4 py-2 rounded hover:opacity-90 transition duration-300 w-full"
+          className= {`${styles.buttonCarrito} mt-5 px-4 py-2 rounded hover:opacity-90 w-full`}
           onClick={handleButtonClick}
         >
           {clicked ? "Añadido al carrito" : "Añadir al carrito"}
         </button>
         <div className="mt-4 text-center">
         <button
-            className={`${buttonColor || styles.buttonColor} px-4 py-2 rounded hover:opacity-90 transition duration-300`}
+            className={`${buttonColor || styles.buttonColor} px-4 py-2 rounded hover:opacity-90  w-full`}
             onClick={handleShowDetails}
           >
             Ver Detalles
