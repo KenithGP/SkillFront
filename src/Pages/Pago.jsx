@@ -12,22 +12,18 @@ export default function Pago() {
   const variantStyles = {
     kids: {
       bgClass: "bg-gradient-to-b from-[#86DCFC] to-[#b3e5fc]",
-      title: "Resumen de tu pedido para niños",
       courses: kidsCourses,
     },
     young: {
       bgClass: "bg-gradient-to-b from-[#000000]/90 to-[#3533cd]/100",
-      title: "Resumen de tu pedido para jóvenes",
       courses: teensCourses,
     },
     adult: {
       bgClass: "bg-gradient-to-r to-[#0b583b]/100 from-[black]",
-      title: "Resumen de tu pedido para adultos",
       courses: adultsCourses,
     },
     default: {
       bgClass: "bg-gradient-to-b from-[#000000]/100 to-[#EA6558]/100",
-      title: "Resumen de tu pedido",
       courses: defaultCourses,
     },
   };
