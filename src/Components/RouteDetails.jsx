@@ -65,9 +65,6 @@ export default function RouteDetails() {
     }
   }
 
-  const redirectSubject = (subject) => {
-    console.log("Redirigiendo a la categoría:", subject);
-  };
 
   // Manejo de errores si no hay datos
   if (!route) {
@@ -88,6 +85,8 @@ export default function RouteDetails() {
   useEffect(() => {
     loadRouteInfo();    
   }, []);
+
+  
 
 
   return (
@@ -128,7 +127,7 @@ export default function RouteDetails() {
                           alt={category.title}
                           className="w-10 h-10 mr-4"
                         />
-                        <span className={`font-semibold ${styles.descriptionSize}`}>{category.title}</span>
+                        <button className={`font-semibold ${styles.descriptionSize}` }>{category.title}</button>
                       </div>
                       {/* <span className={`text-sm text-gray-600 ${styles.descriptionSize}`}>
                         {category.contentHours}h contenido / {category.practiceHours}h práctica
