@@ -31,8 +31,8 @@ export default function Header({ variant }) {
   const designs = {
     default: {
       fontClass: "font-semibold text-xl",
-      buttonClass: "bg-[#E53935] text-white hover:bg-red-400",
-      hoverTextClass: "hover:text-green-500",
+      buttonClass: "bg-yellow-500 text-white hover:bg-yellow-600",
+      hoverTextClass: "hover:text-yellow-500",
       colortext: "text-white",
       bgProfile: "bg-white",
       icon: logo,
