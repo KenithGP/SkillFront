@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
 
-// Definir los estilos para cada tipo de página
+// Estilos para personalizar el fondo según el tipo de página
 const cardStyles = {
   kids: {
     bgColor: "bg-[#800080]/70",
@@ -37,6 +37,10 @@ const cardStyles = {
     buttonCarrito:"bg-blue-600 hover:bg-blue-500 text-white  ",
     buttonText: "Comprar",
   },
+  rutaTittle: {
+    bgColor: "bg-blue-500",
+  },
+  // Agregar más estilos según sea necesario
 };
 
 export default function CourseCard ({
@@ -49,27 +53,54 @@ export default function CourseCard ({
   price,
   rating,
   tags,
+  videoUrl,
   variant = "default",
   buttonColor,
 }) {
+
+  const [clicked, setClicked] = useState(false);
+
+  const handleButtonClick = () => {
+    const courseData = {
+      id,  // Usar el id único del curso
+      title,
+      description,
+      image,
+      level,
+      tags,
+      price,
+      rating,
+      students,
+      videoUrl,
+    };
+
+    // Cargar el carrito desde localStorage
+    const storedCourses = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Comprobar si el curso ya está en el carrito por su id
+    const courseExists = storedCourses.some((course) => course.id === id);
+
+    if (!courseExists) {
+      // Si no existe, agregar al carrito
+      const updatedCart = [...storedCourses, courseData];
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      setClicked(true); // Cambiar el estado a "añadido al carrito"
+    } else {
+      // Si ya existe, mostrar un mensaje o simplemente no hacer nada
+      alert("Este curso ya está en tu carrito.");
+  }
+};
+
   const navigate = useNavigate();
   const styles = cardStyles[variant] || cardStyles.default;
-
-  const [addedToCart, setAddedToCart] = useState(false);
 
   const handleShowDetails = () => {
     navigate(`/course/${id}?variant=${variant}`);
   };
 
-  const handleAddToCart = () => {
-    setAddedToCart(true);
-    // Aquí puedes agregar lógica para actualizar el carrito global o local
-    alert(`${title} añadido al carrito!`);
-  };
-
   return (
     <div
-      className={`w-82 h-[30rem] mb-6 mx-auto text-white shadow-lg rounded-lg overflow-hidden ${styles.bgColor}`}
+      className={`w-80 h-[32rem] mb-6 mx-auto text-white shadow-lg rounded-lg overflow-hidden ${styles.bgColor}`}
     >
       {/* Imagen */}
       <img className="w-full h-40 object-cover" src={image} alt={title} />
@@ -95,22 +126,26 @@ export default function CourseCard ({
             </span>
           ))}
         </div>
-
-        {/* Botones */}
-        <div className="mt-4 flex flex-col gap-2">
-          <button
-            className={`${buttonColor || styles.buttonColor} px-4 py-2 rounded hover:opacity-90 transition duration-300`}
+        <div className="flex justify-between items-center mt-3">
+          <div className="flex items-center gap-1 text-yellow-400">
+            <FaStar />
+            <span>{rating}</span>
+          </div>
+          <span className="text-lg font-bold">${price}</span>
+        </div>
+        <button
+          className= {`${styles.buttonCarrito} mt-5 px-4 py-2 rounded hover:opacity-90 w-full`}
+          onClick={handleButtonClick}
+        >
+          {clicked ? "Añadido al carrito" : "Añadir al carrito"}
+        </button>
+        <div className="mt-4 text-center">
+        <button
+            className={`${buttonColor || styles.buttonColor} px-4 py-2 rounded hover:opacity-90  w-full`}
             onClick={handleShowDetails}
           >
             Ver Detalles
-          </button>
-          <button
-            className={`${styles.buttonCarrito} px-4 py-2 rounded flex items-center justify-center gap-2`}
-            onClick={handleAddToCart}
-          >
-            <FaShoppingCart />
-            {addedToCart ? "Añadido" : "Añadir al carrito"}
-          </button>
+          </button>
         </div>
       </div>
     </div>
