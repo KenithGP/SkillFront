@@ -5,12 +5,11 @@ export default {
   theme: {
     extend: {
       animation: {
-        neonOrange: "neonOrangeBlink 1.5s ease-in-out infinite", // Nueva animación naranja
+        neonOrange: "neonOrangeBlink 1.5s infinite alternate", // Nueva animación naranja
         neonFlicker: "neonFlicker 1.5s infinite alternate",
       },
       textShadow: {
-        neon: "0 0 5px #ff0068, 0 0 10px #ff0068, 0 0 20px #ff0068, 0 0 40px #ff00ff, 0 0 80px #ff00ff",
-      
+        neon: "0 0 3px #ff0068, 0 0 6px #ff0068, 0 0 12px #ff0068, 0 0 24px #ff00ff, 0 0 48px #ff00ff",
       },
       fontFamily: {
         arcade: ['Arcade Gamer', 'sans-serif'],
@@ -32,10 +31,10 @@ export default {
     },
     keyframes: {
       neonOrangeBlink: { // Nueva animación naranja brillante
-        "0%, 100%": { textShadow: "0 0 8px #FFA500, 0 0 12px #FFA500" },
-        "80%": { textShadow: "0 0 16px #FFA500, 0 0 24px #FFA500" },
+        "0%, 100%": { textShadow: "0 0 4px #FFA500, 0 0 6px #FFA500" },
+        "80%": { textShadow: "0 0 8px #FFA500, 0 0 12px #FFA500" },
       },
     },
   },
-  plugins: [require("tailwindcss-textshadow"),],
+  plugins: [require("tailwindcss-textshadow")],
 };
