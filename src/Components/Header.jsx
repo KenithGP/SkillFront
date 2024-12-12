@@ -2,6 +2,7 @@ import logo from "../assets/Icons/Logo-White-mobil.svg";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "font-awesome/css/font-awesome.min.css";
+import { style } from "framer-motion/client";
 
 export default function Header({ variant }) {
   const [isAuthenticated, setIsAuthenticated] = useState(true); // Simulando autenticación
@@ -41,32 +42,43 @@ export default function Header({ variant }) {
       buttonClass: "bg-[#E53935] text-white hover:bg-red-400",
       hoverTextClass: "hover:text-green-500",
       colortext: "text-white",
+      bgProfile:" bg-white",
       icon: logo,
     },
     kids: {
       fontClass: "font-bubblegum text-2xl font-bold tracking-wider", 
       buttonClass: "bg-[#F8D642] hover:bg-[#ffe471]", 
       hoverTextClass: "text-white hover:text-pink-400  ",
-      colortext:"text-white hover:text-pink-400",
+      colortext:"text-white text-xl hover:text-blue-600",
+      emailColor:"text-gray-700",
       icon:logo,
-      fondoHeader: "bg-blue-600/80 shadow-md",
+      profileFontSize: "text-sm", // Tamaño de letra más pequeño para perfil
+      fondoHeader: "",
+      bgProfile:" bg-blue-300/70",
       },
     young: {
       fontClass: "font-arcade text-xs text-pink-600",
       buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
       hoverTextClass: "hover:text-[#ff0068]",
       colortext: "text-yellow-500 text-shadow-neon animate-neon",
+      emailColor:"text-gray-400 text-[0.5rem] mt-2",
       icon: logo,
       rachaFontSize: "text-sm", // Tamaño de letra más pequeño para racha
       profileFontSize: "text-xs", // Tamaño de letra más pequeño para perfil
+      bgProfile:" bg-blue-600/20",
     },
     adult: {
       fontClass: "font-bree text-xl",
       buttonClass:
         "bg-yellow-600 text-white hover:bg-yellow-500 hover:scale-110 duration-500 transition-transform focus:ring-indigo-300 rounded-lg px-6 py-2",
       hoverTextClass: "hover:text-[white]",
-      colortext: "text-white",
+      colortext: "text-yellow-500",
+      emailColor:"text-white",
       icon: logo,
+      profileFontSize: "text-md ", // Tamaño de letra más pequeño para perfil
+      bgProfile:" bg-black/30",
+      btnProfile:"",
+      btnClose:"",
     },
   };
 
@@ -77,8 +89,10 @@ export default function Header({ variant }) {
     buttonClass,
     hoverTextClass,
     colortext,
+    emailColor,
     icon,
     fondoHeader,
+    bgProfile,
     rachaFontSize = "text-lg", // Tamaño predeterminado para racha
     profileFontSize = "text-sm", // Tamaño predeterminado para perfil
   } = currentDesign;
@@ -89,7 +103,7 @@ export default function Header({ variant }) {
 
   return (
     <header
-      className={`flex items-center justify-between px-10 py-5 mb-1 z-50 ${fontClass} ${fondoHeader}`}
+      className={`flex items-center justify-between px-10 py-5 z-50 ${fontClass} ${fondoHeader}`}
     >
       {/* Logo y Nombre */}
       <div className="flex items-center space-x-4 ml-6 hover:scale-110 duration-500 transition-transform">
@@ -136,7 +150,7 @@ export default function Header({ variant }) {
           <input
             type="text"
             placeholder="Buscar...."
-            className="rounded-full w-[15rem] border border-gray-300 px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="rounded-full w-[15rem] border border-gray-300 px-4 py-2 text-black focus:outline-none focus:ring-2"
           />
         </div>
 
@@ -193,12 +207,12 @@ export default function Header({ variant }) {
                   alt="Usuario"
                   className="w-10 h-10 rounded-full"
                 />
-                <span className={`${profileFontSize}`}>
+                <span className={`${profileFontSize} `}>
                   {userData.username}
                 </span>
               </button>
               {showProfile && (
-                <div className="absolute top-12 right-0 bg-white text-black p-4 shadow-lg rounded-lg w-56 z-50">
+                <div className={`${bgProfile} absolute top-12 right-0 p-4 shadow-lg rounded-lg w-56 z-50`}>
                   <div className="flex flex-col items-center">
                     <img
                       src="https://via.placeholder.com/150"
@@ -206,16 +220,16 @@ export default function Header({ variant }) {
                       className="w-16 h-16 rounded-full mb-2 object-cover"
                     />
                     <div className="text-center">
-                      <div className={`font-semibold ${profileFontSize}`}>
+                      <div className={`font-semibold ${profileFontSize} ${colortext}`}>
                         {userData.name} {userData.lastName}
                       </div>
                       <div
-                        className={`text-sm text-gray-500 ${profileFontSize} break-words text-center w-full max-w-[200px]`}
+                        className={`text-sm ${emailColor} ${profileFontSize} break-words text-center w-full max-w-[200px]`}
                       >
                         {userData.email}
                       </div>
                     </div>
-                    <div className="mt-4 space-y-2 w-full">
+                    <div className={`mt-4 space-y-2 w-full ${profileFontSize}`}>
                       <Link
                         to={dynamicPath("/Perfil")}
                         className="block text-center py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition-all duration-200"

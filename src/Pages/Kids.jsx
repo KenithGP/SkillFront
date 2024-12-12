@@ -17,7 +17,7 @@ export default function Kids() {
     : "default";
 
   return (
-    <div className="bg-gradient-to-b from-purple-400 to-blue-500/50  m-0 p-0"> 
+    <div className="bg-gradient-to-b from-purple-400 to-[#e1aec0]/50  m-0 p-0"> 
       {/* Video de fondo */}
       <video
         className="absolute w-full h-full object-cover"

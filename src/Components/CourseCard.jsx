@@ -1,12 +1,42 @@
 import React, { useState } from "react";
 import { FaShoppingCart, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Estilos para personalizar el fondo según el tipo de página
 const cardStyles = {
+  kids: {
+    bgColor: "bg-[#800080]/70",
+    titleFont: "font-bubblegum text-yellow-500 text-xl",
+    paragraphFont: "text-blue-100 font-bubblegum",
+    buttonColor: "bg-purple-400 hover:bg-purple-500 text-black  font-bubblegum",
+    buttonCarrito:"bg-yellow-500 hover:bg-yellow-400 text-black font-bubblegum",
+    buttonText: "¡Explorar!",
+  },
+  young: {
+    bgColor: "bg-pink-800",
+    titleFont: "font-arcade text-yellow-300 text-4xl",
+    paragraphFont: "text-white font-arcade text-xs mb-3",
+    buttonColor: "bg-yellow-500 font-arcade text-xs",
+    buttonCarrito:"bg-blue-600 hover:bg-blue-500 text-white font-arcade text-xs",
+    buttonText: "¡Aprender ahora!",
+  },
+  adult: {
+    bgColor: "bg-black/40",
+    titleFont: "font-bree text-yello-500 text-4xl",
+    paragraphFont: "text-gray-300 font-bree mb-2",
+    buttonColor: "bg-yellow-500 hover:bg-yellow-400 font-bree text-black ",
+    buttonCarrito:"bg-green-700 hover:bg-green-500 text-white font-bree",
+    font:"font-bree",
+    buttonText: "Inscribirse",
+  },
   default: {
-    bgColor: "bg-gray-900",
-    
+    bgColor: "bg-red-950/60",
+    titleFont: "font-sans text-white text-3xl",
+    paragraphFont: "text-white",
+    buttonColor: "bg-yellow-500",
+    buttonCarrito:"bg-blue-600 hover:bg-blue-500 text-white  ",
+    buttonText: "Comprar",
   },
   rutaTittle: {
     bgColor: "bg-blue-500",
@@ -14,22 +44,20 @@ const cardStyles = {
   // Agregar más estilos según sea necesario
 };
 
-const CourseCard = ({
-  id,  // Recibir el id del curso como prop
+export default function CourseCard ({
+  id,
   title,
   description,
   image,
   level,
-  tags,
+  students,
   price,
   rating,
-  students,
-  videoUrl,
-  pageType = "default",
-}) => {
-  const [clicked, setClicked] = useState(false);
+  tags,
+  variant = "default",
+  buttonColor,
+}) {
 
-  // Manejar clic en el botón de añadir al carrito
   const handleButtonClick = () => {
     const courseData = {
       id,  // Usar el id único del curso
@@ -58,21 +86,38 @@ const CourseCard = ({
     } else {
       // Si ya existe, mostrar un mensaje o simplemente no hacer nada
       alert("Este curso ya está en tu carrito.");
-    }
+  }
+};
+
+  const navigate = useNavigate();
+  const styles = cardStyles[variant] || cardStyles.default;
+
+  const [addedToCart, setAddedToCart] = useState(false);
+
+  const handleShowDetails = () => {
+    navigate(`/course/${id}?variant=${variant}`);
   };
 
   return (
     <div
-      className={`w-72 h-[28rem] mb-6 mx-auto bg-gray-900 text-white shadow-lg rounded-lg overflow-hidden ${
-        cardStyles[pageType]?.bgColor || cardStyles.default.bgColor
-      }`}
+      className={`w-82 h-[30rem] mb-6 mx-auto text-white shadow-lg rounded-lg overflow-hidden ${styles.bgColor}`}
     >
+      {/* Imagen */}
       <img className="w-full h-40 object-cover" src={image} alt={title} />
+
+      {/* Contenido */}
       <div className="p-4">
-        <h2 className="text-lg font-semibold">{title}</h2>
-        <p className="text-sm mt-1">Nivel: {level} • {students} estudiantes</p>
+        <h2 className={`text-lg font-semibold ${styles.titleFont}`}>{title}</h2>
+        <p className={`text-sm mt-1 ${styles.paragraphFont}`}>Nivel: {level}</p>
+        <p className={`text-sm mt-1 ${styles.paragraphFont}`}>
+          Estudiantes: {students}
+        </p>
+        <p className={`text-sm mt-1 ${styles.paragraphFont}`}>Precio: ${price}</p>
+        <p className={`text-sm mt-1 ${styles.paragraphFont}`}>
+          Calificación: {rating} ⭐
+        </p>
         <div className="flex flex-wrap gap-2 mt-2">
-          {tags.map((tag, index) => (
+          {tags?.map((tag, index) => (
             <span
               key={index}
               className="bg-white text-black text-xs px-2 py-1 rounded-full"
@@ -104,6 +149,4 @@ const CourseCard = ({
       </div>
     </div>
   );
-};
-
-export default CourseCard;
+}

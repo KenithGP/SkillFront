@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import CoursesGrid from "../Components/CoursesGrid";
 import Header from '../Components/Header'
 import RoutePage from '../Components/RoutePage'
+/* import CourseDetails from '../Components/CourseDetails' */
 
 export const kidsCourses = [
   {
@@ -66,7 +67,6 @@ export const kidsCourses = [
     videoUrl: "https://www.youtube.com/embed/TwK9vH0wRP4",
   }
 ];
-
 export const teensCourses = [
   {
     id: 31, // Rango de id para teens
@@ -260,8 +260,8 @@ export const defaultCourses = [
 // Configuración de estilos dinámicos
 const pageStyles = {
   kids: {
-    bgColor: "bg-gradient-to-b from-[#86DCFC] to-[#b3e5fc]",
-    titleFont: "font-comics text-white text-3xl",
+    bgColor: "bg-gradient-to-b from-[#5de0e6] to-[#004aad]",
+    titleFont: "font-bubblegum text-white text-3xl",
     paragraphFont: "text-blue-100",
     buttonColor: "bg-green-500",
     buttonText: "¡Explorar!",
@@ -290,23 +290,19 @@ const pageStyles = {
 };
 
 // Componente principal
-export default function Features() {
+export default function Features () {
   const location = useLocation();
-
-  // Detectar la variante desde la URL
   const params = new URLSearchParams(location.search);
   const variant = params.get("variant") || "default";
 
-  // Obtener estilos dinámicos según la variante
-  const { bgColor, titleFont, paragraphFont, buttonColor, buttonText } =
-    pageStyles[variant];
-
-  // Determinar qué cursos mostrar según la variante
-  let courses = [];
-  if (variant === "kids") courses = kidsCourses;
-  else if (variant === "young") courses = teensCourses;
-  else if (variant === "adult") courses = adultsCourses;
-  else courses = defaultCourses;  // Si no es una categoría válida, usar los cursos por defecto
+  const courses =
+    variant === "kids"
+      ? kidsCourses
+      : variant === "young"
+      ? teensCourses
+      : variant === "adult"
+      ? adultsCourses
+      : defaultCourses;
 
   const handleDeleteCourse = (id) => {
     const updatedCourses = courses.filter(course => course.id !== id);
@@ -314,8 +310,7 @@ export default function Features() {
   };
 
   return (
-    <div className={`min-h-screen ${bgColor}`}>
-      {/* Header dinámico */}
+    <div className={`min-h-screen ${pageStyles[variant]?.bgColor || pageStyles.default.bgColor}`}>
       <Header variant={variant} />
       <RoutePage variant={variant}/>
 
@@ -332,4 +327,4 @@ export default function Features() {
       />
     </div>
   );
-}
+};
