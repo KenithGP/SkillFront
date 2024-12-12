@@ -100,7 +100,7 @@ export default function Header({ variant }) {
       buttonClass: "bg-[#ff0068] text-white hover:bg-blue-700",
       hoverTextClass: "hover:text-[#ff0068]",
       colortext: "text-yellow-500 text-shadow-neon animate-neon",
-      emailColor: "text-gray-400 text-[9px] font-bold mt-2",
+      emailColor: "text-gray-400 text-[8px] font-bold mt-2",
       icon: logo,
       bgResponsive: "bg-black/50",
       bgProfile: "bg-blue-600/20",

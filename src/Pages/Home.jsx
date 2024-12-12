@@ -40,7 +40,7 @@ export default function Home() {
         redirectPath = '/kids';
       } else if (age <= 25) {
         newVariant = 'young';
-        redirectPath = '/young';
+        redirectPath = '/Young';
       } else {
         newVariant = 'adult';
         redirectPath = '/adult';
