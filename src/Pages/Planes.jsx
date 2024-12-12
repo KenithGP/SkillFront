@@ -8,6 +8,7 @@ import Cubo3D from "../assets/Images/cubo.svg";
 import Libro3D from "../assets/Images/libro.svg";
 import Mandoblue from "../assets/Images/mando-neonblue.svg";
 import Mandored from "../assets/Images/mando-neonred.svg";
+import Sup from "../assets/Icons/Superior.svg"; // Importar la imagen SVG
 
 export default function Planes() {
   const location = useLocation();
@@ -23,11 +24,21 @@ export default function Planes() {
       : variant === "kids"
       ? "bg-gradient-to-b from-purple-800 via-purple-400 to-blue-600/40" // Niños
       : variant === "adult"
-      ? "bg-gradient-to-l from-[#042518]/95 to-[#0d6242]/100" // Adulto
-      : "bg-gradient-to-b from-[#000000]/100 to-[#EA6558]/100"; // Predeterminado
+      ? "bg-gradient-to-l from-[#042518]/95 to-[#0d6242]/100" // Adulto (Fondo Verde)
+      : "bg-gradient-to-t from-[#223a76]/100 to-[#686ebf]/100"; // Predeterminado
+
+  // Estilo de fondo adicional solo para el `variant` "default"
+  const defaultStyle = variant === "default" ? {
+    backgroundImage: `url(${Sup})`,
+    backgroundSize: 'cover', // Ajusta el tamaño de la imagen
+    backgroundPosition: 'rigth' // Centra la imagen
+  } : {};
 
   return (
-    <div className={`${backgroundClass} min-h-screen relative`}>
+    <div
+      className={`${backgroundClass} min-h-screen`}
+      style={defaultStyle}
+    >
       {/* Pasar el `variant` como prop */}
       <Header variant={variant} />
       <TarjetPlanes variant={variant} />

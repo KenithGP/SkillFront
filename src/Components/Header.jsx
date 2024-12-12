@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import "font-awesome/css/font-awesome.min.css";
 
 export default function Header({ variant }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // Simulando autenticación
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Simulando autenticación
   const [racha, setRacha] = useState("¡Sigue así!"); // Racha inicial
   const [showProfile, setShowProfile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);

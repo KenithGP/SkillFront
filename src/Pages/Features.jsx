@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import CoursesGrid from "../Components/CoursesGrid";
 import Header from '../Components/Header'
 import RoutePage from '../Components/RoutePage'
+import Cur from "../assets/Icons/Lado.svg"
 /* import CourseDetails from '../Components/CourseDetails' */
 
 export const kidsCourses = [
@@ -304,9 +305,16 @@ export default function Features () {
       ? adultsCourses
       : defaultCourses;
 
+      const defaultStyle = variant === "default" ? {
+        backgroundImage: `url(${Cur})`,
+        backgroundSize: 'cover', // Ajusta el tamaño de la imagen
+        backgroundPosition: 'rigth' // Centra la imagen
+      } : {};
 
   return (
-    <div className={`min-h-screen ${pageStyles[variant]?.bgColor || pageStyles.default.bgColor}`}>
+    <div className={`min-h-screen ${pageStyles[variant]?.bgColor || pageStyles.default.bgColor}`}
+    style={defaultStyle}
+    >
       <Header variant={variant} />
       <RoutePage variant={variant}/>
       <CoursesGrid courses={courses} variant={variant} />

@@ -4,25 +4,29 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../Components/Header";
 import Mandoblue from '../assets/Images/mando-neonblue.svg'
 import Mandored from '../assets/Images/mando-neonred.svg'
+import Lado from "../assets/Icons/Lado.svg"
+
 
 // Configuración de estilos para cada variante
 const pageStyles = {
   default: {
-    bgClass: "bg-gradient-to-b from-[#000000] to-[#EA6558]",
-    titleColor: "text-yellow-500",
-    buttonClass: "bg-green-700 hover:bg-green-400 font-bold text-lg",
+    bgClass: "bg-gradient-to-b from-[#223a76] to-[#686ebf] bg-local bg-cover bg-center",
+    bgImage: Lado,
+    titleColor: "text-yellow-400",
+    buttonClass: "bg-[#daaa00] hover:bg-yellow-600 font-bold text-lg",
     inputBg: "bg-white text-gray-600",
     titleSize: "text-xl lg:text-4xl font-bold",
     DescriptionSize: "text-xl lg:text-2xl",
     subTitleSize: "text-lg",
     fontClass: "font-sans",
-    bgForm: "bg-red-800/20",
+    bgForm: "bg-blue-950/90",
     fileTextClass: "text-yellow-400", // Clase de color para adolescentes
     DescriptionColor: "text-gray-200",
-    secondTitleColor: "text-green-500",
+    secondTitleColor: "text-yellow-400",
     thirdTitleColor: "text-yellow-400",
     parrafoSub: "text-gray-200",
     inputSize: "text-xs",
+    bgb: "bg-[#d9a900] hover:bg-yellow-600"
   },
   young: {
     bgClass: "bg-gradient-to-b from-[#000000]/90 to-[#3533cd]/100",
@@ -96,6 +100,7 @@ export default function Beca() {
   // Obtener estilos dinámicos según la variante
   const {
     bgClass,
+    bgImage,
     titleColor,
     fontClass,
     titleSize,
@@ -131,7 +136,9 @@ export default function Beca() {
   };
 
   return (
-    <div className={`${bgClass} ${fontClass} min-h-screen text-white`}>
+    <div className={`${bgClass} ${fontClass} min-h-screen text-white`}
+    style={variant === "default" ? { backgroundImage: `url(${bgImage})` } : {}}
+>
       <Header variant={variant} />
       <div className="flex flex-col lg:flex-row justify-between items-center px-10 py-16 lg:py-24">
         

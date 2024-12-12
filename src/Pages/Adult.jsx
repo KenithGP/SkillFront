@@ -20,7 +20,7 @@ export default function Adult() {
     : "default";
   
     return (
-      <div className="bg-gradient-to-r to-[#0b583b]/100 from-[black] max-screen">
+      <div className="bg-gradient-to-l from-[#071912]/95 to-[#0d6242]/100 max-screen">
          <Header  variant={variant}/>
          <Slider variant={variant} />        
          <TarjetPlanes variant={variant}/> 
