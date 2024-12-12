@@ -43,16 +43,16 @@ const ResumenPedidos = () => {
       buttonColor: "bg-yellow-600 hover:bg-yellow-500",
       titleSize: "text-3xl font-bold",
       priceColor: "text-lg",
-      totalFont: "font-bold text-4xl text-black", // Estilo para el total
+      totalFont: "font-bold text-1xl text-black", // Estilo para el total
       buttonFont: "text-lg font-bold", // Estilo para el botón
     },
     kids: {
-      cardBgColor: "bg-yellow-100",
+      cardBgColor: "bg-white/60",
       textColor: "text-gray-800",
-      buttonColor: "bg-yellow-500 hover:bg-yellow-700",
+      buttonColor: "bg-yellow-400 hover:bg-yellow-60",
       titleSize: "text-2xl font-comics",
       priceColor: "text-lg font-comics",
-      totalFont: "font-comics text-3xl text-yellow-800", // Estilo para el total
+      totalFont: "font-comics text-1xl text-yellow-800", // Estilo para el total
       buttonFont: "text-lg font-comics", // Estilo para el botón
     },
     young: {
@@ -61,8 +61,9 @@ const ResumenPedidos = () => {
       buttonColor: "bg-pink-700 hover:bg-pink-500",
       titleSize: "text-2xl text-yellow-500 font-arcade",
       priceColor: "text-sm text-green-500 font-arcade",
-      totalFont: "text-2xl font-arcade text-yellow-500", // Estilo para el total
+      totalFont: "text-1xl font-arcade text-yellow-500", // Estilo para el total
       buttonFont: "text-lg font-arcade", // Estilo para el botón
+      title: "text-1xl font-arcade text-yellow-500"
     },
     adult: {
       cardBgColor: "bg-[#e8f5e9]/70",
@@ -70,7 +71,7 @@ const ResumenPedidos = () => {
       buttonColor: "bg-green-800 hover:bg-green-700",
       titleSize: "text-2xl font-bree",
       priceColor: "text-lg font-bree",
-      totalFont: "text-4xl font-bree text-black", // Estilo para el total
+      totalFont: "text-1xl font-bree text-black", // Estilo para el total
       buttonFont: "text-lg font-bree", // Estilo para el botón
     },
   };
