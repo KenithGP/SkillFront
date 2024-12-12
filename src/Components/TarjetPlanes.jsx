@@ -86,7 +86,7 @@ const pageStyles = {
   },
   kids: {
     fontClass: "font-bubblegum ",
-    titleClass: "text-blue-600 text-6xl font-bold mt-20 animate-neonOrange",
+    titleClass: "text-yellow-400 text-6xl font-bold mt-20 animate-neonOrange",
     descriptionClass:"mx-auto mt-6 max-w-2xl text-pretty text-center text-white text-xl font-medium tracking-wide",
     cardTextClassFalse: "text-black ",
     cardTextClassTrue: "text-yellow-400",

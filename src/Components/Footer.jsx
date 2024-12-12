@@ -2,6 +2,7 @@
 import Logo from '../assets/Icons/Logo-White.svg';
 import LogoGamer from '../assets/Icons/Logo-gamer.svg';
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import LogoKids from "../assets/Icons/Logo-Kids.svg"
 
 // Configuración de estilos para cada variante
 const pageStyles = {
@@ -20,7 +21,7 @@ const pageStyles = {
     bgColor: "bg-black/90",
   },
   kids: {
-    logo: Logo,
+    logo: LogoKids,
     fontClass: "font-bubblegum",
     bgColor: "bg-[#800080]/70",
     textSize: "text-xs font-medium",
