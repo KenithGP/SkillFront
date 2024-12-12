@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import Laptop from "../assets/Images/laptop.svg";
@@ -10,6 +10,9 @@ import Usuario from "../assets/Images/Usuario.svg";
 import Espada from "../assets/Icons/Espada-gamer.svg";
 import ConsolaJuegos from "../assets/Icons/Consola-Juegos.svg";
 import PalancaMando from "../assets/Icons/Palanca-Mando.svg";
+import Pc from "../assets/Icons/pc.svg";
+import PlataformaWeb from "../assets/Icons/Plataforma.svg";
+import AcademicWeb from "../assets/Icons/Academic-web.svg";
 
 const pageStyles = {
   default: {
@@ -55,20 +58,20 @@ const Slider = ({ variant = "default" }) => {
   const slidesVariants = {
     default: [
       {
-        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
+        image: Pc,
         title: "Sistema Integral de Gestión Educativa",
         description:
           "SkillConnect es una plataforma educativa orientada a mejorar los procesos de las instituciones, docentes, padres de familia y alumnos.",
       },
       {
-        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
+        image: AcademicWeb,
         title: "Aprende desde cualquier lugar",
         description:
           "Nuestra plataforma te permite acceder a contenidos educativos desde cualquier dispositivo, fomentando la educación a distancia.",
       },
 
       {
-        image: "https://www.datacole.com/img/demo-content/images/campus.svg",
+        image: PlataformaWeb,
         title: "Plataforma para Jóvenes",
         description:
           "Accede a contenido interactivo y mejora tus habilidades de manera divertida y moderna.",
@@ -151,9 +154,20 @@ const Slider = ({ variant = "default" }) => {
     setCurrentSlide(index);
   };
 
+  // Configurar avance automático
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide(); // Avanzar al siguiente slide
+    }, 5000); // Cambia el slide cada 5 segundos
+
+    return () => {
+      clearInterval(interval); // Limpiar el intervalo al desmontar el componente
+    };
+  }, [slides.length]); // Reconfigura el intervalo si cambia la longitud de slides
+
   return (
     <div
-      className={`relative w-full overflow-hidden ${slideBackground} h-[500px]`}
+        className={`relative w-full overflow-hidden z-10 ${slideBackground} h-[500px]`}
     >
       <div
         className="flex transition-transform duration-1000 ease-in-out items-center h-[400px]"
@@ -166,24 +180,33 @@ const Slider = ({ variant = "default" }) => {
                 src={slide.image}
                 alt={slide.title || "Slide"}
                 className="w-1/3 max-w-sm object-contain"
-                // Animaciones constantes solo para "young" y "kids"
                 animate={
-                  currentVariant === "young" || currentVariant === "kids"
+                  currentVariant === "kids"
                     ? {
-                        scale: [1, 1.1, 1], // Escala de 1 a 1.1 y de vuelta a 1
-                        rotate: [0, 5, -5, 0], // Rotación de -5 a 5 grados
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 10, -10, 0],
                       }
-                    : { scale: 1, rotate: 0 } // Sin animación para otras variantes
-                }
-                transition={
-                  currentVariant === "young" || currentVariant === "kids"
+                    : currentVariant === "young"
                     ? {
-                        duration: 2, // Duración del ciclo completo
-                        repeat: Infinity, // Repetir infinitamente
-                        ease: "easeInOut", // Tipo de animación suave
+                        x: [-10, 10, -10],
+                        y: [0, -10, 10, 0],
                       }
-                    : {}
+                    : currentVariant === "adult"
+                    ? {
+                        opacity: [1, 0.8, 1],
+                        scale: [1.2, 0.9, 1.2],
+                      }
+                    : {
+                        // Animaciones para default
+                        opacity: [1, 0.8, 1],
+                        scale: [1.2, 0.9, 1.2],
+                      }
                 }
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
               <div
                 className={`text-center md:text-left flex flex-col items-center md:items-start justify-center h-full ${fontClass}`}

@@ -17,7 +17,7 @@ export default function Planes() {
   // Determinar el fondo dinámico según la variante
   const backgroundClass =
     variant === "young"
-      ? "bg-gradient-to-b from-[#000080]/90 to-[#3533cd]/100" // Adolescente
+      ? "bg-gradient-to-b from-[#000000]/90 to-[#3533cd]/100 min-h-screen" // Adolescente
       : variant === "kids"
       ? "bg-gradient-to-b from-purple-400 to-blue-500/60" // Niños
       : variant === "adult"

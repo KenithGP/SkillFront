@@ -6,6 +6,11 @@ export default {
     extend: {
       animation: {
         neonOrange: "neonOrangeBlink 1.5s ease-in-out infinite", // Nueva animación naranja
+        neonFlicker: "neonFlicker 1.5s infinite alternate",
+      },
+      textShadow: {
+        neon: "0 0 5px #ff0068, 0 0 10px #ff0068, 0 0 20px #ff0068, 0 0 40px #ff00ff, 0 0 80px #ff00ff",
+      
       },
       fontFamily: {
         arcade: ['Arcade Gamer', 'sans-serif'],
@@ -28,9 +33,9 @@ export default {
     keyframes: {
       neonOrangeBlink: { // Nueva animación naranja brillante
         "0%, 100%": { textShadow: "0 0 8px #FFA500, 0 0 12px #FFA500" },
-        "50%": { textShadow: "0 0 16px #FFA500, 0 0 24px #FFA500" },
+        "80%": { textShadow: "0 0 16px #FFA500, 0 0 24px #FFA500" },
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-textshadow"),],
 };
