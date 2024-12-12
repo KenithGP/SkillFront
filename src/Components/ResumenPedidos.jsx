@@ -151,7 +151,7 @@ const ResumenPedidos = () => {
       {/* Contenedor principal con fondo difuso y blanco con opacidad */}
       <div className="absolute inset-0 bg-white bg-opacity-30 backdrop-blur-lg z-[-1]"></div>
 
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full gap-5">
           <div className="flex flex-row w-full">
             {/* Contenedor de los cursos */}
       <div className={`w-4/5 p-6 rounded-lg shadow-lg z-10 ${styles.cardBgColor} ${styles.textColor}`}>
