@@ -32,9 +32,9 @@ export default function Header({ variant }) {
   const designs = {
     default: {
       fontClass: "font-semibold text-xl",
-      buttonClass: "bg-[#E53935] text-white hover:bg-red-400",
-      hoverTextClass: "hover:text-green-500",
-      colortext: "text-white",
+      buttonClass: "bg-[#daaa00] hover:bg-yellow-600",
+      hoverTextClass: "text-blue hover:text-white",
+      colortext: "text-white hover:text-yellow-400",
       icon: logo,
     },
     kids: {

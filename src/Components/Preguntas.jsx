@@ -6,12 +6,12 @@ const pageStyles = {
     fontClass: "font-sans ",
     textSize: " text-sm font-semibold ",
     titleSize: "text-3xl font-bold",
-    titleColor:"text-yellow-300",
-    subtitleStile:"text-rose-200 font-medium",
-    describeColor: "text-sm text-gray-300 ",
-    colorButtom: "bg-red-600 text-white py-2 px-5 rounded-md hover:bg-red-700 transition duration-300 ease-in-out",
+    titleColor:"text-white",
+    subtitleStile:"text-white font-medium",
+    describeColor: "text-sm text-white",
+    colorButtom: "bg-[#daaa00] text-[#0c2340] py-2 px-5 rounded-md hover:bg-yellow-600 transition duration-300 ease-in-out",
     colorNameForm: "text-white",
-    
+    /* bg-[#FFD700] text-[#0c2340] font-bold shadow-lg hover:bg-[#FFC700] border-[#FFD700]" */
   },
   young: {
     fontClass: "font-arcade",
@@ -39,7 +39,6 @@ const pageStyles = {
     describeColor: "text-[#e4ebbc]-100 text-bold text-md",
     textSize: " text-xl font-normal ",
     titleSize: " text-xl font-bold",
-    /* bg-[#a5bbad] text-black hover:bg-yellow-500 */
     colorButtom: "bg-[#dda100] text-white py-2 px-5 rounded-md hover:bg-yellow-500 transition duration-300 ease-in-out",
   },
 };

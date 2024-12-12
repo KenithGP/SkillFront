@@ -35,14 +35,15 @@ const pageStyles = {
     fontClass: "font-comics",
   },
   adult: {
-    bgClass: "bg-gradient-to-b from-[#2c2c2c] to-[#6e6e6e]",
-    titleClass: "text-gray-300",
-    buttonClass: "bg-gray-700 hover:bg-gray-500",
+    bgClass: "bg-gradient-to-l from-[#071912]/95 to-[#0d6242]/100 max-screen",
+    titleClass: "text-yellow-600",
+    buttonClass: "bg-green-700 hover:bg-green-600",
     feedbackCorrect: "text-green-400",
     feedbackIncorrect: "text-red-400",
-    modalBg: "bg-gray-700",
-    modalText: "text-gray-100",
-    fontClass: "font-sans",
+    modalBg: "bg-green-900/90",
+    modalText: "text-yellow-500",
+    fontClass: "font-bree",
+    backCu: "bg-green-700/80",
   },
 };
 

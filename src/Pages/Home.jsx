@@ -5,17 +5,27 @@ import TarjetPlanes from '../Components/TarjetPlanes'
 import Preguntas from '../Components/Preguntas'
 import Footer from '../Components/Footer'
 import Slider from '../Components/Slider'
-
+import Casa from '../assets/Icons/Casa.svg'
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-b from-[#000000]/100  to-[#EA6558]/100 max-screen">
+    <>
+    <div
+      style={{
+        backgroundImage: `url(${Casa})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+      }}
+    >
        <Header/>
        <Slider variant='default'/>
        <TarjetPlanes/>      
        <TarjetaCurso/>
        <Preguntas/>
+       </div>
        <Footer/>
-    </div>
+       </>
+/*     </div> */
   )
 }

@@ -14,8 +14,8 @@ import AcademicWeb from "../assets/Icons/Academic-web.svg";
 
 const pageStyles = {
   default: {
-    fontClass: "font-sans text-lg",
-    buttonClass: "bg-[#E53935] text-white hover:bg-red-400",
+    fontClass: "font-sans text-xl",
+    buttonClass: "bg-[#daaa00] text-black hover:bg-yellow-600",
     slideBackground: "bg-transparent from-blue-400 to-indigo-600",
     colortext: "text-white",
   },

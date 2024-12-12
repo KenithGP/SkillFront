@@ -56,19 +56,21 @@ const pageStyles = {
   default: {
     fontClass: "font-sans text-base",
     titleClass:
-      "text-5xl font-semibold tracking-tight text-green-600 sm:text-6xl",
+      "text-5xl font-semibold tracking-tight text-yellow-500 sm:text-6xl", // Azul oscuro
     descriptionClass:
-      "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-300 sm:text-xl/8",
-    cardTextClassFalse: "text-green-800",
-    cardTextClassTrue: "text-yellow-600",
-    MoneyTextClassFalse: "text-red-900 text-5xl font-semibold tracking-tight",
-    MoneyTextClassTrue: "text-white text-5xl font-semibold tracking-tight",
+      "mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-900/90 sm:text-xl/8", // Dorado
+    cardTextClassFalse: "text-[#0c2340]", // Azul oscuro
+    cardTextClassTrue: "text-[#FFD700]", // Dorado
+    MoneyTextClassFalse: "text-[#FFD700] text-5xl font-semibold tracking-tight", // Dorado
+    MoneyTextClassTrue: "text-white text-5xl font-semibold tracking-tight", // Azul oscuro
     FontSizeYear: "text-sm",
-    ColorCheckTrue: "text-green-600",
-    ColorCheckFalse: "text-green-700",
-    colotButtonTrue: "bg-yellow-600 text-black font-bold shadow-lg hover:bg-yellow-500 ",
-    colotButtonFalse: "text-white font-bold bg-green-800 hover:bg-green-700 border-green-700",
+    ColorCheckTrue: "text-[#FFD700]", // Dorado
+    ColorCheckFalse: "text-[#0c2340]", // Azul oscuro
+    colotButtonTrue: "bg-[#FFD700] text-[#0c2340] font-bold shadow-lg hover:bg-[#FFC700] border-[#FFD700]", // Botón dorado con texto azul oscuro y hover dorado más claro
+    colotButtonFalse: "text-white font-bold bg-[#223a76] hover:bg-[#0a1c2f] border-[#0c2340]", // Botón azul oscuro con texto dorado y hover azul más oscuro
   },
+
+
   young: {
     fontClass: "font-arcade text-xs",
     titleClass: "text-yellow-400 text-4xl font-bold text-shadow-neon animate-neon",
@@ -188,7 +190,7 @@ const currentVariant = params.get("variant") ||
                   ? "bg-[#800080]/70 shadow-2xl" // Diseño para niños destacados
                   : currentVariant === "adult"
                   ? "bg-[#4CAF50]/60 shadow-2xl" // Diseño para adultos destacados
-                  : "bg-red-950/60 shadow-2xl" // Diseño por defecto para destacados
+                  : "bg-blue-950/100 shadow-2xl" // Diseño por defecto para destacados
                 : currentVariant === "young"
                 ? "bg-[#ffe4e6]/70" // Diseño para adolescentes no destacados
                 : currentVariant === "kids"
