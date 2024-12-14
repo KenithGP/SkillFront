@@ -1,7 +1,7 @@
 import Header from "../Components/Header";
 import TarjetPlanes from "../Components/TarjetPlanes";
 import { useLocation } from "react-router-dom";
-import Hamburguesa from '../Components/menus/Hamburguesa'
+import Hamburguesa from '../Components/menu-hamburguesa/Hamburguesa'
 export default function Planes() {
   const location = useLocation();
 

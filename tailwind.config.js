@@ -10,11 +10,11 @@ export default {
       fontFamily: {
         arcade: ['Arcade Gamer', 'sans-serif'], //  fuente GAMER
         bree: ['Bree Serif', 'sans-serif'], // Añade tu fuente personalizada
-        abel: ['Abel Regular', 'sans-serif'], 
-        ibm: ['IBM Plex Sans','sans-serif'],
+        abel: ['Abel Regular', 'sans-serif'],
+        ibm: ['IBM Plex Sans', 'sans-serif'],
         comics: ['"Comic Sans MS"', 'cursive'], // Fuente Comic Sans
         bubblegum: ['"Bubblegum Sans"', 'sans-serif'],
-  
+
       },
       fontSize: {
         'xxs': '0.1rem', // Tamaño aún más pequeño
@@ -27,9 +27,9 @@ export default {
         celeste: "#00BFFF",
         negroOscuro: "#000000",
         dorado: "#e1c261",
-      
+
       },
-      
+
     },
     keyframes: {
       neonBlink: {

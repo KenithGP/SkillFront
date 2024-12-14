@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../menus/hamburguesa.css"
+import "./hamburguesa.css"
 import { dialog } from "framer-motion/client";
 export default function Hamburguesa({ variant = "default" }) {
         const designs = {
@@ -44,18 +44,21 @@ export default function Hamburguesa({ variant = "default" }) {
                                                 Home
                                         </Link>
                                         <Link
+                                                onClick={click}
                                                 to={dynamicPath("/cursos")}
                                                 className={`transition-transform duration-500 p-3 ${hoverTextClass}`}
                                         >
                                                 Cursos
                                         </Link>
                                         <Link
+                                                onClick={click}
                                                 to={dynamicPath("/beca")}
                                                 className={`transition-transform duration-500 p-3 ${hoverTextClass}`}
                                         >
                                                 Becas
                                         </Link>
                                         <Link
+                                                onClick={click}
                                                 to={dynamicPath("/planes")}
                                                 className={`transition-transform duration-500 p-3 ${hoverTextClass}`}
                                         >

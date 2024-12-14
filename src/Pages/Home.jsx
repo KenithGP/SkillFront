@@ -5,7 +5,7 @@ import TarjetPlanes from '../Components/TarjetPlanes'
 import Preguntas from '../Components/Preguntas'
 import Footer from '../Components/Footer'
 import Slider from '../Components/Slider'
-import Hamburguesa from '../Components/menus/Hamburguesa'
+import Hamburguesa from '../Components/menu-hamburguesa/Hamburguesa'
 
 export default function Home() {
   return (

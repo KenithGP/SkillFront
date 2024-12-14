@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../Components/Header";
-import Hamburguesa from '../Components/menus/Hamburguesa'
+import Hamburguesa from '../Components/menu-hamburguesa/Hamburguesa'
 // Configuración de estilos para cada variante
 const pageStyles = {
   default: {
@@ -57,7 +57,7 @@ export default function Beca() {
 
   // Detectar la variante según la ruta
   const params = new URLSearchParams(location.search);
-  const variant = params.get("variant") || "default";
+  const variant = params.get("variant") || "kids";
 
   // Obtener estilos dinámicos según la variante
   const {

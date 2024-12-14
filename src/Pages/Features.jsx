@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import CoursesGrid from "../Components/CoursesGrid";
 import Header from '../Components/Header'
-import Hamburguesa from '../Components/menus/Hamburguesa'
+import Hamburguesa from '../Components/menu-hamburguesa/Hamburguesa'
 // Datos de los cursos
 const kidsCourses = [
   {
