@@ -48,7 +48,7 @@ export default function RoutePage({ variant = "default" }) {
     {
       title: "Introducción a Backend",
       description: "Aprende a construir servidores con Node.js.",
-      icon: "/icons/backend.png",
+      icon: "https://www.svgrepo.com/show/303658/nodejs-1-logo.svg",
       courses: 5,
       hours: 12,
       is_active: true,
@@ -59,13 +59,13 @@ export default function RoutePage({ variant = "default" }) {
           courses: [
             {
               title: "Curso Básico de Node.js",
-              icon: "/icons/nodejs.png",
+              icon: "https://www.svgrepo.com/show/303266/nodejs-icon-logo.svg",
               contentHours: 4,
               practiceHours: 8,
             },
             {
               title: "API Rest con Express.js",
-              icon: "/icons/express.png",
+              icon: "https://www.svgrepo.com/show/530439/api-interface.svg",
               contentHours: 5,
               practiceHours: 10,
             },
@@ -76,13 +76,13 @@ export default function RoutePage({ variant = "default" }) {
           courses: [
             {
               title: "Introducción a MongoDB",
-              icon: "/icons/mongodb.png",
+              icon: "https://www.svgrepo.com/show/331488/mongodb.svg",
               contentHours: 3,
               practiceHours: 6,
             },
             {
               title: "ORM con Sequelize y MySQL",
-              icon: "/icons/sequelize.png",
+              icon: "https://www.svgrepo.com/show/303251/mysql-logo.svg",
               contentHours: 4,
               practiceHours: 8,
             },
@@ -93,7 +93,7 @@ export default function RoutePage({ variant = "default" }) {
     {
       title: "Frontend con React",
       description: "Domina las bases de React para crear interfaces dinámicas.",
-      icon: "/icons/frontend.png",
+      icon: "https://www.svgrepo.com/show/354259/react.svg",
       courses: 6,
       hours: 15,
       is_active: true,
@@ -104,13 +104,13 @@ export default function RoutePage({ variant = "default" }) {
           courses: [
             {
               title: "HTML y CSS Avanzado",
-              icon: "/icons/html-css.png",
+              icon: "https://www.svgrepo.com/show/373669/html.svg",
               contentHours: 5,
               practiceHours: 10,
             },
             {
               title: "JavaScript Moderno",
-              icon: "/icons/javascript.png",
+              icon: "https://www.svgrepo.com/show/349419/javascript.svg",
               contentHours: 6,
               practiceHours: 12,
             },
@@ -121,13 +121,13 @@ export default function RoutePage({ variant = "default" }) {
           courses: [
             {
               title: "Hooks y Estado Global",
-              icon: "/icons/hooks.png",
+              icon: "https://www.svgrepo.com/show/354259/react.svg",
               contentHours: 4,
               practiceHours: 8,
             },
             {
               title: "Rutas con React Router",
-              icon: "/icons/router.png",
+              icon: "https://www.svgrepo.com/show/354262/react-router.svg",
               contentHours: 3,
               practiceHours: 5,
             },
@@ -138,7 +138,7 @@ export default function RoutePage({ variant = "default" }) {
     {
       title: "Ciencia de Datos",
       description: "Analiza grandes volúmenes de datos con Python y Excel.",
-      icon: "/icons/data-science.png",
+      icon: "https://www.svgrepo.com/show/452091/python.svg",
       courses: 4,
       hours: 10,
       is_active: true,
@@ -149,13 +149,13 @@ export default function RoutePage({ variant = "default" }) {
           courses: [
             {
               title: "Introducción a Python",
-              icon: "/icons/python.png",
+              icon: "https://www.svgrepo.com/show/452091/python.svg",
               contentHours: 4,
               practiceHours: 8,
             },
             {
               title: "Análisis de Datos con Pandas",
-              icon: "/icons/pandas.png",
+              icon: "https://www.svgrepo.com/show/191391/panda-bear-panda.svg",
               contentHours: 5,
               practiceHours: 9,
             },
@@ -166,13 +166,13 @@ export default function RoutePage({ variant = "default" }) {
           courses: [
             {
               title: "Creación de Gráficos con Matplotlib",
-              icon: "/icons/matplotlib.png",
+              icon: "https://www.svgrepo.com/show/530445/data-analysis.svg",
               contentHours: 3,
               practiceHours: 5,
             },
             {
               title: "Dashboards con Power BI",
-              icon: "/icons/powerbi.png",
+              icon: "https://www.svgrepo.com/show/530268/data-buried.svg",
               contentHours: 4,
               practiceHours: 6,
             },
@@ -183,7 +183,7 @@ export default function RoutePage({ variant = "default" }) {
     {
       title: "Desarrollo Móvil",
       description: "Crea aplicaciones móviles con Flutter y React Native.",
-      icon: "/icons/mobile-development.png",
+      icon: "https://www.svgrepo.com/show/376318/flutter.svg",
       courses: 5,
       hours: 14,
       is_active: true,
@@ -194,13 +194,13 @@ export default function RoutePage({ variant = "default" }) {
           courses: [
             {
               title: "Introducción a Flutter",
-              icon: "/icons/flutter.png",
+              icon: "https://www.svgrepo.com/show/353751/flutter.svg",
               contentHours: 6,
               practiceHours: 12,
             },
             {
               title: "React Native Básico",
-              icon: "/icons/react-native.png",
+              icon: "https://www.svgrepo.com/show/354259/react.svg",
               contentHours: 5,
               practiceHours: 10,
             },
@@ -211,13 +211,13 @@ export default function RoutePage({ variant = "default" }) {
           courses: [
             {
               title: "Diseño de Interfaces con Figma",
-              icon: "/icons/figma.png",
+              icon: "https://www.svgrepo.com/show/452202/figma.svg",
               contentHours: 4,
               practiceHours: 6,
             },
             {
               title: "UX/UI para Aplicaciones Móviles",
-              icon: "/icons/ux-ui.png",
+              icon: "https://www.svgrepo.com/show/530443/interface-control.svg",
               contentHours: 3,
               practiceHours: 7,
             },
@@ -228,7 +228,7 @@ export default function RoutePage({ variant = "default" }) {
     {
       title: "Inteligencia Artificial",
       description: "Aprende los fundamentos de Machine Learning y Deep Learning.",
-      icon: "/icons/ai.png",
+      icon: "https://www.svgrepo.com/show/530440/machine-vision.svg",
       courses: 7,
       hours: 20,
       is_active: true,
@@ -239,13 +239,13 @@ export default function RoutePage({ variant = "default" }) {
           courses: [
             {
               title: "Regresión y Clasificación",
-              icon: "/icons/ml.png",
+              icon: "https://www.svgrepo.com/show/331734/machine-learning.svg",
               contentHours: 6,
               practiceHours: 10,
             },
             {
               title: "Redes Neuronales Básicas",
-              icon: "/icons/neural-networks.png",
+              icon: "https://www.svgrepo.com/show/418518/brain-brainstorm-creative.svg",
               contentHours: 5,
               practiceHours: 9,
             },
@@ -256,13 +256,13 @@ export default function RoutePage({ variant = "default" }) {
           courses: [
             {
               title: "Introducción a TensorFlow",
-              icon: "/icons/tensorflow.png",
+              icon: "https://www.svgrepo.com/show/354440/tensorflow.svg",
               contentHours: 4,
               practiceHours: 8,
             },
             {
               title: "Modelos Avanzados con Keras",
-              icon: "/icons/keras.png",
+              icon: "https://www.svgrepo.com/show/341962/keras.svg",
               contentHours: 5,
               practiceHours: 10,
             },

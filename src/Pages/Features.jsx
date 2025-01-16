@@ -68,68 +68,70 @@ export const kidsCourses = [
     videoUrl: "https://www.youtube.com/embed/TwK9vH0wRP4",
   }
 ];
+
 export const teensCourses = [
   {
-    id: 31, // Rango de id para teens
+    id: 31,
     title: "Python para principiantes",
     description: "Aprende a programar con Python desde cero.",
-    image: "https://via.placeholder.com/300x140?text=Python+for+Teens",
+    image: "https://www.svgrepo.com/show/452091/python.svg",
     level: "Principiante",
     tags: ["Python", "teens"],
     price: "14.99",
     rating: 4.8,
     students: 25,
-    videoUrl: "https://www.youtube.com/embed/8Mpc9bWm5F0",
+    videoUrl: "https://www.youtube.com/embed/29S-rUkmwoQ",  // Video actualizado
   },
   {
     id: 32,
     title: "JavaScript interactivo",
     description: "Crea páginas web dinámicas con JavaScript.",
-    image: "https://via.placeholder.com/300x140?text=JavaScript+for+Teens",
+    image: "https://www.svgrepo.com/show/349419/javascript.svg",
     level: "Intermedio",
     tags: ["JavaScript", "web"],
     price: "19.99",
     rating: 4.7,
     students: 18,
-    videoUrl: "https://www.youtube.com/embed/W6NZfCO5SIk",
+    videoUrl: "https://www.youtube.com/embed/W6NZfCO5SIk",  // Ya funcionaba
   },
   {
     id: 33,
     title: "Desarrollo de videojuegos",
     description: "Diseña y programa tu propio videojuego.",
-    image: "https://via.placeholder.com/300x140?text=Game+Dev+for+Teens",
+    image: "https://www.svgrepo.com/show/288643/game-console.svg",
     level: "Avanzado",
     tags: ["videojuegos", "programación"],
     price: "24.99",
     rating: 4.9,
     students: 12,
-    videoUrl: "https://www.youtube.com/embed/W8I9aDcdJ40",
+    videoUrl: "https://www.youtube.com/embed/lKzEvbGbbPo",  // Video actualizado
   },
   {
     id: 34,
     title: "Introducción a C++",
     description: "Aprende a programar en C++ desde cero.",
-    image: "https://via.placeholder.com/300x140?text=C%2B%2B+for+Teens",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png",
     level: "Principiante",
     tags: ["C++", "teens"],
     price: "16.99",
     rating: 4.6,
     students: 20,
-    videoUrl: "https://www.youtube.com/embed/Rb9w8UpOxl8",
+    videoUrl: "https://www.youtube.com/embed/VQo6gj7-hw8", // Video actualizado
   },
   {
     id: 35,
-    title: "Diseño de aplicaciones móviles",
+    title: "Aplicaciones móviles",
     description: "Desarrolla tus propias aplicaciones para Android e iOS.",
-    image: "https://via.placeholder.com/300x140?text=App+Development+for+Teens",
+    image: "https://www.svgrepo.com/show/475631/android-color.svg",
     level: "Intermedio",
     tags: ["Aplicaciones móviles", "Android", "iOS"],
     price: "29.99",
     rating: 4.7,
     students: 15,
-    videoUrl: "https://www.youtube.com/embed/gZgYmwVk_F4",
+    videoUrl: "https://www.youtube.com/embed/3_dwKqCsbis", // Video actualizado
   }
 ];
+
 
 export const adultsCourses = [
   {

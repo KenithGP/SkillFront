@@ -103,7 +103,7 @@ export default function CourseCard ({
       className={`w-80 h-[34rem] mb-6 mx-auto text-white shadow-lg rounded-lg overflow-hidden ${styles.bgColor}`}
     >
       {/* Imagen */}
-      <img className="w-full h-40 object-cover" src={image} alt={title} />
+      <img className="my-2 w-30 h-40 m-auto object-cover" src={image} alt={title} />
 
       {/* Contenido */}
       <div className="p-4">

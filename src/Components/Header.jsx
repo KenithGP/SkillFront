@@ -2,19 +2,21 @@ import logo from "../assets/Icons/Logo-White-mobil.svg";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "font-awesome/css/font-awesome.min.css";
+import me from '.././assets/Images/me.jpg'
 
 export default function Header({ variant }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // Simulando autenticación
+  const [isAuthenticated, setIsAuthenticated] = useState(true); // Simulando autenticación
   const [racha, setRacha] = useState("¡Sigue así!"); // Racha inicial
   const [showProfile, setShowProfile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Datos simulados del usuario
   const userData = {
+    image: {me},
     username: "AnthonyCode",
     name: "Anthony",
     lastName: "Atiro",
-    email: "anthony.atiro@gmail.com",
+    email: "atiro@gmail.com",
   };
 
   useEffect(() => {
@@ -189,7 +191,7 @@ export default function Header({ variant }) {
                 onClick={() => setShowProfile(!showProfile)}
               >
                 <img
-                  src="https://via.placeholder.com/150"
+                  src={me}
                   alt="Usuario"
                   className="w-8 h-8 md:w-10 md:h-10 rounded-full"
                 />
@@ -201,7 +203,7 @@ export default function Header({ variant }) {
                 >
                   <div className="flex flex-col items-center">
                     <img
-                      src="https://via.placeholder.com/150"
+                      src={me}
                       alt="Usuario"
                       className="w-16 h-16 rounded-full mb-2 object-cover"
                     />

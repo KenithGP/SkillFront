@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import me from '.././assets/Images/me.jpg'
 
 export default function Profile({ onProfileUpdate }) {
   const [profileData, setProfileData] = useState({
@@ -9,7 +10,7 @@ export default function Profile({ onProfileUpdate }) {
     email: "anthony.atiro@gmail.com",
     age: 25,
     password: "******",
-    avatar: "https://via.placeholder.com/150",
+    avatar: me,
   });
 
   const [isEditing, setIsEditing] = useState(false);

@@ -1,7 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import React from "react";
-//Importacion de paginas
-import Home from "../Pages/Home";
+// Importación de páginas
 import Quizz from "../Components/Quizz";
 import Beca from "../Pages/Beca";
 import Kids from "../Pages/Kids";
@@ -12,28 +11,25 @@ import Register from "../Pages/Register";
 import Features from "../Pages/Features";
 import Perfil from "../Pages/Perfil";
 import RouteDetails from "../Components/RouteDetails";
-import CourseDetails from "../Components/CourseDetails"; // Ajusta la ruta si es necesario
+import CourseDetails from "../Components/CourseDetails";
 import {
   kidsCourses,
   teensCourses,
   adultsCourses,
   defaultCourses,
-} from "../Pages/Features"; // Ajusta el path según la ubicación real de Features.jsx
-
+} from "../Pages/Features";
 
 // Importar las rutas para los links del header
 import Planes from "../Pages/Planes";
-/* import Cursos from "../pages/Cursos";
-import Becas from "../pages/Becas"; */
-/* import NotFound from "../pages/NotFound"; */ // Página para manejar rutas inexistentes
-
 import Pago from "../Pages/Pago";
 
 export default function AppRoutes() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* Redirección por defecto */}
+        <Route path="/" element={<Navigate to="/Young" replace />} />
+        
         <Route path="/cursos" element={<Features />} />
         <Route path="/planes" element={<Planes />} />
         <Route path="/Beca" element={<Beca />} />
@@ -58,7 +54,6 @@ export default function AppRoutes() {
             />
           }
         />
-
         <Route path="/carrito" element={<Pago />} />
       </Routes>
     </Router>

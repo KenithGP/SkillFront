@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom"; // Necesario para obtener lo
 
 const ResumenPedidos = () => {
   const [cartItems, setCartItems] = useState([]);
-  
+
   // Cargar los cursos almacenados al cargar el componente
   useEffect(() => {
     const storedCourses = JSON.parse(localStorage.getItem("cart")) || [];
@@ -33,7 +33,7 @@ const ResumenPedidos = () => {
 
   // Obtenemos el parámetro 'variant' desde la URL
   const [searchParams] = useSearchParams();
-  const variant = searchParams.get("variant") || "default";  // Si no hay parámetro, se usa "default"
+  const variant = searchParams.get("variant") || "default"; // Si no hay parámetro, se usa "default"
 
   // Estilos según la variante
   const varianteStyles = {
@@ -63,7 +63,7 @@ const ResumenPedidos = () => {
       priceColor: "text-sm text-green-500 font-arcade",
       totalFont: "text-1xl font-arcade text-yellow-500", // Estilo para el total
       buttonFont: "text-lg font-arcade", // Estilo para el botón
-      title: "text-1xl font-arcade text-yellow-500"
+      title: "text-1xl font-arcade text-yellow-500",
     },
     adult: {
       cardBgColor: "bg-[#e8f5e9]/70",
@@ -79,12 +79,13 @@ const ResumenPedidos = () => {
   const styles = varianteStyles[variant] || varianteStyles.default;
 
   return (
-    <div className={`flex w-full p-6 relative`}>
+    // ⬇️ Aquí se agregó flex-col y md:flex-row para hacerlo responsive
+    <div className={`flex flex-col md:flex-row w-full p-6 gap-4 relative`}>
       {/* Contenedor principal con fondo difuso y blanco con opacidad */}
       <div className="absolute inset-0 bg-white bg-opacity-30 backdrop-blur-lg z-[-1]"></div>
 
       {/* Contenedor de los cursos */}
-      <div className={`w-4/5 p-6 rounded-lg shadow-lg z-10 ${styles.cardBgColor} ${styles.textColor}`}>
+      <div className={`w-full md:w-4/5 p-6 rounded-lg shadow-lg z-10 ${styles.cardBgColor} ${styles.textColor}`}>
         <h3 className={`${styles.titleSize} mb-4`}>Resumen de tu pedido</h3>
         {cartItems.length === 0 ? (
           <p>No hay cursos en el carrito.</p>
@@ -119,14 +120,12 @@ const ResumenPedidos = () => {
       </div>
 
       {/* Contenedor del precio y el botón */}
-      <div className={`w-1/5 p-6 ml-6 rounded-lg shadow-lg z-10 ${styles.cardBgColor} ${styles.textColor}`}>
+      <div className={`w-full md:w-1/5 p-6 rounded-lg shadow-lg z-10 ${styles.cardBgColor} ${styles.textColor}`}>
         <div className="flex flex-col justify-between h-full">
           <div className="flex justify-between text-lg mb-4">
             <span className={`${styles.totalFont}`}>Total:</span>
-            {/* Aplicando el estilo para el total */}
             <span className={`${styles.totalFont}`}>${getTotal()}</span>
           </div>
-          {/* Aplicando el estilo para el botón */}
           <button
             className={`${styles.buttonColor} ${styles.buttonFont} text-white px-4 py-2 rounded mt-4 w-full hover:bg-blue-700 transition duration-300`}
           >
