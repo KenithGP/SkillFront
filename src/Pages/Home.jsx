@@ -18,7 +18,7 @@ export default function Home() {
         backgroundPosition: 'center',
       }}
     >
-       <Header/>
+       <Header variant='young'/>
        <Slider variant='default'/>
        <TarjetPlanes/>      
        <TarjetaCurso/>

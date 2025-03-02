@@ -75,7 +75,7 @@ export default function TarjetaCurso({ variant = "default" }) {
 
   return (
     <div className={`relative bg-black/20 ${bgNew} w-full h-2/4 overflow-hidden py-12`}>
-      <div className="flex animate-scroll w-[calc(200%)] space-x-8 mb-20 mt-10">
+      <div className="flex animate-scroll w-[calc(500%)] space-x-8 mb-20 mt-10">
         {courses.concat(courses).map((course, index) => (
           <div
             key={index}
